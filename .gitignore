@@ -1,0 +1,6 @@
+# Projects live in their own repos; keep only the folder skeleton.
+Sandbox/*
+!Sandbox/.gitkeep
+!Sandbox/TMP/
+Sandbox/TMP/*
+!Sandbox/TMP/.gitkeep
