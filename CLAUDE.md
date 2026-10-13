@@ -49,12 +49,12 @@ Reach for these first, before improvising a process:
 - `mattpocock-skills:domain-modeling`: shared terminology, CONTEXT.md, ADRs.
 - `mattpocock-skills:grilling`: stress-testing a plan or decision before building.
 - `mattpocock-skills:writing-for-agents`: **always**, before creating or editing any `CLAUDE.md`, `AGENTS.md`, skill or `.md` under a `.claude/` directory, in any project. Load it first, then write. Enforced by `.claude/hooks/agent-docs-need-skill.sh` (fails closed; tests in `.claude/hooks/test-agent-docs-need-skill.sh`). Like the git hook, it runs only in sessions started in PrometeuZZ.
-- `commit-message`: one-line gitmoji commit message for the whole uncommitted delta (staged, unstaged, untracked). Project-local by Xavier's choice; like the hooks, it loads only in sessions started in PrometeuZZ. It only prints the message and a paste-ready `! git add -A && git commit -m '...'`, because git is read-only for Claude. No trailer, so the line stays one line.
+- `commit-message`: one-line gitmoji commit message for the whole uncommitted delta (staged, unstaged, untracked). Project-local by Xavier's choice; like the hooks, it loads only in sessions started in PrometeuZZ. It only prints the message and a paste-ready `git add -A && git commit -m '...'` (no leading `!`; Xavier runs it in his own terminal), because git is read-only for Claude. No trailer, so the line stays one line.
 
 ## Conventions
 
 - Language: Xavier is Spanish-first. Conversation may be in Spanish or English; reply in the language used. Code, identifiers and commits in English unless told otherwise.
-- Comments explain *why*, never *what*. Prefer a better name over a comment.
+- Code carries no comments, in any project. Intent lives in names, small units and tests; the why of a decision goes in that project's `CLAUDE.md`.
 
 ## Layout
 

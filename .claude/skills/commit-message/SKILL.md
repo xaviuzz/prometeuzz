@@ -45,10 +45,10 @@ Mixed: warn, say how to split by file or hunk, then compose for the dominant cha
 
 ## 4. Output
 
-Print the message, then the command for Xavier to paste:
+Print the message, then the command for Xavier to paste in his terminal, with no leading `!`:
 
 ```
-! git add -A && git commit -m '<message>'
+git add -A && git commit -m '<message>'
 ```
 
 Done when the message is one line, starts with a table gitmoji, fits 72 characters, and contains no single quote. Report any that fails.
