@@ -51,7 +51,7 @@ Reach for these first, before improvising a process:
 - `mattpocock-skills:tdd`: building features or fixing bugs test-first.
 - `mattpocock-skills:codebase-design`: designing modules, interfaces and seams.
 - `mattpocock-skills:domain-modeling`: shared terminology, CONTEXT.md, ADRs.
-- `mattpocock-skills:grilling`: stress-testing a plan or decision before building.
+- `mattpocock-skills:grilling`: **always** when Xavier asks to plan ("planeemos", "let's plan"), and to stress-test a decision before building. Open with it; a ready-made plan comes after the grilling, never before.
 - `mattpocock-skills:writing-for-agents`: **always**, before creating or editing any `CLAUDE.md`, `AGENTS.md`, skill or `.md` under a `.claude/` directory, in any project. Load it first, then write. Enforced by `.claude/hooks/agent-docs-need-skill.sh` (fails closed; tests in `.claude/hooks/test-agent-docs-need-skill.sh`). Like the git hook, it runs only in sessions started in PrometeuZZ.
 - `commit-message`: one-line gitmoji commit message for the whole uncommitted delta (staged, unstaged, untracked). Project-local by Xavier's choice; like the hooks, it loads only in sessions started in PrometeuZZ. It only prints the message, because git is read-only for Claude. No trailer, so the line stays one line.
 
@@ -60,6 +60,7 @@ Reach for these first, before improvising a process:
 - Language: Xavier is Spanish-first. Conversation may be in Spanish or English; reply in the language used. Code, identifiers and commits in English unless told otherwise.
 - Name every intermediate result in an explaining variable (Fowler's *Introduce Explaining Variable*), in any project. A chained expression becomes one named step per line.
 - Write iteration as an explicit loop block over a collecting variable. Reach for functional idioms (`map`, `filter`, `reduce`, chains) only where they add specific value that the loop lacks; the visual structure of the block is the default.
+- One return per function, ending on a named result. Where a conditional varies behavior by state or type, replace it with polymorphism (State, Strategy) before reaching for guard clauses or early returns.
 - Code carries no comments, in any project. Intent lives in names, small units and tests; the why of a decision goes in that project's `CLAUDE.md`.
 
 ## Layout
