@@ -3,23 +3,30 @@ name: commit-message
 description: Commit message from the uncommitted delta, one line prefixed by a gitmoji. Use for "commit message", "mensaje de commit", or "what do I commit".
 ---
 
-Compose one commit message for everything uncommitted. Xavier commits; the skill only prints the message.
+Compose one commit message per repository with uncommitted changes. Xavier commits; the skill only prints the messages.
 
-## 1. Read the delta
+## 1. Find the repositories
 
-Read-only git: `git status --short`, `git diff HEAD`, and open each untracked file. The delta is all of it, staged or not.
+Work from absolute paths with `git -C`, whatever the shell directory is.
 
-With an argument, the delta is that of `Sandbox/<argument>`: pass it as `git -C Sandbox/<argument>`. Without one, the delta is PrometeuZZ's own.
+- Without an argument, the repositories are PrometeuZZ (`/home/xaviuzz/sandbox/PrometeuZZ`) and every project directly inside `Sandbox/` except `TMP/`. A directory counts only when `git -C <dir> rev-parse --show-toplevel` prints that same directory.
+- With an argument, the only repository is `Sandbox/<argument>`.
 
-Clean tree: say so and stop.
+## 2. Read each delta
 
-## 2. Check the shape
+Per repository, read-only git: `git -C <repo> status --short`, `git -C <repo> diff HEAD`, and open each untracked file. The delta is all of it, staged or not.
 
-Your rule: structural and behavioral changes never share a commit. Sort each hunk as structural (refactor, rename, move, format) or behavioral.
+Clean repository: skip it. All clean: say so and stop.
+
+## 3. Check the shape
+
+Per repository, your rule: structural and behavioral changes never share a commit. Sort each hunk as structural (refactor, rename, move, format) or behavioral.
 
 Mixed: warn, say how to split by file or hunk, then compose for the dominant change.
 
-## 3. Compose
+## 4. Compose
+
+One message per changed repository.
 
 `<gitmoji> <summary>`
 
@@ -45,11 +52,11 @@ Mixed: warn, say how to split by file or hunk, then compose for the dominant cha
 | 🎉 | initial commit |
 | 🤖 | agent docs and skills (`CLAUDE.md`, `.claude/`) |
 
-## 4. Output
+## 5. Output
 
-Print the message alone.
+Print each repository's name, then its message alone on the next line. A single changed repository prints the message alone, with no name.
 
-Done when the message is one line, starts with a table gitmoji, fits 72 characters, and contains no single quote. Report any that fails.
+Done when every changed repository has a message that is one line, starts with a table gitmoji, fits 72 characters, and contains no single quote. Report any that fails.
 
 ## Examples
 

@@ -26,6 +26,7 @@ Use their vocabulary and practices as the reference when making design decisions
 - Do the simplest thing that passes, then refactor. Rule of three before abstracting.
 - Record each project decision and its why in that project's `CLAUDE.md` when it is made. The repo cannot tell it later.
 - In a TDD run, agree the seam once, then run every planned cycle in one go. Report at the end of the run, or earlier when a cycle contradicts the plan.
+- Mark each step of a spec as done (`- [x]`) when its tests, lint and build pass. "Next step" is the first unmarked one. The code cannot tell which step a file belongs to.
 - Do not invent facts, APIs or requirements. If something is unknown, say so and ask.
 - Do not modify files outside the task without asking. Propose first when scope is unclear.
 - Do not add dependencies, frameworks or tooling without asking.
@@ -57,6 +58,7 @@ Reach for these first, before improvising a process:
 ## Conventions
 
 - Language: Xavier is Spanish-first. Conversation may be in Spanish or English; reply in the language used. Code, identifiers and commits in English unless told otherwise.
+- Name every intermediate result in an explaining variable (Fowler's *Introduce Explaining Variable*), in any project. A chained expression becomes one named step per line.
 - Code carries no comments, in any project. Intent lives in names, small units and tests; the why of a decision goes in that project's `CLAUDE.md`.
 
 ## Layout
