@@ -40,6 +40,8 @@ Claude uses git **read-only, always, with no exception**, even if asked. Writes 
 - Never edit anything under `.git/`. `.gitignore` and `.gitattributes` are ordinary files.
 - Applies to every repo on this machine.
 - Enforced by `.claude/hooks/git-read-only.sh` (fails closed; tests in `.claude/hooks/test-git-read-only.sh`). The hook only runs in sessions started in PrometeuZZ; elsewhere the rule is on trust.
+- The hook also blocks any Bash command that mentions `git` or `gh`, even as a search pattern. Search with Grep or Read instead.
+
 ## Preferred skills
 
 Reach for these first, before improvising a process:

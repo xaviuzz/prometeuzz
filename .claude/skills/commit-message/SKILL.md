@@ -9,6 +9,8 @@ Compose one commit message for everything uncommitted. Xavier commits; the skill
 
 Read-only git: `git status --short`, `git diff HEAD`, and open each untracked file. The delta is all of it, staged or not.
 
+With an argument, the delta is that of `Sandbox/<argument>`: pass it as `git -C Sandbox/<argument>`. Without one, the delta is PrometeuZZ's own.
+
 Clean tree: say so and stop.
 
 ## 2. Check the shape
