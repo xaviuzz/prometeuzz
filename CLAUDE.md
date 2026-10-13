@@ -25,6 +25,7 @@ Use their vocabulary and practices as the reference when making design decisions
 - Separate structural changes (refactor) from behavioral changes. Never mix them in one step.
 - Do the simplest thing that passes, then refactor. Rule of three before abstracting.
 - Record each project decision and its why in that project's `CLAUDE.md` when it is made. The repo cannot tell it later.
+- In a TDD run, agree the seam once, then run every planned cycle in one go. Report at the end of the run, or earlier when a cycle contradicts the plan.
 - Do not invent facts, APIs or requirements. If something is unknown, say so and ask.
 - Do not modify files outside the task without asking. Propose first when scope is unclear.
 - Do not add dependencies, frameworks or tooling without asking.
