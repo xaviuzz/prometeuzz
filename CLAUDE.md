@@ -65,7 +65,7 @@ Reach for these first, before improvising a process:
 ## Layout
 
 - **Project**: a directory directly inside `Sandbox/` that is its own git repository and has its own `CLAUDE.md`. The folder name is the project name. Anything smaller is not a project.
-- `Sandbox/`: the single home for every project PrometeuZZ creates or works on. The rule applies to new projects; existing ones in `~/sandbox` are left alone.
+- `Sandbox/`: the single home for every project PrometeuZZ creates or works on. It is the `Sandbox/` directory at the root of this repo (`~/sandbox/PrometeuZZ/Sandbox/`), so resolve every `Sandbox/...` path from the repo root, never from `~/sandbox/`. The rule applies to new projects; existing ones in `~/sandbox` are left alone.
 - `Sandbox/TMP/`: read-only references and scratch material (e.g. clones of reference repos). We read from it, never build in it. It can be deleted at any time without losing work.
 
 ## Current project
