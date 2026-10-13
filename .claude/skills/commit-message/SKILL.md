@@ -3,7 +3,7 @@ name: commit-message
 description: Commit message from the uncommitted delta, one line prefixed by a gitmoji. Use for "commit message", "mensaje de commit", or "what do I commit".
 ---
 
-Compose one commit message for everything uncommitted. Xavier commits; the skill only prints the message and the command to run.
+Compose one commit message for everything uncommitted. Xavier commits; the skill only prints the message.
 
 ## 1. Read the delta
 
@@ -45,11 +45,7 @@ Mixed: warn, say how to split by file or hunk, then compose for the dominant cha
 
 ## 4. Output
 
-Print the message, then the command for Xavier to paste in his terminal, with no leading `!`:
-
-```
-git add -A && git commit -m '<message>'
-```
+Print the message alone.
 
 Done when the message is one line, starts with a table gitmoji, fits 72 characters, and contains no single quote. Report any that fails.
 
