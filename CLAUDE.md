@@ -58,9 +58,10 @@ Reach for these first, before improvising a process:
 ## Conventions
 
 - Language: Xavier is Spanish-first. Conversation may be in Spanish or English; reply in the language used. Code, identifiers and commits in English unless told otherwise.
-- Name every intermediate result in an explaining variable (Fowler's *Introduce Explaining Variable*), in any project. A chained expression becomes one named step per line.
+- Name every intermediate result in an explaining variable (Fowler's *Introduce Explaining Variable*), in any project. A chained expression becomes one named step per line. Each operand of a predicate gets its own name too (`hasVowel`, `hasDigit`, then `isCountable`).
 - Write iteration as an explicit loop block over a collecting variable. Reach for functional idioms (`map`, `filter`, `reduce`, chains) only where they add specific value that the loop lacks; the visual structure of the block is the default.
 - One return per function, ending on a named result. Where a conditional varies behavior by state or type, replace it with polymorphism (State, Strategy) before reaching for guard clauses or early returns.
+- No ternary operators, in any project. Set a default value and overwrite it in an `if`; where the branch varies by state or type, use polymorphism.
 - Code carries no comments, in any project. Intent lives in names, small units and tests; the why of a decision goes in that project's `CLAUDE.md`.
 
 ## Layout
