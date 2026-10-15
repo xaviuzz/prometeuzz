@@ -34,11 +34,12 @@ Use their vocabulary and practices as the reference when making design decisions
 
 ## Git
 
-Claude uses git **read-only, always, with one exception** (clone into `Sandbox/`, below), even if asked. Writes are done by Xavier (`! git ...`).
+Claude uses git **read-only, always, with two exceptions** (clone into `Sandbox/`, and approved `add`/`commit`, below), even if asked. Other writes are done by Xavier (`! git ...`).
 
 - Allowed (read form only): `status`, `log`, `diff`, `show`, `blame`, `ls-files`, `ls-tree`, `rev-parse`, `remote -v`, `branch --list`, `tag --list`, `config --get`, `stash list`, `reflog` (view). `-C <path>` and `--no-pager` are allowed before the subcommand.
 - Allowed `gh`: `pr view|list|diff|checks|status`, `issue view|list|status`, `repo view`, `run view|list`, `auth status`.
 - One write is allowed: `git clone <url> Sandbox/<name>` (or `Sandbox/TMP/<name>`), so a known project can be prepared on request. Only `https://` or `git@host:` sources, exactly two arguments, no flags, no `-C`, no `..` in the destination. The destination must sit inside `Sandbox/`, which is git-ignored, so a clone cannot touch this repo.
+- Second write, only through the `commit-message` skill: `git [-C <path>] add -- <explicit paths>` and `git [-C <path>] commit -m '<message>'`. The hook answers "ask" for both, so Xavier approves every command at the permission prompt. Why: the hook cannot see a skill's own approval, and the prompt shows the exact files and message. Blocked shapes: `add .`, `-A`, `-u`, globs, `..`, `.git/`, and `commit` with any flag besides `-m`, so no `--amend`, `-a` or `--no-verify`. A message the hook cannot parse (quotes, `; | & ( ) ` $ >`) is blocked, fail closed.
 - Everything else is a write, including `fetch`, `init`, `gh api`, `gh repo clone` and any flag that writes (`--output`, `-d`, `-a`, `--set`).
 - Never edit anything under `.git/`. `.gitignore` and `.gitattributes` are ordinary files.
 - Applies to every repo on this machine.
@@ -54,7 +55,7 @@ Reach for these first, before improvising a process:
 - `mattpocock-skills:domain-modeling`: shared terminology, CONTEXT.md, ADRs.
 - `mattpocock-skills:grilling`: **always** when Xavier asks to plan ("planeemos", "let's plan"), and to stress-test a decision before building. Open with it; a ready-made plan comes after the grilling, never before.
 - `mattpocock-skills:writing-for-agents`: **always**, before creating or editing any `CLAUDE.md`, `AGENTS.md`, skill or `.md` under a `.claude/` directory, in any project. Load it first, then write. Enforced by `.claude/hooks/agent-docs-need-skill.sh` (fails closed; tests in `.claude/hooks/test-agent-docs-need-skill.sh`). Like the git hook, it runs only in sessions started in PrometeuZZ.
-- `commit-message`: one-line gitmoji commit message for the whole uncommitted delta (staged, unstaged, untracked). Project-local by Xavier's choice; like the hooks, it loads only in sessions started in PrometeuZZ. It only prints the message, because git is read-only for Claude. No trailer, so the line stays one line.
+- `commit-message`: plans one-line gitmoji commits for the whole uncommitted delta (staged, unstaged, untracked), then runs `add` and `commit` for each, one approval at a time. Project-local by Xavier's choice; like the hooks, it loads only in sessions started in PrometeuZZ. No trailer, so the line stays one line.
 
 ## Conventions
 

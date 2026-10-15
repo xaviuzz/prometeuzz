@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-# PreToolUse hook: git is read-only for Claude, plus clone into Sandbox/ (see "Git" in PrometeuZZ/CLAUDE.md).
+# PreToolUse hook: git is read-only for Claude, plus clone into Sandbox/ and approved add/commit (see "Git" in PrometeuZZ/CLAUDE.md).
 # Allow-list, fails closed: whatever it cannot prove to be a read is blocked (exit 2).
+# add and commit are never silent: when they pass the shape checks the hook answers "ask", so the user approves each one.
 # Not a security boundary against deliberate obfuscation, a guard against slips.
 set -u
 
 block() {
-  echo "git-read-only: $1 Git is read-only for Claude; writes are run by the user with '! <command>'." >&2
+  echo "git-read-only: $1 Git is read-only for Claude, except add and commit with approval; other writes are run by the user with '! <command>'." >&2
   exit 2
 }
 
@@ -56,6 +57,31 @@ writes_a_file() {
   return 1
 }
 
+needs_approval=0
+
+# Explicit repo-relative paths only: no flags, no '.', no globs, no pathspec magic, no quoting, nothing under .git/.
+add_is_explicit() {
+  local path
+  (($# >= 2)) || return 1
+  [[ $1 == -- ]] || return 1
+  shift
+  for path in "$@"; do
+    [[ $path == -* || $path == . || $path == *..* || $path == :* ]] && return 1
+    [[ $path == .git || $path == .git/* || $path == */.git/* ]] && return 1
+    [[ $path == *[\'\"\\\$\*\?\[]* ]] && return 1
+  done
+  return 0
+}
+
+# Exactly: commit -m '<message>'. No other flag, so no --amend, -a, --no-verify or -F.
+commit_is_plain() {
+  (($# >= 2)) || return 1
+  [[ $1 == -m ]] || return 1
+  shift
+  local message="$*"
+  [[ $message =~ ^\'[^\']+\'$ ]]
+}
+
 sandbox_root=${CLAUDE_PROJECT_DIR:-$(cd "$(dirname "$0")/../.." && pwd)}/Sandbox
 
 # The one write Claude may run: clone a remote into Sandbox/<name> or Sandbox/TMP/<name>.
@@ -95,6 +121,14 @@ git_is_read() {
     clone)
       ((has_dir_flag)) && return 1
       clone_into_sandbox "${rest[@]}"
+      ;;
+    add)
+      add_is_explicit "${rest[@]}" || return 1
+      needs_approval=1
+      ;;
+    commit)
+      commit_is_plain "${rest[@]}" || return 1
+      needs_approval=1
       ;;
     status | log | diff | show | blame | ls-files | ls-tree | rev-parse) return 0 ;;
     remote)
@@ -174,4 +208,7 @@ while IFS= read -r segment; do
   fi
 done <<<"$segments"
 
+if ((needs_approval)); then
+  jq -n '{hookSpecificOutput: {hookEventName: "PreToolUse", permissionDecision: "ask", permissionDecisionReason: "git-read-only: add and commit run only with the user approval, one command at a time."}}'
+fi
 exit 0

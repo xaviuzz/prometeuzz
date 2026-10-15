@@ -9,11 +9,14 @@ bash_input() { jq -n --arg c "$1" '{tool_name: "Bash", tool_input: {command: $c}
 file_input() { jq -n --arg t "$1" --arg p "$2" '{tool_name: $t, tool_input: {file_path: $p}}'; }
 
 expect() {
-  local want=$1 json=$2 label=$3 status got
-  "$hook" <<<"$json" >/dev/null 2>&1
+  local want=$1 json=$2 label=$3 status got output
+  output=$("$hook" <<<"$json" 2>/dev/null)
   status=$?
   case $status in
-    0) got=allow ;;
+    0)
+      got=allow
+      [[ $output == *'"ask"'* ]] && got=ask
+      ;;
     2) got=block ;;
     *) got="error($status)" ;;
   esac
@@ -25,6 +28,7 @@ expect() {
 
 allow_cmd() { expect allow "$(bash_input "$1")" "$1"; }
 block_cmd() { expect block "$(bash_input "$1")" "$1"; }
+ask_cmd() { expect ask "$(bash_input "$1")" "$1"; }
 allow_file() { expect allow "$(file_input "$1" "$2")" "$1 $2"; }
 block_file() { expect block "$(file_input "$1" "$2")" "$1 $2"; }
 
@@ -62,10 +66,40 @@ allow_cmd 'git clone git@github.com:xaviuzz/pintafrases.git Sandbox/pintafrase'
 allow_cmd 'git clone https://github.com/x/y.git Sandbox/TMP/y'
 allow_cmd "git clone https://github.com/x/y.git $(cd "$(dirname "$0")/../.." && pwd)/Sandbox/y"
 
+# --- git add and commit: allowed only after user approval
+ask_cmd 'git add -- a.ts'
+ask_cmd 'git -C /home/u/repo add -- src/a.ts docs/b.md'
+ask_cmd "git commit -m 'add rhythm meter for sentence length'"
+ask_cmd "git -C /home/u/repo commit -m '✨ add rhythm meter'"
+ask_cmd "git add -- a.ts && git commit -m 'fix parser'"
+block_cmd 'git add'
+block_cmd 'git add .'
+block_cmd 'git add -A'
+block_cmd 'git add -u'
+block_cmd 'git add -- .'
+block_cmd 'git add -- *'
+block_cmd 'git add -- ../x'
+block_cmd 'git add -- :/'
+block_cmd 'git add -- .git/config'
+block_cmd 'git add -f -- a'
+block_cmd 'git add a.ts'
+block_cmd "git add -- 'a b'"
+block_cmd 'git commit'
+block_cmd 'git commit -m x'
+block_cmd 'git commit -am x'
+block_cmd "git commit -a -m 'x'"
+block_cmd "git commit --amend -m 'x'"
+block_cmd "git commit -m 'x' --no-verify"
+block_cmd "git commit --no-verify -m 'x'"
+block_cmd "git commit -m 'x' -m 'y'"
+block_cmd 'git commit -m "x"'
+block_cmd "git commit -m 'unclosed"
+block_cmd "git commit -m 'a; git push'"
+block_cmd "git commit -m 'x' > out.txt"
+block_cmd "git add -- a.ts && git push"
+
 # --- git writes
 block_cmd 'git'
-block_cmd 'git add .'
-block_cmd 'git commit -m x'
 block_cmd 'git push'
 block_cmd 'git pull'
 block_cmd 'git fetch'

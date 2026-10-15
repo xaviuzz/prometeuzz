@@ -1,9 +1,9 @@
 ---
 name: commit-message
-description: Commit message from the uncommitted delta, one line prefixed by a gitmoji. Use for "commit message", "mensaje de commit", or "what do I commit".
+description: Commits the uncommitted delta as a series of one-line gitmoji commits, each approved one by one. Use for "commit message", "mensaje de commit", "commit this", or "what do I commit".
 ---
 
-Compose one commit message per repository with uncommitted changes. Xavier commits; the skill only prints the messages.
+Plan every commit for the uncommitted changes of each repository, then run them one at a time. Xavier approves each `add` and `commit` at the permission prompt; the hook `git-read-only.sh` forces that prompt.
 
 ## 1. Find the repositories
 
@@ -20,19 +20,23 @@ Clean repository: skip it. All clean: say so and stop.
 
 ## 3. Check the shape
 
-Per repository, your rule: structural and behavioral changes never share a commit. Sort each hunk as structural (refactor, rename, move, format) or behavioral.
+Per repository, your rule: structural and behavioral changes never share a commit. Sort each file as structural (refactor, rename, move, format) or behavioral.
 
-Mixed: warn, say how to split by file or hunk, then compose for the dominant change.
+Group the files into commits, one group per change, so no group mixes structural with behavioral. Order the groups so each leaves the build green: structural first.
+
+A single file holding both kinds cannot be split (no `add -p`): warn, and commit it with the dominant group.
+
+Files already staged form the first group as they are. A file with both staged and unstaged changes: warn and leave it out for Xavier.
 
 ## 4. Compose
 
-One message per changed repository.
+One message per group.
 
 `<gitmoji> <summary>`
 
 - Gitmoji: the Unicode character from the table below, chosen by the dominant change.
 - Summary: imperative, English, at most 72 characters in total, lowercase start, no trailing period. Names the change in domain vocabulary, never the files.
-- Reword until the summary holds no single quote.
+- Reword until the summary holds no quote and none of `; | & ( ) ` $ > \`: the hook blocks a message it cannot parse safely.
 
 | Gitmoji | Change |
 |---|---|
@@ -52,11 +56,20 @@ One message per changed repository.
 | 🎉 | initial commit |
 | 🤖 | agent docs and skills (`CLAUDE.md`, `.claude/`) |
 
-## 5. Output
+## 5. Present the plan
 
-Print each repository's name, then its message alone on the next line. A single changed repository prints the message alone, with no name.
+Print the plan first: per repository, each commit in order as its message followed by its files.
 
-Done when every changed repository has a message that is one line, starts with a table gitmoji, fits 72 characters, and contains no single quote. Report any that fails.
+## 6. Commit, one by one
+
+For each commit in order, run two commands, each alone in its Bash call:
+
+1. `git -C <repo> add -- <file> <file>` with explicit repo-relative paths. Skip it for the already-staged group.
+2. `git -C <repo> commit -m '<message>'` with single quotes and no other flag.
+
+The permission prompt is the approval. Declined: stop, report what was committed and what remains, and ask. A hook block: reword or fix the shape, never work around it.
+
+Done when every group is committed or declined. Report any message that is not one line, does not start with a table gitmoji, or exceeds 72 characters.
 
 ## Examples
 
