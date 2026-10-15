@@ -28,6 +28,8 @@ One move per step. Run the tests after each step; each ends green. Stop on red a
 
 Shape: `class SUT` at the end of the file, created in `beforeEach`. Tests come first.
 
+In Rust: `struct Sut` after the tests, built by a constructor called at the top of each test (no `beforeEach`). The assertion keeps the domain type.
+
 ## 4. Done
 
 Done when all hold, checked by reading the file:
