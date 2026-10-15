@@ -76,13 +76,13 @@ Reach for these first, before improvising a process:
 
 Every project PrometeuZZ has worked on, present in `Sandbox/` or not. `Sandbox/` is git-ignored, so this list is the only record of what exists and where it lives.
 
-- **pintafrase**: Obsidian plugin that displays the rhythm of the sentences in a note. Repo: `https://github.com/xaviuzz/pintafrases.git` (the repo name is plural, the project name is not). Reference: `Sandbox/TMP/obsidian-paste-image-as-note`.
+- **pintafrase**: Obsidian plugin that displays the rhythm of the sentences in a note. Repo: `https://github.com/xaviuzz/pintafrases.git` (the repo name is plural, the project name is not). Reference: `Sandbox/TMP/obsidian-paste-image-as-note`, from `git@github.com:xaviuzz/obsidian-paste-image-as-note.git`.
 
-When Xavier asks to work on a known project that is not in `Sandbox/`, clone it with `git clone <repo> Sandbox/<name>` (the one git write Claude may run, see "Git"), then make it the current project. Add a project to this list when it is created.
+When Xavier asks to work on a known project that is not in `Sandbox/`, clone it with `git clone <repo> Sandbox/<name>` (the one git write Claude may run, see "Git"), and clone its reference into `Sandbox/TMP/` too, then make it the current project. Add a project to this list when it is created.
 
 ## Current project
 
-None. Xavier names one, or asks for a known project; this section is then updated.
+**pintafrase** (`Sandbox/pintafrase`). Xavier names another, or asks for a known project; this section is then updated.
 
 When the user says "let's work" (or similar) without naming a project, work in the current project: read its `CLAUDE.md` and do all changes there, not in PrometeuZZ. With none, ask which project.
 
