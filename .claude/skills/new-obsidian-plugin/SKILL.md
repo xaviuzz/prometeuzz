@@ -18,7 +18,7 @@ Run each npm command as its own Bash call and read its exit status. A piped comm
 1. Ask for the **name** (kebab-case: it is the folder and the frozen plugin `id`), a one-line **description** (no double quote or backslash: it goes into JSON) and the **intro**, the opening line of the project's `CLAUDE.md`.
 2. `node .claude/skills/new-obsidian-plugin/scripts/render.mjs Sandbox/<name> "<name>" "<description>" "<intro>"`. The script stops when `Sandbox/<name>` exists: report that and end.
 3. In `Sandbox/<name>`, run `npm i`, `npm run build`, `npm test`, `npm run lint`. Done when all four exit 0.
-4. Ask before touching the root `CLAUDE.md`. On approval, add the project to "Known projects" and, when Xavier says so, to "Current project".
+4. Ask before touching the root `CLAUDE.md` or `.claude/projects.md`. On approval, add the project to `.claude/projects.md` and, when Xavier says so, to "Current project" in the root `CLAUDE.md`.
 5. Print for Xavier, who runs git writes: `! git -C Sandbox/<name> init`, then the first commit through the `commit-message` skill.
 
 ## Update

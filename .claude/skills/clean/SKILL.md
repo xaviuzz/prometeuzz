@@ -49,6 +49,6 @@ In `CLAUDE.md`, replace the body of the `## Current project` section with:
 None. Xavier names one, or asks for a known project; this section is then updated.
 ```
 
-Leave `## Known projects` untouched: it is the record that lets a deleted project be cloned again.
+Leave `.claude/projects.md` untouched: it is the record that lets a deleted project be cloned again.
 
 Done when the section reads as above. Report what was deleted and that no project is active.

@@ -12,12 +12,7 @@ Language, stack and commands depend on each project and live in that project's o
 
 ## Influences
 
-Use their vocabulary and practices as the reference when making design decisions:
-
-- **Martin Fowler**: refactoring catalog, patterns of enterprise architecture, evolutionary design.
-- **Kent Beck**: TDD, Extreme Programming, Tidy First, "make the change easy, then make the easy change".
-- **Ron Jeffries**: XP, incremental design, "do the simplest thing", the three Cs, working from the story.
-- **GeePaw Hill**: Many More Much Smaller Steps (MMMSS), small steps, safe changes, taking the next small, safe step.
+Use their vocabulary as the reference in design decisions: Martin Fowler (refactoring catalog), Kent Beck (TDD, Tidy First), Ron Jeffries (XP, the three Cs), GeePaw Hill (MMMSS).
 
 ## How to work
 
@@ -30,21 +25,17 @@ Use their vocabulary and practices as the reference when making design decisions
 - Do not invent facts, APIs or requirements. If something is unknown, say so and ask.
 - Do not modify files outside the task without asking. Propose first when scope is unclear.
 - Do not add dependencies, frameworks or tooling without asking.
+- Keep `CLAUDE.md` to rules needed every turn. Material needed only on one branch (git details, project list) goes in a `.claude/*.md` file behind a pointer that names its trigger.
+- When moving, renaming or deleting a documented section, search `.claude/` (skills, specs, hooks, templates) for references to it by name and fix them in the same change.
 - Never use the auto-memory directory. Durable lessons go in `CLAUDE.md`, skills or agents.
 
 ## Git
 
-Claude uses git **read-only, always, with two exceptions** (clone into `Sandbox/`, and approved `add`/`commit`, below), even if asked. Other writes are done by Xavier (`! git ...`).
+Claude uses git **read-only, always, with two exceptions** (`git clone` into `Sandbox/`, and approved `add`/`commit` through the `commit-message` skill), even if asked, in every repo on this machine. Other writes are done by Xavier (`! git ...`).
 
-- Allowed (read form only): `status`, `log`, `diff`, `show`, `blame`, `ls-files`, `ls-tree`, `rev-parse`, `remote -v`, `branch --list`, `tag --list`, `config --get`, `stash list`, `reflog` (view). `-C <path>` and `--no-pager` are allowed before the subcommand.
-- Allowed `gh`: `pr view|list|diff|checks|status`, `issue view|list|status`, `repo view`, `run view|list`, `auth status`.
-- One write is allowed: `git clone <url> Sandbox/<name>` (or `Sandbox/TMP/<name>`), so a known project can be prepared on request. Only `https://` or `git@host:` sources, exactly two arguments, no flags, no `-C`, no `..` in the destination. The destination must sit inside `Sandbox/`, which is git-ignored, so a clone cannot touch this repo.
-- Second write, only through the `commit-message` skill: `git [-C <path>] add -- <explicit paths>` and `git [-C <path>] commit -m '<message>'`. The hook answers "allow" for both, with no permission prompt. The approval is the skill's AskUserQuestion per commit, which lists the files and the message and shows no git command. Why: the permission prompt always shows the command, and Xavier wants to approve files and message only. The cost: only the skill's instructions force the question, not the hook. Blocked shapes: `add .`, `-A`, `-u`, globs, `..`, `.git/`, and `commit` with any flag besides `-m`, so no `--amend`, `-a` or `--no-verify`. A message the hook cannot parse (quotes, `; | & ( ) ` $ >`) is blocked, fail closed.
-- Everything else is a write, including `fetch`, `init`, `gh api`, `gh repo clone` and any flag that writes (`--output`, `-d`, `-a`, `--set`).
-- Never edit anything under `.git/`. `.gitignore` and `.gitattributes` are ordinary files.
-- Applies to every repo on this machine.
-- Enforced by `.claude/hooks/git-read-only.sh` (fails closed; tests in `.claude/hooks/test-git-read-only.sh`). The hook only runs in sessions started in PrometeuZZ; elsewhere the rule is on trust.
-- The hook also blocks any Bash command that mentions `git` or `gh`, even as a search pattern. Search with Grep or Read instead.
+Allowed command shapes, blocked shapes and the why: `.claude/git-policy.md`. Read it before any git or `gh` command beyond plain `status`, `log` or `diff`, and before editing the hook. `.claude/hooks/git-read-only.sh` enforces it, in sessions started in PrometeuZZ only.
+
+The hook blocks any Bash command that mentions `git` or `gh`, even as a search pattern. Search with Grep or Read instead.
 
 ## Preferred skills
 
@@ -54,8 +45,8 @@ Reach for these first, before improvising a process:
 - `mattpocock-skills:codebase-design`: designing modules, interfaces and seams.
 - `mattpocock-skills:domain-modeling`: shared terminology, CONTEXT.md, ADRs.
 - `mattpocock-skills:grilling`: **always** when Xavier asks to plan ("planeemos", "let's plan"), when his instruction is extensive or complex (even without saying "grill me"), and to stress-test a decision before building. Open with it; a ready-made plan comes after the grilling, never before.
-- `mattpocock-skills:writing-for-agents`: **always**, before creating or editing any `CLAUDE.md`, `AGENTS.md`, skill or `.md` under a `.claude/` directory, in any project. Load it first, then write. Enforced by `.claude/hooks/agent-docs-need-skill.sh` (fails closed; tests in `.claude/hooks/test-agent-docs-need-skill.sh`). Like the git hook, it runs only in sessions started in PrometeuZZ.
-- `commit-message`: plans one-line gitmoji commits for the whole uncommitted delta (staged, unstaged, untracked), then runs `add` and `commit` for each, one approval at a time. Project-local by Xavier's choice; like the hooks, it loads only in sessions started in PrometeuZZ. No trailer, so the line stays one line.
+- `mattpocock-skills:writing-for-agents`: **always**, before creating or editing any `CLAUDE.md`, `AGENTS.md`, skill or `.md` under a `.claude/` directory, in any project. Load it first, then write. Enforced by `.claude/hooks/agent-docs-need-skill.sh`, in sessions started in PrometeuZZ only.
+- `commit-message`: one-line gitmoji commits for the whole uncommitted delta, one approval at a time. Project-local, so it loads only in sessions started in PrometeuZZ. No trailer.
 
 ## Conventions
 
@@ -72,20 +63,10 @@ Reach for these first, before improvising a process:
 - `Sandbox/`: the single home for every project PrometeuZZ creates or works on. It is the `Sandbox/` directory at the root of this repo (`~/sandbox/PrometeuZZ/Sandbox/`), so resolve every `Sandbox/...` path from the repo root, never from `~/sandbox/`. The rule applies to new projects; existing ones in `~/sandbox` are left alone.
 - `Sandbox/TMP/`: read-only references and scratch material (e.g. clones of reference repos). We read from it, never build in it. It can be deleted at any time without losing work.
 
-## Known projects
-
-Every project PrometeuZZ has worked on, present in `Sandbox/` or not. `Sandbox/` is git-ignored, so this list is the only record of what exists and where it lives.
-
-- **pintafrase**: Obsidian plugin that displays the rhythm of the sentences in a note. Repo: `https://github.com/xaviuzz/pintafrases.git` (the repo name is plural, the project name is not). Reference: `Sandbox/TMP/obsidian-paste-image-as-note`, from `git@github.com:xaviuzz/obsidian-paste-image-as-note.git`.
-
-When Xavier asks to work on a known project that is not in `Sandbox/`, clone it with `git clone <repo> Sandbox/<name>` (the one git write Claude may run, see "Git"), and clone its reference into `Sandbox/TMP/` too, then make it the current project. Add a project to this list when it is created.
-
 ## Current project
 
 None. Xavier names one, or asks for a known project; this section is then updated.
 
 When the user says "let's work" (or similar) without naming a project, work in the current project: read its `CLAUDE.md` and do all changes there, not in PrometeuZZ. With none, ask which project.
 
-## Open decisions (to fill as they are made)
-
-- Scope: which activities the harness covers first
+Known projects, with repos and references: `.claude/projects.md`. Read it when Xavier names a project, asks which exist, or a project is created.

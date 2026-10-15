@@ -20,7 +20,7 @@ Skill `new-obsidian-plugin` in `.claude/skills/new-obsidian-plugin/`. Manual inv
 2. Stop with a message when `Sandbox/<name>/` exists.
 3. Run `scripts/render.mjs`: it fills the placeholders in contents and paths.
 4. Run `npm i`, `npm run build`, `npm test`, `npm run lint`; all green.
-5. After Xavier confirms, add the project to "Known projects" in the root `CLAUDE.md` and optionally to "Current project".
+5. After Xavier confirms, add the project to `.claude/projects.md` and optionally to "Current project" in the root `CLAUDE.md`.
 6. Print the `! git init` and first-commit lines for Xavier (git writes are his).
 
 ## Update mode
