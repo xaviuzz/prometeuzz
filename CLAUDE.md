@@ -53,7 +53,7 @@ Reach for these first, before improvising a process:
 - `mattpocock-skills:tdd`: building features or fixing bugs test-first.
 - `mattpocock-skills:codebase-design`: designing modules, interfaces and seams.
 - `mattpocock-skills:domain-modeling`: shared terminology, CONTEXT.md, ADRs.
-- `mattpocock-skills:grilling`: **always** when Xavier asks to plan ("planeemos", "let's plan"), and to stress-test a decision before building. Open with it; a ready-made plan comes after the grilling, never before.
+- `mattpocock-skills:grilling`: **always** when Xavier asks to plan ("planeemos", "let's plan"), when his instruction is extensive or complex (even without saying "grill me"), and to stress-test a decision before building. Open with it; a ready-made plan comes after the grilling, never before.
 - `mattpocock-skills:writing-for-agents`: **always**, before creating or editing any `CLAUDE.md`, `AGENTS.md`, skill or `.md` under a `.claude/` directory, in any project. Load it first, then write. Enforced by `.claude/hooks/agent-docs-need-skill.sh` (fails closed; tests in `.claude/hooks/test-agent-docs-need-skill.sh`). Like the git hook, it runs only in sessions started in PrometeuZZ.
 - `commit-message`: plans one-line gitmoji commits for the whole uncommitted delta (staged, unstaged, untracked), then runs `add` and `commit` for each, one approval at a time. Project-local by Xavier's choice; like the hooks, it loads only in sessions started in PrometeuZZ. No trailer, so the line stays one line.
 
