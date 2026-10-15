@@ -1,4 +1,10 @@
 {
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Deleting entries inside /home/xaviuzz/sandbox/PrometeuZZ/Sandbox and /home/xaviuzz/sandbox/PrometeuZZ/Sandbox/TMP with find -mindepth 1 -maxdepth 1 -exec rm -rf, as the /clean skill does. Sandbox is git-ignored and disposable. Nothing outside Sandbox is covered."
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {
