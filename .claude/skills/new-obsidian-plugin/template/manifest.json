@@ -1,0 +1,10 @@
+{
+	"id": "{{name}}",
+	"name": "{{displayName}}",
+	"version": "0.1.0",
+	"minAppVersion": "0.15.0",
+	"description": "{{description}}",
+	"author": "XaV1Uzz",
+	"authorUrl": "https://github.com/xaviuzz",
+	"isDesktopOnly": false
+}

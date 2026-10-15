@@ -1,0 +1,23 @@
+.vscode
+.idea
+*.iml
+node_modules
+
+# Compiled output goes to GitHub releases, not the repo
+main.js
+*.map
+
+# Obsidian local plugin data
+data.json
+
+.DS_Store
+
+# Test vault: only the folder structure is tracked; Obsidian state and deployed plugin files are local
+test-vault/.obsidian/app.json
+test-vault/.obsidian/appearance.json
+test-vault/.obsidian/community-plugins.json
+test-vault/.obsidian/core-plugins.json
+test-vault/.obsidian/workspace.json
+test-vault/.obsidian/plugins/{{name}}/manifest.json
+test-vault/.obsidian/plugins/{{name}}/styles.css
+test-vault/Untitled*.md
