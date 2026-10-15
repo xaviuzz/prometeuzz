@@ -3,7 +3,7 @@ name: commit-message
 description: Commits the uncommitted delta as a series of one-line gitmoji commits, each approved one by one. Use for "commit message", "mensaje de commit", "commit this", or "what do I commit".
 ---
 
-Plan every commit for the uncommitted changes of each repository, then run them one at a time. Xavier approves each `add` and `commit` at the permission prompt; the hook `git-read-only.sh` forces that prompt.
+Plan every commit for the uncommitted changes of each repository, then run them one at a time. Xavier approves each commit in a question that lists its files and message; the hook `git-read-only.sh` lets the safe `add` and `commit` through without a prompt.
 
 ## 1. Find the repositories
 
@@ -62,12 +62,14 @@ Print the plan first: per repository, each commit in order as its message follow
 
 ## 6. Commit, one by one
 
-For each commit in order, run two commands, each alone in its Bash call:
+For each commit in order:
 
-1. `git -C <repo> add -- <file> <file>` with explicit repo-relative paths. Skip it for the already-staged group.
-2. `git -C <repo> commit -m '<message>'` with single quotes and no other flag.
+1. Ask with AskUserQuestion. The question is the message. The first option, "Commit", carries a `preview` that lists the files one per line; the other options are "Skip" and "Stop". Show no git command.
+2. On "Commit", run one Bash call: `git -C <repo> add -- <file> <file> && git -C <repo> commit -m '<message>'`. Paths are explicit and repo-relative; the already-staged group runs the `commit` alone. The message has single quotes and no other flag.
 
-The permission prompt is the approval. Declined: stop, report what was committed and what remains, and ask. A hook block: reword or fix the shape, never work around it.
+The answer to the question is the approval. Run nothing for a commit before its "Commit".
+
+"Skip" moves to the next commit. "Stop" ends the run. On "Stop", report what was committed and what remains. A hook block: reword or fix the shape, never work around it.
 
 Done when every group is committed or declined. Report any message that is not one line, does not start with a table gitmoji, or exceeds 72 characters.
 

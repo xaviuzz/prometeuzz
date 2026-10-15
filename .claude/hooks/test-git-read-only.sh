@@ -15,7 +15,7 @@ expect() {
   case $status in
     0)
       got=allow
-      [[ $output == *'"ask"'* ]] && got=ask
+      [[ $output == *'"allow"'* ]] && got=allow-write
       ;;
     2) got=block ;;
     *) got="error($status)" ;;
@@ -28,7 +28,7 @@ expect() {
 
 allow_cmd() { expect allow "$(bash_input "$1")" "$1"; }
 block_cmd() { expect block "$(bash_input "$1")" "$1"; }
-ask_cmd() { expect ask "$(bash_input "$1")" "$1"; }
+write_cmd() { expect allow-write "$(bash_input "$1")" "$1"; }
 allow_file() { expect allow "$(file_input "$1" "$2")" "$1 $2"; }
 block_file() { expect block "$(file_input "$1" "$2")" "$1 $2"; }
 
@@ -66,12 +66,12 @@ allow_cmd 'git clone git@github.com:xaviuzz/pintafrases.git Sandbox/pintafrase'
 allow_cmd 'git clone https://github.com/x/y.git Sandbox/TMP/y'
 allow_cmd "git clone https://github.com/x/y.git $(cd "$(dirname "$0")/../.." && pwd)/Sandbox/y"
 
-# --- git add and commit: allowed only after user approval
-ask_cmd 'git add -- a.ts'
-ask_cmd 'git -C /home/u/repo add -- src/a.ts docs/b.md'
-ask_cmd "git commit -m 'add rhythm meter for sentence length'"
-ask_cmd "git -C /home/u/repo commit -m '✨ add rhythm meter'"
-ask_cmd "git add -- a.ts && git commit -m 'fix parser'"
+# --- git add and commit: allowed without a prompt when the shape is safe
+write_cmd 'git add -- a.ts'
+write_cmd 'git -C /home/u/repo add -- src/a.ts docs/b.md'
+write_cmd "git commit -m 'add rhythm meter for sentence length'"
+write_cmd "git -C /home/u/repo commit -m '✨ add rhythm meter'"
+write_cmd "git add -- a.ts && git commit -m 'fix parser'"
 block_cmd 'git add'
 block_cmd 'git add .'
 block_cmd 'git add -A'
