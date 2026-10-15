@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # PreToolUse hook: git is read-only for Claude, plus clone into Sandbox/ and approved add/commit (see "Git" in PrometeuZZ/CLAUDE.md).
 # Allow-list, fails closed: whatever it cannot prove to be a read is blocked (exit 2).
-# add and commit are never silent: when they pass the shape checks the hook answers "ask", so the user approves each one.
+# add and commit: when they pass the shape checks the hook answers "allow"; the user approves each one in the commit-message skill.
 # Not a security boundary against deliberate obfuscation, a guard against slips.
 set -u
 
