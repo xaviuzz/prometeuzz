@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# PreToolUse hook: git is read-only for Claude (see "Git" in PrometeuZZ/CLAUDE.md).
+# PreToolUse hook: git is read-only for Claude, plus clone into Sandbox/ (see "Git" in PrometeuZZ/CLAUDE.md).
 # Allow-list, fails closed: whatever it cannot prove to be a read is blocked (exit 2).
 # Not a security boundary against deliberate obfuscation, a guard against slips.
 set -u
@@ -56,12 +56,30 @@ writes_a_file() {
   return 1
 }
 
+sandbox_root=${CLAUDE_PROJECT_DIR:-$(cd "$(dirname "$0")/../.." && pwd)}/Sandbox
+
+# The one write Claude may run: clone a remote into Sandbox/<name> or Sandbox/TMP/<name>.
+# No flags, no -C, no local or ext:: sources, no '..' in the destination.
+clone_into_sandbox() {
+  local url=${1:-} dest=${2:-}
+  (($# == 2)) || return 1
+  [[ $url =~ ^https://[^[:space:]]+$ || $url =~ ^git@[^[:space:]:]+:[^[:space:]]+$ ]] || return 1
+  [[ $dest == *..* ]] && return 1
+  local inside=${dest#"$sandbox_root"/}
+  [[ $inside == "$dest" ]] && inside=${dest#Sandbox/}
+  [[ $inside != "$dest" ]] || return 1
+  [[ $inside =~ ^(TMP/)?[A-Za-z0-9._-]+$ ]] || return 1
+  [[ $inside == TMP ]] && return 1
+  return 0
+}
+
 git_is_read() {
-  local args=("$@") rest arg sub
+  local args=("$@") rest arg sub has_dir_flag=0
   while :; do
     case ${args[0]:-} in
       -C)
         ((${#args[@]} >= 2)) || return 1
+        has_dir_flag=1
         args=("${args[@]:2}")
         ;;
       --no-pager) args=("${args[@]:1}") ;;
@@ -74,6 +92,10 @@ git_is_read() {
   writes_a_file "${rest[@]}" && return 1
 
   case $sub in
+    clone)
+      ((has_dir_flag)) && return 1
+      clone_into_sandbox "${rest[@]}"
+      ;;
     status | log | diff | show | blame | ls-files | ls-tree | rev-parse) return 0 ;;
     remote)
       ((${#rest[@]} == 0)) && return 0

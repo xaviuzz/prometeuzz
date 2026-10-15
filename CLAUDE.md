@@ -34,11 +34,12 @@ Use their vocabulary and practices as the reference when making design decisions
 
 ## Git
 
-Claude uses git **read-only, always, with no exception**, even if asked. Writes are done by Xavier (`! git ...`).
+Claude uses git **read-only, always, with one exception** (clone into `Sandbox/`, below), even if asked. Writes are done by Xavier (`! git ...`).
 
 - Allowed (read form only): `status`, `log`, `diff`, `show`, `blame`, `ls-files`, `ls-tree`, `rev-parse`, `remote -v`, `branch --list`, `tag --list`, `config --get`, `stash list`, `reflog` (view). `-C <path>` and `--no-pager` are allowed before the subcommand.
 - Allowed `gh`: `pr view|list|diff|checks|status`, `issue view|list|status`, `repo view`, `run view|list`, `auth status`.
-- Everything else is a write, including `fetch`, `clone`, `init`, `gh api` and any flag that writes (`--output`, `-d`, `-a`, `--set`).
+- One write is allowed: `git clone <url> Sandbox/<name>` (or `Sandbox/TMP/<name>`), so a known project can be prepared on request. Only `https://` or `git@host:` sources, exactly two arguments, no flags, no `-C`, no `..` in the destination. The destination must sit inside `Sandbox/`, which is git-ignored, so a clone cannot touch this repo.
+- Everything else is a write, including `fetch`, `init`, `gh api`, `gh repo clone` and any flag that writes (`--output`, `-d`, `-a`, `--set`).
 - Never edit anything under `.git/`. `.gitignore` and `.gitattributes` are ordinary files.
 - Applies to every repo on this machine.
 - Enforced by `.claude/hooks/git-read-only.sh` (fails closed; tests in `.claude/hooks/test-git-read-only.sh`). The hook only runs in sessions started in PrometeuZZ; elsewhere the rule is on trust.
@@ -70,11 +71,19 @@ Reach for these first, before improvising a process:
 - `Sandbox/`: the single home for every project PrometeuZZ creates or works on. It is the `Sandbox/` directory at the root of this repo (`~/sandbox/PrometeuZZ/Sandbox/`), so resolve every `Sandbox/...` path from the repo root, never from `~/sandbox/`. The rule applies to new projects; existing ones in `~/sandbox` are left alone.
 - `Sandbox/TMP/`: read-only references and scratch material (e.g. clones of reference repos). We read from it, never build in it. It can be deleted at any time without losing work.
 
+## Known projects
+
+Every project PrometeuZZ has worked on, present in `Sandbox/` or not. `Sandbox/` is git-ignored, so this list is the only record of what exists and where it lives.
+
+- **pintafrase**: Obsidian plugin that displays the rhythm of the sentences in a note. Repo: `https://github.com/xaviuzz/pintafrases.git` (the repo name is plural, the project name is not). Reference: `Sandbox/TMP/obsidian-paste-image-as-note`.
+
+When Xavier asks to work on a known project that is not in `Sandbox/`, clone it with `git clone <repo> Sandbox/<name>` (the one git write Claude may run, see "Git"), then make it the current project. Add a project to this list when it is created.
+
 ## Current project
 
-`Sandbox/pintafrase`: an Obsidian plugin that displays the rhythm of the sentences in a note. Reference: `Sandbox/TMP/obsidian-paste-image-as-note`.
+None. Xavier names one, or asks for a known project; this section is then updated.
 
-When the user says "let's work" (or similar) without naming a project, work in the current project: read its `CLAUDE.md` and do all changes there, not in PrometeuZZ. To switch projects, the user says so and this section is updated.
+When the user says "let's work" (or similar) without naming a project, work in the current project: read its `CLAUDE.md` and do all changes there, not in PrometeuZZ. With none, ask which project.
 
 ## Open decisions (to fill as they are made)
 
