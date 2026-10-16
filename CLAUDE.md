@@ -46,6 +46,10 @@ A project whose `CLAUDE.md` has a `## Learning` section teaches Xavier a technol
 
 A project whose `CLAUDE.md` has a `## Contributing` section is an upstream contribution. Read `.claude/contributing-projects.md` before choosing an issue or working in one. Its rules override the style conventions in "Conventions".
 
+## Harnesses
+
+A project whose upstream has no Claude setup keeps its `CLAUDE.md` and `.claude/` in `harnesses/<name>/`, linked into `Sandbox/<name>`. Read `.claude/harnesses.md` before cloning, working in or creating such a project, and whenever a project's `CLAUDE.md` is missing.
+
 ## Preferred skills
 
 Reach for these first, before improvising a process:
