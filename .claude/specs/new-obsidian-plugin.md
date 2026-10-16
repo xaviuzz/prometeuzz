@@ -8,9 +8,10 @@ Skill `new-obsidian-plugin` in `.claude/skills/new-obsidian-plugin/`. Manual inv
 
 - Config: `esbuild.config.mjs`, `eslint.config.mjs`, `tsconfig.json`, `vitest.config.ts`, `version-bump.mjs`, `.editorconfig`, `.npmrc`, `.gitignore`, `LICENSE`, `package.json` (scripts and devDependencies), `manifest.json`, `versions.json` (`{}`), `styles.css` (empty), `README.md`.
 - `AGENTS.md`: Obsidian plugin rules, verbatim from pintafrase.
-- `CLAUDE.md`: Stack, Commands, Code rules and Testing conventions verbatim; Layout with `src/main.ts` and `src/test-utils/` only; Decisions with the two general ones (`moduleResolution: "bundler"`, `npm test` does not type-check); pointers to `../../CLAUDE.md` and `AGENTS.md`.
+- `CLAUDE.md`: Stack, Commands, Code rules and Testing conventions verbatim; Layout with `src/main.ts` and `src/test-utils/` only; a pointer to `.claude/decisions.md`; pointers to `../../CLAUDE.md` and `AGENTS.md`.
+- `.claude/decisions.md`: the project's decisions, seeded with the template's general ones (`moduleResolution: "bundler"`, the `obsidian`, `eslint` and `typescript` pins).
 - `src/main.ts` minimal plugin; `src/test-utils/obsidian-mock.ts` and a smoke test that loads `main.ts` through the `obsidian` alias (red without the alias).
-- `.claude/specs/` and `.claude/reference/` with `.gitkeep`; `test-vault/.obsidian/plugins/{{name}}/.placeholder`.
+- `.claude/specs/` and `.claude/reference/` with `.gitkeep`, and `.claude/decisions.md`; `test-vault/.obsidian/plugins/{{name}}/.placeholder`.
 - `manifest.json`: author `XaV1Uzz`, `authorUrl` `https://github.com/xaviuzz`, license `0BSD`, `minAppVersion` `0.15.0`, `isDesktopOnly` `false`, version `0.1.0`.
 - No domain code from pintafrase.
 

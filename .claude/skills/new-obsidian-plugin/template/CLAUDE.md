@@ -14,15 +14,12 @@ Reference material (docs, notes, API excerpts) lives in `.claude/reference/`. Li
 
 Specs live in `.claude/specs/`. A spec is done when all its steps are `[x]`; the first unmarked step is the next one.
 
+Decisions (each rule and its why) live in `.claude/decisions.md`. Read it before changing design or when you need the why of a rule; record each new decision there, replacing the bullet it changes.
+
 ## Stack
 
 - TypeScript, bundled with esbuild into `main.js`.
 - Tests with vitest. `obsidian` is aliased to `src/test-utils/obsidian-mock.ts`; grow the mock only as tests need it.
-
-## Decisions
-
-- `tsconfig.json` sets `moduleResolution: "bundler"`. With `"node"`, a bare `tsc --noEmit` cannot resolve the `exports` types of `vite` and `vitest`; `npm run build` hid it behind `-skipLibCheck`.
-- `obsidian` is pinned to `1.8.7` and `eslint` to 9, `typescript` to 6: `eslint-plugin-obsidianmd` peers those versions (`typescript-eslint` caps `typescript` at 6.0). Lift them when the plugin does.
 
 ## Code rules
 

@@ -48,6 +48,6 @@ Fetch `https://raw.githubusercontent.com/obsidianmd/obsidian-sample-plugin/maste
 
 - The template is stored, not derived from pintafrase on each run: creation is deterministic and works without pintafrase present.
 - Majors are Xavier's call: a major can change the config files, and the template carries no tests that would catch it.
-- `template/CLAUDE.md` keeps the generic parts of pintafrase's verbatim (Stack, Commands, Code rules, Testing conventions) and two general decisions. A new project starts with an empty `.claude/` apart from `specs/` and `reference/`; skills and hooks stay in PrometeuZZ.
+- `template/CLAUDE.md` keeps the generic parts of pintafrase's verbatim (Stack, Commands, Code rules, Testing conventions) and a pointer to `.claude/decisions.md`, which starts with two general decisions. A new project starts with an empty `.claude/` apart from `specs/`, `reference/` and `decisions.md`; skills and hooks stay in PrometeuZZ.
 - `template/src/test-utils/obsidian-mock.test.ts` loads `main.ts` through the `obsidian` alias. It goes red when the alias is missing, which is the one wiring a skeleton can break. A bare `new Plugin()` fails to type-check against the real `obsidian` types.
 - `decisions.md` holds only verdicts on upstream and version suggestions; design decisions live here.
