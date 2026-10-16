@@ -17,6 +17,7 @@ Use their vocabulary as the reference in design decisions: Martin Fowler (refact
 ## How to work
 
 - Work test-first, in the smallest steps that keep the build green.
+- Tests assert on public behavior. Never widen visibility (`pub`, `export`, a public accessor) only so a test can reach something; test the rule through the behavior that uses it, or delete a test that only reads internals.
 - Separate structural changes (refactor) from behavioral changes. Never mix them in one step.
 - Do the simplest thing that passes, then refactor. Rule of three before abstracting.
 - Record each project decision and its why in that project's `CLAUDE.md` when it is made. The repo cannot tell it later.
@@ -52,6 +53,7 @@ Reach for these first, before improvising a process:
 
 - Language: Xavier is Spanish-first. Conversation may be in Spanish or English; reply in the language used. Code, identifiers and commits in English unless told otherwise.
 - Name every intermediate result in an explaining variable (Fowler's *Introduce Explaining Variable*), in any project. A chained expression becomes one named step per line. Each operand of a predicate gets its own name too (`hasVowel`, `hasDigit`, then `isCountable`).
+- Names must read one way when split into words. Say the candidate aloud as separate words (`FeelsLikeDifference` reads as "feels like difference"); if a second grouping makes sense, pick another name.
 - Write iteration as an explicit loop block over a collecting variable. Reach for functional idioms (`map`, `filter`, `reduce`, chains) only where they add specific value that the loop lacks; the visual structure of the block is the default.
 - One return per function, ending on a named result. Where a conditional varies behavior by state or type, replace it with polymorphism (State, Strategy) before reaching for guard clauses or early returns.
 - No ternary operators, in any project. Set a default value and overwrite it in an `if`; where the branch varies by state or type, use polymorphism.
