@@ -38,6 +38,10 @@ Allowed command shapes, blocked shapes and the why: `.claude/git-policy.md`. Rea
 
 The hook blocks any Bash command that mentions `git` or `gh`, even as a search pattern. Search with Grep or Read instead.
 
+## Learning projects
+
+A project whose `CLAUDE.md` has a `## Learning` section teaches Xavier a technology; its deliverable is his understanding. Read `.claude/learning-projects.md` before working in one or creating one. It overrides the TDD pacing in "How to work".
+
 ## Preferred skills
 
 Reach for these first, before improvising a process:
