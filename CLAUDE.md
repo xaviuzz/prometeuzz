@@ -42,6 +42,10 @@ The hook blocks any Bash command that mentions `git` or `gh`, even as a search p
 
 A project whose `CLAUDE.md` has a `## Learning` section teaches Xavier a technology; its deliverable is his understanding. Read `.claude/learning-projects.md` before working in one or creating one. It overrides the TDD pacing in "How to work".
 
+## Contributing projects
+
+A project whose `CLAUDE.md` has a `## Contributing` section is an upstream contribution. Read `.claude/contributing-projects.md` before choosing an issue or working in one. Its rules override the style conventions in "Conventions".
+
 ## Preferred skills
 
 Reach for these first, before improvising a process:
@@ -72,7 +76,7 @@ Reach for these first, before improvising a process:
 
 ## Current project
 
-None. Xavier names one, or asks for a known project; this section is then updated.
+**actual** (`Sandbox/actual`). Xavier names another, or asks for a known project; this section is then updated.
 
 When the user says "let's work" (or similar) without naming a project, work in the current project: read its `CLAUDE.md` and do all changes there, not in PrometeuZZ. With none, ask which project.
 
