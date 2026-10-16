@@ -2,7 +2,8 @@
   "autoMode": {
     "allow": [
       "$defaults",
-      "Deleting entries inside /home/xaviuzz/sandbox/PrometeuZZ/Sandbox and /home/xaviuzz/sandbox/PrometeuZZ/Sandbox/TMP with find -mindepth 1 -maxdepth 1 -exec rm -rf, as the /clean skill does. Sandbox is git-ignored and disposable. Nothing outside Sandbox is covered."
+      "Deleting entries inside /home/xaviuzz/sandbox/PrometeuZZ/Sandbox and /home/xaviuzz/sandbox/PrometeuZZ/Sandbox/TMP with find -mindepth 1 -maxdepth 1 -exec rm -rf, as the /clean skill does. Sandbox is git-ignored and disposable. Nothing outside Sandbox is covered.",
+      "Deleting a single file with plain rm (no -r, no -f, no globs) at a path inside /home/xaviuzz/sandbox/PrometeuZZ/Sandbox, when a copy or replacement of it already exists elsewhere, for example after moving a document into PrometeuZZ. Nothing outside Sandbox is covered."
     ]
   },
   "hooks": {
