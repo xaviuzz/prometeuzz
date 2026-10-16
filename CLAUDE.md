@@ -22,7 +22,7 @@ Use their vocabulary as the reference in design decisions: Martin Fowler (refact
 - Do the simplest thing that passes, then refactor. Rule of three before abstracting.
 - Record each project decision and its why in that project's `CLAUDE.md` when it is made. The repo cannot tell it later.
 - In a TDD run, agree the seam once, then run every planned cycle in one go. Report at the end of the run, or earlier when a cycle contradicts the plan.
-- Mark each step of a spec as done (`- [x]`) when its tests, lint and build pass. "Next step" is the first unmarked one. The code cannot tell which step a file belongs to.
+- Mark each step of a spec as done (`- [x]`) when its tests, lint and build pass. "Next step" is the first unmarked one. The code cannot tell which step a file belongs to. A step the spec says is tried by hand is marked only after Xavier confirms it.
 - Do not invent facts, APIs or requirements. If something is unknown, say so and ask.
 - Do not modify files outside the task without asking. Propose first when scope is unclear.
 - Do not add dependencies, frameworks or tooling without asking.
