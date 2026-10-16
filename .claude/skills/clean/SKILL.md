@@ -8,7 +8,7 @@ Reset the workspace. Resolve every path from the PrometeuZZ root, `/home/xaviuzz
 
 ## 1. List the entries
 
-Entries are everything directly inside `Sandbox/` except `TMP` and `.gitkeep`, plus everything directly inside `Sandbox/TMP/` except `.gitkeep`.
+Entries are everything directly inside `Sandbox/` except `TMP` and `.gitkeep`, plus everything directly inside `Sandbox/TMP/` except `.gitkeep`. Arguments name entries to keep. Leave them off the list.
 
 Done when you hold the full list of absolute paths. Empty list: skip to step 4.
 
@@ -32,7 +32,7 @@ Print the entry list. At-risk entries lead the list, each with its evidence.
 
 ## 4. Delete
 
-Xavier's `/clean` is explicit authorization to delete every listed entry, `Sandbox/TMP/` included. Run both commands as written, one per directory, with absolute paths:
+Xavier's `/clean` is explicit authorization to delete every listed entry, `Sandbox/TMP/` included. Run each command as written in its own Bash call, never chained with `&&` or `;`, with absolute paths. Add one `-not -name <kept>` per kept entry to the first `find`:
 
 ```
 find /home/xaviuzz/sandbox/PrometeuZZ/Sandbox -mindepth 1 -maxdepth 1 -not -name TMP -not -name .gitkeep -exec rm -rf {} +
@@ -43,7 +43,7 @@ Done when `ls -A` shows `Sandbox/` holding only `TMP` and `.gitkeep`, and `Sandb
 
 ## 5. Reset the current project
 
-In `CLAUDE.md`, replace the body of the `## Current project` section with:
+Skip when the current project is a kept entry. Otherwise, in `CLAUDE.md`, replace the body of the `## Current project` section with:
 
 ```
 None. Xavier names one, or asks for a known project; this section is then updated.
