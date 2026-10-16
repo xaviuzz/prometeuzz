@@ -20,7 +20,7 @@ Use their vocabulary as the reference in design decisions: Martin Fowler (refact
 - Tests assert on public behavior. Never widen visibility (`pub`, `export`, a public accessor) only so a test can reach something; test the rule through the behavior that uses it, or delete a test that only reads internals.
 - Separate structural changes (refactor) from behavioral changes. Never mix them in one step.
 - Do the simplest thing that passes, then refactor. Rule of three before abstracting.
-- Record each project decision and its why in that project's `CLAUDE.md` when it is made. The repo cannot tell it later.
+- Record each project decision and its why in that project's `.claude/decisions.md` when it is made; create the file if the project has none, and point to it from the project's `CLAUDE.md`. The repo cannot tell it later.
 - In a TDD run, agree the seam once, then run every planned cycle in one go. Report at the end of the run, or earlier when a cycle contradicts the plan.
 - Mark each step of a spec as done (`- [x]`) when its tests, lint and build pass. "Next step" is the first unmarked one. The code cannot tell which step a file belongs to. A step the spec says is tried by hand is marked only after Xavier confirms it.
 - Do not invent facts, APIs or requirements. If something is unknown, say so and ask.

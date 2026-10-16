@@ -37,6 +37,7 @@ For each lesson:
 Pick one per lesson and give the reason:
 
 - project `CLAUDE.md`
+- project `.claude/decisions.md`: a design decision and its why (create it if the project has none)
 - global `~/.claude/CLAUDE.md`
 - new skill, or edit to an existing skill
 - new agent

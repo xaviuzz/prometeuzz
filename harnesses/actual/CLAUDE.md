@@ -13,7 +13,7 @@ Upstream issue #9230: desktop "Export data" writes the whole pooled 64 KiB buffe
 
 `desktop-electron` has no unit-test setup, only Playwright `e2e/`. Finding a test seam is the first task.
 
-- Decisions: fix inline in the `save-file-dialog` handler with `await fs.promises.writeFile(filePath, fileContents)`. A throwaway vitest harness (extraction to `saveFile.ts`, real temp dir) proved it test-first, then left the PR: the package has no unit-test setup and adding one is out of scope. The copy goes to `.claude/reference/`. The cancelled dialog (`filePath` undefined) stays out to keep the PR on the issue; the PR mentions it as a follow-up. Plan: `.claude/specs/9230-pr-ready.md`.
+Decisions (each rule and its why) live in `.claude/decisions.md`. Read it before changing the fix; record each new decision there, replacing the bullet it changes.
 
 ## Contributing
 
