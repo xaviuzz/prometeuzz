@@ -22,11 +22,11 @@ CLAUDE.md
 
 ## Steps
 
-- [ ] 1. Skeleton: `package.json`, `tsconfig.json`, Biome, `bun test` running a first test, the repo's `CLAUDE.md` with stack and commands (`test`, `lint`, `build`). Adding Biome needs Xavier's approval.
-- [ ] 2. Envelope: request header with required `requestId`; response header with `requestId` and `status`; error response with `code` and `message`.
-- [ ] 3. `Operation` and `OperationRegistry`: lookup by name, unknown name answers absence.
-- [ ] 4. `HealthCheck` and server: `POST /health.check` end to end. Covers 200 `ok`, 400 unreadable JSON, 400 missing `requestId`, 404 unknown URL, 200 `INVALID_REQUEST`, 200 `INTERNAL_ERROR`.
-- [ ] 5. `openapi.yaml` and the correspondence test between its routes and the registered operations.
+- [x] 1. Skeleton: `package.json`, `tsconfig.json`, Biome, `bun test` running a first test, the repo's `CLAUDE.md` with stack and commands (`test`, `lint`, `build`). Adding Biome needs Xavier's approval.
+- [x] 2. Envelope: request header with required `requestId`; response header with `requestId` and `status`; error response with `code` and `message`.
+- [x] 3. `Operation` and `OperationRegistry`: lookup by name, unknown name answers absence.
+- [x] 4. `HealthCheck` and server: `POST /health.check` end to end. Covers 200 `ok`, 400 unreadable JSON, 400 missing `requestId`, 404 unknown URL, 200 `INVALID_REQUEST`, 200 `INTERNAL_ERROR`.
+- [x] 5. `openapi.yaml` and the correspondence test between its routes and the registered operations.
 - [ ] 6. GitHub Actions running lint, test and build. Record the choice in `decisions.md`.
 
 ## Out of scope

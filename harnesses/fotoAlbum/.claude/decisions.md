@@ -35,3 +35,18 @@ A test compares the routes in `openapi.yaml` with the registered operations, bot
 
 ## Vertical slices, health check first
 Work in vertical slices (contract, backend, frontend). The first slice is a health endpoint through to a frontend page, to prove the contract pipeline before real features depend on it.
+
+## Empty requestId counts as missing
+`requestId` must be a non-empty string; an empty one is rejected like an absent one. Why: an empty id correlates nothing.
+
+## Envelope parse failure is an exception
+`RequestEnvelope.from` throws `InvalidEnvelopeError`; the operation turns it into the transport 400. Why: the failure is a boundary event, not a value the rest of the code branches on.
+
+## Unknown operation is a Null Object that serves 404
+`OperationRegistry.find` always returns an `Operation`; an unknown name yields `NoOperation`, whose `serve` answers 404. Why: the server never branches on absence.
+
+## Operations serve HTTP requests
+`Operation.serve(Request): Promise<Response>`, not an envelope-to-envelope call. Why: the 404 of an unknown URL is then polymorphism, and each operation owns its transport failures (400). A shared base class (Template Method) carries the common flow so operations only validate and execute.
+
+## Backend CI gate
+GitHub Actions workflow `.github/workflows/ci.yml` on push to `main` and on pull requests: frozen install, lint, typecheck, test, build, on Bun pinned to the local version. Typecheck is in the gate because `bun build` does not check types. No deploy, cache or matrix. Why: smallest gate that matches what is run by hand; the frontend repeats it and adds the generated-client drift check.
