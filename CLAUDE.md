@@ -25,6 +25,7 @@ Use their vocabulary as the reference in design decisions: Martin Fowler (refact
 - Mark each step of a spec as done (`- [x]`) when its tests, lint and build pass. "Next step" is the first unmarked one. The code cannot tell which step a file belongs to. A step the spec says is tried by hand is marked only after Xavier confirms it.
 - Do not invent facts, APIs or requirements. If something is unknown, say so and ask.
 - Do not modify files outside the task without asking. Propose first when scope is unclear.
+- A short design remark ("tell, don't ask", a goal sentence) refers first to the file open in the IDE, and may only confirm what was just done. Read that file, apply it there, and propose any other file instead of editing it.
 - Do not add dependencies, frameworks or tooling without asking.
 - Keep `CLAUDE.md` to rules needed every turn. Material needed only on one branch (git details, project list) goes in a `.claude/*.md` file behind a pointer that names its trigger.
 - When moving, renaming or deleting a documented section, search `.claude/` (skills, specs, hooks, templates) for references to it by name and fix them in the same change.
@@ -70,6 +71,8 @@ Reach for these first, before improvising a process:
 - One return per function, ending on a named result. Where a conditional varies behavior by state or type, replace it with polymorphism (State, Strategy) before reaching for guard clauses or early returns.
 - No ternary operators, in any project. Set a default value and overwrite it in an `if`; where the branch varies by state or type, use polymorphism.
 - Code carries no comments, in any project. Intent lives in names, small units and tests; the why of a decision goes in that project's `CLAUDE.md`.
+- A rename that resolves a semantic clash covers every derived name: classes, errors, codes, contract schemas, messages, test titles. Search the old term across source, tests and contract, and keep it only where it names the other meaning.
+- A public method reads as pseudocode: a sequence of calls to private methods, one per thing it handles (`readCallId`, `readBody`). Stop at that level; keep predicates and lookups inside the private method as explaining variables.
 
 ## Layout
 
