@@ -27,7 +27,7 @@ CLAUDE.md
 - [x] 3. `Operation` and `OperationRegistry`: lookup by name, unknown name answers absence.
 - [x] 4. `HealthCheck` and server: `POST /health.check` end to end. Covers 200 `ok`, 400 unreadable JSON, 400 missing `requestId`, 404 unknown URL, 200 `INVALID_REQUEST`, 200 `INTERNAL_ERROR`.
 - [x] 5. `openapi.yaml` and the correspondence test between its routes and the registered operations.
-- [ ] 6. GitHub Actions running lint, test and build. Record the choice in `decisions.md`.
+- [x] 6. GitHub Actions running lint, test and build. Record the choice in `decisions.md`.
 
 ## Out of scope
 
