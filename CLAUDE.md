@@ -48,7 +48,7 @@ A project whose `CLAUDE.md` has a `## Contributing` section is an upstream contr
 
 ## Harnesses
 
-A project whose upstream has no Claude setup keeps its `CLAUDE.md` and `.claude/` in `harnesses/<name>/`, linked into `Sandbox/<name>`. Read `.claude/harnesses.md` before cloning, working in or creating such a project, and whenever a project's `CLAUDE.md` is missing.
+A project whose upstream has no Claude setup keeps its `CLAUDE.md` and `.claude/` in `harnesses/<name>/`, linked into `Sandbox/<name>`. A project made of several repos is an umbrella and works the same way. Read `.claude/harnesses.md` before cloning, working in or creating such a project, and whenever a project's `CLAUDE.md` is missing.
 
 ## Preferred skills
 
@@ -73,7 +73,7 @@ Reach for these first, before improvising a process:
 
 ## Layout
 
-- **Project**: a directory directly inside `Sandbox/` that is its own git repository and has its own `CLAUDE.md`. The folder name is the project name. Anything smaller is not a project.
+- **Project**: a directory directly inside `Sandbox/` that is its own git repository and has its own `CLAUDE.md`, or an umbrella directory of several repos (see Harnesses). The folder name is the project name. Anything smaller is not a project.
 - `Sandbox/`: the single home for every project PrometeuZZ creates or works on. It is the `Sandbox/` directory at the root of this repo (`~/sandbox/PrometeuZZ/Sandbox/`), so resolve every `Sandbox/...` path from the repo root, never from `~/sandbox/`. The rule applies to new projects; existing ones in `~/sandbox` are left alone.
 - `Sandbox/TMP/`: read-only references and scratch material (e.g. clones of reference repos). We read from it, never build in it. It can be deleted at any time without losing work.
 - Each project keeps `reference/` (research material) and `specs/` (step-by-step plans) inside its own `.claude/`, never at the project root. Put new ones there without asking.

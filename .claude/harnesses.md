@@ -19,6 +19,14 @@ Run when a project with a harness is cloned into `Sandbox/`, or when Xavier asks
 
 Remove the two links and nothing else. Edits made through a link already sit in `harnesses/<name>/`; commit them in PrometeuZZ with `commit-message`.
 
+## Umbrella
+
+An **umbrella** is a harness whose project is a plain directory `Sandbox/<name>/` holding several independent repos (`Sandbox/<name>/<repo>`), worked on as one project. The umbrella is not a repo; each repo keeps its own pipeline and its own committed `CLAUDE.md` for stack and commands. `harnesses/<name>/` holds only what crosses the repos: workflow, specs, decisions.
+
+- Attach: link both files into `Sandbox/<name>/` as above. Skip the `.git/info/exclude` step; there is no `.git`.
+- Clone each repo with `git clone <url> Sandbox/<name>/<repo>`.
+- `commit-message` finds the repos one level inside the umbrella.
+
 ## New harness
 
 Create `harnesses/<name>/CLAUDE.md`, then attach. Never create the files inside the project first.

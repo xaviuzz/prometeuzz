@@ -10,7 +10,8 @@ Plan every commit for the uncommitted changes of each repository, then run them 
 Work from absolute paths with `git -C`, whatever the shell directory is.
 
 - Without an argument, the repositories are PrometeuZZ (`/home/xaviuzz/sandbox/PrometeuZZ`) and every project directly inside `Sandbox/` except `TMP/`. A directory counts only when `git -C <dir> rev-parse --show-toplevel` prints that same directory.
-- With an argument, the only repository is `Sandbox/<argument>`.
+- A directory inside `Sandbox/` that is not a repository is an umbrella (see `.claude/harnesses.md`): its direct children that count as repositories join the list.
+- With an argument, the only repository is `Sandbox/<argument>`; when that is an umbrella, its repositories.
 
 ## 2. Read each delta
 
