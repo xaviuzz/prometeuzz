@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -u
 
-threshold=${CONTEXT_WARN_THRESHOLD:-20}
+thresholds=${CONTEXT_WARN_THRESHOLDS:-5 10 20}
 window=${CONTEXT_WINDOW_TOKENS:-1000000}
 state_dir=${CONTEXT_WARNING_DIR:-$HOME/.claude/context-warnings}
 
@@ -18,18 +18,41 @@ used_tokens() {
   ' "$transcript" 2>/dev/null
 }
 
-should_warn() {
-  [[ -n $session_id && -r $transcript && ! -e $warned_file ]] || return 1
-  local tokens
-  tokens=$(used_tokens)
-  [[ $tokens =~ ^[0-9]+$ ]] || return 1
-  (( tokens * 100 / window > threshold ))
+used_percent() {
+  local percent=0 tokens
+  if [[ -n $session_id && -r $transcript ]]; then
+    tokens=$(used_tokens)
+    if [[ $tokens =~ ^[0-9]+$ ]]; then
+      percent=$(( tokens * 100 / window ))
+    fi
+  fi
+  echo "$percent"
 }
 
-if should_warn; then
-  pct=$(( $(used_tokens) * 100 / window ))
+highest_crossed() {
+  local percent=$1 crossed=0 threshold
+  for threshold in $thresholds; do
+    if (( percent > threshold )); then
+      crossed=$threshold
+    fi
+  done
+  echo "$crossed"
+}
+
+last_warned() {
+  local warned=0
+  if [[ -r $warned_file ]]; then
+    warned=$(<"$warned_file")
+  fi
+  echo "$warned"
+}
+
+pct=$(used_percent)
+crossed=$(highest_crossed "$pct")
+
+if (( crossed > $(last_warned) )); then
   mkdir -p "$state_dir"
-  touch "$warned_file"
-  jq -nc --arg m "Context at ${pct}%, over the ${threshold}% threshold." '{systemMessage: $m}'
+  echo "$crossed" >"$warned_file"
+  jq -nc --arg m "Context at ${pct}%, over the ${crossed}% threshold." '{systemMessage: $m}'
 fi
 exit 0

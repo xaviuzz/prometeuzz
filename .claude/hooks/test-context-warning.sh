@@ -27,14 +27,33 @@ expect_output() {
 }
 
 transcript_with "$tmp/below.jsonl" 2 100 97
-expect_output silent below "$tmp/below.jsonl" "stays silent at 19%"
-
-transcript_with "$tmp/at.jsonl" 2 100 98
-expect_output silent at "$tmp/at.jsonl" "stays silent at exactly 20%"
+expect_output warn below "$tmp/below.jsonl" "warns at 19%, over the 10% threshold"
 
 transcript_with "$tmp/above.jsonl" 10 100 100
 expect_output warn above "$tmp/above.jsonl" "warns at 21%, summing input and both cache counts"
 expect_output silent above "$tmp/above.jsonl" "warns only once per session"
+
+transcript_with "$tmp/low.jsonl" 0 0 40
+expect_output silent low "$tmp/low.jsonl" "stays silent at 4%"
+transcript_with "$tmp/low.jsonl" 0 0 60
+expect_output warn low "$tmp/low.jsonl" "warns at 6%, over the 5% threshold"
+transcript_with "$tmp/low.jsonl" 0 0 80
+expect_output silent low "$tmp/low.jsonl" "stays silent at 8%, the 5% threshold already warned"
+transcript_with "$tmp/low.jsonl" 0 0 110
+expect_output warn low "$tmp/low.jsonl" "warns again at 11%, over the 10% threshold"
+transcript_with "$tmp/low.jsonl" 0 0 150
+expect_output silent low "$tmp/low.jsonl" "stays silent at 15%, the 10% threshold already warned"
+transcript_with "$tmp/low.jsonl" 0 0 200
+expect_output silent low "$tmp/low.jsonl" "stays silent at exactly 20%"
+transcript_with "$tmp/low.jsonl" 0 0 210
+expect_output warn low "$tmp/low.jsonl" "warns again at 21%, over the 20% threshold"
+transcript_with "$tmp/low.jsonl" 0 0 500
+expect_output silent low "$tmp/low.jsonl" "stays silent at 50%, the 20% threshold already warned"
+
+transcript_with "$tmp/jump.jsonl" 0 0 120
+expect_output warn jump "$tmp/jump.jsonl" "warns once for the highest threshold crossed when jumping past two"
+transcript_with "$tmp/jump.jsonl" 0 0 140
+expect_output silent jump "$tmp/jump.jsonl" "stays silent at 14%, both lower thresholds already covered"
 
 transcript_with "$tmp/other.jsonl" 450 0 0
 expect_output warn other "$tmp/other.jsonl" "warns a second session independently"
