@@ -113,3 +113,12 @@ The runner is a Compose service on `mcr.microsoft.com/playwright`, version pinne
 
 ## Compose waits on healthchecks
 Backend and frontend declare a `healthcheck`; the runner uses `depends_on` with `condition: service_healthy`. One command, `docker compose up --build --abort-on-container-exit --exit-code-from e2e`, is exposed as `e2e`. Why: no `sleep`, and the exit code serves CI.
+
+## E2E adds @types/node
+`@types/node` is a fourth devDependency of `e2e/`, with `types: ["node"]` in `tsconfig.json`. Why: `playwright.config.ts` reads `process.env.BASE_URL`, and `tsc` cannot type `process` without it. Approved by Xavier on top of the spec's three.
+
+## E2E Compose uses host networking
+Every service sets `network_mode: host`, with distinct ports: backend `BACKEND_PORT` (3100), frontend `FRONTEND_PORT` (5273), both overridable; the frontend's `API_URL` and the runner's `BASE_URL` point to `localhost`. Why: in this sandbox bridge networking fails (`operation not supported` creating the veth pair), and the host already uses 3000 and 5199. The images' own defaults (3000, 5173) are untouched. Revisit if CI or another machine needs bridge: service names would replace `localhost`.
+
+## E2E CI gate
+`e2e/.github/workflows/ci.yml` (push to `main` and pull requests) checks out `fotoAlbum-e2e`, `fotoAlbum-backend` and `fotoAlbum-frontend` side by side under their umbrella names, installs with `npm ci` on Node 26, then runs lint, typecheck and `npm run e2e` from `e2e/`. The compose keeps host networking in CI: it works on the runner and keeps one file for both. Why: same gate shape as the other repos plus the one command that exercises the whole stack. Triggering from backend and frontend pull requests is out of scope; it needs a cross-repo token.
