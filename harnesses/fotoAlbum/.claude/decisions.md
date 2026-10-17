@@ -74,3 +74,24 @@ Checking (neutral), ok (green ✓), error (red ✗). One check on page load, no 
 
 ## Frontend skills at project level
 `shadcn-ui/ui@shadcn` and `vercel-labs/agent-skills@vercel-react-best-practices` are installed in `frontend/`. No Tailwind or Testing Library skill was trustworthy enough. Why: only the two with wide adoption and an official or established source.
+
+## React and Testing Library peers arrive in the skeleton
+`react`, `react-dom` and their types are installed in step 1, not step 2, because `@testing-library/react` needs them as peers and the first test renders a component to prove the environment. Biome also skips `.claude/` and `skills-lock.json` in the frontend: installed skills are not our code. Why: lint must judge only what we write.
+
+## Frontend build is a script, not the CLI
+`build.ts` calls `Bun.build` with `bun-plugin-tailwind`; `dev.ts` serves `index.html` with Bun's HTML routes and the plugin from `bunfig.toml`. Why: `bun build index.html` ignores plugins, so Tailwind directives reached `dist/` unprocessed.
+
+## Biome parses Tailwind directives
+`css.parser.tailwindDirectives` is on in the frontend's `biome.json`. Why: `@theme` and `@apply` in `index.css` are Tailwind syntax and fail to parse otherwise.
+
+## Frontend stays on TypeScript 5
+The frontend pins `typescript@^5` while the backend runs 7.x. Why: `openapi-typescript` 7.13 peers on `typescript ^5` and calls its JavaScript API (`ts.factory`), which the native 7.x compiler does not expose. Revisit when `openapi-typescript` supports 7.x.
+
+## Generated schema is checked by regeneration
+`generate:check` regenerates `src/api/schema.d.ts` into a temp directory and compares it with the committed file; `src/api/schema.d.ts` is excluded from Biome. Why: it catches a hand-edited schema or a `openapi.yaml` copy refreshed without regenerating, with no cross-repo access.
+
+## HealthCheck wraps the generated client; tests fake fetch
+`HealthCheck` takes an `openapi-fetch` client and `run()` answers `ok` or `error`, never throwing. `HealthMark` takes a `HealthCheck` and picks icon, label and color from a lookup keyed by checking, ok or error. Tests build the real client with a fake `fetch`, so the generated paths and parsing are exercised. Why: the API is faked at the network edge, the one place that carries no logic of ours.
+
+## Frontend CI gate
+Same workflow as the backend (`.github/workflows/ci.yml`, push to `main` and pull requests, Bun 1.4.3, frozen install, lint, typecheck, test, build) plus `generate:check` as the last step. Why: one gate shape in both repos; the drift check is the only addition the frontend needs.

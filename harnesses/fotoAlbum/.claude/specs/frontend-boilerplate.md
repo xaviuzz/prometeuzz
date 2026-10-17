@@ -27,13 +27,13 @@ CLAUDE.md
 
 ## Steps
 
-- [ ] 1. Skeleton (structural): `package.json`, `tsconfig.json` with `@/` paths, Biome, `bunfig.toml` preloading happy-dom and Testing Library (`@testing-library/react`, `jest-dom`, `user-event`), a first passing test, the repo's `CLAUDE.md` with stack and commands (`dev`, `test`, `lint`, `typecheck`, `build`, `generate`). Install the skills `shadcn-ui/ui@shadcn` and `vercel-labs/agent-skills@vercel-react-best-practices` at project level. Every dependency needs Xavier's approval.
-- [ ] 2. Build and dev server: `index.html`, React, Tailwind v4 through `bun-plugin-tailwind`, `bun run build` into `dist/`, `bun run dev` proxying `POST /health.check` to `API_URL` (default `http://localhost:3000`). The page shows only "fotoAlbum".
-- [ ] 3. Flexoki theme and shadcn init, by hand: light and dark CSS variables following `prefers-color-scheme`, mapped to shadcn tokens (`--primary` blue; green and red from Flexoki for ok and error), `components.json`, `cn()`. No component generated. Xavier confirms the look.
-- [ ] 4. Contract and client: copy `openapi.yaml` from `backend/`, script `generate` with `openapi-typescript` and `openapi-fetch` into `src/api/`, a check that fails when the generated client drifts from the copy.
-- [ ] 5. `HealthCheck` and `HealthMark`, test-first: states checking, ok, error. Error covers `status: error`, network failure and non-200. One check on load, no polling. `callId` from `crypto.randomUUID()`. Tests fake the API. The mark is an icon with `role="status"` and an `aria-label`.
-- [ ] 6. `Header` and `App`: name plus mark, wired in `main.tsx`. By hand against the real backend: Xavier sees ✓ with the backend up and ✗ with it down.
-- [ ] 7. GitHub Actions in `.github/workflows/ci.yml`: same gate as the backend (frozen install, lint, typecheck, test, build) plus the drift check. Record the choice in `decisions.md`.
+- [x] 1. Skeleton (structural): `package.json`, `tsconfig.json` with `@/` paths, Biome, `bunfig.toml` preloading happy-dom and Testing Library (`@testing-library/react`, `jest-dom`, `user-event`), a first passing test, the repo's `CLAUDE.md` with stack and commands (`dev`, `test`, `lint`, `typecheck`, `build`, `generate`). Install the skills `shadcn-ui/ui@shadcn` and `vercel-labs/agent-skills@vercel-react-best-practices` at project level. Every dependency needs Xavier's approval.
+- [x] 2. Build and dev server: `index.html`, React, Tailwind v4 through `bun-plugin-tailwind`, `bun run build` into `dist/`, `bun run dev` proxying `POST /health.check` to `API_URL` (default `http://localhost:3000`). The page shows only "fotoAlbum".
+- [x] 3. Flexoki theme and shadcn init, by hand: light and dark CSS variables following `prefers-color-scheme`, mapped to shadcn tokens (`--primary` blue; green and red from Flexoki for ok and error), `components.json`, `cn()`. No component generated. Xavier confirms the look.
+- [x] 4. Contract and client: copy `openapi.yaml` from `backend/`, script `generate` with `openapi-typescript` and `openapi-fetch` into `src/api/`, a check that fails when the generated client drifts from the copy.
+- [x] 5. `HealthCheck` and `HealthMark`, test-first: states checking, ok, error. Error covers `status: error`, network failure and non-200. One check on load, no polling. `callId` from `crypto.randomUUID()`. Tests fake the API. The mark is an icon with `role="status"` and an `aria-label`.
+- [x] 6. `Header` and `App`: name plus mark, wired in `main.tsx`. By hand against the real backend: Xavier sees ✓ with the backend up and ✗ with it down.
+- [x] 7. GitHub Actions in `.github/workflows/ci.yml`: same gate as the backend (frozen install, lint, typecheck, test, build) plus the drift check. Record the choice in `decisions.md`.
 
 ## Out of scope
 
