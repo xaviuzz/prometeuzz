@@ -11,6 +11,7 @@ Read the test file. Name the one subject it tests.
 
 - Two or more subjects: stop. Propose splitting the file first and wait. Extraction resumes per resulting file.
 - Tests not green: stop and report. Extraction starts from green.
+- Subject is a value object (static factories, no wiring to hide): stop, nothing to extract. Its tests already read as behavior only.
 
 ## 2. Plan
 

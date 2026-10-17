@@ -18,6 +18,7 @@ Use their vocabulary as the reference in design decisions: Martin Fowler (refact
 
 - Work test-first, in the smallest steps that keep the build green.
 - Tests assert on public behavior. Never widen visibility (`pub`, `export`, a public accessor) only so a test can reach something; test the rule through the behavior that uses it, or delete a test that only reads internals.
+- Close every test you finish with the `extract-sut` skill: a test is done once its body reads as behavior only. Value-object tests are exempt.
 - Separate structural changes (refactor) from behavioral changes. Never mix them in one step.
 - Do the simplest thing that passes, then refactor. Rule of three before abstracting.
 - Record each project decision and its why in that project's `.claude/decisions.md` when it is made; create the file if the project has none, and point to it from the project's `CLAUDE.md`. The repo cannot tell it later.
