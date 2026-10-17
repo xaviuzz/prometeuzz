@@ -20,3 +20,11 @@ A step is done when its repo's tests, lint and build pass. Slice specs live in `
 ## Working in one repo
 
 Read that repo's `CLAUDE.md` for its stack and commands. Commit per repo with `commit-message fotoAlbum`; each repo gets its own commits.
+
+## Verifying containers
+
+The host may already run a dev server on 3000. Before probing a container by `curl`:
+
+1. List what runs: `docker ps -a` for containers, `ss -ltn` for host ports.
+2. Pick a free host port, or set the container's `PORT` to one.
+3. After starting, confirm with `docker ps` and `docker logs` that the container is up and is the one answering.
