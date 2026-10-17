@@ -64,6 +64,7 @@ allow_cmd 'git status && git log | head'
 allow_cmd 'git clone https://github.com/xaviuzz/pintafrases.git Sandbox/pintafrase'
 allow_cmd 'git clone git@github.com:xaviuzz/pintafrases.git Sandbox/pintafrase'
 allow_cmd 'git clone https://github.com/x/y.git Sandbox/TMP/y'
+allow_cmd 'git clone https://github.com/xaviuzz/fotoAlbum-backend.git Sandbox/fotoAlbum/backend'
 allow_cmd "git clone https://github.com/x/y.git $(cd "$(dirname "$0")/../.." && pwd)/Sandbox/y"
 
 # --- git add and commit: allowed without a prompt when the shape is safe
@@ -111,7 +112,7 @@ block_cmd 'git clone https://example.com/r /tmp/r'
 block_cmd 'git clone https://example.com/r Sandbox'
 block_cmd 'git clone https://example.com/r Sandbox/TMP'
 block_cmd 'git clone https://example.com/r Sandbox/../r'
-block_cmd 'git clone https://example.com/r Sandbox/a/b'
+block_cmd 'git clone https://example.com/r Sandbox/a/b/c'
 block_cmd 'git clone --depth 1 https://example.com/r Sandbox/r'
 block_cmd 'git clone -c core.fsmonitor=x https://example.com/r Sandbox/r'
 block_cmd 'git -C /tmp clone https://example.com/r Sandbox/r'

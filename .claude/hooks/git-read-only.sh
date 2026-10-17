@@ -84,7 +84,7 @@ commit_is_plain() {
 
 sandbox_root=${CLAUDE_PROJECT_DIR:-$(cd "$(dirname "$0")/../.." && pwd)}/Sandbox
 
-# The one write Claude may run: clone a remote into Sandbox/<name> or Sandbox/TMP/<name>.
+# The one write Claude may run: clone a remote into Sandbox/<name>, Sandbox/TMP/<name> or Sandbox/<umbrella>/<name>.
 # No flags, no -C, no local or ext:: sources, no '..' in the destination.
 clone_into_sandbox() {
   local url=${1:-} dest=${2:-}
@@ -94,7 +94,7 @@ clone_into_sandbox() {
   local inside=${dest#"$sandbox_root"/}
   [[ $inside == "$dest" ]] && inside=${dest#Sandbox/}
   [[ $inside != "$dest" ]] || return 1
-  [[ $inside =~ ^(TMP/)?[A-Za-z0-9._-]+$ ]] || return 1
+  [[ $inside =~ ^([A-Za-z0-9._-]+/)?[A-Za-z0-9._-]+$ ]] || return 1
   [[ $inside == TMP ]] && return 1
   return 0
 }
