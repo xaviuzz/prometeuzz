@@ -98,3 +98,18 @@ The frontend pins `typescript@^5` while the backend runs 7.x. Why: `openapi-type
 
 ## Frontend CI gate
 Same workflow as the backend (`.github/workflows/ci.yml`, push to `main` and pull requests, Bun 1.4.3, frozen install, lint, typecheck, test, build) plus `generate:check` as the last step. Why: one gate shape in both repos; the drift check is the only addition the frontend needs.
+
+## E2E is a third repo, composing the other two
+`fotoAlbum-e2e`, cloned as `e2e/`, holds a Docker Compose that builds `backend/` and `frontend/` from sibling paths (overridable by environment variable) and a Playwright service that runs against them. CI checks out the three repos side by side. Each of `backend/` and `frontend/` owns its own `Dockerfile`; `e2e/` only composes. Why: each repo knows how to package itself, and local runs test local code without pushing. Building from GitHub URLs was rejected: it only tests what is already pushed.
+
+## E2E covers the happy path only
+Boilerplate: one test, the green health mark. A new e2e test needs a reason it cannot be proven in `backend/` or `frontend/`. Why: e2e is slow and brittle; the red and neutral marks are already covered by frontend tests with a fake `fetch`.
+
+## E2E frontend runs the dev server
+The frontend container runs `bun run dev` with `API_URL=http://backend:3000`; its proxy is the only route to the backend. Why: no new code, and no production server without a deploy target. Revisit when deploy topology is decided; e2e then tests the real topology.
+
+## Playwright on Node in the official image
+The runner is a Compose service on `mcr.microsoft.com/playwright`, version pinned equal to `@playwright/test`, running Node. Dependencies: `@playwright/test`, Biome, TypeScript. Why: Playwright on Bun is not the supported path, and the image already carries the browsers.
+
+## Compose waits on healthchecks
+Backend and frontend declare a `healthcheck`; the runner uses `depends_on` with `condition: service_healthy`. One command, `docker compose up --build --abort-on-container-exit --exit-code-from e2e`, is exposed as `e2e`. Why: no `sleep`, and the exit code serves CI.
