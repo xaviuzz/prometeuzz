@@ -1,0 +1,22 @@
+# fotoAlbum
+
+Photo album web app, TypeScript. An umbrella of two independent repos, each with its own pipeline and its own `CLAUDE.md` for stack and commands:
+
+- `backend/` (`fotoAlbum-backend`): owns the API contract, `openapi.yaml`.
+- `frontend/` (`fotoAlbum-frontend`): keeps a pinned copy of `openapi.yaml` and generates its client from it.
+
+This file and `.claude/` hold only what crosses both repos. Decisions and their why: `.claude/decisions.md`.
+
+## Vertical slices
+
+Work one slice at a time, every slice end to end. Each step of a slice spec names the repo it changes, in this order:
+
+1. Contract: change `openapi.yaml` in `backend/`, copy it to `frontend/`, regenerate the client.
+2. Backend.
+3. Frontend.
+
+A step is done when its repo's tests, lint and build pass. Slice specs live in `.claude/specs/`.
+
+## Working in one repo
+
+Read that repo's `CLAUDE.md` for its stack and commands. Commit per repo with `commit-message fotoAlbum`; each repo gets its own commits.
