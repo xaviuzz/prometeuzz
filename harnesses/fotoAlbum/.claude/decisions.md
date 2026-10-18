@@ -188,3 +188,6 @@ Binding reads "Tapa dura" or "Tapa blanda"; orientation reads "Cuadrado", "Verti
 
 ## Catalogue takes half the window and fits up to three albums
 The catalogue row takes half the window width and half its height. With three albums or fewer the cards share the row width and no scroll appears; with more they keep a fixed width and the row scrolls sideways. Why: Xavier's choice, so a short catalogue looks full instead of lost and a long one stays reachable.
+
+## Penpot design: one page per screen, light mode only
+The Penpot file (named "fotoAlbum", file id `cd444aaf-0d8c-801b-8008-cefe3a0186e8`) has one page per screen, "Elige un álbum" (home) and "Confección" (making page). Each page holds one 1440 px wide board per state, named `<Screen> · <State>`: Catálogo, Cargando, Error, Vacío; Álbum, Cargando, Error, No encontrado. Only the light theme is designed. Colors are the Flexoki variables of `frontend/src/index.css`; texts come from the components and the seed. Why: Xavier's choice; the app still follows `prefers-color-scheme`, but the design is the reference for the light look only.

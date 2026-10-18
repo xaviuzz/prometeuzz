@@ -1,6 +1,6 @@
 # Choose an album
 
-Repos: `backend/`, `frontend/`, `e2e/`. Docs: `docs/album.md`. Decisions and their why: `.claude/decisions.md`.
+Repos: `backend/`, `frontend/`, `e2e/`. Docs: `docs/album.md`. Decisions and their why: `.claude/decisions.md`. Design: Penpot pages "Elige un álbum" and "Confección" (see the Penpot decision).
 
 Goal: the home page lists the catalogue's albums as cards in a horizontal row; clicking a card opens the making page, which shows that album's commercial name and characteristics. `bun run e2e` proves it.
 
