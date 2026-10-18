@@ -53,9 +53,13 @@ A project whose `CLAUDE.md` has a `## Contributing` section is an upstream contr
 
 A project whose upstream has no Claude setup keeps its `CLAUDE.md` and `.claude/` in `harnesses/<name>/`, linked into `Sandbox/<name>`. A project made of several repos is an umbrella and works the same way. Read `.claude/harnesses.md` before cloning, working in or creating such a project, and whenever a project's `CLAUDE.md` is missing.
 
+## Experiments
+
+Read `.claude/experiments.md` when Xavier announces an experiment, or asks to revert everything: it holds the HEAD record, the revert commands and the check.
+
 ## Penpot
 
-Read `.claude/penpot.md` before using the `penpot` MCP or registering it in a project.
+Use the `penpot` MCP, and touch any Penpot file, only when Xavier asks. Read `.claude/penpot.md` before using the MCP or registering it in a project.
 
 ## Preferred skills
 
