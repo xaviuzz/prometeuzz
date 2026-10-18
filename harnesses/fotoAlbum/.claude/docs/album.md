@@ -35,7 +35,7 @@ Orientation is not entered. It follows from the album size: square when width an
 
 ## Choosing an album
 
-People choose which album to make from the list of albums in the catalogue, each shown with its commercial name and its characteristics. Choosing one opens the place where that album will be made, which shows its commercial name, reference, album size, page size, page count, binding and orientation. Choosing stores nothing. Until albums can be created, the catalogue holds a few sample albums: one square, one portrait and one landscape.
+People choose which album to make from the list of albums in the catalogue, each shown with its commercial name and its characteristics. Choosing one opens the place where that album will be made, which shows its commercial name, reference, album size, page size, page count, binding and orientation. Choosing records the album in the anonymous session (see `session.md`), which then takes the person to that album's making page whenever they open the app. Until albums can be created, the catalogue holds a few sample albums: one square, one portrait and one landscape.
 
 ## Out of scope
 

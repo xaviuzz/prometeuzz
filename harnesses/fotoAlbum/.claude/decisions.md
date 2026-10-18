@@ -142,7 +142,7 @@ The slice lists the catalogue as cards, opens a making page for the chosen album
 `album.list` and `album.get` read an in-memory catalogue seeded with three albums (square, portrait, landscape). Why: create is another slice; storage arrives with it.
 
 ## Choosing an album stores nothing
-Clicking a card navigates to the making page and persists nothing. Why: the concrete album has no concept yet; its doc comes before any storage.
+Clicking a card navigates to the making page and persists nothing. Why: the concrete album has no concept yet; its doc comes before any storage. Replaced by "Choosing an album is recorded in the anonymous session".
 
 ## react-router for two pages
 The frontend adds `react-router` for `/` and `/confeccion/:reference`. Why: reload and direct links need a URL per page; state-only navigation was rejected. Approved by Xavier.
@@ -191,3 +191,24 @@ The catalogue row takes half the window width and half its height. With three al
 
 ## Penpot design: one page per screen, light mode only
 The Penpot file (named "fotoAlbum", file id `cd444aaf-0d8c-801b-8008-cefe3a0186e8`) has one page per screen, "Elige un álbum" (home) and "Confección" (making page). Each page holds one 1440 px wide board per state, named `<Screen> · <State>`: Catálogo, Cargando, Error, Vacío; Álbum, Cargando, Error, No encontrado. Only the light theme is designed. Colors are the Flexoki variables of `frontend/src/index.css`; texts come from the components and the seed. Why: Xavier's choice; the app still follows `prefers-color-scheme`, but the design is the reference for the light look only.
+
+## Anonymous session lives in the browser
+The anonymous session (`docs/session.md`) is created and kept by the frontend alone, in the browser's storage; the backend knows nothing of it and the contract does not change. Why: the slice is pure interaction. The backend receives the session when something (concrete albums) must belong to one, and the way it is issued is decided then.
+
+## Choosing an album is recorded in the anonymous session
+Clicking a card records the album in the session, and the session keeps one chosen album until it starts over. With a chosen album every address leads to its making page; with none, the making page's address leads to the catalogue and opening it never chooses. The "Volver al catálogo" link is removed. Why: Xavier's choice; starting over from the avatar is the way back, so a link would offer a second one.
+
+## Starting over: avatar menu with confirmation
+The header shows the session's avatar on every page; its menu has one option, "Volver a empezar", which asks confirmation and then replaces the session with a new one and returns to the catalogue. Why: it forgets the chosen album, so it must not happen by accident.
+
+## Avatar colour follows the session identity
+The avatar is a circle with a generic person icon whose colour is picked from a fixed set of Flexoki colours by the session's identity. Why: the same session always looks the same, a new one looks different, and nothing needs to be entered.
+
+## Session storage degrades to memory
+When the browser refuses storage, the session lives only while the page stays open and shows no error. A stored session that cannot be read is replaced by a new one. Why: the app must stay usable; persistence is a convenience here.
+
+## Penpot only when asked
+No slice touches the Penpot file unless Xavier asks for it. The anonymous-session slice leaves the design as it is. Why: Xavier's rule.
+
+## shadcn components for the session menu
+The avatar uses shadcn `Avatar`, the menu `DropdownMenu` and the confirmation `AlertDialog`. Adding them to `src/components/ui/` brings the dependencies they need. Why: Xavier asked for shadcn; the project skill prefers its components over hand-made markup.
