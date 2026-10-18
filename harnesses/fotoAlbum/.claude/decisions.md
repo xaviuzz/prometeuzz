@@ -134,3 +134,18 @@ The reference is unique, immutable, readable (letters, digits, hyphens; case-ins
 
 ## Album measures: free millimetres, no limits
 Album size and page size are whole millimetres above zero with no upper limit, and a page never exceeds the album. Page count is even, with no range per binding. Bindings: hardcover and softcover. Why: no real printing limit is known yet; limits arrive with one. Format is immutable after creation, since a layout depends on it.
+
+## First slice: choose an album
+The slice lists the catalogue as cards, opens a making page for the chosen album and is covered by one e2e happy path. Spec: `specs/choose-album.md`. Why: it is the smallest path that crosses contract, backend, frontend and e2e with a real concept.
+
+## Catalogue in memory with a seed
+`album.list` and `album.get` read an in-memory catalogue seeded with three albums (square, portrait, landscape). Why: create is another slice; storage arrives with it.
+
+## Choosing an album stores nothing
+Clicking a card navigates to the making page and persists nothing. Why: the concrete album has no concept yet; its doc comes before any storage.
+
+## react-router for two pages
+The frontend adds `react-router` for `/` and `/confeccion/:reference`. Why: reload and direct links need a URL per page; state-only navigation was rejected. Approved by Xavier.
+
+## Interface in Spanish
+UI texts are Spanish; code, contract and identifiers stay English. Why: Xavier's choice.

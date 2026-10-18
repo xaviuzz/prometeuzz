@@ -33,6 +33,10 @@ Orientation is not entered. It follows from the album size: square when width an
 4. Rename an album: change its commercial name.
 5. Withdraw an album from the catalogue. Albums are never deleted.
 
+## Choosing an album
+
+People choose which album to make from the list of albums in the catalogue, each shown with its commercial name and its characteristics. Choosing one opens the place where that album will be made, which shows its commercial name, reference, album size, page size, page count, binding and orientation. Choosing stores nothing. Until albums can be created, the catalogue holds a few sample albums: one square, one portrait and one landscape.
+
 ## Out of scope
 
 - Photos, pages' content and layout.
