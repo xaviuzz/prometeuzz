@@ -32,3 +32,5 @@ The host may already run a dev server on 3000. Before probing a container by `cu
 3. After starting, confirm with `docker ps` and `docker logs` that the container is up and is the one answering.
 
 A dev server started for a check is stopped by PID: `ss -ltnp | grep :<port>`, then `kill <pid>`. `pkill -f` matches the calling shell's own command line and kills it.
+
+A failed image build leaves a stopped container that `docker compose down` does not see. Check `docker ps -a` and `docker rm` it by name.

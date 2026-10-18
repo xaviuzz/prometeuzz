@@ -173,3 +173,6 @@ Loading is a quiet "Cargando…" with `role="status"`. A failed call is a shadcn
 
 ## Spanish labels for album values
 Binding reads "Tapa dura" or "Tapa blanda"; orientation reads "Cuadrado", "Vertical" or "Apaisado"; sizes read "210 × 210 mm". Why: the interface is in Spanish; the contract values stay English.
+
+## Bring the stack up for manual checks
+`e2e` has `up` and `down` scripts that start and stop backend and frontend without the Playwright service, and image builds use host networking. Why: trying the web against the real backend by hand needs the same composition the tests use, and the bridge network fails in this sandbox for builds as well as services.
