@@ -149,3 +149,15 @@ The frontend adds `react-router` for `/` and `/confeccion/:reference`. Why: relo
 
 ## Interface in Spanish
 UI texts are Spanish; code, contract and identifiers stay English. Why: Xavier's choice.
+
+## Album contract shape
+`Album` carries `reference`, `commercialName`, `albumSize` and `pageSize` (each `{ width, height }`, whole millimetres), `pageCount`, `binding` (`hardcover` or `softcover`) and `orientation` (`square`, `portrait` or `landscape`). `album.list` answers `{ albums }`; `album.get` takes `{ reference }` and answers `{ album }` or the error `ALBUM_NOT_FOUND`. Why: sizes are pairs that always travel together, so nesting them keeps each pair one value.
+
+## Orientation is computed before serving
+The backend derives `orientation` from the album size on every reply; it is never stored or entered. Why: it follows from the size by rule, so a stored copy could drift.
+
+## Album reference lookup ignores case
+`album.get` finds `fam-2025` and `FAM-2025` as the same album and answers the reference as the catalogue holds it. Why: the reference is case-insensitive in `docs/album.md`.
+
+## Album seed
+`SQ-210` "Cuadrado clásico" (210×210, page 200×200, 24 pages, hardcover); `PT-150` "Retrato de bolsillo" (150×210, page 140×200, 20 pages, softcover); `LD-297` "Paisaje grande" (297×210, page 287×200, 32 pages, softcover). Why: one album per orientation; the e2e test relies on them.
