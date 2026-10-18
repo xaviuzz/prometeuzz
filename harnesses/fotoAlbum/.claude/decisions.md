@@ -164,3 +164,12 @@ The backend derives `orientation` from the album size on every reply; it is neve
 
 ## Album lookup takes the typed text
 `Catalogue.find` takes the text typed by the caller and compares it, ignoring capitals, with each album's reference. A text that is not a well-formed reference simply matches nothing and answers `ALBUM_NOT_FOUND`; `Reference` is validated only when an album is created. `AlbumNotFoundError` is mapped to `ALBUM_NOT_FOUND` in `CallOperation`. Why: consulting needs no validation, and a malformed lookup is just an album that does not exist.
+
+## Pages load their own data
+`HomePage` and `MakingPage` each read through `useAlbums()` into their own loading, error and answer state; there is no generic loading hook. Why: two uses, with different data shapes; the rule of three comes first.
+
+## Loading, error and empty states
+Loading is a quiet "Cargando…" with `role="status"`. A failed call is a shadcn `Alert`; an empty catalogue and an unknown reference are a shadcn `Empty`. Why: loading must not look like an empty catalogue, and the project skill asks for these components over hand-made markup.
+
+## Spanish labels for album values
+Binding reads "Tapa dura" or "Tapa blanda"; orientation reads "Cuadrado", "Vertical" or "Apaisado"; sizes read "210 × 210 mm". Why: the interface is in Spanish; the contract values stay English.

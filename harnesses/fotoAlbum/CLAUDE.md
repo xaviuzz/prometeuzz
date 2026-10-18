@@ -23,10 +23,12 @@ Any later edit to `openapi.yaml` repeats the contract step in the same change: c
 
 Read that repo's `CLAUDE.md` for its stack and commands. Commit per repo with `commit-message fotoAlbum`; each repo gets its own commits.
 
-## Verifying containers
+## Verifying containers and servers
 
 The host may already run a dev server on 3000. Before probing a container by `curl`:
 
 1. List what runs: `docker ps -a` for containers, `ss -ltn` for host ports.
 2. Pick a free host port, or set the container's `PORT` to one.
 3. After starting, confirm with `docker ps` and `docker logs` that the container is up and is the one answering.
+
+A dev server started for a check is stopped by PID: `ss -ltnp | grep :<port>`, then `kill <pid>`. `pkill -f` matches the calling shell's own command line and kills it.
