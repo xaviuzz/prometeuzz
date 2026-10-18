@@ -122,3 +122,15 @@ Every service sets `network_mode: host`, with distinct ports: backend `BACKEND_P
 
 ## E2E CI gate
 `e2e/.github/workflows/ci.yml` (push to `main` and pull requests) checks out `fotoAlbum-e2e`, `fotoAlbum-backend` and `fotoAlbum-frontend` side by side under their umbrella names, installs with `npm ci` on Node 26, then runs lint, typecheck and `npm run e2e` from `e2e/`. The compose keeps host networking in CI: it works on the runner and keeps one file for both. Why: same gate shape as the other repos plus the one command that exercises the whole stack. Triggering from backend and frontend pull requests is out of scope; it needs a cross-repo token.
+
+## Album is a catalogue model
+`Album` is a model in the catalogue (size, page size, page count, binding), not a physical album owned by someone; photos and layout belong to a future concrete album made from a model. Why: the product to offer and the object someone fills are different things with different lives. The concrete album has no name yet. Defined in `docs/album.md`.
+
+## Albums are withdrawn, never deleted
+An album leaves the catalogue by being withdrawn; there is no delete, and its reference is never reused. Why: concrete albums will depend on the model they came from. Whether a withdrawn album can return, appear in lists or be consulted is open in `docs/album.md`.
+
+## Album reference is typed by the user
+The reference is unique, immutable, readable (letters, digits, hyphens; case-insensitive), typed by the user, not generated. Why: Xavier's choice; the commercial name is only a label and may repeat.
+
+## Album measures: free millimetres, no limits
+Album size and page size are whole millimetres above zero with no upper limit, and a page never exceeds the album. Page count is even, with no range per binding. Bindings: hardcover and softcover. Why: no real printing limit is known yet; limits arrive with one. Format is immutable after creation, since a layout depends on it.
