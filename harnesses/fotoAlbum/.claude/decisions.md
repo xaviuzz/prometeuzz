@@ -176,3 +176,15 @@ Binding reads "Tapa dura" or "Tapa blanda"; orientation reads "Cuadrado", "Verti
 
 ## Bring the stack up for manual checks
 `e2e` has `up` and `down` scripts that start and stop backend and frontend without the Playwright service, and image builds use host networking. Why: trying the web against the real backend by hand needs the same composition the tests use, and the bridge network fails in this sandbox for builds as well as services.
+
+## Page parts live in their own components
+`HomePage` and `MakingPage` only load data and compose; what they show for each state lives in `Catalogue`, `AlbumRow`, `AlbumMaking` and `AlbumCharacteristics` under `src/components/`, each with its own test. Page tests keep the first level: the title, the heading, the reference asked, the way back. Why: private parts inside a page cannot be tested on their own, and the layout rule asks for the child's content to belong to the child's test.
+
+## Components grouped by feature
+`src/components/` holds one component per file, in `layout/` (`Header`, `HealthMark`), `catalogue/` (`Catalogue`, `AlbumRow`, `AlbumCard`) and `making/` (`AlbumMaking`, `AlbumCharacteristics`); `test/components/` mirrors it. What is not a component lives in `src/lib/`. Why: what changes together lives together, and a folder of components should hold only components.
+
+## Albums are presented by a decorator
+`Albums` answers `PresentedAlbum` (in `src/lib/`), a decorator that wraps the contract `Album` and adds the Spanish labels (binding, orientation, album and page size); the components ask it and no longer know the label maps. It forwards `reference`, `commercialName` and `pageCount` and does not expose the raw `Album`. Why: tell, don't ask; the contract type is generated and cannot carry behavior, and composition beats inheritance.
+
+## Catalogue takes half the window and fits up to three albums
+The catalogue row takes half the window width and half its height. With three albums or fewer the cards share the row width and no scroll appears; with more they keep a fixed width and the row scrolls sideways. Why: Xavier's choice, so a short catalogue looks full instead of lost and a long one stays reachable.
