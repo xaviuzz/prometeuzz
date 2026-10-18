@@ -38,7 +38,7 @@ Claude uses git **read-only, always, with two exceptions** (`git clone` into `Sa
 
 Allowed command shapes, blocked shapes and the why: `.claude/git-policy.md`. Read it before any git or `gh` command beyond plain `status`, `log` or `diff`, and before editing the hook. `.claude/hooks/git-read-only.sh` enforces it, in sessions started in PrometeuZZ only.
 
-The hook blocks any Bash command that mentions `git` or `gh`, even as a search pattern. Search with Grep or Read instead.
+The hook blocks any Bash command that mentions `git` or `gh`, even as a search pattern or as `.git` in an exclude list (`tar`, `find`). Search with Grep or Read instead; for a copy that must skip `.git`, write a script file and run it.
 
 ## Learning projects
 

@@ -30,4 +30,4 @@ Run each command as its own Bash call and read its exit status. A piped command 
 - Lockfiles travel with the template, so a new project starts on the versions of the tag. The only name inside them is the package's, which `{{packageName}}` fills.
 - `skills-lock.json` and `frontend/.claude/skills` stay out: third-party content copied by hand goes stale.
 - `template/harness/` holds the umbrella `CLAUDE.md`, `decisions.md` and the three boilerplate specs. The decisions are inherited with their why, under a note saying so. The spec steps stay `- [x]`: the rendered project already contains that work and step 3 proves it.
-- `render.mjs` takes the PrometeuZZ root as its first argument so a test run can render into a scratch root under `Sandbox/TMP/` and leave `harnesses/` alone.
+- `render.mjs` takes the PrometeuZZ root as its first argument so a test run can render into a scratch root under `Sandbox/TMP/` and leave `harnesses/` alone. A test run that reaches `npm run e2e` leaves root-owned files in `e2e/test-results/`; Xavier removes the scratch root with `! sudo rm -rf`.

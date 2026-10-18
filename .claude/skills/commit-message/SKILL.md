@@ -66,7 +66,7 @@ Print the plan first: per repository, each commit in order as its message follow
 For each commit in order:
 
 1. Ask with AskUserQuestion. The question is the message. The first option, "Commit", carries a `preview` that lists the files one per line; the other options are "Skip" and "Stop". Show no git command.
-2. On "Commit", run one Bash call: `git -C <repo> add -- <file> <file> && git -C <repo> commit -m '<message>'`. Paths are explicit and repo-relative; the already-staged group runs the `commit` alone. The message has single quotes and no other flag.
+2. On "Commit", run one Bash call: `git -C <repo> add -- <file> <file> && git -C <repo> commit -m '<message>'`. Paths are explicit and repo-relative, written literally and unquoted: the hook blocks quoted paths, variables and globs. The already-staged group runs the `commit` alone. The message has single quotes and no other flag.
 
 The answer to the question is the approval. Run nothing for a commit before its "Commit".
 
