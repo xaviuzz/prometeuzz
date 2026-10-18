@@ -1,6 +1,6 @@
 # Harnesses
 
-A **harness** is the Claude setup of a project whose upstream has none: its `CLAUDE.md` and `.claude/` (specs, reference). It lives in `harnesses/<name>/` at the PrometeuZZ root, tracked by PrometeuZZ. The project in `Sandbox/` only links to it, so `/clean` never loses it and the fork never commits it.
+A **harness** is the Claude setup of a project whose upstream has none: its `CLAUDE.md` and `.claude/` (specs, reference, docs). It lives in `harnesses/<name>/` at the PrometeuZZ root, tracked by PrometeuZZ. The project in `Sandbox/` only links to it, so `/clean` never loses it and the fork never commits it.
 
 ## Layout
 
@@ -17,7 +17,7 @@ Run when a project with a harness is cloned into `Sandbox/`, or when Xavier asks
 
 ## Detach
 
-Remove the two links and nothing else. Edits made through a link already sit in `harnesses/<name>/`; commit them in PrometeuZZ with `commit-message`.
+Remove the two links and nothing else. Edits made through a link already sit in `harnesses/<name>/`; the editing tool refuses the `CLAUDE.md` link, so edit `harnesses/<name>/CLAUDE.md` directly. Commit them in PrometeuZZ with `commit-message`.
 
 ## Umbrella
 

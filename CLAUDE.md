@@ -21,6 +21,7 @@ Use their vocabulary as the reference in design decisions: Martin Fowler (refact
 - Close every test you finish with the `extract-sut` skill: a test is done once its body reads as behavior only. Value-object tests are exempt.
 - Separate structural changes (refactor) from behavioral changes. Never mix them in one step.
 - Do the simplest thing that passes, then refactor. Rule of three before abstracting.
+- Define each functional concept of a project in `.claude/docs/<concept>.md` before building it: what it is, what defines it, its rules, what can be done with it, what is out of scope, open questions. Write it in English, in business language, without programming terms (no class or field names), after grilling Xavier on the concept. Choose and scope every slice or spec from the docs it touches: read them first, name them in the spec, and update the doc in the same change when a rule is added or changed.
 - Record each project decision and its why in that project's `.claude/decisions.md` when it is made; create the file if the project has none, and point to it from the project's `CLAUDE.md`. The repo cannot tell it later.
 - In a TDD run, agree the seam once, then run every planned cycle in one go. Report at the end of the run, or earlier when a cycle contradicts the plan.
 - Mark each step of a spec as done (`- [x]`) when its tests, lint and build pass. "Next step" is the first unmarked one. The code cannot tell which step a file belongs to. A step the spec says is tried by hand is marked only after Xavier confirms it.
@@ -80,7 +81,7 @@ Reach for these first, before improvising a process:
 - **Project**: a directory directly inside `Sandbox/` that is its own git repository and has its own `CLAUDE.md`, or an umbrella directory of several repos (see Harnesses). The folder name is the project name. Anything smaller is not a project.
 - `Sandbox/`: the single home for every project PrometeuZZ creates or works on. It is the `Sandbox/` directory at the root of this repo (`~/sandbox/PrometeuZZ/Sandbox/`), so resolve every `Sandbox/...` path from the repo root, never from `~/sandbox/`. The rule applies to new projects; existing ones in `~/sandbox` are left alone.
 - `Sandbox/TMP/`: read-only references and scratch material (e.g. clones of reference repos). We read from it, never build in it. It can be deleted at any time without losing work.
-- Each project keeps `reference/` (research material) and `specs/` (step-by-step plans) inside its own `.claude/`, never at the project root. Put new ones there without asking.
+- Each project keeps `reference/` (research material), `specs/` (step-by-step plans) and `docs/` (functional concepts) inside its own `.claude/`, never at the project root. Put new ones there without asking.
 
 ## Current project
 
