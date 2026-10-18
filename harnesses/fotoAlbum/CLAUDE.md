@@ -17,6 +17,8 @@ Work one slice at a time, every slice end to end. Slices are scoped from the con
 
 A step is done when its repo's tests, lint and build pass. Slice specs live in `.claude/specs/`.
 
+Any later edit to `openapi.yaml` repeats the contract step in the same change: copy it to `frontend/` and run `generate`. `generate:check` fails otherwise.
+
 ## Working in one repo
 
 Read that repo's `CLAUDE.md` for its stack and commands. Commit per repo with `commit-message fotoAlbum`; each repo gets its own commits.

@@ -161,3 +161,6 @@ The backend derives `orientation` from the album size on every reply; it is neve
 
 ## Album seed
 `SQ-210` "Cuadrado clásico" (210×210, page 200×200, 24 pages, hardcover); `PT-150` "Retrato de bolsillo" (150×210, page 140×200, 20 pages, softcover); `LD-297` "Paisaje grande" (297×210, page 287×200, 32 pages, softcover). Why: one album per orientation; the e2e test relies on them.
+
+## Album lookup takes the typed text
+`Catalogue.find` takes the text typed by the caller and compares it, ignoring capitals, with each album's reference. A text that is not a well-formed reference simply matches nothing and answers `ALBUM_NOT_FOUND`; `Reference` is validated only when an album is created. `AlbumNotFoundError` is mapped to `ALBUM_NOT_FOUND` in `CallOperation`. Why: consulting needs no validation, and a malformed lookup is just an album that does not exist.
