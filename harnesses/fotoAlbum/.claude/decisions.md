@@ -30,6 +30,8 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Backend CI gate](decisions/backend-ci-gate.md)
 - [Body is an object; Call answers for itself](decisions/body-is-an-object-call-answers-for-itself.md)
 - [The backend image installs its dependencies](decisions/the-backend-image-installs-its-dependencies.md)
+- [Errors carry their contract code](decisions/errors-carry-their-contract-code.md)
+- [Operations validate inside execute](decisions/operations-validate-inside-execute.md)
 
 ## Frontend foundation
 

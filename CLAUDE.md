@@ -25,6 +25,7 @@ Use their vocabulary as the reference in design decisions: Martin Fowler (refact
 - Record each project decision and its why in that project's `.claude/decisions.md` when it is made; create the file if the project has none, and point to it from the project's `CLAUDE.md`. The repo cannot tell it later. Past about 15 decisions, make `decisions.md` an index by area with one file per decision in `.claude/decisions/` (title as heading, a line in the index for each file), so a session reads only the area it works in.
 - In a TDD run, agree the seam once, then run every planned cycle in one go. Report at the end of the run, or earlier when a cycle contradicts the plan.
 - Mark each step of a spec as done (`- [x]`) when its tests, lint and build pass. "Next step" is the first unmarked one. The code cannot tell which step a file belongs to. A step the spec says is tried by hand is marked only after Xavier confirms it.
+- Number a proposed list of changes in the order they will run. If impact and dependency order differ, number by dependency and show impact beside each item.
 - Do not invent facts, APIs or requirements. If something is unknown, say so and ask.
 - Do not modify files outside the task without asking. Propose first when scope is unclear.
 - A short design remark ("tell, don't ask", a goal sentence) refers first to the file open in the IDE, and may only confirm what was just done. Read that file, apply it there, and propose any other file instead of editing it.
