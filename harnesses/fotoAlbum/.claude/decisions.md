@@ -269,3 +269,6 @@ Over 25 MB is `TOO_LARGE`; what `sharp` cannot read as an image is `UNREADABLE_I
 
 ## The backend image installs its dependencies
 The backend `Dockerfile` copies `bun.lock` and runs `bun install --frozen-lockfile --production`, like the frontend's. Why: without `node_modules`, Bun auto-installs `sharp` at the first upload and blocks the whole server. Found when trying the tray by hand.
+
+## E2E uses committed fixtures and an explicit DATA_DIR
+The e2e photos are two small real files (a JPEG and a PNG) committed in `e2e/tests/fixtures/`, so the upload runs through two real formats with no added dependency. The backend service sets `DATA_DIR` to a directory inside its container: each run starts empty and nothing reaches the host. Why: the tray test counts photos, so leftovers from an earlier run would break it. The thumbnail check waits for the image to load, because a 404 on the thumbnail route would otherwise pass.

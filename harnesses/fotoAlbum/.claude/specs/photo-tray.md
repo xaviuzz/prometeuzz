@@ -34,7 +34,7 @@ A step is done when its repo's tests, lint, typecheck and build pass (in `e2e/`,
   The Dockerfile installs dependencies (see decisions, "The backend image installs its dependencies"); check `sharp` locally.
 - [x] 4. Frontend (`frontend/`): the photo client in `Api` (`list()`, `upload(files)`, never throwing) and its hook; the session identity travels in every call; the dev server proxies `photo.*` and `/photos/*` to `API_URL`. `PhotoTray` and its parts in `making/`, the 25 % layout in the making page, the states above. Add the shadcn components the tray needs. Tests fake `fetch`.
 - [x] 5. By hand: Xavier tries it with `e2e`'s `up` script (several photos at once, one invalid file, reload, start over) and confirms.
-- [ ] 6. E2E (`e2e/`): upload two fixture images, see two thumbnails, reload and they remain, start over and the tray is empty. The backend image builds `sharp`; `DATA_DIR` is a temp directory. Red first, then green with `npm run e2e`.
+- [x] 6. E2E (`e2e/`): upload two fixture images, see two thumbnails, reload and they remain, start over and the tray is empty. The backend image builds `sharp`; `DATA_DIR` is a temp directory. Red first, then green with `npm run e2e`.
 
 ## Out of scope
 
