@@ -102,6 +102,13 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The frontend presents a user album as an album](decisions/the-frontend-presents-a-user-album-as-an-album.md)
 - [The making page has one route](decisions/the-making-page-has-one-route.md)
 - [The header shows characteristics on hover](decisions/the-header-shows-characteristics-on-hover.md)
+- [A user album gate replaces the session gate](decisions/a-user-album-gate-replaces-the-session-gate.md)
+- [The catalogue card is a button](decisions/the-catalogue-card-is-a-button.md)
+- [Face number and page proportion carry the face rules](decisions/face-number-and-page-proportion-carry-the-face-rules.md)
+- [The card does nothing between pages substeps 1 and 2](decisions/the-card-does-nothing-between-pages-substeps-1-and-2.md)
+- [Photo list counts only photo folders](decisions/photo-list-counts-only-photo-folders.md)
+- [The face fits the free space with container units](decisions/face-fits-the-free-space-with-container-units.md)
+- [The binding side attribute lives on the face](decisions/binding-side-attribute-lives-on-the-face.md)
 
 ## Session
 

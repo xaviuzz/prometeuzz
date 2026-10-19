@@ -1,0 +1,3 @@
+# A user album gate replaces the session gate
+
+`SessionGate` is replaced by a gate that asks `userAlbum.get` on entering and whenever the session changes, shows "Cargando…" or an `Alert`, and offers the user album through a context. That context also offers `adopt`, which `userAlbum.create` calls with the user album it answered, so entering the making page needs no second call. Starting over changes the session, the gate asks again, gets `USER_ALBUM_NOT_FOUND` and the routes lead to `/`. Why: Xavier's choice; `Session.path()` goes away, and the reference in the address no longer decides anything (see "The making page has one route"); `create` already answers the whole user album.
