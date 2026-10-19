@@ -9,3 +9,4 @@ One item at a time: explain it, agree the solution, then change. Each item keeps
 - [x] 5. `PhotoUpload` does too much and fills `photos` by side effect: introduce an object that collects accepted and rejected files; move the size limit and the refusal code to where they belong.
 - [x] 6. Split transport from handlers (JSON and multipart adapters share one failure path). Reverses `operations-serve-http-requests` and `upload-is-its-own-operation`; grill before building.
 - [ ] 7. Domain, when the rule of three is met: `AlbumData` and `AlbumDescription` overlap, `binding` as a type, `Call` casts, `Bun.randomUUIDv7` inside the domain.
+- [x] 8. Routes as a map for `Bun.serve routes`: `OperationRegistry.routes()` and `ThumbnailRoute.routes()`; `Server` loses its `if`, `find` and `NoOperation` go (answers item 4's open question).
