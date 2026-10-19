@@ -37,7 +37,7 @@ A step is done when its repo's tests, lint, typecheck and build pass (in `e2e/`,
   4. The header with its `HoverCard` (the commercial name is the trigger, opens on hover and focus), replacing `AlbumCharacteristics`; the making page no longer calls `album.get`.
   Tests render each part inside `ApiProvider` and a memory router.
 - [x] 6. By hand: Xavier tries it with `e2e`'s `up` script (each seed's proportions, the binding mark on both sides, the hover, the limits, reload, start over and choose another) and confirms.
-- [ ] 7. E2E (`e2e/`): adapt `tests/choose-album.spec.ts` to the new flow (click a card, land on `/confeccion` showing the commercial name); add `tests/user-album.spec.ts`: see "1/N", press "Siguiente" and see "2/N", reload and see "1/N" with the same album. Red first, then green with `npm run e2e`.
+- [x] 7. E2E (`e2e/`): adapt `tests/choose-album.spec.ts` to the new flow (click a card, land on `/confeccion` showing the commercial name); add `tests/user-album.spec.ts`: see "1/N", press "Siguiente" and see "2/N", reload and see "1/N" with the same album. Red first, then green with `npm run e2e`.
 
 ## Out of scope
 

@@ -117,6 +117,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Starting over: avatar menu with confirmation](decisions/starting-over-avatar-menu-with-confirmation.md)
 - [Avatar colour follows the session identity](decisions/avatar-colour-follows-the-session-identity.md)
 - [Session storage degrades to memory](decisions/session-storage-degrades-to-memory.md)
+- [A new session is stored when it starts](decisions/a-new-session-is-stored-when-it-starts.md)
 - [shadcn components for the session menu](decisions/shadcn-components-for-the-session-menu.md)
 - [The backend receives the session identity](decisions/the-backend-receives-the-session-identity.md)
 - [Session identity travels in Call](decisions/session-identity-travels-in-call.md)
