@@ -6,7 +6,7 @@ Web app, TypeScript. An umbrella of three independent repos, each with its own p
 - `frontend/` (`{{name}}-frontend`): keeps a pinned copy of `openapi.yaml` and generates its client from it.
 - `e2e/` (`{{name}}-e2e`): Playwright tests against `backend/` and `frontend/` composed by Docker Compose.
 
-This file and `.claude/` hold only what crosses both repos. Decisions and their why: `.claude/decisions.md`.
+This file and `.claude/` hold only what crosses both repos. Decisions and their why: `.claude/decisions.md` indexes them by area, one file each in `.claude/decisions/`. Before deciding in an area, read that area's files, not all of them; record a new decision as its own file and add its line to the index.
 
 ## Vertical slices
 
