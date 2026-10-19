@@ -20,6 +20,8 @@ Use their vocabulary as the reference in design decisions: Martin Fowler (refact
 - Tests assert on public behavior. Never widen visibility (`pub`, `export`, a public accessor) only so a test can reach something; test the rule through the behavior that uses it, or delete a test that only reads internals.
 - Close every test you finish with the `extract-sut` skill: a test is done once its body reads as behavior only. Value-object tests are exempt.
 - Separate structural changes (refactor) from behavioral changes. Never mix them in one step.
+- Run the project's tests after every refactor step, including a move or rename, before the next step or the report.
+- After moving or renaming a folder, list the old location (source and tests) and remove what it left empty. Passing tests do not show a stray file or an empty folder.
 - Do the simplest thing that passes, then refactor. Rule of three before abstracting.
 - Define each functional concept of a project in `.claude/docs/<concept>.md` before building it: what it is, what defines it, its rules, what can be done with it, what is out of scope, open questions. Write it in English, in business language, without programming terms (no class or field names), after grilling Xavier on the concept. Choose and scope every slice or spec from the docs it touches: read them first, name them in the spec, and update the doc in the same change when a rule is added or changed.
 - Record each project decision and its why in that project's `.claude/decisions.md` when it is made; create the file if the project has none, and point to it from the project's `CLAUDE.md`. The repo cannot tell it later. Past about 15 decisions, make `decisions.md` an index by area with one file per decision in `.claude/decisions/` (title as heading, a line in the index for each file), so a session reads only the area it works in.
@@ -28,6 +30,7 @@ Use their vocabulary as the reference in design decisions: Martin Fowler (refact
 - Number a proposed list of changes in the order they will run. If impact and dependency order differ, number by dependency and show impact beside each item.
 - Do not invent facts, APIs or requirements. If something is unknown, say so and ask.
 - Do not modify files outside the task without asking. Propose first when scope is unclear.
+- A question ("why...?", "could we...?", "do you think...?") asks for analysis, not action. Answer with viability, trade-offs and a recommendation, and change nothing until Xavier says to go ahead. Writing a decision record counts as a change.
 - A short design remark ("tell, don't ask", a goal sentence) refers first to the file open in the IDE, and may only confirm what was just done. Read that file, apply it there, and propose any other file instead of editing it.
 - Do not add dependencies, frameworks or tooling without asking.
 - Keep `CLAUDE.md` to rules needed every turn. Material needed only on one branch (git details, project list) goes in a `.claude/*.md` file behind a pointer that names its trigger.
