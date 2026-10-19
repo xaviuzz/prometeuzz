@@ -1,0 +1,3 @@
+# Photo id and thumbnail URL have one owner
+
+`PhotoId` owns the photo id: its generation (UUIDv7), its format and its text, and `PhotoId.from` rejects a malformed id with `InvalidPhotoIdError`. `ThumbnailUrl` owns the thumbnail address: it builds it for `Photo` and parses it for `ThumbnailRoute`, so the path shape lives in one place. `SessionId` answers its code as text; `pathIn` stays for folders only. Why: the id format was checked in two places in the store, the URL was built in one class and parsed in another, and the URL was built with a method meant for disk paths. The route answers 404 for a malformed session, photo id or path, as it did for an unsafe session. The contract and the JSON are unchanged. Both errors are internal and carry no contract code.
