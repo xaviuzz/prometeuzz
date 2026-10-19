@@ -17,9 +17,11 @@ Work one slice at a time, every slice end to end. Slices are scoped from the con
 
 A step is done when its repo's tests, lint and build pass. Slice specs live in `.claude/specs/`.
 
+A step that adds a runtime dependency also updates that repo's `Dockerfile` to install it. Never defer it to the e2e step: without `node_modules`, Bun auto-installs at the first import and blocks the server.
+
 A contract step may end with the backend correspondence test red for the new routes, and is done when that is the only failing test and `frontend/` passes `generate:check`, lint, typecheck, test and build. The backend step turns it green.
 
-Any later edit to `openapi.yaml` repeats the contract step in the same change: copy it to `frontend/` and run `generate`. `generate:check` fails otherwise.
+Any later edit to `openapi.yaml` repeats the contract step in the same change: copy it to `frontend/` and run `generate`. `generate:check` fails otherwise. A new route also goes into the frontend's `dev.ts` proxy; the generated client does not reach the backend otherwise.
 
 ## Working in one repo
 

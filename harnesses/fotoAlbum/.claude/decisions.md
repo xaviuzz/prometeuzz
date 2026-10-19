@@ -260,3 +260,12 @@ Over 25 MB is `TOO_LARGE`; what `sharp` cannot read as an image is `UNREADABLE_I
 
 ## Request bodies up to 1 GB
 `Bun.serve` sets `maxRequestBodySize` to 1 GB; its default of 128 MB holds only about five photos. A bigger upload is refused by transport. Why: `docs/photo.md` sets no limit on photos per upload; this is a technical ceiling, not a product rule. Revisit when a limit is set (open in `docs/photo.md`).
+
+## The frontend stamps the session identity through Session
+`Session` builds the call header (`callHeader`), so its identity stays private; `Albums`, `HealthCheck` and `Photos` receive the `Session` and use it for every call. `ApiProvider` reads the session and rebuilds the `Api` when it changes, so it sits inside `SessionProvider`. Why: tell, don't ask; starting over gives the new calls the new identity, which leaves the old photos unreachable. Choosing an album also changes the session, so the `Api` is rebuilt then too.
+
+## The tray scrolls natively and keeps its own state
+`PhotoTray` loads and uploads through `usePhotos` and holds its own state; thumbnails, rejected files and the upload button are presentational parts. The thumbnail list scrolls with plain overflow, so no `scroll-area` was added. Rejection reasons in Spanish live in `lib/`, like the album labels.
+
+## The backend image installs its dependencies
+The backend `Dockerfile` copies `bun.lock` and runs `bun install --frozen-lockfile --production`, like the frontend's. Why: without `node_modules`, Bun auto-installs `sharp` at the first upload and blocks the whole server. Found when trying the tray by hand.
