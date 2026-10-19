@@ -88,6 +88,11 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Albums are presented by a decorator](decisions/albums-are-presented-by-a-decorator.md)
 - [Catalogue takes half the window and fits up to three albums](decisions/catalogue-takes-half-the-window-and-fits-up-to-three-albums.md)
 
+## User album
+
+- [User album copies its model](decisions/user-album-copies-its-model.md)
+- [Binding side follows the face number](decisions/binding-side-follows-the-face-number.md)
+
 ## Session
 
 - [Anonymous session lives in the browser](decisions/anonymous-session-lives-in-the-browser.md)

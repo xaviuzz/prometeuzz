@@ -44,7 +44,7 @@ Two photos with the same content are still two photos.
 - Deleting, reordering, renaming or editing photos.
 - Dragging files onto the tray, and progress per file.
 - Showing the original, or any size bigger than the thumbnail.
-- Placing photos on album pages, layouts and concrete albums.
+- Placing photos on album pages, layouts and user albums.
 - Formats other than JPEG, PNG and WebP, such as HEIC.
 - Sharing photos between sessions, browsers or devices.
 
@@ -52,5 +52,5 @@ Two photos with the same content are still two photos.
 
 - Starting over forgets the session, so its photos stay stored with nobody able to reach them. When should they be removed?
 - How long should photos be kept?
-- Does a photo belong to the session or, once concrete albums exist, to the album being made?
+- Does a photo belong to the session or, to the user album being made (see `user-album.md`)?
 - When should a limit on the number or total weight of photos be set?
