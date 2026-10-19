@@ -1,6 +1,6 @@
 # Anonymous session
 
-Repos: `frontend/`, `e2e/`. Docs: `docs/session.md`, `docs/album.md`. Decisions and their why: `.claude/decisions.md`, from "Anonymous session lives in the browser" to "shadcn components for the session menu". No Penpot work.
+Repos: `frontend/`, `e2e/`. Docs: `docs/session.md`, `docs/album.md`. Decisions and their why: `.claude/decisions.md`, area "Session", plus "Penpot only when asked" in "Design". No Penpot work.
 
 Goal: the app remembers the chosen album between visits through an anonymous session; the header shows its avatar, whose menu starts over. `npm run e2e` proves it.
 

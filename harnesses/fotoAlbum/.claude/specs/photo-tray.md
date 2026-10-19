@@ -1,6 +1,6 @@
 # Photo tray
 
-Repos: `backend/`, `frontend/`, `e2e/`. Docs: `docs/photo.md`, `docs/session.md`. Decisions and their why: `.claude/decisions.md`, from "Photo tray slice" to "Photos of a forgotten session are left orphaned". No Penpot work.
+Repos: `backend/`, `frontend/`, `e2e/`. Docs: `docs/photo.md`, `docs/session.md`. Decisions and their why: `.claude/decisions.md`, area "Photo tray", plus "The backend receives the session identity" in "Session". No Penpot work.
 
 Goal: the making page has a photo tray on the left where the person uploads several photos at once; the backend stores them against the session, makes their thumbnails and the tray shows them, also after a reload. `npm run e2e` proves it.
 

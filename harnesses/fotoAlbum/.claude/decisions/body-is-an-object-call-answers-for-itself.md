@@ -1,0 +1,3 @@
+# Body is an object; Call answers for itself
+
+`Body` wraps the input fields and offers `requireText(field)`, which throws `InvalidBodyError("<field> is required")`; `InvalidBodyError` lives in `call/` beside it. `Call` keeps `callId` private and builds its own `Reply` through `ok(result)` and `failure(code, message)`. Why: tell, don't ask; no code reads raw fields or the call id to assemble a reply. `Call.runOn(operation)` (the call runs the operation, `body` private) was weighed and deferred: it makes `validate` and `execute` public and moves the error-to-code mapping into `Call`. Revisit with a second operation.

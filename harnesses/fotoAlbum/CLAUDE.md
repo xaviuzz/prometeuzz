@@ -5,7 +5,7 @@ Photo album web app, TypeScript. An umbrella of two independent repos, each with
 - `backend/` (`fotoAlbum-backend`): owns the API contract, `openapi.yaml`.
 - `frontend/` (`fotoAlbum-frontend`): keeps a pinned copy of `openapi.yaml` and generates its client from it.
 
-This file and `.claude/` hold only what crosses both repos. Decisions and their why: `.claude/decisions.md`. Functional concepts (what each thing is, its rules, what can be done with it): `.claude/docs/`.
+This file and `.claude/` hold only what crosses both repos. Decisions and their why: `.claude/decisions.md` indexes them by area, one file each in `.claude/decisions/`. Before deciding in an area, read that area's files, not all of them; record a new decision as its own file and add its line to the index. Functional concepts (what each thing is, its rules, what can be done with it): `.claude/docs/`.
 
 ## Vertical slices
 
