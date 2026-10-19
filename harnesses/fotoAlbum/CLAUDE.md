@@ -17,6 +17,8 @@ Work one slice at a time, every slice end to end. Slices are scoped from the con
 
 A step is done when its repo's tests, lint and build pass. Slice specs live in `.claude/specs/`.
 
+A contract step may end with the backend correspondence test red for the new routes, and is done when that is the only failing test and `frontend/` passes `generate:check`, lint, typecheck, test and build. The backend step turns it green.
+
 Any later edit to `openapi.yaml` repeats the contract step in the same change: copy it to `frontend/` and run `generate`. `generate:check` fails otherwise.
 
 ## Working in one repo

@@ -233,3 +233,12 @@ Originals and thumbnails are files under `DATA_DIR`, one folder per session; `Ph
 
 ## Photos of a forgotten session are left orphaned
 Starting over does not delete the photos on the backend; nobody can reach them. Why: cleanup needs a rule (when, how long) that is still open in `docs/photo.md`, and adds no operation now.
+
+## Rejected files have their own code enum
+`SESSION_REQUIRED` is an `ErrorBody` code, a whole-call error answered with status 200. `UNSUPPORTED_FORMAT`, `TOO_LARGE` and `UNREADABLE_IMAGE` live in `RejectionCode`, used only by the `rejected` entries of `photo.upload`. Why: `ErrorBody` means "the call failed"; a refused file does not fail the call.
+
+## Upload errors follow the RPC rules
+An upload with no `callId` or an unreadable form answers 400 `TransportError`. A valid upload with no files answers 200 with `INVALID_BODY`. Why: the same split as the JSON operations: transport faults are 400, business faults ride in the message.
+
+## Thumbnails are always JPEG
+Every thumbnail is served as `image/jpeg`, whatever the original format. Why: one output format keeps the contract and the route simple; transparency in PNG or WebP is not worth a second type yet.
