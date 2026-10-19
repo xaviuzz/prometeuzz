@@ -97,6 +97,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [User album operations](decisions/user-album-operations.md)
 - [User album lives on disk behind a store](decisions/user-album-lives-on-disk-behind-a-store.md)
 - [User album keeps the commercial name](decisions/user-album-keeps-the-commercial-name.md)
+- [User album is made and read back by itself](decisions/user-album-is-made-and-read-back-by-itself.md)
 - [The making page has one route](decisions/the-making-page-has-one-route.md)
 - [The header shows characteristics on hover](decisions/the-header-shows-characteristics-on-hover.md)
 

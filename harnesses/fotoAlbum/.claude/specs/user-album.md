@@ -22,8 +22,8 @@ A step is done when its repo's tests, lint, typecheck and build pass (in `e2e/`,
 ## Steps
 
 - [x] 1. Docs: `docs/user-album.md`, `docs/session.md`, and the decisions of area "User album".
-- [ ] 2. Contract (`backend/`, then `frontend/`): `/userAlbum.create` and `/userAlbum.get`, the `UserAlbum` schema, the codes `USER_ALBUM_ALREADY_EXISTS` and `USER_ALBUM_NOT_FOUND`. Copy the file to `frontend/`, run `generate`, add both routes to the `dev.ts` proxy. The correspondence test is red until step 3; the step is done when it is the only failing test in `backend/` and `frontend/` is fully green.
-- [ ] 3. Backend (`backend/`). Decisions: "User album operations", "User album lives on disk behind a store", "User album keeps the commercial name". Cycles, in this order, one go:
+- [x] 2. Contract (`backend/`, then `frontend/`): `/userAlbum.create` and `/userAlbum.get`, the `UserAlbum` schema, the codes `USER_ALBUM_ALREADY_EXISTS` and `USER_ALBUM_NOT_FOUND`. Copy the file to `frontend/`, run `generate`, add both routes to the `dev.ts` proxy. The correspondence test is red until step 3; the step is done when it is the only failing test in `backend/` and `frontend/` is fully green.
+- [x] 3. Backend (`backend/`). Decisions: "User album operations", "User album lives on disk behind a store", "User album keeps the commercial name". Cycles, in this order, one go:
   1. `UserAlbum`: made from an `Album` with its copied commercial name, measures and binding, and a new id.
   2. `UserAlbumStore` under `DATA_DIR`: save and find by `SessionId`; the JSON survives a new store instance.
   3. `userAlbum.get`, with `SESSION_REQUIRED` and `USER_ALBUM_NOT_FOUND`.
