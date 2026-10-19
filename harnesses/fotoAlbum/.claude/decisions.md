@@ -242,3 +242,21 @@ An upload with no `callId` or an unreadable form answers 400 `TransportError`. A
 
 ## Thumbnails are always JPEG
 Every thumbnail is served as `image/jpeg`, whatever the original format. Why: one output format keeps the contract and the route simple; transparency in PNG or WebP is not worth a second type yet.
+
+## Session identity travels in Call
+`Call` reads the optional header `sessionId` and operations receive the `Call`, not only its body. A `SessionId` is required by the photo operations and is safe as a folder name (letters, digits, hyphen, underscore, 1 to 64 characters); a missing or unsafe code answers `SESSION_REQUIRED`. On the thumbnail GET an unsafe code is a 404. Why: no new error code, and the folder name can never escape `DATA_DIR`.
+
+## Upload is its own Operation
+`photo.upload` is not a `CallOperation`: it reads the form with `formData()`, builds the `Call` from the `callId` and `sessionId` fields and answers through `Reply`. Why: its input is not JSON; sharing `Call` and `Reply` is enough, a common base would not fit.
+
+## Photo ids are UUIDv7 and order comes from them
+Ids come from `Bun.randomUUIDv7()` and the list is the session folder's entries in sorted order. Files of one upload are stored one after another in the order chosen. Why: UUIDv7 is a UUID that sorts by creation time, so "oldest first" needs no index file and no reliance on file times.
+
+## Photo layout on disk
+`DATA_DIR/<sessionId>/<photoId>/original.<ext>` and `thumbnail.jpg`; `DATA_DIR` defaults to `./data`; tests give the `PhotoStore` a temp directory. Why: one folder per photo keeps the original and its thumbnail together behind the store.
+
+## A file is judged by its bytes
+Over 25 MB is `TOO_LARGE`; what `sharp` cannot read as an image is `UNREADABLE_IMAGE`; a readable image that is not JPEG, PNG or WebP is `UNSUPPORTED_FORMAT`. The browser's type and the file name are ignored. Why: both can lie, and the bytes decide what can be shown.
+
+## Request bodies up to 1 GB
+`Bun.serve` sets `maxRequestBodySize` to 1 GB; its default of 128 MB holds only about five photos. A bigger upload is refused by transport. Why: `docs/photo.md` sets no limit on photos per upload; this is a technical ceiling, not a product rule. Revisit when a limit is set (open in `docs/photo.md`).
