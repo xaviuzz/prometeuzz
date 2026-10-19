@@ -92,6 +92,13 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 
 - [User album copies its model](decisions/user-album-copies-its-model.md)
 - [Binding side follows the face number](decisions/binding-side-follows-the-face-number.md)
+- [User album slice](decisions/user-album-slice.md)
+- [The backend keeps the user album](decisions/the-backend-keeps-the-user-album.md)
+- [User album operations](decisions/user-album-operations.md)
+- [User album lives on disk behind a store](decisions/user-album-lives-on-disk-behind-a-store.md)
+- [User album keeps the commercial name](decisions/user-album-keeps-the-commercial-name.md)
+- [The making page has one route](decisions/the-making-page-has-one-route.md)
+- [The header shows characteristics on hover](decisions/the-header-shows-characteristics-on-hover.md)
 
 ## Session
 

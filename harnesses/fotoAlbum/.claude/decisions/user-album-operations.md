@@ -1,0 +1,3 @@
+# User album operations
+
+`userAlbum.create` takes the model reference and the session identity and answers the whole user album; `userAlbum.get` answers the user album of the session. Errors: `SESSION_REQUIRED` for both without a session, `ALBUM_NOT_FOUND` on create for an unknown or withdrawn model, `USER_ALBUM_ALREADY_EXISTS` on create when the session has one, `USER_ALBUM_NOT_FOUND` on get when it has none. Why: the rule is one per session and another only after starting over, so a second create is an error and never returns the existing one. Faces are not sent: they follow from the page count.

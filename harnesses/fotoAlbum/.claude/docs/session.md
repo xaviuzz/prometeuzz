@@ -5,7 +5,7 @@ An anonymous session is how the app remembers one person on one browser without 
 ## What defines a session
 
 - **Identity**: a code the app invents when the session starts. Nobody types it, nobody sees it. It tells one session from another and gives the avatar its look.
-- **User album**: the user album (see `user-album.md`) created when the person chose an album model to make, if any. A session has at most one.
+- **User album**: the user album (see `user-album.md`) created when the person chose an album model to make, if any. A session has at most one. The app keeps it with the session's identity; the browser keeps only the identity.
 - **Photos**: the photos uploaded from this session (see `photo.md`). The app stores them against the identity, which is the only thing of the session it ever receives. A session has as many as were uploaded.
 - **Avatar**: a coloured circle with a generic person icon, shown in the header on every page. The colour follows from the identity, so the same session always looks the same and a new session looks different. It cannot be edited.
 

@@ -2,17 +2,17 @@
 
 A user album is a concrete album: the one a person is preparing to print, made from an album model of the catalogue (see `album.md`). In this document "album" always means the catalogue model, and "user album" the concrete one.
 
-A user album takes its size, page size, page count and binding from its model and, for now, holds nothing else: its faces are empty. Placing photos on faces is another concept, not yet defined.
+A user album takes its commercial name, size, page size, page count and binding from its model and, for now, holds nothing else: its faces are empty. Placing photos on faces is another concept, not yet defined.
 
 ## What defines a user album
 
 - **Identity**: a code the app invents when the user album is created. Nobody types it. It tells one user album from another.
 - **Owner**: the anonymous session it was created in (see `session.md`). It belongs to one session and is visible only there.
 - **Model**: the reference of the album it was made from. It is only a record of origin.
-- **Album size, page size, page count and binding**: copied from the model when the user album is created, and never changed afterwards. The model's later withdrawal does not affect the user album.
+- **Commercial name, album size, page size, page count and binding**: copied from the model when the user album is created, and never changed afterwards. The model's later withdrawal does not affect the user album.
 - **Faces**: as many as the page count, because a page is a face (see `album.md`). They are numbered from 1 to the page count. They exist from the moment the user album is created.
 
-A user album has no title of its own. People see the commercial name of its model.
+A user album has no title of its own. People see the commercial name it copied from its model, which stays the same even if the model's name is edited later.
 
 ## What defines a face
 
@@ -25,7 +25,8 @@ A face is one side of a physical sheet; the sheet has no rules of its own and is
 
 ## Rules
 
-- Choosing an album in the catalogue creates the user album and records it in the session, which keeps one. Choosing another one is only possible after starting over.
+- Choosing an album in the catalogue creates the user album and records it in the session, which keeps one. Choosing another one is only possible after starting over. Asking for a second one in the same session is refused, not answered with the first.
+- Only an album that is in the catalogue can be chosen: an unknown or withdrawn one is refused.
 - Faces are never added, removed or reordered. Size, page size, page count and binding never change, because a different format is a different album.
 - The cover, front and back, is not a face and is not part of the page count.
 - The app keeps the user album, not the browser, so it is still there after reloading or reopening the app. Without a session the app refuses to create or consult it.
@@ -34,6 +35,8 @@ A face is one side of a physical sheet; the sheet has no rules of its own and is
 ## The making page
 
 The area to the right of the photo tray (see `photo.md`) shows one face at a time, at the proportions of the page size. A mark on the edge where the face is bound shows the binding side. Under the face, its number reads "n/N": the face number over the page count, for example "1/24".
+
+Above the face, a compact header shows the commercial name; resting the pointer on it (or focusing it) reveals every characteristic: reference, album size, page size, page count, binding and orientation.
 
 "Anterior" and "Siguiente" move to the previous or next face. The first face is shown when the making page opens, and the position is not remembered after reloading. "Anterior" cannot be pressed on face 1, nor "Siguiente" on the last face.
 
