@@ -32,6 +32,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The backend image installs its dependencies](decisions/the-backend-image-installs-its-dependencies.md)
 - [Errors carry their contract code](decisions/errors-carry-their-contract-code.md)
 - [Operations validate inside execute](decisions/operations-validate-inside-execute.md)
+- [Transport is separate from operations](decisions/transport-is-separate-from-operations.md)
 
 ## Frontend foundation
 
