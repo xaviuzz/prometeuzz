@@ -29,9 +29,9 @@ A step is done when its repo's tests, lint, typecheck and build pass (in `e2e/`,
   3. `userAlbum.get`, with `SESSION_REQUIRED` and `USER_ALBUM_NOT_FOUND`.
   4. `userAlbum.create`, with `ALBUM_NOT_FOUND` for an unknown or withdrawn model and `USER_ALBUM_ALREADY_EXISTS`.
   Both registered in the `Server`. Check the Dockerfile still builds.
-- [ ] 4. Frontend, API and session (`frontend/`). Decisions: "The backend keeps the user album". A user album client in `Api` (`create(reference)`, `get()`, never throwing) and its hook; `Session` drops the chosen album and keeps only the identity. Tests fake `fetch`.
+- [x] 4. Frontend, API and session (`frontend/`). Decisions: "The backend keeps the user album", "Session sheds the chosen album in the pages step". A user album client in `Api` (`create(reference)`, `get()`, never throwing, answering `{ status: "ok", userAlbum }` or `{ status: "error", code }`) and its hook `useUserAlbums`; `Session` is untouched. Tests fake `fetch`.
 - [ ] 5. Frontend, pages (`frontend/`). Decisions: "The making page has one route", "The header shows characteristics on hover". Add shadcn `hover-card`.
-  1. Structural: the routes (`/confeccion`, redirects by `userAlbum.get`) and the loading and error states, without new behavior on screen.
+  1. Structural: the routes (`/confeccion`, redirects by `userAlbum.get`) and the loading and error states, without new behavior on screen. `Session` drops the chosen album and keeps only the identity: `choosing`, `path()` and `choose` go, and `restore` ignores a stored `chosenReference`.
   2. The card creates the user album, with its disabled and failure states.
   3. `FaceViewer`: current face, proportion, binding mark, "n/N", "Anterior" and "Siguiente" with their limits.
   4. The header with its `HoverCard`, replacing `AlbumCharacteristics`; the making page no longer calls `album.get`.

@@ -1,0 +1,3 @@
+# Session sheds the chosen album in the pages step
+
+The frontend API step only adds the user album client and its hook; `Session` keeps `choosing`, `path()` and `choose` until the pages step, which removes them while it rewrites their consumers (the catalogue card and the routes). `restore` then ignores a stored `chosenReference`, without migrating it. Why: Xavier's choice; removing them earlier breaks the catalogue and routes and would rewrite those screens twice, and the browser's old chosen album is worthless once the backend keeps the user album. Moves a part of the work that "The backend keeps the user album" assigned to the API step.
