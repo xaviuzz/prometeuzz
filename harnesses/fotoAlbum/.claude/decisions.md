@@ -212,3 +212,24 @@ No slice touches the Penpot file unless Xavier asks for it. The anonymous-sessio
 
 ## shadcn components for the session menu
 The avatar uses shadcn `Avatar`, the menu `DropdownMenu` and the confirmation `AlertDialog`. Adding them to `src/components/ui/` brings the dependencies they need. Why: Xavier asked for shadcn; the project skill prefers its components over hand-made markup.
+
+## Photo tray slice
+The making page gets a photo tray ("Mis fotos") on the left, a quarter of the width and the visible height, with the thumbnails scrolling inside and a "Subir fotos" button pinned below. Concept: `docs/photo.md`. Spec: `specs/photo-tray.md`. Why: photos must exist before the album is composed from them. No delete, reorder, drag-and-drop or progress per file; Penpot untouched (see "Penpot only when asked").
+
+## The backend receives the session identity
+Calls carry an optional `sessionId` in the call header, supplied by the client. `photo.list` and `photo.upload` require it and answer `SESSION_REQUIRED` without it; every other operation ignores it. The backend neither issues nor validates sessions, and checks only that the code is safe as a folder name. Why: photos are the first data that must belong to a session, which "Anonymous session lives in the browser" deferred; this narrows that decision (the session is still made and kept by the frontend) without replacing it.
+
+## Upload is multipart, the one non-JSON operation
+`photo.upload` takes `multipart/form-data` with `callId`, `sessionId` and the files, and answers a normal `Reply` listing stored and rejected files. Rejection codes: `UNSUPPORTED_FORMAT`, `TOO_LARGE`, `UNREADABLE_IMAGE`. Why: base64 in JSON adds a third to the size and holds whole photos in memory. Accepted: JPEG, PNG and WebP up to 25 MB; HEIC waits for a real need.
+
+## Thumbnails are made by sharp
+`sharp` is added to the backend, approved by Xavier. A thumbnail has its longest side at 256 px, same proportions. Why: Bun cannot resize images; pure-JS libraries are slower and ImageMagick needs installing in the image.
+
+## Photos live on disk behind a PhotoStore
+Originals and thumbnails are files under `DATA_DIR`, one folder per session; `PhotoStore` hides the layout. Why: photos are the first data that must survive a restart, and a database is not worth it yet. The store is the seam to replace later. Photo ids are UUIDs made by the backend.
+
+## Thumbnails are served by a GET route
+`GET /photos/<sessionId>/<photoId>/thumbnail` serves a thumbnail, immutable and cacheable, documented in `openapi.yaml` as the single exception to the RPC style. `photo.list` and `photo.upload` answer each photo as `{ id, thumbnailUrl }`. Why: an `<img>` can only GET; base64 in the reply bloats it and fetching by POST into a blob loses browser caching. Ids are unguessable. The original is not served.
+
+## Photos of a forgotten session are left orphaned
+Starting over does not delete the photos on the backend; nobody can reach them. Why: cleanup needs a rule (when, how long) that is still open in `docs/photo.md`, and adds no operation now.
