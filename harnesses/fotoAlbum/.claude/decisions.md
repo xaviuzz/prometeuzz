@@ -34,6 +34,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Operations validate inside execute](decisions/operations-validate-inside-execute.md)
 - [Transport is separate from operations](decisions/transport-is-separate-from-operations.md)
 - [Routes are a map handed to Bun.serve](decisions/routes-are-a-map-handed-to-bun-serve.md)
+- [Stores live together in a stores folder](decisions/stores-live-together-in-a-stores-folder.md)
 
 ## Frontend foundation
 
