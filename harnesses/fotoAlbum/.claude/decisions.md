@@ -148,3 +148,4 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Request bodies up to 1 GB](decisions/request-bodies-up-to-1-gb.md)
 - [The tray scrolls natively and keeps its own state](decisions/the-tray-scrolls-natively-and-keeps-its-own-state.md)
 - [Photo id and thumbnail URL have one owner](decisions/photo-id-and-thumbnail-url-have-one-owner.md)
+- [Photo store refuses like the user album store](decisions/photo-store-refuses-like-the-user-album-store.md)
