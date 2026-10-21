@@ -77,6 +77,7 @@ Reach for these first, before improvising a process:
 - `mattpocock-skills:domain-modeling`: shared terminology, CONTEXT.md, ADRs.
 - `mattpocock-skills:grilling`: **always** when Xavier asks to plan ("planeemos", "let's plan"), when his instruction is extensive or complex (even without saying "grill me"), and to stress-test a decision before building. Open with it; a ready-made plan comes after the grilling, never before.
 - `mattpocock-skills:writing-for-agents`: **always**, before creating or editing any `CLAUDE.md`, `AGENTS.md`, skill or `.md` under a `.claude/` directory, in any project. Load it first, then write. Enforced by `.claude/hooks/agent-docs-need-skill.sh`, in sessions started in PrometeuZZ only.
+- `next-step`: **always**, first, when Xavier says "next step", "siguiente step" or asks what is next in a project with specs. It finds the step by script; never infer it from commits or memory.
 - `commit-message`: one-line gitmoji commits for the whole uncommitted delta, one approval at a time. Project-local, so it loads only in sessions started in PrometeuZZ. No trailer.
 
 ## Conventions
