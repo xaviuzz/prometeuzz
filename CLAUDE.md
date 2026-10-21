@@ -56,6 +56,10 @@ A project whose `CLAUDE.md` has a `## Learning` section teaches Xavier a technol
 
 A project whose `CLAUDE.md` has a `## Contributing` section is an upstream contribution. Read `.claude/contributing-projects.md` before choosing an issue or working in one. Its rules override the style conventions in "Conventions".
 
+## Legacy projects
+
+A project whose `CLAUDE.md` has a `## Legacy` section works in deltas, not specs. Read `.claude/legacy-projects.md` before cataloging challenges, writing a delta or working in one. Its rules override "How to work" where they differ, and its `CLAUDE.md` stays in the project, not in a harness.
+
 ## Harnesses
 
 A project whose upstream has no Claude setup keeps its `CLAUDE.md` and `.claude/` in `harnesses/<name>/`, linked into `Sandbox/<name>`. A project made of several repos is an umbrella and works the same way. Read `.claude/harnesses.md` before cloning, working in or creating such a project, and whenever a project's `CLAUDE.md` is missing.
@@ -107,7 +111,7 @@ Reach for these first, before improvising a process:
 
 ## Current project
 
-None. Xavier names one, or asks for a known project; this section is then updated.
+**jodaTime** (`Sandbox/jodaTime`, legacy project). Xavier names another, or asks for a known project; this section is then updated.
 
 When the user says "let's work" (or similar) without naming a project, work in the current project: read its `CLAUDE.md` and do all changes there, not in PrometeuZZ. With none, ask which project.
 
