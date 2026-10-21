@@ -1,20 +1,25 @@
 #!/usr/bin/env bash
-# Plain-bash tests for spec-done-needs-timeline.sh. Run: bash .claude/hooks/test-spec-done-needs-timeline.sh
+# Plain-bash tests for work-done-needs-timeline.sh. Run: bash .claude/hooks/test-work-done-needs-timeline.sh
 set -u
 
-hook="$(dirname "$0")/spec-done-needs-timeline.sh"
+hook="$(dirname "$0")/work-done-needs-timeline.sh"
 failures=0
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 
 project="$tmp/project/.claude"
-mkdir -p "$project/specs"
+mkdir -p "$project/specs" "$project/deltas"
 printf 'Rows: listed-spec\n' >"$project/timeline.md"
 
 printf -- '- [x] 1. one\n- [x] 2. two\n' >"$project/specs/listed-spec.md"
 printf -- '- [x] 1. one\n- [x] 2. two\n' >"$project/specs/unlisted-spec.md"
 printf -- '- [x] 1. one\n- [ ] 2. two\n' >"$project/specs/open-spec.md"
 printf -- 'no steps here\n' >"$project/specs/stepless-spec.md"
+
+printf -- '- [x] 1. one\n- [x] 2. two\n' >"$project/deltas/listed-delta.md"
+printf -- '- [x] 1. one\n- [x] 2. two\n' >"$project/deltas/unlisted-delta.md"
+printf -- '- [x] 1. one\n- [ ] 2. two\n' >"$project/deltas/open-delta.md"
+printf 'Rows: listed-spec listed-delta\n' >"$project/timeline.md"
 
 bare="$tmp/bare/.claude"
 mkdir -p "$bare/specs"
@@ -39,7 +44,11 @@ expect() {
 
 expect block "$(input "$project/specs/unlisted-spec.md")" "closed spec missing from timeline"
 
+expect block "$(input "$project/deltas/unlisted-delta.md")" "closed delta missing from timeline"
+
 expect allow "$(input "$project/specs/listed-spec.md")" "closed spec listed in timeline"
+expect allow "$(input "$project/deltas/listed-delta.md")" "closed delta listed in timeline"
+expect allow "$(input "$project/deltas/open-delta.md")" "delta with an open step"
 expect allow "$(input "$project/specs/open-spec.md")" "spec with an open step"
 expect allow "$(input "$project/specs/stepless-spec.md")" "spec without steps"
 expect allow "$(input "$bare/specs/done-spec.md")" "project without a timeline"
