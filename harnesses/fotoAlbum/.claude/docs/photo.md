@@ -1,6 +1,6 @@
 # Photo
 
-A photo is an image a person uploads to the app so it can later be placed in an album. In this document "photo" means the uploaded image, never a spot on an album page. Placing photos in an album is another concept, not yet defined.
+A photo is an image a person uploads to the app so it can later be placed in an album. In this document "photo" means the uploaded image, never a spot on an album page. The place for a photo on an album face is a slot (see `slot.md`).
 
 The photo tray, "Mis fotos", is the space on the making page where the person sees the photos they have uploaded and uploads more.
 
@@ -44,7 +44,7 @@ Two photos with the same content are still two photos.
 - Deleting, reordering, renaming or editing photos.
 - Dragging files onto the tray, and progress per file.
 - Showing the original, or any size bigger than the thumbnail.
-- Placing photos on album pages, layouts and user albums.
+- Placing photos on album faces (see `slot.md`) and layouts.
 - Formats other than JPEG, PNG and WebP, such as HEIC.
 - Sharing photos between sessions, browsers or devices.
 
