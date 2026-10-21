@@ -12,6 +12,7 @@ Work from absolute paths with `git -C`, whatever the shell directory is.
 - Without an argument, the repositories are PrometeuZZ (`/home/xaviuzz/sandbox/PrometeuZZ`) and every project directly inside `Sandbox/` except `TMP/`. A directory counts only when `git -C <dir> rev-parse --show-toplevel` prints that same directory.
 - A directory inside `Sandbox/` that is not a repository is an umbrella (see `.claude/harnesses.md`): its direct children that count as repositories join the list.
 - With an argument, the only repository is `Sandbox/<argument>`; when that is an umbrella, its repositories.
+- With an argument that has a `harnesses/<argument>/` directory, PrometeuZZ joins the list, restricted to the files under `harnesses/<argument>/`. Its other changes wait for a run without an argument.
 
 ## 2. Read each delta
 

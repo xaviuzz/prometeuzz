@@ -85,6 +85,8 @@ Reach for these first, before improvising a process:
 - Write iteration as an explicit loop block over a collecting variable. Reach for functional idioms (`map`, `filter`, `reduce`, chains) only where they add specific value that the loop lacks; the visual structure of the block is the default. Looking up the first match is one of those places: use `find`, not a loop that keeps the last match.
 - One return per function, ending on a named result. Where a conditional varies behavior by state or type, replace it with polymorphism (State, Strategy) before reaching for guard clauses or early returns.
 - No ternary operators, in any project. Set a default value and overwrite it in an `if`; where the branch varies by state or type, use polymorphism.
+- Private members in TypeScript use the `private` keyword, never `#`, in any project.
+- A style rule Xavier states belongs here, not in a project's `decisions.md`, unless he scopes it to one project.
 - Code carries no comments, in any project. Intent lives in names, small units and tests; the why of a decision goes in that project's `CLAUDE.md`.
 - A rename that resolves a semantic clash covers every derived name: classes, errors, codes, contract schemas, messages, test titles. Search the old term across source, tests and contract, and keep it only where it names the other meaning.
 - A function leaves its arguments unchanged. To gather results, return a new value (an object whose methods return the next one) and reassign it in the caller's loop. A helper that writes into what it receives hides its effect from the caller.

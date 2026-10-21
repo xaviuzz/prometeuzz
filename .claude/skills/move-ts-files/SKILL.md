@@ -9,4 +9,6 @@ Run `python3 -I <skill-dir>/move.py <project-root> old=new [old=new ...]`, with 
 2. Remove the folders the move left empty: `find src test -type d -empty -delete`.
 3. Run the project's lint fix (the move can break import order), then tests, typecheck and build.
 
+`move.py` rewrites only relative imports in `*.ts`. When the project imports through an alias (`@/`) or moves a `.tsx`, move the files with `mv` and rewrite each alias with `sed -E "s#\"@/old/Name\"#\"@/new/Name\"#g"` over `src` and `test`. Check with `grep` that no old path remains.
+
 A move is done when all four pass and no empty folder remains.
