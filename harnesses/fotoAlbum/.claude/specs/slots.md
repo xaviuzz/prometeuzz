@@ -29,7 +29,7 @@ A step is done when its repo's tests, lint, typecheck and build pass (in `e2e/`,
   4. `slot.place`, with its errors; the photo is looked up in the `PhotoStore` of the session.
   5. `slot.empty`.
   Both registered in the `Server`. Check the Dockerfile still builds.
-- [ ] 4. Frontend, API (`frontend/`). Decision: "Slot operations answer the user album". A slot client in `Api` (`place(face, photoId)`, `empty(face)`, never throwing, answering `{ status: "ok", userAlbum }` or `{ status: "error", code }`) and the `slots` the user album now carries. Tests fake `fetch`.
+- [x] 4. Frontend, API (`frontend/`). Decision: "Slot operations answer the user album". A slot client in `Api` (`place(face, photoId)`, `empty(face)`, never throwing, answering `{ status: "ok", userAlbum }` or `{ status: "error", code }`) and the `slots` the user album now carries. Tests fake `fetch`.
 - [ ] 5. Frontend, pages (`frontend/`). Decisions: "The tray subtracts the placed photos", "Dragging is native and mouse only". Cycles, in this order, one go:
   1. `SlotGeometry` from the page size, rounded inwards, with its value objects.
   2. `SlotView` on the face: the blue outline when empty, nothing when occupied, the fitted thumbnail.
@@ -44,6 +44,13 @@ A step is done when its repo's tests, lint, typecheck and build pass (in `e2e/`,
 ## Out of scope
 
 Layouts, other slot counts, moving a photo between slots, touch and keyboard dragging, the original photo in the slot, cropping and other fits, the cover, a visual cue while dragging, Penpot.
+
+## Open questions
+
+> [!NOTE]
+> Duplication left by step 4 (`frontend/`): `new PresentedAlbum(userAlbum, userAlbum.slots)` is written in both `UserAlbums` and `Slots`. Two copies; the rule of three waits for a third before extracting.
+
+- What do we do with that duplication: leave it, or extract it now? Xavier wants to decide this.
 
 ## Diagram
 
