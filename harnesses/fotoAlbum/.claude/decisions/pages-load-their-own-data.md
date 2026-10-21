@@ -1,3 +1,3 @@
 # Pages load their own data
 
-`HomePage` and `MakingPage` each read through `useAlbums()` into their own loading, error and answer state; there is no generic loading hook. Why: two uses, with different data shapes; the rule of three comes first.
+`HomePage` reads through `useAlbums()`, `PhotoTray` through `usePhotos()` and `UserAlbumGate` through `useUserAlbums()`, each by `useReading(source, read)` in `src/lib/`: it starts as `"loading"`, reloads when the source changes, drops the answer of a replaced source and hands back `[reading, setReading]` for the caller that edits the reading (`PhotoTray` appends, `UserAlbumGate` adopts). `read` is a module-level function so its identity is stable. The page or component still owns what each state shows; `Catalogue` stays presentational. Why: three uses repeated the same effect, so the rule of three was met. `HealthMark` keeps its own effect: its first state is `"checking"` and its result has no answer to wait for.
