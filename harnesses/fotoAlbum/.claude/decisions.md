@@ -167,5 +167,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [A photo is in one place only](decisions/a-photo-is-in-one-place-only.md)
 - [Each face has one fixed slot](decisions/each-face-has-one-fixed-slot.md)
 - [Slot operations answer the user album](decisions/slot-operations-answer-the-user-album.md)
+- [Slot writes take no lock](decisions/slot-writes-take-no-lock.md)
+- [Placing a photo takes it from its other slot](decisions/placing-a-photo-takes-it-from-its-other-slot.md)
 - [The tray subtracts the placed photos](decisions/the-tray-subtracts-the-placed-photos.md)
 - [Dragging is native and mouse only](decisions/dragging-is-native-and-mouse-only.md)
