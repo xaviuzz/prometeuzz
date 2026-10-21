@@ -39,7 +39,7 @@ A step is done when its repo's tests, lint, typecheck and build pass (in `e2e/`,
   6. A failure shows an `Alert` and changes nothing.
   Tests render the parts inside `ApiProvider` and a memory router; the drag is simulated with `dragStart`, `dragOver` and `drop` events.
 - [x] 6. By hand: Xavier tries it with `e2e`'s `up` script (drag in, drag out, replace, two copies of one image, another face, reload) and confirms.
-- [ ] 7. E2E (`e2e/`): upload two fixture images, drag one onto the slot and see one thumbnail left in the tray, reload and it stays, drag it back and see two. Red first, then green with `npm run e2e`.
+- [x] 7. E2E (`e2e/`): upload two fixture images, drag one onto the slot and see one thumbnail left in the tray, reload and it stays, drag it back and see two. Red first, then green with `npm run e2e`.
 
 ## Out of scope
 
