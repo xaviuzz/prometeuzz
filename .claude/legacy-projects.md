@@ -23,6 +23,10 @@ A delta replaces the spec. Its file is `.claude/deltas/<name>.md`, in English, w
 
 Close a delta by comparing `git diff --stat <Base>` on legacy paths with the budget. An overrun is justified in the delta or the strategy is rethought. Update the challenge's status in the catalog in the same change.
 
+## Timeline
+
+`.claude/timeline.md` records each closed delta, in English, with the times taken from the project's commits (commit hours, not work hours). Once the delta's commits exist, add its start and end, its `gantt` bar in the day's diagram (a new diagram for a new day), its row in the summary table (delta, kind, challenge it overcomes, start, end) and its day in the overview `timeline`. Until then, say that the timeline is pending. The hook `work-done-needs-timeline.sh` blocks the edit that closes a delta missing from the timeline.
+
 ## Challenge catalog
 
 Up to three challenges, `.claude/challenges.md` holds them all. Past three it becomes an index by area, one line per challenge. Each challenge is a file in `.claude/challenges/`, named after it without a number (`global-clock.md`, title as heading); the file name is the id that deltas cite. A file holds symptom, where, evidence, risk, exit technique, status (`open`, `in delta <name>`, `overcome`). Update the status in the file and in the index together. A challenge found by exploration is a proposal until Xavier confirms it.
@@ -50,6 +54,6 @@ Reach for these first, by name, in the delta's Strategy:
 ## New legacy project
 
 - `## Legacy` section in its `CLAUDE.md`, pointing here, with the baseline test command.
-- `.claude/challenges.md` with `.claude/challenges/`, `.claude/decisions.md`, `.claude/deltas/`.
+- `.claude/challenges.md` with `.claude/challenges/`, `.claude/decisions.md`, `.claude/deltas/`, `.claude/timeline.md`.
 - `projects.md` entry with the kind.
 - A first catalog by read-only exploration, confirmed by Xavier.
