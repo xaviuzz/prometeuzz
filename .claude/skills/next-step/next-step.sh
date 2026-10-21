@@ -8,7 +8,10 @@ if [ ! -d "$specs" ]; then
 	specs="$root/Sandbox/$project/.claude/specs"
 fi
 if [ ! -d "$specs" ]; then
-	echo "no specs directory for $project" >&2
+	specs="$root/Sandbox/$project/.claude/deltas"
+fi
+if [ ! -d "$specs" ]; then
+	echo "no specs or deltas directory for $project" >&2
 	exit 1
 fi
 
