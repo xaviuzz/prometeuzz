@@ -17,7 +17,7 @@ Work one slice at a time, every slice end to end. Slices are scoped from the con
 
 A step is done when its repo's tests, lint and build pass. Slice specs live in `.claude/specs/`.
 
-When the last step of a spec is marked done, update `.claude/timeline.md` in the same change: add the spec's start and end from the commit times of its repos, its `gantt` bar in the day's diagram (a new diagram for a new day), its row in the summary table, and its day in the overview `timeline`.
+When the last step of a spec is marked done, update `.claude/timeline.md` once its repos' commits exist, since it takes its times from them: add the spec's start and end, its `gantt` bar in the day's diagram (a new diagram for a new day), its row in the summary table, and its day in the overview `timeline`. Until then, say that the timeline is pending.
 
 A step that adds a runtime dependency also updates that repo's `Dockerfile` to install it. Never defer it to the e2e step: without `node_modules`, Bun auto-installs at the first import and blocks the server.
 
