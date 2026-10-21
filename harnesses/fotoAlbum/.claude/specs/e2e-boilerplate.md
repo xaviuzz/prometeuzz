@@ -35,3 +35,29 @@ frontend/Dockerfile
 ## Out of scope
 
 Red and neutral marks (the frontend tests cover them), photo features, a production frontend server, deploy, triggering e2e from the other repos. Any new e2e test needs a reason it cannot live in `backend/` or `frontend/`.
+
+## Diagram
+
+```mermaid
+sequenceDiagram
+    actor Dev as Xavier / CI
+    participant Compose as Docker Compose (e2e/)
+    participant Backend as backend :3000
+    participant Frontend as frontend :5173
+    participant E2E as e2e (Playwright)
+
+    Dev->>Compose: bun run e2e
+    Compose->>Backend: build ../backend and start
+    Compose->>Frontend: build ../frontend and start (API_URL)
+    loop until healthy
+        Compose->>Backend: POST /health.check
+        Compose->>Frontend: GET /
+    end
+    Compose->>E2E: start (both services healthy)
+    E2E->>Frontend: open /
+    Frontend->>Backend: POST /health.check
+    Backend-->>Frontend: up
+    Frontend-->>E2E: status "Service is up"
+    E2E-->>Compose: test passes, exit code 0
+    Compose-->>Dev: abort-on-container-exit, exit code from e2e
+```
