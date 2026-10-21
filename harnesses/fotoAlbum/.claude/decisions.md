@@ -172,3 +172,4 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The tray subtracts the placed photos](decisions/the-tray-subtracts-the-placed-photos.md)
 - [Dragging is native and mouse only](decisions/dragging-is-native-and-mouse-only.md)
 - [The photos live in a shared context](decisions/the-photos-live-in-a-shared-context.md)
+- [The presented album reads its own slots](decisions/the-presented-album-reads-its-own-slots.md)

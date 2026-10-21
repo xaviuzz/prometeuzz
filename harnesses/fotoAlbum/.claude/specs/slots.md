@@ -47,10 +47,7 @@ Layouts, other slot counts, moving a photo between slots, touch and keyboard dra
 
 ## Open questions
 
-> [!NOTE]
-> Duplication left by step 4 (`frontend/`): `new PresentedAlbum(userAlbum, userAlbum.slots)` is written in both `UserAlbums` and `Slots`. Two copies; the rule of three waits for a third before extracting.
-
-- What do we do with that duplication: leave it, or extract it now? Xavier wants to decide this.
+None.
 
 ## Diagram
 
