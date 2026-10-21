@@ -28,6 +28,7 @@ Use their vocabulary as the reference in design decisions: Martin Fowler (refact
 - In a TDD run, agree the seam once, then run every planned cycle in one go. Report at the end of the run, or earlier when a cycle contradicts the plan.
 - End every spec you write or document with a `## Diagram` section: a Mermaid diagram of the feature's flow (sequence for interactions, flowchart or state for rules).
 - Mark each step of a spec as done (`- [x]`) when its tests, lint and build pass. "Next step" is the first unmarked one. The code cannot tell which step a file belongs to. A step the spec says is tried by hand is marked only after Xavier confirms it.
+- When Xavier asks that something be kept up to date whenever an event happens, write the rule in the project's `CLAUDE.md` and add a PostToolUse hook with its test in `.claude/hooks/` in the same change. A rule in prose is not enforced.
 - Number a proposed list of changes in the order they will run. If impact and dependency order differ, number by dependency and show impact beside each item.
 - Do not invent facts, APIs or requirements. If something is unknown, say so and ask.
 - Do not modify files outside the task without asking. Propose first when scope is unclear.
@@ -98,6 +99,7 @@ Reach for these first, before improvising a process:
 - `Sandbox/`: the single home for every project PrometeuZZ creates or works on. It is the `Sandbox/` directory at the root of this repo (`~/sandbox/PrometeuZZ/Sandbox/`), so resolve every `Sandbox/...` path from the repo root, never from `~/sandbox/`. The rule applies to new projects; existing ones in `~/sandbox` are left alone.
 - `Sandbox/TMP/`: read-only references and scratch material (e.g. clones of reference repos). We read from it, never build in it. It can be deleted at any time without losing work.
 - Each project keeps `reference/` (research material), `specs/` (step-by-step plans) and `docs/` (functional concepts) inside its own `.claude/`, never at the project root. Put new ones there without asking.
+- A file Xavier asks for with no path goes in the root of the project's `.claude/` (the harness's, for an umbrella), never in the PrometeuZZ root. `.claude/docs/` holds functional concepts only.
 
 ## Current project
 
