@@ -92,6 +92,7 @@ Reach for these first, before improvising a process:
 - A rename that resolves a semantic clash covers every derived name: classes, errors, codes, contract schemas, messages, test titles. Search the old term across source, tests and contract, and keep it only where it names the other meaning.
 - A function leaves its arguments unchanged. To gather results, return a new value (an object whose methods return the next one) and reassign it in the caller's loop. A helper that writes into what it receives hides its effect from the caller.
 - A public method reads as pseudocode: a sequence of calls to private methods, one per thing it handles (`readCallId`, `readBody`). Stop at that level; keep predicates and lookups inside the private method as explaining variables.
+- A helper used by one component lives beside it. When a second consumer appears, move it up: to `domain/` if it is a type shared across the app, otherwise to the nearest folder both consumers share. A flat `lib/` is only for what is neither.
 
 ## Layout
 
