@@ -1,0 +1,3 @@
+# Reading states live in one ReadingView
+
+`ReadingView` (`src/components/`) takes a `Reading` and one node per state: loading, failed, empty and loaded, plus `isEmpty` to tell empty from loaded. It holds the only conditional on the state. `Catalogue` and `PhotoTray` pass it `LoadingNotice`, `FailureNotice` and `EmptyNotice`, which take their text as a prop. `UserAlbumGate` uses `LoadingNotice` and `FailureNotice` only: `USER_ALBUM_NOT_FOUND` is an answer for it, so its own rule stays. Why: three consumers repeated the same chain of `if` and the same markup with other texts. Reading objects that paint themselves were rejected: `ApiAnswer`, `CallSender` and every endpoint would change, and API types would carry JSX.
