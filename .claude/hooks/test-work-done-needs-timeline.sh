@@ -25,6 +25,12 @@ bare="$tmp/bare/.claude"
 mkdir -p "$bare/specs"
 printf -- '- [x] 1. one\n' >"$bare/specs/done-spec.md"
 
+timed="$tmp/timed/.claude"
+mkdir -p "$timed/deltas"
+printf -- '- [x] 1. one\n' >"$timed/deltas/with-elapsed.md"
+printf -- '- [x] 1. one\n' >"$timed/deltas/without-elapsed.md"
+printf '| Delta | Start | End | Elapsed |\n|---|---|---|---|\n| with-elapsed | 21:06 | 21:17 | 11 min |\n| without-elapsed | 21:06 | 21:17 |  |\n' >"$timed/timeline.md"
+
 input() { jq -n --arg p "$1" '{tool_name: "Edit", tool_input: {file_path: $p}}'; }
 
 expect() {
@@ -45,6 +51,9 @@ expect() {
 expect block "$(input "$project/specs/unlisted-spec.md")" "closed spec missing from timeline"
 
 expect block "$(input "$project/deltas/unlisted-delta.md")" "closed delta missing from timeline"
+
+expect block "$(input "$timed/deltas/without-elapsed.md")" "closed delta whose row has no elapsed time"
+expect allow "$(input "$timed/deltas/with-elapsed.md")" "closed delta whose row has elapsed time"
 
 expect allow "$(input "$project/specs/listed-spec.md")" "closed spec listed in timeline"
 expect allow "$(input "$project/deltas/listed-delta.md")" "closed delta listed in timeline"

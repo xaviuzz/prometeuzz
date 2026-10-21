@@ -32,7 +32,13 @@ timeline="$(dirname "$path")/../timeline.md"
 is_closed "$path" || exit 0
 
 name=$(basename "$path" .md)
-grep -q -- "$name" "$timeline" && exit 0
+grep -q -- "$name" "$timeline" || {
+  echo "work-done-needs-timeline: every step of '$name' is done; add it to $timeline (gantt bar, summary row, overview day) in this change." >&2
+  exit 2
+}
 
-echo "work-done-needs-timeline: every step of '$name' is done; add it to $timeline (gantt bar, summary row, overview day) in this change." >&2
+grep -q '| Elapsed |' "$timeline" || exit 0
+grep -Eq -- "^\| $name \|.*\| [0-9]+ (min|h)[^|]* \|\s*$" "$timeline" && exit 0
+
+echo "work-done-needs-timeline: the summary row of '$name' in $timeline has no elapsed time (end minus start, e.g. '11 min')." >&2
 exit 2
