@@ -30,7 +30,7 @@ A step is done when its repo's tests, lint, typecheck and build pass (in `e2e/`,
   5. `slot.empty`.
   Both registered in the `Server`. Check the Dockerfile still builds.
 - [x] 4. Frontend, API (`frontend/`). Decision: "Slot operations answer the user album". A slot client in `Api` (`place(face, photoId)`, `empty(face)`, never throwing, answering `{ status: "ok", userAlbum }` or `{ status: "error", code }`) and the `slots` the user album now carries. Tests fake `fetch`.
-- [ ] 5. Frontend, pages (`frontend/`). Decisions: "The tray subtracts the placed photos", "Dragging is native and mouse only". Cycles, in this order, one go:
+- [x] 5. Frontend, pages (`frontend/`). Decisions: "The tray subtracts the placed photos", "Dragging is native and mouse only". Cycles, in this order, one go:
   1. `SlotGeometry` from the page size, rounded inwards, with its value objects.
   2. `SlotView` on the face: the blue outline when empty, nothing when occupied, the fitted thumbnail.
   3. The tray lists only the photos in no slot.
