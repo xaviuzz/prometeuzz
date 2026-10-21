@@ -11,4 +11,6 @@ Run `python3 -I <skill-dir>/move.py <project-root> old=new [old=new ...]`, with 
 
 `move.py` rewrites only relative imports in `*.ts`. When the project imports through an alias (`@/`) or moves a `.tsx`, move the files with `mv` and rewrite each alias with `sed -E "s#\"@/old/Name\"#\"@/new/Name\"#g"` over `src` and `test`. Check with `grep` that no old path remains.
 
+A file that moves to a deeper or shallower folder keeps its relative imports (`../../support/X`). Before the checks, run `grep -rn '"\.\./' <moved folders>` and fix each depth by hand; `move.py` skips them in `.tsx`.
+
 A move is done when all four pass and no empty folder remains.
