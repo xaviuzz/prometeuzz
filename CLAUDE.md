@@ -25,7 +25,7 @@ Use their vocabulary as the reference in design decisions: Martin Fowler (refact
 - Do the simplest thing that passes, then refactor. Rule of three before abstracting.
 - The rule of three gates abstractions shared between types, not wrapping a primitive. A primitive that carries a rule or an identity becomes a value object at first use (`Binding`, `UserAlbumId`); do not propose waiting.
 - Define each functional concept of a project in `.claude/docs/<concept>.md` before building it: what it is, what defines it, its rules, what can be done with it, what is out of scope, open questions. Write it in English, in business language, without programming terms (no class or field names), after grilling Xavier on the concept. Choose and scope every slice or spec from the docs it touches: read them first, name them in the spec, and update the doc in the same change when a rule is added or changed.
-- Record each project decision and its why in that project's `.claude/decisions.md` when it is made; create the file if the project has none, and point to it from the project's `CLAUDE.md`. The repo cannot tell it later. Past about 15 decisions, make `decisions.md` an index by area with one file per decision in `.claude/decisions/` (title as heading, a line in the index for each file), so a session reads only the area it works in.
+- Record each project decision and its why in that project's `.claude/decisions.md` when it is made; create the file if the project has none, and point to it from the project's `CLAUDE.md`. The repo cannot tell it later. Past three decisions, make `decisions.md` an index by area with one file per decision in `.claude/decisions/` (title as heading, a line in the index for each file), so a session reads only the area it works in. Decisions carry no date; the history holds it.
 - In a TDD run, agree the seam once, then run every planned cycle in one go. Report at the end of the run, or earlier when a cycle contradicts the plan.
 - End every spec you write or document with a `## Diagram` section: a Mermaid diagram of the feature's flow (sequence for interactions, flowchart or state for rules).
 - Mark each step of a spec as done (`- [x]`) when its tests, lint and build pass. "Next step" is the first unmarked one. The code cannot tell which step a file belongs to. A step the spec says is tried by hand is marked only after Xavier confirms it.
@@ -46,7 +46,7 @@ Claude uses git **read-only, always, with two exceptions** (`git clone` into `Sa
 
 Allowed command shapes, blocked shapes and the why: `.claude/git-policy.md`. Read it before any git or `gh` command beyond plain `status`, `log` or `diff`, and before editing the hook. `.claude/hooks/git-read-only.sh` enforces it, in sessions started in PrometeuZZ only.
 
-The hook blocks any Bash command that mentions `git` or `gh`, even as a search pattern or as `.git` in an exclude list (`tar`, `find`). Search with Grep or Read instead; for a copy that must skip `.git`, write a script file and run it.
+The hook blocks any Bash command that mentions `git` or `gh`, even as a search pattern, as `.git` in an exclude list (`tar`, `find`) or in the body of a heredoc. Search with Grep or Read instead; for a copy that must skip `.git`, write a script file and run it; write a file's text with Write, never a heredoc.
 
 ## Learning projects
 

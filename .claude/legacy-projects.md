@@ -13,7 +13,7 @@ Its `CLAUDE.md` and `.claude/` live inside the project and are committed with it
 A delta replaces the spec. Its file is `.claude/deltas/<name>.md`, in English, with:
 
 - **Kind**: `feature` (new behavior) or `structural` (overcomes a challenge).
-- **Challenges**: ids from `.claude/challenges.md` that apply, and why.
+- **Challenges**: names of the challenges in `.claude/challenges/` that apply, and why.
 - **Docs**: the `.claude/docs/` concepts it touches.
 - **Strategy**: how to reach the value with the least impact on legacy code, naming the technique.
 - **Impact budget**: legacy files and lines the delta may touch. New files do not count.
@@ -25,7 +25,9 @@ Close a delta by comparing `git diff --stat <Base>` on legacy paths with the bud
 
 ## Challenge catalog
 
-`.claude/challenges.md`, one entry per challenge: id (`C-01`), symptom, where, evidence, risk, exit technique, status (`open`, `in delta <name>`, `overcome`). A challenge found by exploration is a proposal until Xavier confirms it.
+Up to three challenges, `.claude/challenges.md` holds them all. Past three it becomes an index by area, one line per challenge. Each challenge is a file in `.claude/challenges/`, named after it without a number (`global-clock.md`, title as heading); the file name is the id that deltas cite. A file holds symptom, where, evidence, risk, exit technique, status (`open`, `in delta <name>`, `overcome`). Update the status in the file and in the index together. A challenge found by exploration is a proposal until Xavier confirms it.
+
+Measure before proposing: evidence is a number or a quote taken with a command in the session. Size counts lines of code without Javadoc; a claim about a JDK or a tool is checked on this machine. Mark a count taken with grep as approximate.
 
 ## Techniques
 
@@ -48,6 +50,6 @@ Reach for these first, by name, in the delta's Strategy:
 ## New legacy project
 
 - `## Legacy` section in its `CLAUDE.md`, pointing here, with the baseline test command.
-- `.claude/challenges.md`, `.claude/decisions.md`, `.claude/deltas/`.
+- `.claude/challenges.md` with `.claude/challenges/`, `.claude/decisions.md`, `.claude/deltas/`.
 - `projects.md` entry with the kind.
 - A first catalog by read-only exploration, confirmed by Xavier.
