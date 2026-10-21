@@ -14,7 +14,7 @@ timeline
     17-oct : Boilerplates de backend, frontend y e2e : Skill new-webapp
     18-oct : Specs choose-album y anonymous-session
     19-oct : Specs photo-tray, user-album y backend-refactor
-    21-oct : Spec frontend-api-refactor : Ítem 7 de backend-refactor : Diagramas en specs
+    21-oct : Spec frontend-api-refactor : Ítem 7 de backend-refactor : Diagramas en specs : Spec slots
 ```
 
 ## 17 de octubre: boilerplates
@@ -62,7 +62,7 @@ gantt
     Índice de decisiones por área       :2026-10-19 11:32, 2026-10-19 11:39
 ```
 
-## 21 de octubre: refactor del frontend y cierre del backend
+## 21 de octubre: refactor del frontend, cierre del backend y slots
 
 ```mermaid
 gantt
@@ -72,6 +72,7 @@ gantt
     section Specs
     frontend-api-refactor               :2026-10-21 10:19, 2026-10-21 10:35
     backend-refactor (ítem 7)           :2026-10-21 17:18, 2026-10-21 17:45
+    slots                               :2026-10-21 17:57, 2026-10-21 19:17
     section Meta
     Diagramas en specs y doc de slot    :2026-10-21 09:52, 2026-10-21 10:19
 ```
@@ -90,3 +91,4 @@ gantt
 | backend-refactor | 19-oct | 19:27 | 21:24 | 2 h |
 | frontend-api-refactor | 21-oct | 10:19 | 10:35 | 16 min |
 | backend-refactor (ítem 7) | 21-oct | 17:18 | 17:45 | 27 min |
+| slots | 21-oct | 17:57 | 19:17 | 1 h 20 min |
