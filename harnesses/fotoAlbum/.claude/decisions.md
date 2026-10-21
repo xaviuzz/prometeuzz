@@ -63,6 +63,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The gate shows through a standing](decisions/the-gate-shows-through-a-standing.md)
 - [Page parts live in their own components](decisions/page-parts-live-in-their-own-components.md)
 - [Components grouped by feature](decisions/components-grouped-by-feature.md)
+- [Session menu is composed of avatar and dialog](decisions/session-menu-is-composed-of-avatar-and-dialog.md)
 - [Domain folder and colocated helpers](decisions/domain-folder-and-colocated-helpers.md)
 - [React contexts share one folder](decisions/react-contexts-share-one-folder.md)
 - [Frontend API calls go through one CallSender](decisions/frontend-api-calls-go-through-one-call-sender.md)
