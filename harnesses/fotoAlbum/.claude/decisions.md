@@ -160,3 +160,12 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Photo id and thumbnail URL have one owner](decisions/photo-id-and-thumbnail-url-have-one-owner.md)
 - [Photo store refuses like the user album store](decisions/photo-store-refuses-like-the-user-album-store.md)
 - [A refused file carries its rejection code](decisions/a-refused-file-carries-its-rejection-code.md)
+
+## Slots
+
+- [Slots slice](decisions/slots-slice.md)
+- [A photo is in one place only](decisions/a-photo-is-in-one-place-only.md)
+- [Each face has one fixed slot](decisions/each-face-has-one-fixed-slot.md)
+- [Slot operations answer the user album](decisions/slot-operations-answer-the-user-album.md)
+- [The tray subtracts the placed photos](decisions/the-tray-subtracts-the-placed-photos.md)
+- [Dragging is native and mouse only](decisions/dragging-is-native-and-mouse-only.md)

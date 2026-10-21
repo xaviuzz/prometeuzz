@@ -11,7 +11,7 @@ The photo tray, "Mis fotos", is the space on the making page where the person se
 - **Original**: the image exactly as it was uploaded. It is kept, but nothing shows it yet.
 - **Thumbnail**: a small copy of the original with the same proportions, whose longest side is 256 pixels. It is what the tray shows. The app makes it when the photo is stored.
 
-Two photos with the same content are still two photos.
+Two photos with the same content are still two photos, so uploading an image again adds another photo to the tray.
 
 ## Rules
 
@@ -20,13 +20,14 @@ Two photos with the same content are still two photos.
 - There is no limit on the number of photos, neither per upload nor per session.
 - Several files can be chosen and uploaded together. A rejected file does not stop the others: the app keeps the good ones and tells which were rejected and why. The reasons are an unsupported format, a file that is too large, and a file that cannot be read as an image.
 - Photos are kept by the app, not by the browser, so they are still there after reloading or reopening the app.
-- Photos show in the order they were uploaded, oldest first. New ones go at the end. Within one upload they keep the order in which the files were chosen.
+- Photos show in the order they were uploaded, oldest first, wherever they have been. New ones go at the end. Within one upload they keep the order in which the files were chosen.
 - A photo cannot be deleted, reordered, renamed or edited.
 - Photos need a session. Without one the app refuses to store or list them.
 
 ## The photo tray
 
 - It sits on the left of the making page, takes a quarter of the page width and as much height as is visible.
+- It shows the photos that are in no slot (see `slot.md`); a photo placed in a slot leaves it, and comes back to its place by upload order when the slot is emptied or its photo replaced.
 - The thumbnails fill it, and it scrolls inside when they do not fit. The rest of the page does not move.
 - Under the photos there is always an upload button, "Subir fotos", with an image-plus icon, that opens the file chooser for several photos. It is always visible, however many photos there are.
 - While files upload, the button cannot be pressed again and shows it is working. When they finish, the new photos appear at the end.
@@ -37,14 +38,15 @@ Two photos with the same content are still two photos.
 ## What can be done
 
 1. Upload one or several photos: from the button in the tray.
-2. See the uploaded photos as thumbnails: in the tray, on the making page.
+2. See the photos that are not in a slot as thumbnails: in the tray, on the making page.
+3. Place a photo in a slot, and take it back: by dragging (see `slot.md`).
 
 ## Out of scope
 
 - Deleting, reordering, renaming or editing photos.
 - Dragging files onto the tray, and progress per file.
 - Showing the original, or any size bigger than the thumbnail.
-- Placing photos on album faces (see `slot.md`) and layouts.
+- Layouts.
 - Formats other than JPEG, PNG and WebP, such as HEIC.
 - Sharing photos between sessions, browsers or devices.
 

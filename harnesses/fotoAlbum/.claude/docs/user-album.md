@@ -2,7 +2,7 @@
 
 A user album is a concrete album: the one a person is preparing to print, made from an album model of the catalogue (see `album.md`). In this document "album" always means the catalogue model, and "user album" the concrete one.
 
-A user album takes its commercial name, size, page size, page count and binding from its model and, for now, holds nothing else: its faces have no slots. The places for photos on faces are slots (see `slot.md`).
+A user album takes its commercial name, size, page size, page count and binding from its model and holds nothing else but the photos placed on its faces. The places for photos on faces are slots (see `slot.md`).
 
 ## What defines a user album
 
@@ -21,7 +21,7 @@ A face is one side of a physical sheet; the sheet has no rules of its own and is
 - **Number**: its position, from 1 to the page count. Fixed.
 - **Size**: the page size of the user album.
 - **Binding side**: the edge where the face is bound, which follows from its number. Odd faces are bound on their left edge and even faces on their right edge, as in a book. Face 1 is a right-hand face. The last face is even, so it is a left-hand face.
-- **Slots**: the places for photos on it (see `slot.md`). A face starts with none.
+- **Slot**: the place for a photo on it (see `slot.md`). Every face has one, empty at first.
 
 ## Rules
 
@@ -48,7 +48,7 @@ Above the face, a compact header shows the commercial name; resting the pointer 
 
 ## Out of scope
 
-- Layouts, and how slots are created on a face (see `slot.md`).
+- Layouts, and any other slot than the one each face has (see `slot.md`).
 - The cover, and bindings along the top edge, as in a calendar.
 - A title for the user album, and any state such as draft, ready or ordered.
 - Deleting or editing a user album, and changing its model.
