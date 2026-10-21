@@ -35,6 +35,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Transport is separate from operations](decisions/transport-is-separate-from-operations.md)
 - [Routes are a map handed to Bun.serve](decisions/routes-are-a-map-handed-to-bun-serve.md)
 - [Domain has its own folder, one per concept](decisions/domain-has-its-own-folder-one-per-concept.md)
+- [Domain primitives become value objects](decisions/domain-primitives-become-value-objects.md)
 
 ## Frontend foundation
 
