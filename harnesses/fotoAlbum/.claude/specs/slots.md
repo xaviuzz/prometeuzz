@@ -21,7 +21,7 @@ A step is done when its repo's tests, lint, typecheck and build pass (in `e2e/`,
 ## Steps
 
 - [x] 1. Docs: `docs/slot.md`, `docs/photo.md`, `docs/user-album.md`, and the decisions of area "Slots".
-- [ ] 2. Contract (`backend/`, then `frontend/`): `/slot.place` and `/slot.empty`, `slots` in the `UserAlbum` schema, the codes `FACE_NOT_FOUND` and `PHOTO_NOT_FOUND`. Copy the file to `frontend/`, run `generate`, add both routes to the `dev.ts` proxy. The correspondence test is red until step 3; the step is done when it is the only failing test in `backend/` and `frontend/` is fully green.
+- [x] 2. Contract (`backend/`, then `frontend/`): `/slot.place` and `/slot.empty`, `slots` in the `UserAlbum` schema, the codes `FACE_NOT_FOUND` and `PHOTO_NOT_FOUND`. Copy the file to `frontend/`, run `generate`, add both routes to the `dev.ts` proxy. The correspondence test is red until step 3; the step is done when it is the only failing test in `backend/` and `frontend/` is fully green.
 - [ ] 3. Backend (`backend/`). Decisions: "Each face has one fixed slot", "Slot operations answer the user album", "A photo is in one place only". Cycles, in this order, one go:
   1. `Slot` and `FaceSlots` in `domain/`: the occupant of each face of a user album, with place, empty and replace; geometry is not part of it.
   2. `UserAlbum` carries its slots, all empty when made; `UserAlbumStore` writes and reads them, and a stored file without them reads as empty.
