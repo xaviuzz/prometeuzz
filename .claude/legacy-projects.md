@@ -50,6 +50,7 @@ Reach for these first, by name, in the delta's Strategy:
 - PrometeuZZ style conventions apply to new code. Legacy code a delta edits keeps its local style; a structural delta may justify more. Reformat nothing for style alone.
 - Trunk-based: commit to `main`, in small steps. Branch only when Xavier asks.
 - Structural and behavioral changes stay in separate steps.
+- A defect found during a delta and outside its scope becomes a challenge file, with the measurement taken in the session. The delta does not fix it; its Challenges section names it only if the strategy prepares its exit.
 
 ## New legacy project
 
