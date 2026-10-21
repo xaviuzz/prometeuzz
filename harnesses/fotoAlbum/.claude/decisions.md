@@ -60,6 +60,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Pages load their own data](decisions/pages-load-their-own-data.md)
 - [Loading, error and empty states](decisions/loading-error-and-empty-states.md)
 - [Reading states live in one ReadingView](decisions/reading-states-live-in-one-reading-view.md)
+- [The gate shows through a standing](decisions/the-gate-shows-through-a-standing.md)
 - [Page parts live in their own components](decisions/page-parts-live-in-their-own-components.md)
 - [Components grouped by feature](decisions/components-grouped-by-feature.md)
 - [Domain folder and colocated helpers](decisions/domain-folder-and-colocated-helpers.md)
