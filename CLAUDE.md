@@ -111,7 +111,7 @@ Reach for these first, before improvising a process:
 
 ## Current project
 
-None. Xavier names one, or asks for a known project; this section is then updated.
+**fotoAlbum** (`Sandbox/fotoAlbum`, umbrella of `backend/`, `frontend/` and `e2e/`). Xavier names another, or asks for a known project; this section is then updated.
 
 When the user says "let's work" (or similar) without naming a project, work in the current project: read its `CLAUDE.md` and do all changes there, not in PrometeuZZ. With none, ask which project.
 
