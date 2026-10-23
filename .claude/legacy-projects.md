@@ -27,6 +27,8 @@ Close a delta by comparing `git diff --stat <Base>` on legacy paths with the bud
 
 `.claude/timeline.md` records each closed delta, in English, with the times taken from the project's commits (commit hours, not work hours). Once the delta's commits exist, add its start and end, its `gantt` bar in the day's diagram (a new diagram for a new day), its row in the summary table (delta, kind, challenge it overcomes, start, end, elapsed as end minus start) and its day in the overview `timeline`. Until then, say that the timeline is pending. The hook `work-done-needs-timeline.sh` blocks the edit that closes a delta missing from the timeline.
 
+Close in this order: commit each green step through `commit-message`, then edit the timeline, then mark the last step `[x]`. The hook blocks the `[x]` on the last step while the delta is missing from the timeline, so "pending" holds only until that edit. Start is the delta's first commit (the plan commit); end is its last commit before the timeline commit.
+
 ## Challenge catalog
 
 Up to three challenges, `.claude/challenges.md` holds them all. Past three it becomes an index by area, one line per challenge. Each challenge is a file in `.claude/challenges/`, named after it without a number (`global-clock.md`, title as heading); the file name is the id that deltas cite. A file holds symptom, where, evidence, risk, exit technique, status (`open`, `in delta <name>`, `overcome`). Update the status in the file and in the index together. A challenge found by exploration is a proposal until Xavier confirms it.
