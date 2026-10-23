@@ -108,10 +108,11 @@ Reach for these first, before improvising a process:
 - `Sandbox/TMP/`: read-only references and scratch material (e.g. clones of reference repos). We read from it, never build in it. It can be deleted at any time without losing work.
 - Each project keeps `reference/` (research material), `specs/` (step-by-step plans) and `docs/` (functional concepts) inside its own `.claude/`, never at the project root. Put new ones there without asking.
 - A file Xavier asks for with no path goes in the root of the project's `.claude/` (the harness's, for an umbrella), never in the PrometeuZZ root. `.claude/docs/` holds functional concepts only.
+- A mod made with `plugin-authoring` lives in `~/.claude/dev-mods/<session-id>/` and loads only in that session. To load it in every PrometeuZZ session, keep it in `.claude/skills/<name>/` (`context-band` is there).
 
 ## Current project
 
-**fotoAlbum** (`Sandbox/fotoAlbum`, umbrella of `backend/`, `frontend/` and `e2e/`). Xavier names another, or asks for a known project; this section is then updated.
+jodaTime, in `Sandbox/jodaTime`. Xavier names another, or asks for a known project; this section is then updated.
 
 When the user says "let's work" (or similar) without naming a project, work in the current project: read its `CLAUDE.md` and do all changes there, not in PrometeuZZ. With none, ask which project.
 
