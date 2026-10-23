@@ -1,0 +1,6 @@
+{
+  "name": "context-band",
+  "version": "0.1.0",
+  "description": "Red dismissible band above the prompt when context use crosses 5, 10 and 20 percent",
+  "types": "./types/index.d.ts"
+}
