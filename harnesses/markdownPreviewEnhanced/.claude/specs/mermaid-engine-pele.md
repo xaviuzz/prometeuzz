@@ -7,8 +7,9 @@ Mark a step `- [x]` when its tests, lint and build pass (`make test`, `make chec
 ## Facts to verify while building
 
 - crossnote's webview calls `window.mermaid.render(id, code)` and reads `{ svg }` from the result (seen in `node_modules/crossnote/out/webview/preview.js`).
-- Whether Pele's `render()` is sync or async, and whether it needs a DOM: read `dist/index.d.ts` and `dist/pele.js` in step 3, once `pele` is installed. The `DiagramRenderer` port of step 2 may need a thin wrapper around it.
-- How `src/preview-provider.ts` and crossnote order the scripts in the preview HTML: read it in step 4. Our script must load after crossnote's Mermaid.
+- Pele's `render(source, options)` is sync, takes no id and returns `{ svg, ... }`; it measures text with a canvas, so it needs a browser. A thin `PeleRenderer` in `src/webview/mermaid-engine-entry.ts` adapts it to `DiagramRenderer`. Verified in step 3.
+- Step 3 builds the bundle to `crossnote/webview/mermaid-engine.js` (gulp recreates that folder first) and the entry reads the engine from `document.currentScript.dataset.engine`, defaulting to `mermaid`. Step 4 decides how the preview HTML sets it.
+- Crossnote's preview HTML loads its Mermaid, then the `scripts` option, then `preview.js`. We pass our tag through `scripts` in `src/preview-provider.ts`, so it loads after Mermaid. Verified in step 4.
 
 ## Steps
 
@@ -19,8 +20,8 @@ Mark a step `- [x]` when its tests, lint and build pass (`make test`, `make chec
   3. Pele throws: Mermaid draws that diagram.
   4. Both throw: the error is Mermaid's, unchanged.
   Close with the `extract-sut` skill.
-- [ ] 3. Dependency and bundle. Add `pele` as a `devDependency`, bundle the adapter and Pele into one webview script in `build.js`, and copy it where `gulpfile.js` packages webview assets. Check the build on Node 18 through the `Makefile`.
-- [ ] 4. Load in the preview. Inject the script after crossnote's Mermaid in the preview HTML and pass the chosen engine to it. Tried by hand: one document with a flowchart and a sequence diagram, engine `pele`, then `mermaid`.
+- [x] 3. Dependency and bundle. Add `pele` as a `devDependency`, bundle the adapter and Pele into one webview script in `build.js`, and copy it where `gulpfile.js` packages webview assets. Check the build on Node 18 through the `Makefile`.
+- [x] 4. Load in the preview. Inject the script after crossnote's Mermaid in the preview HTML and pass the chosen engine to it. Tried by hand: one document with a flowchart and a sequence diagram, engine `pele`, then `mermaid`.
 - [ ] 5. Theme. Bind Pele's CSS variables to `--vscode-*`. Tried by hand: switch the editor between light and dark with a preview open.
 - [ ] 6. Close. Add the README note and the `CHANGELOG.md` entry that `AGENTS.md` asks for.
 

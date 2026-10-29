@@ -6,6 +6,8 @@ Read `AGENTS.md` before any change: it holds commands, architecture, Node 18 con
 
 Run commands through the `Makefile` (`make install|build|test|check|fix|watch|web`). It puts Node 18 first on the PATH; a bare `pnpm` command needs `export PATH=/home/xaviuzz/.local/share/node18/node_modules/node/bin:$PATH` first. The system Node is 26, and `AGENTS.md` says a green run on Node 20+ proves nothing for this extension.
 
+Try a change by hand with `make build`, then `code --extensionDevelopmentPath=<repo root> <folder with a test .md>` (a fixture lives in `/tmp/pele-prueba/` when present). Avoid F5: the window opened in PrometeuZZ does not see the repo's `launch.json`, and its `npm: watch` task runs on the system Node, not 18. After a rebuild, run "Developer: Reload Window" in the dev window and reopen the preview.
+
 Run one test file with `pnpm exec mocha --ui tdd test/<file>.test.js` (Node 18 on the PATH); `npx` fails on Node 18. List every new test file in the `test:unit` script of `package.json`, or `make test` skips it.
 
 ## Current target
