@@ -22,8 +22,8 @@ Mark a step `- [x]` when its tests, lint and build pass (`make test`, `make chec
   Close with the `extract-sut` skill.
 - [x] 3. Dependency and bundle. Add `pele` as a `devDependency`, bundle the adapter and Pele into one webview script in `build.js`, and copy it where `gulpfile.js` packages webview assets. Check the build on Node 18 through the `Makefile`.
 - [x] 4. Load in the preview. Inject the script after crossnote's Mermaid in the preview HTML and pass the chosen engine to it. Tried by hand: one document with a flowchart and a sequence diagram, engine `pele`, then `mermaid`.
-- [ ] 5. Theme. Bind Pele's CSS variables to `--vscode-*`. Tried by hand: switch the editor between light and dark with a preview open.
-- [ ] 6. Close. Add the README note and the `CHANGELOG.md` entry that `AGENTS.md` asks for.
+- [x] 5. Theme. Bind Pele's CSS variables to `--vscode-*`. Tried by hand: switch the editor between light and dark with a preview open.
+- [x] 6. Close. Add the README note and the `CHANGELOG.md` entry that `AGENTS.md` asks for.
 
 ## Diagram
 
