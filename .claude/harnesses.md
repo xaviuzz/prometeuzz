@@ -1,6 +1,6 @@
 # Harnesses
 
-A **harness** is the Claude setup of a project whose upstream has none: its `CLAUDE.md` and `.claude/` (specs, reference, docs). It lives in `harnesses/<name>/` at the PrometeuZZ root, tracked by PrometeuZZ. The project in `Sandbox/` only links to it, so `/clean` never loses it and the fork never commits it.
+A **harness** is the Claude setup of a project whose upstream has none: its `CLAUDE.md` and `.claude/` (specs, reference, docs). It lives in `harnesses/<name>/` at the PrometeuZZ root, tracked by PrometeuZZ. The project in `Sandbox/` only links to it, so `/clean` never loses it and the fork never commits it. An upstream `AGENTS.md` is not a Claude setup: the project still gets a harness, whose `CLAUDE.md` points to it.
 
 ## Layout
 
