@@ -8,6 +8,8 @@ Run commands through the `Makefile` (`make install|build|test|check|fix|watch|we
 
 Try a change by hand with `make build`, then `code --extensionDevelopmentPath=<repo root> <folder with a test .md>` (a fixture lives in `/tmp/pele-prueba/` when present). Avoid F5: the window opened in PrometeuZZ does not see the repo's `launch.json`, and its `npm: watch` task runs on the system Node, not 18. After a rebuild, run "Developer: Reload Window" in the dev window and reopen the preview.
 
+Install your build in VS Code: `make build`, then with Node 18 on the PATH and a `/tmp/file-polyfill.js` holding `globalThis.File = globalThis.File || require('buffer').File;`, run `NODE_OPTIONS="--require /tmp/file-polyfill.js" pnpm dlx @vscode/vsce@2.32.0 package --no-dependencies` and `code --install-extension markdown-preview-enhanced-<version>.vsix --force`. `vsce` 4.x needs Node 22; 2.32.0 needs the polyfill on 18. The `.vsix` is git-ignored.
+
 Run one test file with `pnpm exec mocha --ui tdd test/<file>.test.js` (Node 18 on the PATH); `npx` fails on Node 18. List every new test file in the `test:unit` script of `package.json`, or `make test` skips it.
 
 ## Current target
