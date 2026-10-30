@@ -1,0 +1,6 @@
+{
+  "name": "visual-explain",
+  "version": "0.1.0",
+  "description": "Draws a Mermaid diagram with Pele in the Flexoki light palette and shows it in a pane beside the chat",
+  "types": "./types/index.d.ts"
+}
