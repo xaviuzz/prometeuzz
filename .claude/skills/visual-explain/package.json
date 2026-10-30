@@ -1,0 +1,11 @@
+{
+  "name": "visual-explain",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "pele": "1.12.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}
