@@ -14,6 +14,9 @@ When Xavier asks for a more visual explanation, Claude draws the answer as a dia
 
 ## Rules
 
+- Every element of a diagram has a role, such as person, decision, failure, success, stored thing or key point, and its color tells the role. At least three roles show in each diagram.
+- A role also sets the size and weight of its text: the key point is the largest and boldest, minor notes are the smallest. One key point per diagram.
+- Colors come only from the light end of the Flexoki palette: pale tints for fills, mid tones for outlines, ink for text. No dark tones.
 - The kind of diagram (flow, sequence, state, data model...) is chosen with the existing Mermaid skill, which also writes the Mermaid text.
 - A new diagram replaces the one in the panel.
 - If Pele cannot draw a diagram, the panel shows the reason and the Mermaid text. Claude corrects the text and tries once more. If it fails again, Claude tells Xavier in the conversation.
@@ -38,5 +41,4 @@ When Xavier asks for a more visual explanation, Claude draws the answer as a dia
 ## Open questions
 
 - Whether the part of Claude that draws the panel can run Pele inside itself, or needs a separate small program to do the drawing. Decided by a trial before building.
-- The exact colors of the palette, to be checked against the Flexoki source.
 - Whether the panel is available in the editor Xavier uses.

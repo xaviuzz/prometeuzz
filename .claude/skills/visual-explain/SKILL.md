@@ -7,7 +7,7 @@ Explain by drawing. The mod in this folder registers the tool `mcp__visual-expla
 
 ## 1. Choose and write the Mermaid
 
-Load `mermaid-diagrams` and follow its type chooser and syntax. Diagram the thing under discussion, nothing else. Done when the Mermaid is one diagram, small enough to read at a glance.
+Load `mermaid-diagrams` and follow its type chooser and syntax. Diagram the thing under discussion, nothing else. Then give every node a role and style it from `palette.md` (`classDef` block, light tones only), so hue, size and weight carry meaning: actor, decision, error, done. Use at least three roles, exactly one `key` node, and never a hex or font size outside that file. A sequence diagram takes `rect` bands instead, as `palette.md` says. Done when the Mermaid is one diagram, small enough to read at a glance, and every node has a role.
 
 ## 2. Draw it
 
