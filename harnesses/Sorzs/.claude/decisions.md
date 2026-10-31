@@ -55,7 +55,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [HealthCheck wraps the generated client; tests fake fetch](decisions/healthcheck-wraps-the-generated-client-tests-fake-fetch.md)
 - [The API reaches components through one ApiProvider](decisions/the-api-reaches-components-through-one-apiprovider.md)
 - [Frontend CI gate](decisions/frontend-ci-gate.md)
-- [The side bar owns the reading; the dialog reports what it added](decisions/side-bar-owns-the-reading-dialog-reports-onadded.md)
+- [A SourcesProvider owns the reading; the dialog reports what it added](decisions/sources-provider-owns-the-reading-dialog-reports-onadded.md)
 - [API wrappers throw refusals and let network failures through](decisions/api-wrappers-throw-refusals-and-let-network-failures-through.md)
 
 ## E2E

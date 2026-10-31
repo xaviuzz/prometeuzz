@@ -1,6 +1,6 @@
 # Source title and favicon
 
-Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/source.md`, `.claude/docs/source-list.md`. Decisions: area Sources in `.claude/decisions.md`, plus `operations-validate-inside-execute`, `errors-carry-their-contract-code`, `domain-has-its-own-folder-one-per-concept`, `side-bar-owns-the-reading-dialog-reports-onadded`.
+Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/source.md`, `.claude/docs/source-list.md`. Decisions: area Sources in `.claude/decisions.md`, plus `operations-validate-inside-execute`, `errors-carry-their-contract-code`, `domain-has-its-own-folder-one-per-concept`, `sources-provider-owns-the-reading-dialog-reports-onadded`.
 
 Goal: the side bar shows each source as its favicon, then the user's name, or the page's title when there is no name, or the address when there is neither. The add dialog suggests the page's title as the name once the address is written.
 
