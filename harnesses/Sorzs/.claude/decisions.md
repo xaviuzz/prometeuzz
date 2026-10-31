@@ -58,6 +58,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [A SourcesProvider owns the reading; the dialog reports what it added](decisions/sources-provider-owns-the-reading-dialog-reports-onadded.md)
 - [The add dialog says URL and Title and keeps an sr-only description](decisions/add-dialog-says-url-and-title-and-keeps-an-sr-only-description.md)
 - [API wrappers throw refusals and let network failures through](decisions/api-wrappers-throw-refusals-and-let-network-failures-through.md)
+- [The add dialog shows the favicon beside the title field](decisions/the-add-dialog-shows-the-favicon-beside-the-title-field.md)
 
 ## E2E
 

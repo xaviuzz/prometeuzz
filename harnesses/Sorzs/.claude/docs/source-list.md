@@ -27,6 +27,7 @@ The sources a user trusts, each with the name the user gave it, if any. It is th
 
 - Add a source: with an address and, optionally, a name, from a button at the right of the header. The entry appears in the side bar at once.
 - While adding, once the address is written, the dialog suggests the title of the page as the name. The suggestion fills the name only when the user has not written one, or when it is still an earlier suggestion the user has not edited. The user may change or clear it. If the page offers no title, nothing is suggested. Leaving the address empty suggests nothing.
+- While adding, once the address is written, the dialog also shows the page's favicon on the left of the name, or the neutral icon when the page offers none. Nothing is shown before the address is inspected, and changing the address hides it until the new one is inspected. If the page cannot be read, nothing is shown.
 - See it: the side bar shows each entry in order of addition, with the address as a hint on hover. With no entries it says the user has no sources yet.
 
 ## Out of scope
