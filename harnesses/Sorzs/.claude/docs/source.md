@@ -8,24 +8,31 @@ A web address that Xavier trusts. Sorzs searches only inside the sources a user 
 
 - Its address: the exact text of a web address starting with `http://` or `https://`.
 - Its own identifier, chosen by Sorzs when the source is first registered by anyone.
+- Its title: the title the page at that address gives itself. It may be missing.
+- Its favicon: the small icon the page at that address offers. It may be missing.
 
-A source has no name. The name belongs to the user's list (see `source-list.md`).
+A source has no name. The name belongs to the user's list (see `source-list.md`). The title is not a name: it comes from the page, not from the user.
 
 ## Rules
 
 - Two addresses are the same source only when they are written exactly the same, after removing spaces at both ends. `https://example.com` and `https://example.com/` are two sources. Smarter rules (a site that answers on several addresses) are added when a real case appears.
 - The address must be a complete web address starting with `http://` or `https://`. Anything else is refused.
 - Sorzs does not check that the site exists or is reliable. Trusting is the user's decision.
-- A source is the same for everyone who registers it. A second user registering an address already known gets the same source.
+- When a source is first registered, Sorzs reads the page at its address to learn its title and favicon. If the page does not answer, is not a web page, or offers no title or no icon, the source is still registered, with that part missing.
+- The favicon is the icon the page declares; when it declares none, the icon at the root of the site. An icon whose address is not `http://` or `https://` is ignored.
+- Reading a page is limited: it gives up after 3 seconds, reads only the first megabyte, follows at most 3 redirects and accepts only web pages.
+- Title and favicon are learned once, the first time the source is registered, and are never refreshed.
+- A source is the same for everyone who registers it. A second user registering an address already known gets the same source, with the title and favicon already learned.
 
 ## What can be done with it
 
 - It is created the first time someone registers its address.
 - It is looked up by address when a user registers it.
+- Its address can be inspected before registering, to learn the title and favicon the page offers. Nothing is registered by inspecting.
 
 ## Out of scope
 
-Checking that the site answers, grouping addresses of the same site, favicons or previews, suggesting sources.
+Checking that the site answers, grouping addresses of the same site, previews, refreshing title or favicon, protecting against addresses that point to the machine's own network (revisit when there is more than one user), suggesting sources.
 
 ## Open questions
 

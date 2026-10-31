@@ -76,3 +76,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Source and list entry are separate concepts](decisions/source-and-list-entry-are-separate-concepts.md)
 - [Source identity is the exact address](decisions/source-identity-is-the-exact-address.md)
 - [Registration refusals check the address first](decisions/registration-refusals-check-the-address-first.md)
+- [The backend reads the page for title and favicon](decisions/the-backend-reads-the-page-for-title-and-favicon.md)
+- [Title and favicon belong to the source; the name stays optional](decisions/title-and-favicon-belong-to-the-source-the-name-stays-optional.md)
+- [Reading a page is bounded and never fails the registration](decisions/reading-a-page-is-bounded-and-never-fails-the-registration.md)
+- [The page reader is an interface the domain owns](decisions/the-page-reader-is-an-interface-the-domain-owns.md)

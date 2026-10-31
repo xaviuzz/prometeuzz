@@ -1,0 +1,3 @@
+# Title and favicon belong to the source; the name stays optional
+
+The source stores its title and favicon, learned once at first registration and never refreshed. The entry's name becomes optional; with no name the list shows the title, then the address. The title is never copied into the name. Why: the name is the user's and the title is the page's (`source-and-list-entry-are-separate-concepts`); copying would make two pages with the same title collide on `SOURCE_NAME_TAKEN` without the user choosing anything. Reading once keeps the source the same for everyone and defers refresh until it is needed.
