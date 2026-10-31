@@ -4,7 +4,7 @@ description: Create a TypeScript web app umbrella in Sandbox/ (backend, frontend
 disable-model-invocation: true
 ---
 
-The template in `template/` was extracted from `Sandbox/fotoAlbum` at tag `boilerplate-v1`, set on `backend`, `frontend`, `e2e` and PrometeuZZ. fotoAlbum is the origin, not an update source: an improvement made there reaches the template by hand.
+The template in `template/` was extracted from `Sandbox/fotoAlbum` at tag `boilerplate-v1` and refreshed at `boilerplate-v2`, set on `backend`, `frontend`, `e2e` and PrometeuZZ. fotoAlbum is the origin, not an update source: an improvement made there reaches the template by hand.
 
 Placeholders in `template/`, in file contents and in paths: `{{name}}` (as typed) and `{{packageName}}` (`name` in lower case, for `package.json`, lockfiles and image names). `scripts/render.mjs` fills them.
 
@@ -25,7 +25,7 @@ Run each command as its own Bash call and read its exit status. A piped command 
 
 ## Design
 
-- The template is stored, not derived from fotoAlbum on each run: creation is deterministic and works without fotoAlbum present. To refresh it, tag a newer state `boilerplate-v2` in the four repos and extract again by hand.
+- The template is stored, not derived from fotoAlbum on each run: creation is deterministic and works without fotoAlbum present. To refresh it, compare the generic files of the template with fotoAlbum, leave its domain out, then tag the state `boilerplate-v3` in the four repos. Tags stay on Xavier's machine: a fresh clone of the fotoAlbum repos carries none, so the comparison is file by file.
 - The template holds the walking skeleton end to end: the `health.check` operation, the `HealthMark`, the e2e happy path, the CI of the three repos. Nothing of photos exists in it.
 - Lockfiles travel with the template, so a new project starts on the versions of the tag. The only name inside them is the package's, which `{{packageName}}` fills.
 - `skills-lock.json` and `frontend/.claude/skills` stay out: third-party content copied by hand goes stale.

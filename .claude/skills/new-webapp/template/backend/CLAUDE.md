@@ -22,3 +22,7 @@ A change is done when test, lint, typecheck and build pass.
 ## Layout
 
 `test/` mirrors `src/`. Tests assert on public behavior.
+
+Imports point inward: `domain/` imports nothing outside itself except `call/CallError` and `ErrorCode`, which its errors extend; `infrastructure/` imports `domain/`; `call/` and `operations/` import all of them, never the reverse. `domain/` appears with the first concept, one folder per functional concept; `infrastructure/` already holds `transport/`. A new class goes in the folder its dependencies allow. Why: `.claude/decisions/domain-has-its-own-folder-one-per-concept.md`.
+
+Every `expect(...).rejects` and `.resolves` is awaited. Bun waits for an unawaited one, but the `await` makes the check explicit instead of relying on the runner.

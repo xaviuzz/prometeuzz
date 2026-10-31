@@ -1,6 +1,6 @@
 # {{name}} decisions
 
-Entries below were inherited from the fotoAlbum boilerplate (tag `boilerplate-v1`). Each why holds until a new entry replaces it.
+Entries below were inherited from the fotoAlbum boilerplate (tag `boilerplate-v2`). Each why holds until a new entry replaces it.
 
 One file per decision in `decisions/`, listed here by area. Read only the files of the area you work in. Record a new decision as its own file with the title as its heading, and add its line under its area here; a file with no line, or a line with no file, is a defect. Split an area past 15 decisions.
 
@@ -30,7 +30,13 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Unknown operation is a Null Object that serves 404](decisions/unknown-operation-is-a-null-object-that-serves-404.md)
 - [Operations serve HTTP requests](decisions/operations-serve-http-requests.md)
 - [Backend CI gate](decisions/backend-ci-gate.md)
+- [The backend image installs its dependencies](decisions/the-backend-image-installs-its-dependencies.md)
 - [Body is an object; Call answers for itself](decisions/body-is-an-object-call-answers-for-itself.md)
+- [Errors carry their contract code](decisions/errors-carry-their-contract-code.md)
+- [Operations validate inside execute](decisions/operations-validate-inside-execute.md)
+- [Transport is separate from operations](decisions/transport-is-separate-from-operations.md)
+- [Routes are a map handed to Bun.serve](decisions/routes-are-a-map-handed-to-bun-serve.md)
+- [Domain has its own folder, one per concept](decisions/domain-has-its-own-folder-one-per-concept.md)
 
 ## Frontend foundation
 
@@ -58,4 +64,5 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Compose waits on healthchecks](decisions/compose-waits-on-healthchecks.md)
 - [E2E adds @types/node](decisions/e2e-adds-types-node.md)
 - [E2E Compose uses host networking](decisions/e2e-compose-uses-host-networking.md)
+- [Bring the stack up for manual checks](decisions/bring-the-stack-up-for-manual-checks.md)
 - [E2E CI gate](decisions/e2e-ci-gate.md)
