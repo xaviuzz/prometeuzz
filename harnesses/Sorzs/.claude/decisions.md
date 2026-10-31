@@ -69,6 +69,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [E2E Compose uses host networking](decisions/e2e-compose-uses-host-networking.md)
 - [Bring the stack up for manual checks](decisions/bring-the-stack-up-for-manual-checks.md)
 - [E2E CI gate](decisions/e2e-ci-gate.md)
+- [The sample site has its own compose file](decisions/sample-site-has-its-own-compose-file.md)
 
 ## Sources
 
