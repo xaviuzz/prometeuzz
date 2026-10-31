@@ -12,7 +12,7 @@ Sorzs lets Xavier search the web without leaving the sites they trust. Xavier re
 
 - A source is singular and has its own identifier. The backend decides, case by case from the address, which source an address belongs to. A source is the same for anyone who registers it.
 - Registering takes an address. Sorzs does not check that the site exists or is reliable: trusting is Xavier's decision. Registering a source already in the list says so instead of duplicating it.
-- Each user names the sources in their list as they like and renames them at will. The name belongs to the user, not to the source.
+- Each user names the sources in their list and renames them at will, as long as no two names in the list are the same. The name belongs to the user, not to the source.
 - Trust has no degrees: a source is in the list or it is not. Removing one takes effect at once and leaves no trace.
 - A search covers all the sources in the list and never widens to the open web. With no sources or no query it does not search. It returns links to the original pages, never answers or copied content.
 - The search runs in the frontend, through a module the backend serves on demand.

@@ -54,6 +54,8 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [HealthCheck wraps the generated client; tests fake fetch](decisions/healthcheck-wraps-the-generated-client-tests-fake-fetch.md)
 - [The API reaches components through one ApiProvider](decisions/the-api-reaches-components-through-one-apiprovider.md)
 - [Frontend CI gate](decisions/frontend-ci-gate.md)
+- [The side bar owns the reading; the dialog reports what it added](decisions/side-bar-owns-the-reading-dialog-reports-onadded.md)
+- [API wrappers throw refusals and let network failures through](decisions/api-wrappers-throw-refusals-and-let-network-failures-through.md)
 
 ## E2E
 
@@ -66,3 +68,10 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [E2E Compose uses host networking](decisions/e2e-compose-uses-host-networking.md)
 - [Bring the stack up for manual checks](decisions/bring-the-stack-up-for-manual-checks.md)
 - [E2E CI gate](decisions/e2e-ci-gate.md)
+
+## Sources
+
+- [Sources persist in memory behind a repository](decisions/sources-persist-in-memory-behind-a-repository.md)
+- [Source and list entry are separate concepts](decisions/source-and-list-entry-are-separate-concepts.md)
+- [Source identity is the exact address](decisions/source-identity-is-the-exact-address.md)
+- [Registration refusals check the address first](decisions/registration-refusals-check-the-address-first.md)

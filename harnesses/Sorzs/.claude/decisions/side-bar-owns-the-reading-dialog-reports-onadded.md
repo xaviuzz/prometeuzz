@@ -1,0 +1,3 @@
+# The side bar owns the reading; the dialog reports what it added
+
+`SourceSideBar` keeps the reading of the list (loading, loaded, failed), each a `SourceReading` that renders itself and returns a new reading from `append(entry)`. `AddSourceDialog` takes `onAdded(entry)` and never touches the list. An entry added while the list is still loading is dropped by `LoadingSources`: the first load already includes it. Why: the list is read once on mount, so no sibling needs it and lifting it to `App` would add a provider or props for nothing. State objects replace conditionals on the reading, as `HealthMark` does with a lookup.
