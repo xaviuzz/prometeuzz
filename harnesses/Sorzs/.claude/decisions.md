@@ -44,6 +44,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Generated client: openapi-typescript and openapi-fetch](decisions/generated-client-openapi-typescript-and-openapi-fetch.md)
 - [Dev reaches the backend through a proxy](decisions/dev-reaches-the-backend-through-a-proxy.md)
 - [Flexoki palette, light and dark](decisions/flexoki-palette-light-and-dark.md)
+- [Wordmark in Rouge Script from a Google Fonts link](decisions/wordmark-in-rouge-script-from-google-fonts.md)
 - [Health mark has three states](decisions/health-mark-has-three-states.md)
 - [Frontend skills at project level](decisions/frontend-skills-at-project-level.md)
 - [React and Testing Library peers arrive in the skeleton](decisions/react-and-testing-library-peers-arrive-in-the-skeleton.md)
