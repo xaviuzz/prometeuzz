@@ -20,13 +20,13 @@ The sources a user trusts, each with the name the user gave it, if any. It is th
 - A refusal changes nothing in the list.
 - The list is the user's: the name belongs to the user and not to the source.
 - An entry is shown by its name. With no name it is shown by the title of its source; with no title either, by its address. The title is never copied into the name.
-- Each entry is shown with its source's favicon on the left of the text; with no favicon, a neutral icon.
+- Each entry is shown with its source's favicon on the left of the text; with no favicon, a neutral icon. With the side bar collapsed, each entry shows only that icon.
 - The list is kept while the service runs. Reloading the page shows it again. Restarting the service empties it, until lists are saved for good.
 
 ## What can be done with it
 
 - Add a source: with an address and, optionally, a name. The entry appears in the side bar at once.
-- While adding, once the address is written, the dialog suggests the title of the page as the name. The suggestion fills the name only when the user has not written one, or when it is still an earlier suggestion the user has not edited. The user may change or clear it. If the page offers no title, nothing is suggested.
+- While adding, once the address is written, the dialog suggests the title of the page as the name. The suggestion fills the name only when the user has not written one, or when it is still an earlier suggestion the user has not edited. The user may change or clear it. If the page offers no title, nothing is suggested. Leaving the address empty suggests nothing.
 - See it: the side bar shows each entry in order of addition, with the address as a hint on hover. With no entries it says the user has no sources yet.
 
 ## Out of scope
