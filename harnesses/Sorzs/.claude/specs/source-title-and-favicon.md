@@ -27,7 +27,7 @@ frontend/src/
   domain/               SourceEntry gains title, favicon and the text it is shown by
   components/sources/   AddSourceDialog.tsx, SourceSideBar.tsx adjusted
 e2e/
-  docker-compose + sample page server; tests/add-source.spec.ts adjusted
+  compose.sample-site.yaml + sample-site/ (own compose file, used only by `npm run e2e`); tests/add-source.spec.ts and collapse-sidebar.spec.ts adjusted
 ```
 
 ## Steps
@@ -38,9 +38,9 @@ e2e/
 - [x] 4. Backend `HttpPageReader`, test-first against a local server started in the test: title, declared icon, `/favicon.ico` fallback, relative icon addresses resolved against the page, non-http icon dropped, timeout, 1 MB cap, 3 redirects, non-HTML ignored. Wire it in place of `BlankPageReader` (a stand-in step 3 registers in `OperationRegistry.standard`), then delete `BlankPageReader`. A runtime dependency, if any, also goes into the `Dockerfile`.
 - [x] 5. Frontend API and entry, test-first: `InspectSource` wraps the generated client; `SourceEntry` exposes the text it is shown by (name, else title, else address) and its favicon.
 - [x] 6. Frontend side bar, test-first: each entry shows the favicon on the left of the text, a neutral icon when there is none, the address as `title` on hover.
-- [ ] 7. Frontend dialog, test-first: leaving the address field calls `InspectSource`; the title fills the name only when the field is empty or still holds an earlier suggestion; a title is never suggested when the page offers none; an inspect failure is silent. Submitting with an empty name is allowed.
-- [ ] 8. Look and flow, by hand: Xavier adds sources with and without a name against the real backend, with a site that has a title and icon and one that does not.
-- [ ] 9. E2E (`e2e/`): serve the sample page from the compose; the happy-path test adds it with no name and sees its title and icon in the side bar.
+- [x] 7. Frontend dialog, test-first: leaving the address field calls `InspectSource`; the title fills the name only when the field is empty or still holds an earlier suggestion; a title is never suggested when the page offers none; an inspect failure is silent. Submitting with an empty name is allowed.
+- [x] 8. Look and flow, by hand: Xavier adds sources with and without a name against the real backend, with a site that has a title and icon and one that does not.
+- [x] 9. E2E (`e2e/`): serve the sample page from its own compose file (`compose.sample-site.yaml`, merged only by `npm run e2e`; `up` stays as is); a new test adds it with no name and sees its title and icon in the side bar; the collapsed-sidebar test looks for the icon, not the initial.
 
 ## Out of scope
 
