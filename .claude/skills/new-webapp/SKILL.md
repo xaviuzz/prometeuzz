@@ -23,9 +23,17 @@ Run each command as its own Bash call and read its exit status. A piped command 
    - The frontend project skills, which the template leaves out: `shadcn-ui/ui@shadcn` and `vercel-labs/agent-skills@vercel-react-best-practices`, installed in `frontend/` with the tool that wrote the fotoAlbum `skills-lock.json`.
    - The first commits through the `commit-message` skill.
 
+## Refresh
+
+1. Clone the three fotoAlbum repos into `Sandbox/fotoAlbum/` when absent (URLs in `.claude/projects.md`). The clones carry no tags.
+2. Diff each template file against fotoAlbum with the placeholders filled in (`sed 's/{{[a-zA-Z]*}}/X/g'`). Keep the generic changes and leave the domain out. A generic decision of fotoAlbum travels to `template/harness/.claude/decisions/` with its why and its index line.
+3. Dependencies: render a scratch project under `Sandbox/TMP/`, run `bun outdated` and `npm outdated`, apply minor and patch; a major is Xavier's call (TypeScript 7 stays out: "Frontend stays on TypeScript 5"). `bun update` rewrites `"typescript": "^5"` to `^5.9.3`: restore it. `npm update` leaves the ranges in `package.json`: raise them by hand. `biome.json` carries the Biome version in `$schema`. Copy `package.json`, lockfiles and `biome.json` back to the template, turning `"<scratch name>-` into `"{{packageName}}-`.
+4. Verify with a fresh render: every command of step 3 in Create, `npm run e2e` included.
+5. Xavier tags the state `boilerplate-v3` in the four repos.
+
 ## Design
 
-- The template is stored, not derived from fotoAlbum on each run: creation is deterministic and works without fotoAlbum present. To refresh it, compare the generic files of the template with fotoAlbum, leave its domain out, then tag the state `boilerplate-v3` in the four repos. Tags stay on Xavier's machine: a fresh clone of the fotoAlbum repos carries none, so the comparison is file by file.
+- The template is stored, not derived from fotoAlbum on each run: creation is deterministic and works without fotoAlbum present.
 - The template holds the walking skeleton end to end: the `health.check` operation, the `HealthMark`, the e2e happy path, the CI of the three repos. Nothing of photos exists in it.
 - Lockfiles travel with the template, so a new project starts on the versions of the tag. The only name inside them is the package's, which `{{packageName}}` fills.
 - `skills-lock.json` and `frontend/.claude/skills` stay out: third-party content copied by hand goes stale.
