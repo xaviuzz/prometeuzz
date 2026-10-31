@@ -25,6 +25,12 @@ test("an unknown URL answers 404", async () => {
 	expect(sut.status()).toBe(404);
 });
 
+test("a GET to an operation URL answers 404", async () => {
+	await sut.getOperationUrl();
+
+	expect(sut.status()).toBe(404);
+});
+
 class SUT {
 	private readonly server = Server.start(0);
 	private response = new Response();
@@ -36,6 +42,10 @@ class SUT {
 
 	async callUnknownUrl(): Promise<void> {
 		await this.post("nothing.here", "{}");
+	}
+
+	async getOperationUrl(): Promise<void> {
+		this.response = await fetch(`${this.server.url}health.check`);
 	}
 
 	status(): number {

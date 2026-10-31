@@ -1,5 +1,6 @@
+import type { Routes } from "../Routes.ts";
 import { HealthCheck } from "./health/HealthCheck.ts";
-import { NoOperation } from "./NoOperation.ts";
+import { JsonOperation } from "./JsonOperation.ts";
 import type { Operation } from "./Operation.ts";
 
 export class OperationRegistry {
@@ -12,16 +13,17 @@ export class OperationRegistry {
 	}
 
 	static standard(): OperationRegistry {
-		return new OperationRegistry([new HealthCheck()]);
+		return new OperationRegistry([new JsonOperation(new HealthCheck())]);
 	}
 
-	find(name: string): Operation {
-		let found: Operation = new NoOperation();
-		const registered = this.operationsByName.get(name);
-		if (registered !== undefined) {
-			found = registered;
+	routes(): Routes {
+		const routes: Routes = {};
+		for (const operation of this.operationsByName.values()) {
+			routes[`/${operation.name}`] = {
+				POST: (request) => operation.serve(request),
+			};
 		}
-		return found;
+		return routes;
 	}
 
 	names(): string[] {

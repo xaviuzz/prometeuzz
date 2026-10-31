@@ -1,11 +1,9 @@
-import { CallOperation } from "../CallOperation.ts";
+import type { JsonHandler } from "../../infrastructure/transport/JsonTransport.ts";
 
-export class HealthCheck extends CallOperation {
+export class HealthCheck implements JsonHandler {
 	readonly name = "health.check";
 
-	protected validate(): void {}
-
-	protected async execute(): Promise<unknown> {
+	async execute(): Promise<unknown> {
 		return { status: "ok" };
 	}
 }

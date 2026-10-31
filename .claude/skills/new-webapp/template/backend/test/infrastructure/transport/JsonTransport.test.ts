@@ -1,6 +1,6 @@
 import { beforeEach, expect, test } from "bun:test";
-import type { Body } from "../../src/call/Body.ts";
-import { CallOperation } from "../../src/operations/CallOperation.ts";
+import type { Call } from "../../../src/call/Call.ts";
+import { JsonTransport } from "../../../src/infrastructure/transport/JsonTransport.ts";
 
 let sut: SUT;
 
@@ -51,6 +51,7 @@ test("answers 200 INTERNAL_ERROR when execution fails", async () => {
 });
 
 class SUT {
+	private readonly transport = new JsonTransport();
 	private readonly operation = new EchoOperation();
 	private response = new Response();
 
@@ -82,19 +83,15 @@ class SUT {
 			method: "POST",
 			body: payload,
 		});
-		this.response = await this.operation.serve(request);
+		this.response = await this.transport.serve(request, this.operation);
 	}
 }
 
-class EchoOperation extends CallOperation {
+class EchoOperation {
 	readonly name = "test.echo";
 
-	protected validate(body: Body): void {
-		body.requireText("text");
-	}
-
-	protected async execute(body: Body): Promise<unknown> {
-		const text = body.requireText("text");
+	async execute(call: Call): Promise<unknown> {
+		const text = call.body.requireText("text");
 		if (text === "crash") {
 			throw new Error("boom");
 		}
