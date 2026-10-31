@@ -19,8 +19,9 @@ A source has no name. The name belongs to the user's list (see `source-list.md`)
 - The address must be a complete web address starting with `http://` or `https://`. Anything else is refused.
 - Sorzs does not check that the site exists or is reliable. Trusting is the user's decision.
 - When a source is first registered, Sorzs reads the page at its address to learn its title and favicon. If the page does not answer, is not a web page, or offers no title or no icon, the source is still registered, with that part missing.
-- The favicon is the icon the page declares; when it declares none, the icon at the root of the site. An icon whose address is not `http://` or `https://` is ignored.
+- The favicon is the icon the page declares; when it declares none, the icon at the root of the site, kept only if the site answers for it. An icon whose address is not `http://` or `https://` is ignored, and then the root icon is not tried.
 - Reading a page is limited: it gives up after 3 seconds, reads only the first megabyte, follows at most 3 redirects and accepts only web pages.
+- The title is stripped of spaces at both ends and cut to 200 characters. A title empty after that counts as missing.
 - Title and favicon are learned once, the first time the source is registered, and are never refreshed.
 - A source is the same for everyone who registers it. A second user registering an address already known gets the same source, with the title and favicon already learned.
 
@@ -37,3 +38,4 @@ Checking that the site answers, grouping addresses of the same site, previews, r
 ## Open questions
 
 - Which rules say that two different addresses are one site? Not before a real case shows up.
+- With a second user, a source registered by one must reach the other with its title and favicon already learned. That needs a store of sources apart from each user's list.

@@ -80,3 +80,6 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Title and favicon belong to the source; the name stays optional](decisions/title-and-favicon-belong-to-the-source-the-name-stays-optional.md)
 - [Reading a page is bounded and never fails the registration](decisions/reading-a-page-is-bounded-and-never-fails-the-registration.md)
 - [The page reader is an interface the domain owns](decisions/the-page-reader-is-an-interface-the-domain-owns.md)
+- [A missing part is a null object, not null](decisions/a-missing-part-is-a-null-object-not-null.md)
+- [Add source reads the page before checking the list](decisions/add-source-reads-the-page-before-checking-the-list.md)
+- [The root favicon is kept only if it answers](decisions/the-root-favicon-is-kept-only-if-it-answers.md)
