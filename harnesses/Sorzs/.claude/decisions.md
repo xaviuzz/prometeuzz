@@ -56,6 +56,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The API reaches components through one ApiProvider](decisions/the-api-reaches-components-through-one-apiprovider.md)
 - [Frontend CI gate](decisions/frontend-ci-gate.md)
 - [A SourcesProvider owns the reading; the dialog reports what it added](decisions/sources-provider-owns-the-reading-dialog-reports-onadded.md)
+- [The add dialog says URL and Title and keeps an sr-only description](decisions/add-dialog-says-url-and-title-and-keeps-an-sr-only-description.md)
 - [API wrappers throw refusals and let network failures through](decisions/api-wrappers-throw-refusals-and-let-network-failures-through.md)
 
 ## E2E
