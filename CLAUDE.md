@@ -83,6 +83,7 @@ Reach for these first, before improvising a process:
 - `mattpocock-skills:writing-for-agents`: **always**, before creating or editing any `CLAUDE.md`, `AGENTS.md`, skill or `.md` under a `.claude/` directory, in any project. Load it first, then write. Enforced by `.claude/hooks/agent-docs-need-skill.sh`, in sessions started in PrometeuZZ only.
 - `next-step`: **always**, first, when Xavier says "next step", "siguiente step" or asks what is next in a project with specs. It finds the step by script; never infer it from commits or memory.
 - `commit-message`: one-line gitmoji commits for the whole uncommitted delta, one approval at a time. Project-local, so it loads only in sessions started in PrometeuZZ. No trailer.
+- `review-decisions`: reviewing a project's `decisions.md` for obsolete text, duplication, fusions and oversized areas, step by step. Project-local, like `commit-message`.
 
 ## Conventions
 
