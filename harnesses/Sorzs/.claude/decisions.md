@@ -21,12 +21,11 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 ## Backend
 
 - [Backend tooling: Bun native plus Biome](decisions/backend-tooling-bun-native-plus-biome.md)
-- [Operations are objects behind a registry](decisions/operations-are-objects-behind-a-registry.md)
 - [The backend image installs its dependencies](decisions/the-backend-image-installs-its-dependencies.md)
 - [Body is an object; Call answers for itself](decisions/body-is-an-object-call-answers-for-itself.md)
 - [Operations validate inside execute](decisions/operations-validate-inside-execute.md)
 - [Transport is separate from operations](decisions/transport-is-separate-from-operations.md)
-- [Routes are a map handed to Bun.serve](decisions/routes-are-a-map-handed-to-bun-serve.md)
+- [Operations sit in a registry that hands Bun.serve its routes](decisions/routes-are-a-map-handed-to-bun-serve.md)
 - [Domain has its own folder, one per concept](decisions/domain-has-its-own-folder-one-per-concept.md)
 
 ## Frontend foundation
