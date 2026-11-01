@@ -55,6 +55,11 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Stale inspect replies are discarded](decisions/stale-inspect-replies-are-discarded.md)
 - [Repeated candidate titles are not collapsed](decisions/repeated-candidate-titles-are-not-collapsed.md)
 
+## Search
+
+- [The backend searches as a stepping stone](decisions/the-backend-searches-as-a-stepping-stone.md)
+- [The stand-in result is a Google search limited to the site](decisions/the-stand-in-result-is-a-google-search-limited-to-the-site.md)
+
 ## E2E
 
 - [E2E is a third repo, composing the other two](decisions/e2e-is-a-third-repo-composing-the-other-two.md)

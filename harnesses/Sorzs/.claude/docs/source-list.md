@@ -34,7 +34,7 @@ The sources a user trusts, each with the name the user gave it, if any. It is th
 
 ## Out of scope
 
-Renaming, removing, searching, reordering, several lists, several users, saving across restarts.
+Renaming, removing, reordering, several lists, several users, saving across restarts.
 
 ## Open questions
 
