@@ -15,7 +15,7 @@ Index not shaped as above: stop and propose converting it first.
 
 ## 2. Catalog
 
-Check each decision against these classes, and against the code (read the files it names) before stating any finding as fact; a finding not checked is marked "not verified":
+Check each decision against these classes, and against the code (read the files it names) and the docs before stating any finding as fact; a finding not checked is marked "not verified". Specs are history: never evidence, so a decision's mention of a spec is not checked against it:
 
 - **a. Replaced**: a decision another one replaced, still indexed.
 - **b. Obsolete**: text that no longer matches the code, the docs or another decision.
