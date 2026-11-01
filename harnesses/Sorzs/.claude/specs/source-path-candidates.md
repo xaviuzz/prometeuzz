@@ -40,8 +40,8 @@ e2e/
 - [x] 1. Contract (backend, then frontend): add `candidates` to the `sources.inspect` reply in `openapi.yaml`; copy it to `frontend/`, run `generate`. Ends with the backend correspondence test green if the operation is untouched, otherwise red only for that reply, and the frontend green.
 - [x] 2. Backend domain, test-first: `CandidateAddresses` builds the tramos of a `SourceAddress` (origin, each prefix, the pasted as pasted), drops the derived twin of the pasted, keeps the origin and the 4 deepest.
 - [x] 3. Backend operation, test-first, with a fake reader: `InspectSource` reads every candidate, replies only those with a title, in order, still with `title` and `favicon` of the pasted address; `INVALID_BODY` unchanged. Then check against `HttpPageReader` that parallel reads respect each one's limits.
-- [ ] 4. Frontend API and entry, test-first: `InspectSource` returns `AddressCandidate` objects; `AddressCandidate` exposes its address, title and favicon.
-- [ ] 5. Frontend dialog, test-first: `CandidateList` shows with two or more candidates, marks the chosen one, shows the address on hover; a click overwrites URL and name and moves the favicon; a stale reply is dropped; a failure is silent. The name suggestion of step 7 of `source-title-and-favicon.md` keeps working.
+- [x] 4. Frontend API and entry, test-first: `InspectSource` returns `AddressCandidate` objects; `AddressCandidate` exposes its address, title and favicon.
+- [x] 5. Frontend dialog, test-first: `CandidateList` shows with two or more candidates, marks the chosen one, shows the address on hover; a click overwrites URL and name and moves the favicon; a stale reply is dropped; a failure is silent. The name suggestion of step 7 of `source-title-and-favicon.md` keeps working.
 - [ ] 6. Look and flow, by hand: Xavier pastes a deep address of a real site, picks tramos, adds one; also a bare origin (no list) and a path where an intermediate tramo gives 404.
 - [ ] 7. E2E (`e2e/`): the sample site serves a path whose tramos have titles; a test pastes the deepest address, sees the list, clicks the origin, adds it and sees its title in the side bar.
 
