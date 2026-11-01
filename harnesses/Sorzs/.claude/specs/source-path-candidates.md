@@ -1,6 +1,6 @@
 # Source path candidates
 
-Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/source.md`, `.claude/docs/source-list.md`. Decisions: area Sources in `.claude/decisions.md`, the ones on candidates, plus `operations-validate-inside-execute`, `the-page-reader-is-an-interface-the-domain-owns`, `sources-provider-owns-the-reading-dialog-reports-onadded`.
+Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/source.md`, `.claude/docs/source-list.md`. Decisions: areas "Sources, domain", "Sources, page reading and candidates" and "Add dialog and list" in `.claude/decisions.md`, plus `operations-validate-inside-execute`, `the-page-reader-is-an-interface-the-domain-owns`, `sources-provider-owns-the-reading-dialog-reports-onadded`.
 
 Goal: a site often holds several sources, so the add dialog offers every tramo of the address the user pasted, each with its title. Clicking one makes its address the URL and its title the name.
 

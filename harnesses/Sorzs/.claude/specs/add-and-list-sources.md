@@ -1,6 +1,6 @@
 # Add and list sources
 
-Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/source.md`, `.claude/docs/source-list.md`. Decisions: area Sources in `.claude/decisions.md`, plus `operations-validate-inside-execute`, `errors-carry-their-contract-code`, `domain-has-its-own-folder-one-per-concept`.
+Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/source.md`, `.claude/docs/source-list.md`. Decisions: areas "Sources, domain" and "Sources, page reading and candidates" in `.claude/decisions.md`, plus `operations-validate-inside-execute`, `errors-live-in-the-message`, `domain-has-its-own-folder-one-per-concept`.
 
 Goal: an "Add Sorz" button opens a dialog with an address and a name. The backend stores the entry, and a left side bar lists the names in order of addition. Reloading the page shows the list again.
 
