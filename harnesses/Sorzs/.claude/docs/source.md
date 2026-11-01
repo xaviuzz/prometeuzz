@@ -25,11 +25,14 @@ A source has no name. The name belongs to the user's list (see `source-list.md`)
 - Title and favicon are learned once, the first time the source is registered, and are never refreshed.
 - A source is the same for everyone who registers it. A second user registering an address already known gets the same source, with the title and favicon already learned.
 
+- A site often holds several sources. The tramos of an address are its origin and each prefix of its path, without query, fragment or final slash, and the address as the user wrote it (spaces at both ends removed) as the last one. A tramo that differs from the written address only by the final slash is not a separate tramo.
+- At most 5 tramos are read: the origin and the 4 deepest. Each is read with the limits above. A tramo counts as a candidate only if its page gives a title.
+
 ## What can be done with it
 
 - It is created the first time someone registers its address.
 - It is looked up by address when a user registers it.
-- Its address can be inspected before registering, to learn the title and favicon the page offers. Nothing is registered by inspecting.
+- Its address can be inspected before registering, to learn the title and favicon the page offers. Nothing is registered by inspecting. Inspecting also gives the candidates: the title and favicon of each tramo of the address that has a title, from the root to the written address.
 
 ## Out of scope
 
