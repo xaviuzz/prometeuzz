@@ -59,6 +59,8 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 
 - [The backend searches as a stepping stone](decisions/the-backend-searches-as-a-stepping-stone.md)
 - [The stand-in result is a Google search limited to the site](decisions/the-stand-in-result-is-a-google-search-limited-to-the-site.md)
+- [The search query is a value object](decisions/the-search-query-is-a-value-object.md)
+- [Each result names its source as the list does](decisions/each-result-names-its-source-as-the-list-does.md)
 
 ## E2E
 

@@ -24,7 +24,7 @@ A step is done when its repo's tests, lint and build pass (frontend: also typech
 
 ```
 backend/src/
-  domain/search/        SourceSearch (interface); SearchResults; SearchResult
+  domain/search/        SourceSearch (interface); SearchQuery; SearchResults; SearchResult
   infrastructure/       GoogleLinkSearch
   operations/sources/   SearchSources.ts
 frontend/src/
@@ -38,9 +38,9 @@ e2e/
 
 ## Steps
 
-- [ ] 1. Contract (backend, then frontend): add `sources.search` to `openapi.yaml`; copy it to `frontend/`, run `generate`; add the route to the `dev.ts` proxy. Ends with the backend correspondence test red only for the new route, and the frontend green.
-- [ ] 2. Backend domain, test-first: `GoogleLinkSearch` builds the title, description and encoded link for a source and a query, path kept, scheme and final slash dropped; `SearchResults` merges answers in the order given.
-- [ ] 3. Backend operation, test-first, with a fake `SourceSearch`: `SearchSources` trims the query, refuses empty or over 200 with `INVALID_BODY`, searches every source of the list in parallel, replies in list order with the source's display name; an empty list gives empty `results`. Registered in the registry; the correspondence test turns green.
+- [x] 1. Contract (backend, then frontend): add `sources.search` to `openapi.yaml`; copy it to `frontend/`, run `generate`; add the route to the `dev.ts` proxy. Ends with the backend correspondence test red only for the new route, and the frontend green.
+- [x] 2. Backend domain, test-first: `SearchQuery` trims and refuses empty or over 200 with `INVALID_BODY`; `SourceEntry` gives its display name (name, else title, else address); `GoogleLinkSearch` builds the title, description and encoded link for a source and a query, path kept, scheme, final slash, question and fragment dropped; `SearchResults` merges answers in the order given.
+- [ ] 3. Backend operation, test-first, with a fake `SourceSearch`: `SearchSources` builds the `SearchQuery` from the body, searches every source of the list in parallel, replies in list order with the source's display name; an empty list gives empty `results`. Registered in the registry; the correspondence test turns green.
 - [ ] 4. Frontend API, test-first: `SearchSources` wraps the generated client, throws refusals and lets network failures through; `SearchResult` exposes its parts.
 - [ ] 5. Frontend state, test-first: `SearchProvider` keeps query, state and results; discards the answer of a superseded search; keeps results when the list changes.
 - [ ] 6. Frontend box and results, test-first: `SearchBox` submits on Enter and button, is off with a blank query or empty list, keeps the query; `SearchResultList` shows favicon, title, description and source, links open in a new tab with `noopener noreferrer`; searching and error states show.
