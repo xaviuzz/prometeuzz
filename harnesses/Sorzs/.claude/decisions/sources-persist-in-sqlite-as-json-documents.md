@@ -1,0 +1,5 @@
+# Sources persist in SQLite as JSON documents
+
+The source list is stored with `bun:sqlite` in one file, `sorzs.db`, inside the folder `DATA_DIR` names (`/data` in the image, `./data` in development). Each entry is one row: its position of addition and its JSON document. The implementation sits in `infrastructure/sqlite/`, behind the interface the domain owns; the in-memory implementation stays as the double for tests, and one behavior suite runs against both. Starting on a file that cannot be opened or read fails with a clear error and leaves the file untouched.
+
+Why: the data has no relations, so a document per entry keeps it schemaless in practice, and a change to an entry needs no migration. `bun:sqlite` ships with Bun, so it adds no dependency and no second container; a single file in a volume is what makes the image easy to deploy. Redis or MongoDB would add a service to Compose for one user and one list. Failing fast protects the data: an empty list written over an unreadable file would destroy what was there.

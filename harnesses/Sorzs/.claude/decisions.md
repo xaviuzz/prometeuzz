@@ -81,7 +81,8 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 
 ## Sources, domain
 
-- [Sources persist in memory behind a repository](decisions/sources-persist-in-memory-behind-a-repository.md)
+- [Sources persist in SQLite as JSON documents](decisions/sources-persist-in-sqlite-as-json-documents.md)
+- [The repository is told what was added](decisions/the-repository-is-told-what-was-added.md)
 - [Source and list entry are separate concepts](decisions/source-and-list-entry-are-separate-concepts.md)
 - [Source identity is the exact address](decisions/source-identity-is-the-exact-address.md)
 - [Registration order: body, page, address, name](decisions/registration-order-body-page-address-name.md)

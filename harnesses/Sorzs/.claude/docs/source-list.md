@@ -21,7 +21,8 @@ The sources a user trusts, each with the name the user gave it, if any. It is th
 - The list is the user's: the name belongs to the user and not to the source.
 - An entry is shown by its name. With no name it is shown by the title of its source; with no title either, by its address. The system never copies the title into the name; the dialog only suggests it (see below).
 - Each entry is shown with its source's favicon on the left of the text; with no favicon, a neutral icon. With the side bar collapsed, each entry shows only that icon.
-- The list is kept while the service runs. Reloading the page shows it again. Restarting the service empties it, until lists are saved for good.
+- The list is kept for good. Reloading the page shows it again, and so does restarting the service. Each entry is saved as soon as it is added.
+- If the saved list cannot be read when the service starts, the service does not start and the saved list is left as it was.
 
 ## What can be done with it
 
@@ -34,7 +35,7 @@ The sources a user trusts, each with the name the user gave it, if any. It is th
 
 ## Out of scope
 
-Renaming, removing, reordering, several lists, several users, saving across restarts.
+Renaming, removing, reordering, several lists, several users, backups, moving the saved list between machines.
 
 ## Open questions
 
