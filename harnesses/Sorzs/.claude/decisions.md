@@ -47,6 +47,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [HealthCheck wraps the generated client; tests fake fetch](decisions/healthcheck-wraps-the-generated-client-tests-fake-fetch.md)
 - [The API reaches components through one ApiProvider](decisions/the-api-reaches-components-through-one-apiprovider.md)
 - [API wrappers throw refusals and let network failures through](decisions/api-wrappers-throw-refusals-and-let-network-failures-through.md)
+- [API operations are grouped by resource, like the backend](decisions/api-operations-are-grouped-by-resource-like-the-backend.md)
 
 ## Add dialog and list
 
