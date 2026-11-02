@@ -101,6 +101,7 @@ Reach for these first, before improvising a process:
 - A public method reads as pseudocode: a sequence of calls to private methods, one per thing it handles (`readCallId`, `readBody`). Stop at that level; keep predicates and lookups inside the private method as explaining variables. A check that throws is one of those private methods (`requireWebAddress`), never inline in the public one.
 - A callback passed as a prop or argument that carries a rule (a predicate, what to render) is a named function declared above the component (`hasNoAlbums`, `showAlbums`), not an inline arrow. The JSX then reads as a declaration of what shows in each state.
 - A helper used by one component lives beside it. When a second consumer appears, move it up: to `domain/` if it is a type shared across the app, otherwise to the nearest folder both consumers share. A flat `lib/` is only for what is neither.
+- In the VSCode extension, name every file in a reply as a markdown link relative to the workspace root (`[SourceEntry.ts](Sandbox/Sorzs/backend/src/domain/source-list/SourceEntry.ts)`), never as plain text or in backticks. Xavier opens them from the reply.
 
 ## Layout
 
