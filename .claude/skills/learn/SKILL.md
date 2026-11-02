@@ -26,10 +26,13 @@ Keep a lesson only when it passes both tests:
 
 Read the project `CLAUDE.md` and the existing skills. Add the global `~/.claude/CLAUDE.md` and agents when they exist.
 
+Read the project's decisions: `.claude/decisions.md`, and in an index, the decision files of the areas the lessons touch. Read the `.claude/docs/` concepts a lesson names.
+
 For each lesson:
 
-- Already recorded: drop it.
-- Contradicts an entry: propose an edit or removal.
+- Already recorded, in any of those files: drop it.
+- Duplicates a decision: propose an edit to that decision, never a second one.
+- Contradicts an entry or a decision: propose an edit or removal of the one that is wrong.
 - Stale entries you notice along the way: propose their removal.
 
 ## 3. Choose a destination
@@ -37,7 +40,7 @@ For each lesson:
 Pick one per lesson and give the reason:
 
 - project `CLAUDE.md`
-- project `.claude/decisions.md`: a design decision and its why (create it if the project has none)
+- project decisions: a design decision and its why, in `.claude/decisions.md`, or as a file in `.claude/decisions/` plus its index line once the project has an index (create `decisions.md` if the project has none)
 - global `~/.claude/CLAUDE.md`
 - new skill, or edit to an existing skill
 - new agent
