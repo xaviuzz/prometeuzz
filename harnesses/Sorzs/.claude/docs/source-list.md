@@ -8,15 +8,15 @@ The sources a user trusts, each with the name the user gave it, if any. It is th
 
 - One entry per source, holding the source and the user's name for it, if any.
 - The order in which the entries were added, oldest first.
-- There is one user for now, so there is one list.
-- The list can be seen and changed only within a session (see `session.md`). It is not tied to the user.
+- Each user has their own list, and the order of addition counts within it. The same source can be in several lists.
+- A list can be seen and changed only by its user, within a session (see `session.md`). The session says whose list it is; a request never names another user.
 
 ## Rules
 
 - Adding takes an address and, optionally, a name.
 - Spaces at both ends of the name are removed before anything else. After that, an empty name means the user gave none; otherwise it has at most 60 characters.
-- A list never holds the same source twice. Registering an address already in the list is refused with a message saying so; nothing is duplicated.
-- A list never holds two entries with the same name. Names are compared ignoring upper and lower case. Registering a name already in use is refused with a message saying so. Entries without a name never clash with each other.
+- A list never holds the same source twice. Another user's list does not count. Registering an address already in the list is refused with a message saying so; nothing is duplicated.
+- A list never holds two entries with the same name. Names are compared ignoring upper and lower case, and only within the same list. Registering a name already in use is refused with a message saying so. Entries without a name never clash with each other.
 - When both the address and the name are already in the list, the refusal is about the address.
 - A refusal changes nothing in the list.
 - The list is the user's: the name belongs to the user and not to the source.
@@ -36,7 +36,7 @@ The sources a user trusts, each with the name the user gave it, if any. It is th
 
 ## Out of scope
 
-Renaming, removing, reordering, several lists, several users, backups, moving the saved list between machines.
+Renaming, removing, reordering, several lists per user, backups, moving the saved list between machines.
 
 ## Open questions
 

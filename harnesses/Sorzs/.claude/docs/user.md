@@ -11,10 +11,11 @@ A person who may use Sorzs. Nobody uses Sorzs without being one.
 
 ## Rules
 
-- For now there is exactly one user, `xaviuzz`, and nobody can create, change or remove users.
-- Its username and password come from the service's setup when it starts, so the code and the repository do not hold them. The setup used in development and in tests gives `xaviuzz` and `p1casso`.
+- For now there are exactly two users, `xaviuzz` and `ana`, and nobody can create, change or remove users.
+- Usernames and passwords come from the service's setup when it starts, so the code and the repository do not hold them. The setup used in development and in tests gives `xaviuzz` with `p1casso` and `ana` with `pueblos`.
 - A username and a password match a user only when both are exactly right. Upper and lower case count.
-- The user's list of sources is not tied to the user: there is one list, and any user who gets in sees it.
+- Each user has a personal list of sources (see `source-list.md`). No user sees or changes another's list.
+- The list saved before there were two users belongs to `xaviuzz`. `ana` starts with an empty one.
 
 ## What can be done with it
 
@@ -22,8 +23,4 @@ A person who may use Sorzs. Nobody uses Sorzs without being one.
 
 ## Out of scope
 
-Creating, renaming, removing users, changing a password, recovering a lost password, several users, roles.
-
-## Open questions
-
-- When there is a second user, each one gets a personal list. How does the existing list pass to the first one?
+Creating, renaming, removing users, changing a password, recovering a lost password, more than two users, roles.

@@ -20,14 +20,16 @@ The period in which a user is known to Sorzs after entering. While it lasts, the
 - The entry screen is shown, instead of Sorzs, whenever the browser has no pass.
 - The entry screen shows the brand, the fields for username and password and a button to enter; pressing Enter does the same. A refusal for invalid credentials appears under the form. After being sent back by a forbidden refusal, the screen shows no message.
 - The screen shows nothing of Sorzs while there is no pass: no header, no side bar, no health mark.
+- Leaving forgets the pass in the browser and shows the entry screen with no message, the same way a forbidden refusal does: what the user had on screen is gone and the next user to enter sees only their own list. Sorzs keeps nothing about sessions, so a copy of the pass made earlier still works until the service's secret setup changes.
 
 ## What can be done with it
 
 - Enter: with a username and a password, from the entry screen.
+- Leave: from an icon button at the right of the header, next to the one that adds a source. It shows no text and no username; its accessible name is "Log out".
 
 ## Out of scope
 
-Leaving on purpose (log out), expiry, renewing a pass, remembering the user across browsers, limits on failed attempts, several sessions per user as a concept.
+Ending a pass on the service's side, expiry, renewing a pass, remembering the user across browsers, limits on failed attempts, several sessions per user as a concept.
 
 ## Open questions
 

@@ -12,7 +12,7 @@ Looking for a term across the sources a user trusts, from a box in the header. F
 
 ## Rules
 
-- A search covers every source in the list and nothing else. It never widens to the open web.
+- A search covers every source in the list of the user who searches and nothing else; other users' sources never appear. It never widens to the open web.
 - Spaces at both ends of the query are removed first. An empty query is refused; so is one longer than 200 characters.
 - With no sources the search finds nothing and says nothing is wrong: the answer is an empty list.
 - In this stage each source gives one result:
