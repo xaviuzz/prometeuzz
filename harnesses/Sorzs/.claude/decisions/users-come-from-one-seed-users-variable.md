@@ -1,0 +1,3 @@
+# Users come from one SEED_USERS variable
+
+The users are read from `SEED_USERS`, a comma-separated list of `username:password` pairs (`xaviuzz:p1casso,ana:pueblos` in development and e2e). It replaces `SEED_USER` and `SEED_PASSWORD`, and the backend refuses to start without it, as before. Why: `src/` still holds no literal credentials, and one variable grows with the users where a pair of variables per user would multiply names in every Compose file. A users file was rejected: it adds a file to mount for two users. A password with a comma or a colon is not supported; the dev passwords have none.

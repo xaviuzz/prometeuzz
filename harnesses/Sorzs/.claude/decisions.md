@@ -33,6 +33,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Infrastructure is organized by technology](decisions/infrastructure-is-organized-by-technology.md)
 - [The token is signed and never expires](decisions/the-token-is-signed-and-never-expires.md)
 - [Users are an interface seeded from the environment](decisions/users-are-an-interface-seeded-from-the-environment.md)
+- [Users come from one SEED_USERS variable](decisions/users-come-from-one-seed-users-variable.md)
 
 ## Frontend foundation
 
@@ -54,6 +55,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The session keeps the token in localStorage](decisions/the-session-keeps-the-token-in-localstorage.md)
 - [API wrappers throw refusals and let network failures through](decisions/api-wrappers-throw-refusals-and-let-network-failures-through.md)
 - [API operations are grouped by resource, like the backend](decisions/api-operations-are-grouped-by-resource-like-the-backend.md)
+- [Logout only forgets the token in the browser](decisions/logout-only-forgets-the-token-in-the-browser.md)
 
 ## Add dialog and list
 
@@ -89,6 +91,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 
 - [Sources persist in SQLite as JSON documents](decisions/sources-persist-in-sqlite-as-json-documents.md)
 - [The repository is told what was added](decisions/the-repository-is-told-what-was-added.md)
+- [Each entry row carries its owner](decisions/each-entry-row-carries-its-owner.md)
 - [Source and list entry are separate concepts](decisions/source-and-list-entry-are-separate-concepts.md)
 - [Source identity is the exact address](decisions/source-identity-is-the-exact-address.md)
 - [Registration order: body, page, address, name](decisions/registration-order-body-page-address-name.md)
