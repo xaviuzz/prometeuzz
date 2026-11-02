@@ -36,6 +36,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Frontend tooling: Bun native, no Vite](decisions/frontend-tooling-bun-native-no-vite.md)
 - [Frontend stays on TypeScript 5](decisions/frontend-stays-on-typescript-5.md)
 - [Frontend skills at project level](decisions/frontend-skills-at-project-level.md)
+- [Frontend components are grouped by feature](decisions/frontend-components-are-grouped-by-feature.md)
 - [Dev reaches the backend through a proxy](decisions/dev-reaches-the-backend-through-a-proxy.md)
 - [Flexoki palette, light and dark](decisions/flexoki-palette-light-and-dark.md)
 - [Wordmark in Rouge Script from a Google Fonts link](decisions/wordmark-in-rouge-script-from-google-fonts.md)
