@@ -5,12 +5,16 @@ project_dir="${1:?usage: static-analysis.sh <folder with src/ and test/> [file n
 focus="${2:-}"
 cd "$project_dir"
 
+sources() {
+  find "$1" \( -name '*.ts' -o -name '*.tsx' \) -not -path '*/ui/*' -print0
+}
+
 count_lines() {
   local folder="$1"
   local files lines blank
-  files=$(find "$folder" -name '*.ts' -o -name '*.tsx' | wc -l)
-  lines=$(find "$folder" \( -name '*.ts' -o -name '*.tsx' \) -print0 | xargs -0 cat | wc -l)
-  blank=$(find "$folder" \( -name '*.ts' -o -name '*.tsx' \) -print0 | xargs -0 cat | grep -c '^\s*$' || true)
+  files=$(sources "$folder" | tr -cd '\0' | wc -c)
+  lines=$(sources "$folder" | xargs -0 cat | wc -l)
+  blank=$(sources "$folder" | xargs -0 cat | grep -c '^\s*$' || true)
   echo "$folder: files=$files lines=$lines code=$((lines - blank))"
 }
 
@@ -20,7 +24,8 @@ count_lines test
 
 echo "== COMPLEXITY (cyclo, FTA score, assessment, file; worst first)"
 bunx fta-cli src --json | FOCUS="$focus" bun -e '
-const files = JSON.parse(await Bun.stdin.text());
+const everyFile = JSON.parse(await Bun.stdin.text());
+const files = everyFile.filter((file) => !file.file_name.split("/").includes("ui"));
 files.sort((a, b) => b.cyclo - a.cyclo);
 const total = files.reduce((sum, file) => sum + file.cyclo, 0);
 const focus = process.env.FOCUS ?? "";
