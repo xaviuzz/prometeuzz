@@ -34,6 +34,8 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The token is signed and never expires](decisions/the-token-is-signed-and-never-expires.md)
 - [Users are an interface seeded from the environment](decisions/users-are-an-interface-seeded-from-the-environment.md)
 - [Users come from one SEED_USERS variable](decisions/users-come-from-one-seed-users-variable.md)
+- [A seed user may carry a role](decisions/a-seed-user-may-carry-a-role.md)
+- [Backend protection of the backoffice waits for its first operation](decisions/backend-protection-of-the-backoffice-waits-for-its-first-operation.md)
 
 ## Frontend foundation
 
@@ -45,6 +47,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Flexoki palette, light and dark](decisions/flexoki-palette-light-and-dark.md)
 - [Wordmark in Rouge Script from a Google Fonts link](decisions/wordmark-in-rouge-script-from-google-fonts.md)
 - [Health mark has three states](decisions/health-mark-has-three-states.md)
+- [The backoffice lives at a path, without a router](decisions/the-backoffice-lives-at-a-path-without-a-router.md)
 
 ## Frontend API
 
@@ -56,6 +59,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [API wrappers throw refusals and let network failures through](decisions/api-wrappers-throw-refusals-and-let-network-failures-through.md)
 - [API operations are grouped by resource, like the backend](decisions/api-operations-are-grouped-by-resource-like-the-backend.md)
 - [Logout only forgets the token in the browser](decisions/logout-only-forgets-the-token-in-the-browser.md)
+- [The login reply carries the role](decisions/the-login-reply-carries-the-role.md)
 
 ## Add dialog and list
 
