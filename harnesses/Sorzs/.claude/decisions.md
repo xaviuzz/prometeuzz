@@ -28,6 +28,8 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Operations sit in a registry that hands Bun.serve its routes](decisions/routes-are-a-map-handed-to-bun-serve.md)
 - [Domain has its own folder, one per concept](decisions/domain-has-its-own-folder-one-per-concept.md)
 - [toJSON only serializes](decisions/tojson-only-serializes.md)
+- [HttpPageReader delegates redirects and favicons](decisions/http-page-reader-delegates-redirects-and-favicons.md)
+- [Infrastructure is organized by technology](decisions/infrastructure-is-organized-by-technology.md)
 
 ## Frontend foundation
 
