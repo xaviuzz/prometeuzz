@@ -2,7 +2,8 @@
   "permissions": {
   "allow": [
     "Bash(find /home/xaviuzz/sandbox/PrometeuZZ/Sandbox -mindepth 1 -maxdepth 1 * -exec rm -rf {} +)",
-    "Bash(find /home/xaviuzz/sandbox/PrometeuZZ/Sandbox/TMP -mindepth 1 -maxdepth 1 * -exec rm -rf {} +)"
+    "Bash(find /home/xaviuzz/sandbox/PrometeuZZ/Sandbox/TMP -mindepth 1 -maxdepth 1 * -exec rm -rf {} +)",
+    "Bash(bunx fta-cli *)"
   ]
 },
   "autoMode": {
