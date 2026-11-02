@@ -31,12 +31,12 @@ e2e/tests/                  backoffice.spec.ts
 
 ## Steps
 
-- [ ] 1. Docs and decisions, done with this plan: `backoffice.md`, `user.md`, `session.md`, the line in `CLAUDE.md`, four decision files with their index lines. Done when Xavier approves them.
-- [ ] 2. Contract: `role` in the `auth.login` reply in `openapi.yaml`, copy to `frontend/`, regenerate the client. Done when only the backend correspondence test is red and `frontend/` passes `generate:check`, lint, typecheck, test and build.
-- [ ] 3. Backend, test-first: `Role`; `SEED_USERS` with and without the third field and the start failing on an unknown role (update `.env` samples and the `Dockerfile` if they read the variable); `auth.login` answers with the user's role for `xaviuzz` and `ana`.
-- [ ] 4. Frontend, test-first with a fake `fetch`: the session keeps and forgets the role with the token, and a stored token without a role is a user; the header shows the Backoffice button only to an admin; the Back to Sorzs button returns; the backoffice header has no search box and no add button; a non-admin at `/backoffice` goes to `/`; `/backoffice` goes to `/backoffice/users`; choosing an entry in the side bar marks it active, shows its title and changes the path; the dev server and its proxy serve the app at `/backoffice` paths.
-- [ ] 5. E2E: `xaviuzz:p1casso:admin` in the Compose files; `backoffice.spec.ts` as in Rules. Done when the whole suite passes.
-- [ ] 6. By hand: bring the stack up (`bring-the-stack-up-for-manual-checks`), enter as `xaviuzz` and open the backoffice, switch sections, reload on each and see the same one, go back; enter as `ana` and see no button, then type `/backoffice` and land on the app.
+- [x] 1. Docs and decisions, done with this plan: `backoffice.md`, `user.md`, `session.md`, the line in `CLAUDE.md`, four decision files with their index lines. Done when Xavier approves them.
+- [x] 2. Contract: `role` in the `auth.login` reply in `openapi.yaml`, copy to `frontend/`, regenerate the client. Done when only the backend correspondence test is red and `frontend/` passes `generate:check`, lint, typecheck, test and build.
+- [x] 3. Backend, test-first: `Role`; `SEED_USERS` with and without the third field and the start failing on an unknown role (update `.env` samples and the `Dockerfile` if they read the variable); `auth.login` answers with the user's role for `xaviuzz` and `ana`.
+- [x] 4. Frontend, test-first with a fake `fetch`: the session keeps and forgets the role with the token, and a stored token without a role is a user; the header shows the Backoffice button only to an admin; the Back to Sorzs button returns; the backoffice header has no search box and no add button; a non-admin at `/backoffice` goes to `/`; `/backoffice` goes to `/backoffice/users`; choosing an entry in the side bar marks it active, shows its title and changes the path; the dev server and its proxy serve the app at `/backoffice` paths.
+- [x] 5. E2E: `xaviuzz:p1casso:admin` in the Compose files; `backoffice.spec.ts` as in Rules. Done when the whole suite passes.
+- [x] 6. By hand: bring the stack up (`bring-the-stack-up-for-manual-checks`), enter as `xaviuzz` and open the backoffice, switch sections, reload on each and see the same one, go back; enter as `ana` and see no button, then type `/backoffice` and land on the app.
 
 ## Out of scope
 
