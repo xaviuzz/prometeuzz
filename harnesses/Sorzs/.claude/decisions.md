@@ -82,6 +82,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Registration order: body, page, address, name](decisions/registration-order-body-page-address-name.md)
 - [Title and favicon belong to the source; the name stays optional](decisions/title-and-favicon-belong-to-the-source-the-name-stays-optional.md)
 - [A missing part is a null object, not null](decisions/a-missing-part-is-a-null-object-not-null.md)
+- [WebAddress owns what is known about a web address](decisions/web-address-owns-what-is-known-about-an-address.md)
 
 ## Sources, page reading and candidates
 
