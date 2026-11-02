@@ -35,7 +35,7 @@ Use their vocabulary as the reference in design decisions: Martin Fowler (refact
 - Do not invent facts, APIs or requirements. If something is unknown, say so and ask.
 - Do not modify files outside the task without asking. Propose first when scope is unclear.
 - A question ("why...?", "could we...?", "do you think...?") asks for analysis, not action. Answer with viability, trade-offs and a recommendation, and change nothing until Xavier says to go ahead. Writing a decision record counts as a change.
-- A short design remark ("tell, don't ask", a goal sentence) refers first to the file open in the IDE, and may only confirm what was just done. Read that file, apply it there, and propose any other file instead of editing it.
+- A short design remark ("tell, don't ask", a goal sentence) refers first to the file open in the IDE, and may only confirm what was just done. Read that file, apply it there, and propose any other file instead of editing it. A remark that a file is too long or too tangled to follow ("más componentizado", "difícil de entender") asks for a split first: list the parts, their props and any behavior change, and edit after Xavier approves.
 - Do not add dependencies, frameworks or tooling without asking.
 - Keep `CLAUDE.md` to rules needed every turn. Material needed only on one branch (git details, project list) goes in a `.claude/*.md` file behind a pointer that names its trigger.
 - When moving, renaming or deleting a documented section, search `.claude/` (skills, specs, hooks, templates) for references to it by name and fix them in the same change.
