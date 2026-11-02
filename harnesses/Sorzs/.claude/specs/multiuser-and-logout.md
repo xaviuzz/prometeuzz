@@ -36,9 +36,9 @@ e2e/tests/                  multiuser.spec.ts, login helper takes the user
 
 - [x] 1. Docs and decisions, done with this plan: `user.md`, `session.md`, `source-list.md`, `search.md`, the line in `CLAUDE.md`, three decision files with their index lines. Done when Xavier approves them.
 - [x] 2. Backend, test-first: `SEED_USERS` parsing and the start failing on a missing or malformed value (update `.env` samples and the `Dockerfile` if it reads the old names); `TokenSigner.userOf` (valid, altered); the repository behavior suite per owner against both implementations (two owners do not see each other, the same address in two lists, name clash only inside one list, position per owner); the SQLite migration (old rows go to `xaviuzz`, a file that cannot be read still fails); `ProtectedOperation` hands the username on; `sources.list`, `sources.add`, `sources.search` act on the token's user; `ana` and `xaviuzz` isolated through the operations.
-- [ ] 3. Frontend, test-first with a fake `fetch`: `Session.leave` forgets the token and tells listeners; `LogoutButton` in the header (icon, accessible name "Log out", click returns to the login screen with no message, and the next login reads the list again); the header shows it beside the add button.
-- [ ] 4. E2E: `SEED_USERS` in the Compose files in place of the old pair; the login helper takes the user; `multiuser.spec.ts` as in Rules. Done when the whole suite passes.
-- [ ] 5. By hand: bring the stack up (`bring-the-stack-up-for-manual-checks`), enter as `xaviuzz`, add a source, log out, enter as `ana` and see an empty list, restart the backend on an old `sorzs.db` and confirm `xaviuzz` keeps the old sources.
+- [x] 3. Frontend, test-first with a fake `fetch`: `Session.leave` forgets the token and tells listeners; `LogoutButton` in the header (icon, accessible name "Log out", click returns to the login screen with no message, and the next login reads the list again); the header shows it beside the add button.
+- [x] 4. E2E: `SEED_USERS` in the Compose files in place of the old pair; the login helper takes the user; `multiuser.spec.ts` as in Rules. Done when the whole suite passes.
+- [x] 5. By hand: bring the stack up (`bring-the-stack-up-for-manual-checks`), enter as `xaviuzz`, add a source, log out, enter as `ana` and see an empty list, restart the backend on an old `sorzs.db` and confirm `xaviuzz` keeps the old sources.
 
 ## Out of scope
 
