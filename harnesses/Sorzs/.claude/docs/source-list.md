@@ -9,6 +9,7 @@ The sources a user trusts, each with the name the user gave it, if any. It is th
 - One entry per source, holding the source and the user's name for it, if any.
 - The order in which the entries were added, oldest first.
 - There is one user for now, so there is one list.
+- The list can be seen and changed only within a session (see `session.md`). It is not tied to the user.
 
 ## Rules
 
