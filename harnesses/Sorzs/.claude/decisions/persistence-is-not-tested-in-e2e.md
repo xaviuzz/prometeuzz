@@ -1,0 +1,3 @@
+# Persistence is not tested in e2e
+
+No e2e spec restarts the backend to check that the source list survives. The backend suite covers the rule (a file closed and opened again keeps the list, a corrupt file stops the start untouched), and the image was checked by hand with a volume, one restart and a listing. Why: the specs run inside the Playwright container, which has no Docker; restarting only the backend would take a script that splits the spec into two phases around `docker compose restart backend`, or the Docker socket mounted into the test container, and both cost more than the one rule they would prove. Revisit if a restart breaks persistence in a way the backend suite cannot see.

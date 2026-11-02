@@ -33,9 +33,9 @@ e2e/tests/                  persistence.spec.ts
 - [x] 1. Docs and decisions: `source-list.md` says the list is kept for good; the decision on persistence is replaced and the repository decision recorded. Done when the three files and the index agree.
 - [x] 2. Structural, backend: the interface becomes `load()` and `add(entry)`; `InMemorySourceListRepository` and `AddSource` follow; `save` goes. No behavior change; the existing tests stay green.
 - [x] 3. Shared behavior suite, backend, test-first: an empty repository loads an empty list; entries added come back in order of addition; a loaded list refuses a repeated address and name. It runs against the in-memory implementation.
-- [ ] 4. `SqliteSourceListRepository`, backend, test-first from the same suite: it passes on `:memory:`; on a temporary file, closing and reopening keeps the list; a corrupt file fails on open and stays byte for byte as it was.
-- [ ] 5. Wiring, backend: `OperationRegistry` builds the SQLite repository from `DATA_DIR`; the `Dockerfile` creates `/data` and declares it a volume; `data/` goes into `.gitignore`. Check the image: build it, run it with `-v` on a free port, add a source, restart the container, list it (umbrella `CLAUDE.md`, "Verifying containers and servers").
-- [ ] 6. E2E, by hand: a test adds a source, restarts only the backend and sees the entry still listed. If Compose cannot restart the backend alone without breaking the healthchecks, Xavier decides the alternative before the step goes on.
+- [x] 4. `SqliteSourceListRepository`, backend, test-first from the same suite: it passes on `:memory:`; on a temporary file, closing and reopening keeps the list; a corrupt file fails on open and stays byte for byte as it was.
+- [x] 5. Wiring, backend: `OperationRegistry` builds the SQLite repository from `DATA_DIR`; the `Dockerfile` creates `/data` and declares it a volume; `data/` goes into `.gitignore`. Check the image: build it, run it with `-v` on a free port, add a source, restart the container, list it (umbrella `CLAUDE.md`, "Verifying containers and servers").
+- [x] 6. E2E, dropped: the specs run in the Playwright container, which cannot restart the backend. The backend suite and the image check cover persistence; why in `decisions/persistence-is-not-tested-in-e2e.md`. The `e2e/CLAUDE.md` line on where the list lives is updated.
 
 ## Out of scope
 
