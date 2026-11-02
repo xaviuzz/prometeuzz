@@ -1,0 +1,5 @@
+{
+  "name": "button-bar",
+  "version": "0.1.0",
+  "description": "Pane with three buttons: send the approval message, run /learn, run /commit-message"
+}
