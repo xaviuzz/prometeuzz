@@ -94,6 +94,7 @@ Reach for these first, before improvising a process:
 - Write iteration as an explicit loop block over a collecting variable. Reach for functional idioms (`map`, `filter`, `reduce`, chains) only where they add specific value that the loop lacks; the visual structure of the block is the default. Looking up the first match is one of those places: use `find`, not a loop that keeps the last match.
 - One return per function, ending on a named result. Guard clauses are the exception: an early return or throw that rules out a case up front keeps the rest flat. Its `if` takes no block, on one line, which tells it apart from any other conditional. Where a conditional varies behavior by state or type, replace it with polymorphism (State, Strategy) before reaching for a guard clause.
 - No ternary operators, in any project. Set a default value and overwrite it in an `if`; where the branch varies by state or type, use polymorphism.
+- A missing value is a null object, never `null` or `undefined`: no `?.` and no `?? default` to cover absence. The empty list, the empty name, the absent title are objects that answer like the full ones. `null` appears only where a contract demands it, in the serializer.
 - Private members in TypeScript use the `private` keyword, never `#`, in any project.
 - A style rule Xavier states belongs here, not in a project's `decisions.md`, unless he scopes it to one project.
 - Code carries no comments, in any project. Intent lives in names, small units and tests; the why of a decision goes in that project's `CLAUDE.md`.
