@@ -1,0 +1,3 @@
+# The session is an object outside React
+
+`Session` holds the token behind a `TokenStore` and tells its listeners when a token enters or is forgotten. `main.tsx` builds one and hands it to `ApiProvider` (its middleware signs each request and forgets the token on a 403) and to `SessionProvider` (it shows the login screen while the session is closed). Why: the middleware needs the token and `SessionProvider` needs `useLogin`, which comes from the API, so each provider needed the other. A plain object both receive breaks the circle and keeps the token rules out of React state. A context inside `ApiProvider` was rejected: it puts `SessionProvider` above the API it logs in through.

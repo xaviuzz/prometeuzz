@@ -17,6 +17,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Call and Reply: header and body](decisions/call-and-reply-header-and-body.md)
 - [Errors live in the message](decisions/errors-live-in-the-message.md)
 - [Contract conformance by correspondence test](decisions/contract-conformance-by-correspondence-test.md)
+- [The token travels in the Authorization header](decisions/the-token-travels-in-the-authorization-header.md)
 
 ## Backend
 
@@ -30,6 +31,8 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [toJSON only serializes](decisions/tojson-only-serializes.md)
 - [HttpPageReader delegates redirects and favicons](decisions/http-page-reader-delegates-redirects-and-favicons.md)
 - [Infrastructure is organized by technology](decisions/infrastructure-is-organized-by-technology.md)
+- [The token is signed and never expires](decisions/the-token-is-signed-and-never-expires.md)
+- [Users are an interface seeded from the environment](decisions/users-are-an-interface-seeded-from-the-environment.md)
 
 ## Frontend foundation
 
@@ -47,6 +50,8 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Generated client: openapi-typescript and openapi-fetch](decisions/generated-client-openapi-typescript-and-openapi-fetch.md)
 - [HealthCheck wraps the generated client; tests fake fetch](decisions/healthcheck-wraps-the-generated-client-tests-fake-fetch.md)
 - [The API reaches components through one ApiProvider](decisions/the-api-reaches-components-through-one-apiprovider.md)
+- [The session is an object outside React](decisions/the-session-is-an-object-outside-react.md)
+- [The session keeps the token in localStorage](decisions/the-session-keeps-the-token-in-localstorage.md)
 - [API wrappers throw refusals and let network failures through](decisions/api-wrappers-throw-refusals-and-let-network-failures-through.md)
 - [API operations are grouped by resource, like the backend](decisions/api-operations-are-grouped-by-resource-like-the-backend.md)
 

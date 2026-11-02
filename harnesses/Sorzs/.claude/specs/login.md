@@ -27,9 +27,10 @@ backend/src/
   operations/auth/          AuthLogin
   call/ or transport        bearer check before the Call is read
 frontend/src/
+  domain/                   Token (interface), BearerToken, NoToken, Session, TokenStore (interface)
   api/auth/                 Login
-  api/                      token middleware in ApiProvider
-  components/session/       SessionProvider, TokenStore (interface), LoginScreen, LoginForm
+  api/                      SessionMiddleware, wired in ApiProvider
+  components/session/       SessionProvider, LoginScreen, LoginForm, LocalStorageTokenStore
 e2e/tests/                  login.spec.ts, login helper
 ```
 
@@ -38,9 +39,9 @@ e2e/tests/                  login.spec.ts, login helper
 - [x] 1. Docs, done with this plan: `user.md`, `session.md` and the line in `source-list.md`. Done when Xavier approves them.
 - [x] 2. Contract, `backend/` then `frontend/`: `auth.login` with its call and reply, `INVALID_CREDENTIALS` and `FORBIDDEN` codes, the 403 response on every protected route. Copy `openapi.yaml` to `frontend/`, run `generate`, add `/auth.login` to the `dev.ts` proxy. Done when only the correspondence test is red in the backend and `generate:check`, lint, typecheck, test and build pass in the frontend.
 - [x] 3. Backend, test-first: `User` and `Password` (hash and match); `Users` behavior suite against `InMemoryUsers`; `Token` signing and reading with `HmacTokenSigner` (an altered token and a token from another secret are refused); `AuthLogin` (good and bad credentials); the bearer check in the transport (absent, malformed, altered, valid; `health.check` and `auth.login` stay open); wiring from `AUTH_SECRET`, `SEED_USER`, `SEED_PASSWORD`, failing at start when one is missing. Update `.env` samples and the `Dockerfile` if it reads them. The correspondence test turns green.
-- [ ] 4. Frontend, test-first with a fake `fetch`: `Login` in the API wrappers and `useLogin`; the middleware (header present when there is a token, session told on 403); `SessionProvider` with the in-memory store (no token shows the login screen, a good login shows the app, a 403 returns to the login screen with the token cleared, a stored token skips the screen); `LoginForm` (fields, Enter, inline refusal). `App` renders inside the session.
+- [x] 4. Frontend, test-first with a fake `fetch`: `Login` in the API wrappers and `useLogin`; the middleware (header present when there is a token, session told on 403); `SessionProvider` with the in-memory store (no token shows the login screen, a good login shows the app, a 403 returns to the login screen with the token cleared, a stored token skips the screen); `LoginForm` (fields, Enter, inline refusal). `App` renders inside the session.
 - [ ] 5. E2E: `SEED_USER`, `SEED_PASSWORD` and `AUTH_SECRET` in the Compose files; the login helper used by the existing specs; `login.spec.ts` logs in with `xaviuzz`/`p1casso` and sees the app. Done when the whole suite passes.
-- [ ] 6. Decisions: record, one file each with its line in the index: errors extended to 403 for a missing or bad token; the token in `Authorization: Bearer`; signed token without expiry; users behind an interface with a seed from the environment; the session keeps the token in `localStorage`.
+- [x] 6. Decisions: record, one file each with its line in the index: errors extended to 403 for a missing or bad token; the token in `Authorization: Bearer`; signed token without expiry; users behind an interface with a seed from the environment; the session is an object outside React shared by `ApiProvider` and `SessionProvider`; the session keeps the token in `localStorage`.
 - [ ] 7. By hand: bring the stack up (`bring-the-stack-up-for-manual-checks`), reload the page while logged in, edit the token in `localStorage` and confirm the return to login.
 
 ## Out of scope

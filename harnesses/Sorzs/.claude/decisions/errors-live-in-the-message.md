@@ -1,6 +1,6 @@
 # Errors live in the message
 
-Operation failures answer HTTP 200 with `status: error`. HTTP 4xx/5xx is only for transport failures that prevent building a message: a malformed call (400, see `call-and-reply-header-and-body`), an unknown URL (404), a crash outside an operation (500). The 400 uses the same error body as an operation failure, with `INVALID_BODY` and a message.
+Operation failures answer HTTP 200 with `status: error`. HTTP 4xx/5xx is only for transport failures that prevent building a message: a malformed call (400, see `call-and-reply-header-and-body`), an unknown URL (404), a crash outside an operation (500), and a missing or bad token on any route but `health.check` and `auth.login` (403, code `FORBIDDEN`, checked before the `Call` is read). The 400 uses the same error body as an operation failure, with `INVALID_BODY` and a message.
 
 Every error that maps to an `ErrorCode` extends `CallError` and declares its code; `Call.failureFrom` answers `error.code` and falls back to `INTERNAL_ERROR` for anything else. A new code is added with the error that needs it.
 
