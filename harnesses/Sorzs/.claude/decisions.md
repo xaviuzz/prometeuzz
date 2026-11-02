@@ -58,6 +58,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [A long title is shortened only as a suggestion](decisions/a-long-title-is-shortened-only-as-a-suggestion.md)
 - [Clicking a candidate overwrites address and name](decisions/clicking-a-candidate-overwrites-address-and-name.md)
 - [Stale inspect replies are discarded](decisions/stale-inspect-replies-are-discarded.md)
+- [The add form empties when the dialog closes](decisions/the-add-form-empties-when-the-dialog-closes.md)
 - [Repeated candidate titles are not collapsed](decisions/repeated-candidate-titles-are-not-collapsed.md)
 
 ## Search
