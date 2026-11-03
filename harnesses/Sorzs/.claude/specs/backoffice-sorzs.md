@@ -33,9 +33,9 @@ e2e/tests/                  backoffice-sorzs.spec.ts
 ## Steps
 
 - [x] 1. Docs and decisions, done with this plan: `backoffice.md`, `source.md`, two decision files with their index lines. Done when Xavier approves them.
-- [ ] 2. Contract: `sorzs.sources` in `openapi.yaml`, copy to `frontend/`, regenerate the client, add the route to the `dev.ts` proxy. Done when only the backend correspondence test is red and `frontend/` passes `generate:check`, lint, typecheck, test and build.
-- [ ] 3. Backend, domain and storage, test-first: `SourceCensus` groups by source, counts distinct owners, orders by address ignoring case with `http://` before `https://`, keeps `https://a.com` and `https://a.com/` apart and is empty with no entries; both repositories hand over every owner's entries.
-- [ ] 4. Backend, operation, test-first: `sorzs.sources` answers as in Rules, refuses a plain user and a missing token with `FORBIDDEN`, and the registry serves the route; the correspondence test turns green.
+- [x] 2. Contract: `sorzs.sources` in `openapi.yaml`, copy to `frontend/`, regenerate the client, add the route to the `dev.ts` proxy. Done when only the backend correspondence test is red and `frontend/` passes `generate:check`, lint, typecheck, test and build.
+- [x] 3. Backend, domain and storage, test-first: `SourceCensus` groups by source, counts distinct owners, orders by address ignoring case with `http://` before `https://`, keeps `https://a.com` and `https://a.com/` apart and is empty with no entries; both repositories hand over every owner's entries.
+- [x] 4. Backend, operation, test-first: `sorzs.sources` answers as in Rules, refuses a plain user and a missing token with `FORBIDDEN`, and the registry serves the route; the correspondence test turns green.
 - [ ] 5. Frontend, API, test-first with a fake `fetch`: `ListSorzsSources` sends the right call, returns the sources with a null object for a missing favicon, throws the refusals.
 - [ ] 6. Frontend, screen, test-first with a fake `fetch`: rows show favicon, address and count in the order given; a missing favicon shows the globe; the count has its accessible name; a failed read shows only its message; an empty census shows no rows; a `FORBIDDEN` answer sends the user to the entry screen.
 - [ ] 7. E2E: `backoffice-sorzs.spec.ts` as in Rules. Done when the whole suite passes.
