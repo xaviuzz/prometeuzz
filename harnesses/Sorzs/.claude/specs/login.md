@@ -1,6 +1,6 @@
 # Login
 
-Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/user.md`, `.claude/docs/session.md`, `.claude/docs/source-list.md`. Decisions: areas "Contract" and "Backend" in `.claude/decisions.md`, plus `errors-live-in-the-message`, `rpc-api-not-rest`, `the-page-reader-is-an-interface-the-domain-owns`, `the-api-reaches-components-through-one-apiprovider`, `e2e-covers-the-happy-path-only`.
+Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/user.md`, `.claude/docs/session.md`, `.claude/docs/source-list.md`. Decisions: areas "Contract" and "Backend structure" and "Backend users and access" in `.claude/decisions.md`, plus `errors-live-in-the-message`, `rpc-api-not-rest`, `the-page-reader-is-an-interface-the-domain-owns`, `the-api-reaches-components-through-one-apiprovider`, `e2e-covers-the-happy-path-only`.
 
 Goal: only a logged-in user reaches the API. One user, `xaviuzz`. The backend issues a signed token at login; the frontend sends it on every call and returns to the login screen when the API answers 403.
 

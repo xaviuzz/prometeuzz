@@ -16,7 +16,7 @@ Sorzs lets Xavier search the web without leaving the sites they trust. Xavier re
 - Trust has no degrees: a source is in the list or it is not. Removing one takes effect at once and leaves no trace.
 - A search covers all the sources in the list and never widens to the open web. With no sources or no query it does not search. It returns links to the original pages, never answers or copied content.
 - The search runs in the frontend, through a module the backend serves on demand.
-- Two users for now, `xaviuzz` and `ana`, each with a personal list. `xaviuzz` is the admin and alone enters the backoffice (`.claude/docs/backoffice.md`).
+- Users are kept for good and each has a personal list. `xaviuzz` and `ana` are the users the service starts with; an admin manages users in the backoffice (`.claude/docs/backoffice.md`, `.claude/docs/user.md`).
 
 Out of scope for now: favorites, search history, topics, searching a subset of sources, discovering sources. Open: source suggestions and lists shared between users.
 

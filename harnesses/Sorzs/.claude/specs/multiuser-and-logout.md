@@ -1,6 +1,6 @@
 # Multiuser and logout
 
-Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/user.md`, `.claude/docs/session.md`, `.claude/docs/source-list.md`, `.claude/docs/search.md`. Decisions: areas "Backend", "Sources, domain" and "Frontend API" in `.claude/decisions.md`, plus `users-come-from-one-seed-users-variable`, `each-entry-row-carries-its-owner`, `logout-only-forgets-the-token-in-the-browser`, `the-token-travels-in-the-authorization-header`, `e2e-covers-the-happy-path-only`, `persistence-is-not-tested-in-e2e`.
+Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/user.md`, `.claude/docs/session.md`, `.claude/docs/source-list.md`, `.claude/docs/search.md`. Decisions: areas "Backend structure" and "Backend users and access", "Sources, domain" and "Frontend API" in `.claude/decisions.md`, plus `users-come-from-one-seed-users-variable`, `each-entry-row-carries-its-owner`, `logout-only-forgets-the-token-in-the-browser`, `the-token-travels-in-the-authorization-header`, `e2e-covers-the-happy-path-only`, `persistence-is-not-tested-in-e2e`.
 
 Goal: two users, `xaviuzz` and `ana`, each with a personal list; the frontend gets a logout icon button.
 

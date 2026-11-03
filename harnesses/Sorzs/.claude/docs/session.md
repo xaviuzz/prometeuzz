@@ -17,6 +17,7 @@ The period in which a user is known to Sorzs after entering. While it lasts, the
 - A pass does not expire. It stops working only when the service's secret setup changes, which makes every earlier pass invalid.
 - The browser keeps the pass and the role, so reloading the page does not ask the user to enter again and the role is still known. A pass kept without a role, from before roles existed, counts as the role user until the user enters again. The browser forgets the role whenever it forgets the pass.
 - The role in the browser only decides what is shown (see `backoffice.md`); it does not grant anything.
+- Some requests need the admin role (those of the Users section). The service reads the role of the pass's user at that moment; a user who is not an admin is refused as forbidden even with a valid pass.
 - When Sorzs refuses a request as forbidden, the browser forgets the pass and shows the entry screen. What the user had on screen (the list, the search) is gone from it and is read again after entering.
 - The entry screen is shown, instead of Sorzs, whenever the browser has no pass.
 - The entry screen shows the brand, the fields for username and password and a button to enter; pressing Enter does the same. A refusal for invalid credentials appears under the form. After being sent back by a forbidden refusal, the screen shows no message.

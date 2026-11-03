@@ -19,7 +19,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Contract conformance by correspondence test](decisions/contract-conformance-by-correspondence-test.md)
 - [The token travels in the Authorization header](decisions/the-token-travels-in-the-authorization-header.md)
 
-## Backend
+## Backend structure
 
 - [Backend tooling: Bun native plus Biome](decisions/backend-tooling-bun-native-plus-biome.md)
 - [The backend image installs its dependencies](decisions/the-backend-image-installs-its-dependencies.md)
@@ -31,10 +31,15 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [toJSON only serializes](decisions/tojson-only-serializes.md)
 - [HttpPageReader delegates redirects and favicons](decisions/http-page-reader-delegates-redirects-and-favicons.md)
 - [Infrastructure is organized by technology](decisions/infrastructure-is-organized-by-technology.md)
+
+## Backend users and access
+
 - [The token is signed and never expires](decisions/the-token-is-signed-and-never-expires.md)
 - [Users are an interface seeded from the environment](decisions/users-are-an-interface-seeded-from-the-environment.md)
 - [Users come from one SEED_USERS variable, with an optional role](decisions/users-come-from-one-seed-users-variable.md)
-- [Backend protection of the backoffice waits for its first operation](decisions/backend-protection-of-the-backoffice-waits-for-its-first-operation.md)
+- [Users persist in SQLite and the seed only adds the missing](decisions/users-persist-in-sqlite-and-the-seed-only-adds-the-missing.md)
+- [The Users section operations require the admin role](decisions/the-users-section-operations-require-the-admin-role.md)
+- [The last admin cannot be made a user](decisions/the-last-admin-cannot-be-made-a-user.md)
 
 ## Frontend foundation
 
@@ -47,6 +52,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Wordmark in Rouge Script from a Google Fonts link](decisions/wordmark-in-rouge-script-from-google-fonts.md)
 - [Health mark has three states](decisions/health-mark-has-three-states.md)
 - [The backoffice lives at a path, without a router](decisions/the-backoffice-lives-at-a-path-without-a-router.md)
+- [Action buttons show an icon, never text](decisions/action-buttons-show-an-icon-never-text.md)
 
 ## Frontend API
 

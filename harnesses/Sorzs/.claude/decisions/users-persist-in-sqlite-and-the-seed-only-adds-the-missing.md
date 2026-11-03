@@ -1,0 +1,3 @@
+# Users persist in SQLite and the seed only adds the missing
+
+Users live in a `users` table of `sorzs.db`: username, password hash, role and insertion order. `SqliteUsers` implements `Users`, which gains listing, adding and changing a role; `InMemoryUsers` stays for tests of the domain and the operations. On start, each `SEED_USERS` entry whose username is absent is inserted; an existing one is left untouched, so a role changed in the backoffice survives a restart. `SEED_USERS` stays required. Why: the backoffice now changes users, so the store, not the environment, must hold the truth after the first start; the seed only guarantees someone can enter a fresh database. Re-applying the seed on every start was rejected because it would undo role changes.
