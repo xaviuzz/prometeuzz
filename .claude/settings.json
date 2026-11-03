@@ -1,16 +1,9 @@
 {
   "permissions": {
-  "allow": [
-    "Bash(find /home/xaviuzz/sandbox/PrometeuZZ/Sandbox -mindepth 1 -maxdepth 1 * -exec rm -rf {} +)",
-    "Bash(find /home/xaviuzz/sandbox/PrometeuZZ/Sandbox/TMP -mindepth 1 -maxdepth 1 * -exec rm -rf {} +)",
-    "Bash(bunx fta-cli *)"
-  ]
-},
-  "autoMode": {
     "allow": [
-      "$defaults",
-      "Deleting entries inside /home/xaviuzz/sandbox/PrometeuZZ/Sandbox and /home/xaviuzz/sandbox/PrometeuZZ/Sandbox/TMP with find -mindepth 1 -maxdepth 1 -exec rm -rf, as the /clean skill does. Sandbox is git-ignored and disposable. Nothing outside Sandbox is covered.",
-      "Deleting a single file with plain rm (no -r, no -f, no globs) at a path inside /home/xaviuzz/sandbox/PrometeuZZ/Sandbox, when a copy or replacement of it already exists elsewhere, for example after moving a document into PrometeuZZ. Nothing outside Sandbox is covered."
+      "Bash(find /home/xaviuzz/sandbox/PrometeuZZ/Sandbox -mindepth 1 -maxdepth 1 * -exec rm -rf {} +)",
+      "Bash(find /home/xaviuzz/sandbox/PrometeuZZ/Sandbox/TMP -mindepth 1 -maxdepth 1 * -exec rm -rf {} +)",
+      "Bash(bunx fta-cli *)"
     ]
   },
   "hooks": {
@@ -59,5 +52,15 @@
         ]
       }
     ]
+  },
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Deleting entries inside /home/xaviuzz/sandbox/PrometeuZZ/Sandbox and /home/xaviuzz/sandbox/PrometeuZZ/Sandbox/TMP with find -mindepth 1 -maxdepth 1 -exec rm -rf, as the /clean skill does. Sandbox is git-ignored and disposable. Nothing outside Sandbox is covered.",
+      "Deleting a single file with plain rm (no -r, no -f, no globs) at a path inside /home/xaviuzz/sandbox/PrometeuZZ/Sandbox, when a copy or replacement of it already exists elsewhere, for example after moving a document into PrometeuZZ. Nothing outside Sandbox is covered."
+    ]
+  },
+  "enabledPlugins": {
+    "impeccable@impeccable": true
   }
 }
