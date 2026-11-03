@@ -19,7 +19,7 @@ A person who may use Sorzs. Nobody uses Sorzs without being one.
 - A username is unique. Upper and lower case count, so `Ana` and `ana` are different names.
 - A username and a password match a user only when both are exactly right.
 - Only an admin can see the users, add one or change a role, and only an admin can enter the backoffice (see `backoffice.md`).
-- Adding a user takes a username, a password and a role, which is user unless chosen otherwise. A username already taken is refused with a message saying so; nothing is added.
+- Adding a user takes a username, a password and a role, which is user unless chosen otherwise. A username or a password that is empty or only spaces is refused with a message saying so, and so is a username already taken; nothing is added.
 - Changing a role makes the user an admin or a user. The change counts from the next request that user makes, since the role is read each time and not kept in the pass.
 - Sorzs always has at least one admin. Making the last admin a user is refused with a message saying so; nothing changes. An admin may make themself a user while another admin remains.
 - A refusal changes nothing.

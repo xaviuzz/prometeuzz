@@ -1,0 +1,3 @@
+# The Roster owns the user rules
+
+The rules of the users (a taken username is refused, an unknown user is refused, the last admin cannot be made a user) live in `Roster`, an immutable collection in the domain. `InMemoryUsers` keeps a `Roster`; `SqliteUsers` loads one from the table, asks it to validate, then writes the change. Why: two stores need the same rules, and writing them in each would let them drift; the stores differ only in where they keep the users. Enforcing the rules with SQL constraints alone was rejected: it would leave `InMemoryUsers` without them and would answer with a database error, not `USERNAME_TAKEN` or `LAST_ADMIN`.

@@ -40,6 +40,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Users persist in SQLite and the seed only adds the missing](decisions/users-persist-in-sqlite-and-the-seed-only-adds-the-missing.md)
 - [The Users section operations require the admin role](decisions/the-users-section-operations-require-the-admin-role.md)
 - [The last admin cannot be made a user](decisions/the-last-admin-cannot-be-made-a-user.md)
+- [The Roster owns the user rules](decisions/the-roster-owns-the-user-rules.md)
 
 ## Frontend foundation
 
