@@ -41,6 +41,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The Users section operations require the admin role](decisions/the-users-section-operations-require-the-admin-role.md)
 - [The last admin cannot be made a user](decisions/the-last-admin-cannot-be-made-a-user.md)
 - [The Roster owns the user rules](decisions/the-roster-owns-the-user-rules.md)
+- [The Sorzs section reads a SourceCensus](decisions/the-sorzs-section-reads-a-source-census.md)
 
 ## Frontend foundation
 
@@ -108,6 +109,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Title and favicon belong to the source; the name stays optional](decisions/title-and-favicon-belong-to-the-source-the-name-stays-optional.md)
 - [A missing part is a null object, not null](decisions/a-missing-part-is-a-null-object-not-null.md)
 - [WebAddress owns what is known about a web address](decisions/web-address-owns-what-is-known-about-an-address.md)
+- [The source list repository hands over every owner's entries](decisions/the-source-list-repository-hands-over-every-owners-entries.md)
 
 ## Sources, page reading and candidates
 

@@ -28,6 +28,8 @@ A source has no name. The name belongs to the user's list (see `source-list.md`)
 - A site often holds several sources. The candidate addresses of an address are its origin and each prefix of its path, without query, fragment or final slash, and the address as the user wrote it (spaces at both ends removed) as the last one. An address that differs from the written one only by the final slash is not a separate candidate address.
 - At most 5 candidate addresses are read: the origin and the 4 deepest. Each is read with the limits above. A candidate address is a candidate only if its page gives a title.
 
+- The census of sources is every source that is in the list of at least one user, each once, with the number of users who have it. A source that every user has removed stays known to Sorzs but is not in the census. Only an administrator sees it (see `backoffice.md`).
+
 ## What can be done with it
 
 - It is created the first time someone registers its address.
