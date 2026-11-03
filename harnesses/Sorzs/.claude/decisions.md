@@ -55,6 +55,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Health mark has three states](decisions/health-mark-has-three-states.md)
 - [The backoffice lives at a path, without a router](decisions/the-backoffice-lives-at-a-path-without-a-router.md)
 - [Action buttons show an icon, never text](decisions/action-buttons-show-an-icon-never-text.md)
+- [Design files live in the frontend repo](decisions/design-files-live-in-the-frontend-repo.md)
 
 ## Frontend API
 
