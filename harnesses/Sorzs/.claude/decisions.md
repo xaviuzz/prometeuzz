@@ -33,8 +33,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Infrastructure is organized by technology](decisions/infrastructure-is-organized-by-technology.md)
 - [The token is signed and never expires](decisions/the-token-is-signed-and-never-expires.md)
 - [Users are an interface seeded from the environment](decisions/users-are-an-interface-seeded-from-the-environment.md)
-- [Users come from one SEED_USERS variable](decisions/users-come-from-one-seed-users-variable.md)
-- [A seed user may carry a role](decisions/a-seed-user-may-carry-a-role.md)
+- [Users come from one SEED_USERS variable, with an optional role](decisions/users-come-from-one-seed-users-variable.md)
 - [Backend protection of the backoffice waits for its first operation](decisions/backend-protection-of-the-backoffice-waits-for-its-first-operation.md)
 
 ## Frontend foundation

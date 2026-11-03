@@ -1,6 +1,6 @@
 # Backoffice start
 
-Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/backoffice.md`, `.claude/docs/user.md`, `.claude/docs/session.md`. Decisions: areas "Contract", "Backend" and "Frontend API" in `.claude/decisions.md`, plus `a-seed-user-may-carry-a-role`, `the-login-reply-carries-the-role`, `the-backoffice-lives-at-a-path-without-a-router`, `backend-protection-of-the-backoffice-waits-for-its-first-operation`, `users-come-from-one-seed-users-variable`, `the-session-keeps-the-token-in-localstorage`, `e2e-covers-the-happy-path-only`.
+Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/backoffice.md`, `.claude/docs/user.md`, `.claude/docs/session.md`. Decisions: areas "Contract", "Backend" and "Frontend API" in `.claude/decisions.md`, plus `the-login-reply-carries-the-role`, `the-backoffice-lives-at-a-path-without-a-router`, `backend-protection-of-the-backoffice-waits-for-its-first-operation`, `users-come-from-one-seed-users-variable`, `the-session-keeps-the-token-in-localstorage`, `e2e-covers-the-happy-path-only`.
 
 Goal: `xaviuzz`, the admin, enters a backoffice frame from a header button; it has a header, a side bar with Users and Sorzs, and a title per section.
 
