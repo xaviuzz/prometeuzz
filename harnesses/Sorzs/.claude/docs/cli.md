@@ -24,15 +24,16 @@ A way to use Sorzs from a terminal, as a program that stays open and answers to 
 - `backend` alone shows the current place of the service and where it comes from. `backend <address>` saves a new one if it is a web address, and forgets the pass, because a pass belongs to the service that issued it.
 - The password is never kept. The saved pass is readable only by its owner.
 - `exit` closes the program and keeps the pass and the place.
+- `help` lists every command the program has, one line each: its name, its argument if it takes one, and what it does. It is the same with or without a session, and it lists itself.
 - An unknown command says it is unknown and shows the prompt again.
 
 ## What can be done with it
 
-- Enter, leave, see or change the place of the service, and close the program.
+- Enter, leave, see or change the place of the service, list the commands, and close the program.
 
 ## Out of scope
 
-Listing, adding or removing sources, searching, the admin role and the backoffice, help text, command history, completion, several services at once, one-shot commands outside the prompt.
+Listing, adding or removing sources, searching, the admin role and the backoffice, help for a single command, command history, completion, several services at once, one-shot commands outside the prompt.
 
 ## Open questions
 
