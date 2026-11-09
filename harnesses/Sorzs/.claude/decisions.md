@@ -134,3 +134,4 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The CLI keeps the typed username with the pass](decisions/the-cli-keeps-the-typed-username-with-the-pass.md)
 - [Each CLI command describes itself and help reads them](decisions/each-cli-command-describes-itself-and-help-reads-them.md)
 - [The CLI ships as a compiled executable beside the plain build](decisions/the-cli-ships-as-a-compiled-executable-beside-the-plain-build.md)
+- [The CLI offers command names to the terminal on each ask](decisions/the-cli-offers-command-names-to-the-terminal-on-each-ask.md)
