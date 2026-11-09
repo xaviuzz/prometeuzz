@@ -15,6 +15,7 @@ A way to use Sorzs from a terminal, as a program that stays open and answers to 
 - The program stays open after each command and shows a prompt. Only `exit` closes it.
 - The place of the service is read in this order: the setting in the environment, the saved one, and, with neither, the local development address.
 - On start, if there is no saved pass, the program asks for username and password before showing the prompt. The password is not echoed. If the credentials are refused, the program says so and shows the prompt with no session; it does not ask again by itself.
+- If the service cannot be reached, the program says so and shows the prompt with no session; it does not close and does not ask again by itself.
 - Entering again with `login` works the same way, and it replaces any pass already kept.
 - A pass kept from an earlier run is trusted until the service refuses it as forbidden. Then the program forgets it, says the user must enter again, and asks for credentials.
 - `logout` forgets the pass, in the program and on disk, and says so. The service is not told (see `session.md`: it keeps nothing about sessions).
