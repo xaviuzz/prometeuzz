@@ -122,3 +122,10 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Only candidates with a title are offered](decisions/only-candidates-with-a-title-are-offered.md)
 - [Inspect gains candidates instead of a new operation](decisions/inspect-gains-candidates-instead-of-a-new-operation.md)
 - [Candidates are read in parallel, capped at five](decisions/candidates-are-read-in-parallel-capped-at-five.md)
+
+## CLI
+
+- [The CLI is a fourth repo](decisions/the-cli-is-a-fourth-repo.md)
+- [The CLI is a prompt that stays open](decisions/the-cli-is-a-prompt-that-stays-open.md)
+- [The CLI keeps its state in one folder](decisions/the-cli-keeps-its-state-in-one-folder.md)
+- [The CLI is Bun native with no prompt library](decisions/the-cli-is-bun-native-with-no-prompt-library.md)

@@ -1,9 +1,10 @@
 # Sorzs
 
-Web app, TypeScript. An umbrella of three independent repos, each with its own pipeline and its own `CLAUDE.md` for stack and commands:
+Web app, TypeScript. An umbrella of four independent repos, each with its own pipeline and its own `CLAUDE.md` for stack and commands:
 
 - `backend/` (`Sorzs-backend`): owns the API contract, `openapi.yaml`.
 - `frontend/` (`Sorzs-frontend`): keeps a pinned copy of `openapi.yaml` and generates its client from it.
+- `cli/` (`Sorzs-cli`): a terminal prompt to manage Sorzs; keeps a pinned copy of `openapi.yaml` and generates its client from it (`.claude/docs/cli.md`).
 - `e2e/` (`Sorzs-e2e`): Playwright tests against `backend/` and `frontend/` composed by Docker Compose.
 
 ## What Sorzs is
@@ -20,15 +21,15 @@ Sorzs lets Xavier search the web without leaving the sites they trust. Xavier re
 
 Out of scope for now: favorites, search history, topics, searching a subset of sources, discovering sources. Open: source suggestions and lists shared between users.
 
-This file and `.claude/` hold only what crosses both repos. Decisions and their why: `.claude/decisions.md` indexes them by area, one file each in `.claude/decisions/`. Before deciding in an area, read that area's files, not all of them; record a new decision as its own file and add its line to the index.
+This file and `.claude/` hold only what crosses repos. Decisions and their why: `.claude/decisions.md` indexes them by area, one file each in `.claude/decisions/`. Before deciding in an area, read that area's files, not all of them; record a new decision as its own file and add its line to the index.
 
 ## Vertical slices
 
 Work one slice at a time, every slice end to end. Each step of a slice spec names the repo it changes, in this order:
 
-1. Contract: change `openapi.yaml` in `backend/`, copy it to `frontend/`, regenerate the client.
+1. Contract: change `openapi.yaml` in `backend/`, copy it to `frontend/` and to `cli/` once it exists, regenerate each client.
 2. Backend.
-3. Frontend.
+3. Frontend, or CLI.
 
 A step is done when its repo's tests, lint and build pass. Slice specs live in `.claude/specs/`.
 
@@ -36,7 +37,7 @@ A step that adds a runtime dependency also updates that repo's `Dockerfile` to i
 
 A contract step may end with the backend correspondence test red for the new routes, and is done when that is the only failing test and `frontend/` passes `generate:check`, lint, typecheck, test and build. The backend step turns it green.
 
-Any later edit to `openapi.yaml` repeats the contract step in the same change: copy it to `frontend/` and run `generate`. `generate:check` fails otherwise. A new route also goes into the frontend's `dev.ts` proxy; the generated client does not reach the backend otherwise.
+Any later edit to `openapi.yaml` repeats the contract step in the same change: copy it to `frontend/` and `cli/` and run `generate` in each. `generate:check` fails otherwise. A new route also goes into the frontend's `dev.ts` proxy; the generated client does not reach the backend otherwise.
 
 ## Working in one repo
 
