@@ -13,6 +13,8 @@ A way to use Sorzs from a terminal, as a program that stays open and answers to 
 ## Rules
 
 - The program stays open after each command and shows a prompt. Only `exit` closes it.
+- With a session, the prompt names who is entered and their role: the username, `@sorzs`, and a symbol for the role, 👑 for admin and 👤 for user (`xaviuzz@sorzs 👑> `). With no session it is plain `sorzs> `. It changes as soon as the user enters or leaves.
+- The username is the one typed when entering and is kept with the pass. A pass kept before usernames were kept shows the prompt without the username (`sorzs 👤> `) until the user enters again.
 - The place of the service is read in this order: the setting in the environment, the saved one, and, with neither, the local development address.
 - On start, if there is no saved pass, the program asks for username and password before showing the prompt. The password is not echoed. If the credentials are refused, the program says so and shows the prompt with no session; it does not ask again by itself.
 - If the service cannot be reached, the program says so and shows the prompt with no session; it does not close and does not ask again by itself.
@@ -35,4 +37,3 @@ Listing, adding or removing sources, searching, the admin role and the backoffic
 ## Open questions
 
 - Which source commands come first once the base is in place?
-- Should the program show who is entered in the prompt?

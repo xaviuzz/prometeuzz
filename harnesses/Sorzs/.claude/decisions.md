@@ -131,3 +131,4 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The CLI is Bun native with no prompt library](decisions/the-cli-is-bun-native-with-no-prompt-library.md)
 - [The CLI translates invalid credentials in the API layer](decisions/the-cli-translates-invalid-credentials-in-the-api-layer.md)
 - [The CLI builds its client on every call](decisions/the-cli-builds-its-client-on-every-call.md)
+- [The CLI keeps the typed username with the pass](decisions/the-cli-keeps-the-typed-username-with-the-pass.md)
