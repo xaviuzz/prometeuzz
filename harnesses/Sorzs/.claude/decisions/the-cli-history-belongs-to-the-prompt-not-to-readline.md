@@ -1,0 +1,3 @@
+# The CLI history belongs to the prompt, not to readline
+
+The prompt loads the remembered lines from a store, hands them to the terminal on each command ask, and records every line typed at the prompt; the terminal only walks them with the arrows. Why: readline records everything typed, the username and the password asked when entering included, so leaving the history to it would keep secrets on disk; the terminal overwrites readline's own history before each ask and clears it after a password, so only what the prompt hands over can come back. The lines are kept after each command, not on exit, so an abrupt close loses none.

@@ -28,14 +28,19 @@ A way to use Sorzs from a terminal, as a program that stays open and answers to 
 - An unknown command says it is unknown and shows the prompt again.
 - Pressing Tab completes the name of a command, the first word of the line, from the commands the program has, `help` included. With one match it completes the name and adds a space. With several it completes what they share and, on a second Tab, lists them. A command added later is completed with no further work.
 - Tab completes nothing after the first word, and nothing while a password is typed.
+- The program remembers every line typed at the prompt, unknown commands included, and keeps them between runs. The username and the password asked when entering are never remembered; the line `login` is.
+- A blank line is not remembered, nor is a line equal to the one just before it. Only the last 500 lines are kept.
+- A line is kept as soon as it is typed, so closing the program abruptly loses nothing.
+- The up arrow brings back the previous line, starting from the most recent, and the down arrow goes forward again. It works the same in a new run as in the one where the line was typed, and not while a username or a password is typed.
+- The remembered lines are readable only by their owner.
 
 ## What can be done with it
 
-- Enter, leave, see or change the place of the service, list the commands, complete a command name with Tab, and close the program.
+- Enter, leave, see or change the place of the service, list the commands, complete a command name with Tab, bring back earlier lines with the arrows, and close the program.
 
 ## Out of scope
 
-Listing, adding or removing sources, searching, the admin role and the backoffice, help for a single command, command history, completing arguments, several services at once, one-shot commands outside the prompt.
+Listing, adding or removing sources, searching, the admin role and the backoffice, help for a single command, searching the history, completing arguments, several services at once, one-shot commands outside the prompt.
 
 ## Open questions
 

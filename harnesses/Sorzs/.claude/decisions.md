@@ -135,3 +135,4 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Each CLI command describes itself and help reads them](decisions/each-cli-command-describes-itself-and-help-reads-them.md)
 - [The CLI ships as a compiled executable beside the plain build](decisions/the-cli-ships-as-a-compiled-executable-beside-the-plain-build.md)
 - [The CLI offers command names to the terminal on each ask](decisions/the-cli-offers-command-names-to-the-terminal-on-each-ask.md)
+- [The CLI history belongs to the prompt, not to readline](decisions/the-cli-history-belongs-to-the-prompt-not-to-readline.md)
