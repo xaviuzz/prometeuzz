@@ -126,7 +126,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 ## CLI
 
 - [The CLI is a fourth repo](decisions/the-cli-is-a-fourth-repo.md)
-- [The CLI is a prompt that stays open](decisions/the-cli-is-a-prompt-that-stays-open.md)
+- [The CLI has a prompt mode and a command mode](decisions/the-cli-has-a-prompt-mode-and-a-command-mode.md)
 - [The CLI keeps its state in one folder](decisions/the-cli-keeps-its-state-in-one-folder.md)
 - [The CLI is Bun native with no prompt library](decisions/the-cli-is-bun-native-with-no-prompt-library.md)
 - [The CLI translates invalid credentials in the API layer](decisions/the-cli-translates-invalid-credentials-in-the-api-layer.md)

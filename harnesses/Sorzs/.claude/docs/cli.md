@@ -2,7 +2,7 @@
 
 ## What it is
 
-A way to use Sorzs from a terminal, as a program that stays open and answers to typed commands until the user leaves it.
+A way to use Sorzs from a terminal, in two modes: a program that stays open and answers to typed commands until the user leaves it (for people), and a single command given when the program is started, which runs and ends (for scripts and agents).
 
 ## What defines it
 
@@ -11,6 +11,20 @@ A way to use Sorzs from a terminal, as a program that stays open and answers to 
 - Both are kept between runs, so closing and reopening the program does not ask again.
 
 ## Rules
+
+- Started with nothing after its name, the program is in prompt mode. Started with a command after its name, it is in command mode: it runs that one command and ends. The next two lists say what each mode does.
+- In both modes, a failure (unknown command, refused credentials, service unreachable, forbidden pass, address that is not a web address) is written to the error output, never to the normal one.
+
+## Rules in command mode
+
+- It never asks anything: no username, no password, no prompt, no remembered lines, no Tab.
+- Every command works except `exit`, which exists only in prompt mode; there it counts as unknown.
+- `login` takes the username and the password from the environment, never from the line. If either is missing it fails and says which.
+- A command that needs a session fails, saying the user must enter with `login`, when no pass is kept or the service refuses it as forbidden. A refused pass is forgotten, as in prompt mode.
+- Results are written to the normal output and errors to the error output. The program ends with 0 when the command worked and 1 when it failed, for any reason.
+- `help`, `--help` and `-h` list the commands the mode has, each written as it is typed in a shell (`sorzs backend <address>`), without `exit`, and say that `login` reads the username and password from the environment. An unknown command shows the same list and fails.
+
+## Rules in prompt mode
 
 - The program stays open after each command and shows a prompt. Only `exit` closes it.
 - With a session, the prompt names who is entered and their role: the username, `@sorzs`, and a symbol for the role, 👑 for admin and 👤 for user (`xaviuzz@sorzs 👑> `). With no session it is plain `sorzs> `. It changes as soon as the user enters or leaves.
@@ -40,7 +54,7 @@ A way to use Sorzs from a terminal, as a program that stays open and answers to 
 
 ## Out of scope
 
-Listing, adding or removing sources, searching, the admin role and the backoffice, help for a single command, searching the history, completing arguments, several services at once, one-shot commands outside the prompt.
+Listing, adding or removing sources, searching, the admin role and the backoffice, help for a single command, searching the history, completing arguments, several services at once, JSON output, several commands in one run.
 
 ## Open questions
 
