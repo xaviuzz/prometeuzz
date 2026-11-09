@@ -21,7 +21,8 @@ A source has no name. The name belongs to the user's list (see `source-list.md`)
 - When a source is first registered, Sorzs reads the page at its address to learn its title and favicon. If the page does not answer, is not a web page, or offers no title or no icon, the source is still registered, with that part missing.
 - The favicon is the icon the page declares; when it declares none, the icon at the root of the site, kept only if the site answers for it. An icon whose address is not `http://` or `https://` is ignored, and then the root icon is not tried.
 - Reading a page is limited: it gives up after 3 seconds, reads only the first megabyte, follows at most 3 redirects and accepts only web pages.
-- The title is stripped of spaces at both ends and cut to 200 characters. A title empty after that counts as missing.
+- The title is stored as plain text: character references the page wrote in it (`&amp;`, `&eacute;`, `&#39;`) become the characters they stand for. Then it is stripped of spaces at both ends and cut to 200 characters, so a space written as a reference is stripped too and the 200 count real characters. A title empty after that counts as missing.
+- Sources already registered keep the title they learned; it is not corrected.
 - Title and favicon are learned once, the first time the source is registered, and are never refreshed.
 - A source is the same for everyone who registers it. A second user registering an address already known gets the same source, with the title and favicon already learned.
 

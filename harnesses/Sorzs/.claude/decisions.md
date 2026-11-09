@@ -30,6 +30,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Domain has its own folder, one per concept](decisions/domain-has-its-own-folder-one-per-concept.md)
 - [toJSON only serializes](decisions/tojson-only-serializes.md)
 - [HttpPageReader delegates redirects and favicons](decisions/http-page-reader-delegates-redirects-and-favicons.md)
+- [Titles are decoded with the he library](decisions/titles-are-decoded-with-the-he-library.md)
 - [Infrastructure is organized by technology](decisions/infrastructure-is-organized-by-technology.md)
 
 ## Backend users and access
