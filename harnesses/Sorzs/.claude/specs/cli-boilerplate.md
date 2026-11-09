@@ -32,8 +32,8 @@ cli/test/        mirrors src/
 
 - [x] 1. Docs and decisions, done with this plan: `cli.md` and the "CLI" area. Done when Xavier approves them.
 - [x] 2. Umbrella: `CLAUDE.md` now says four repos and the contract copy goes to `frontend/` and `cli/`; fix the references by name in `.claude/`. Done when Xavier approves the diff.
-- [ ] 3. Repo `cli/`: `package.json`, `tsconfig.json`, `biome.json`, scripts `test`, `lint`, `typecheck`, `build`, `generate`, `generate:check`, a `CLAUDE.md` with stack and commands, the CI workflow as in `frontend/`, one smoke test. Xavier creates the GitHub repo and clones it into `Sorzs/cli/`. Done when the four commands pass.
-- [ ] 4. Contract: copy `openapi.yaml`, run `generate`. Done when `generate:check` passes.
+- [x] 3. Repo `cli/`: `package.json`, `tsconfig.json`, `biome.json`, scripts `test`, `lint`, `typecheck`, `build`, `generate`, `generate:check`, a `CLAUDE.md` with stack and commands, the CI workflow as in `backend/` plus `generate:check`, one smoke test. Xavier creates the GitHub repo and clones it into `Sorzs/cli/`. Done when the four commands pass.
+- [x] 4. Contract: copy `openapi.yaml`, run `generate`. Done when `generate:check` passes.
 - [ ] 5. Backend address, test-first: `Backend` rejects what is not a web address; resolution order environment, saved, default; `backend` shows and saves; saving forgets the pass.
 - [ ] 6. Session, test-first with a fake `fetch`: `Login` wrapper; `Session` enters with good credentials and keeps the pass; refused credentials leave no session and say the credentials are not valid; a 403 forgets the pass and asks again; `logout` deletes it.
 - [ ] 7. Prompt loop, test-first with the fake terminal: asks for authorization on start when there is no pass; shows the prompt; dispatches `login`, `logout`, `backend`, `exit`; unknown commands; `exit` ends the loop; the password is not echoed.
