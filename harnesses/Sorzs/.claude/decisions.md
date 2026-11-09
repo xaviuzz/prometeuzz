@@ -136,3 +136,6 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The CLI ships as a compiled executable beside the plain build](decisions/the-cli-ships-as-a-compiled-executable-beside-the-plain-build.md)
 - [The CLI offers command names to the terminal on each ask](decisions/the-cli-offers-command-names-to-the-terminal-on-each-ask.md)
 - [The CLI history belongs to the prompt, not to readline](decisions/the-cli-history-belongs-to-the-prompt-not-to-readline.md)
+- [A CLI command declares who may use it](decisions/a-cli-command-declares-who-may-use-it.md)
+- [CLI commands are named by what they do, in one word](decisions/commands-are-named-by-what-they-do.md)
+- [Command mode checks the role before calling the service](decisions/command-mode-checks-the-role-before-calling.md)
