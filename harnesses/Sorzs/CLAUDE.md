@@ -43,6 +43,8 @@ Any later edit to `openapi.yaml` repeats the contract step in the same change: c
 
 Read that repo's `CLAUDE.md` for its stack and commands. Commit per repo with `commit-message Sorzs`; each repo gets its own commits.
 
+A new repo takes its config (`biome.json`, `tsconfig.json`, CI, scripts) from the sibling closest in kind: `backend/` for Bun without a UI. Add only what the new repo consumes (the contract copy, `generate`, `generate:check`); copy nothing for a UI it does not have. A spec that says "as in <repo>" names that sibling.
+
 ## Verifying containers and servers
 
 The host may already run a dev server on 3000. Before probing a container by `curl`:
