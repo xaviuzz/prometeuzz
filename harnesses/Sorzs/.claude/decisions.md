@@ -133,3 +133,4 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The CLI builds its client on every call](decisions/the-cli-builds-its-client-on-every-call.md)
 - [The CLI keeps the typed username with the pass](decisions/the-cli-keeps-the-typed-username-with-the-pass.md)
 - [Each CLI command describes itself and help reads them](decisions/each-cli-command-describes-itself-and-help-reads-them.md)
+- [The CLI ships as a compiled executable beside the plain build](decisions/the-cli-ships-as-a-compiled-executable-beside-the-plain-build.md)
