@@ -132,6 +132,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The CLI ships as a compiled executable beside the plain build](decisions/the-cli-ships-as-a-compiled-executable-beside-the-plain-build.md)
 - [The CLI reports service failures through one guarded call](decisions/the-cli-reports-service-failures-through-one-guarded-call.md)
 - [The CLI splits its terminal into output and input](decisions/the-cli-splits-its-terminal-into-output-and-input.md)
+- [The CLI domain is grouped by concept](decisions/the-cli-domain-is-grouped-by-concept.md)
 
 ## CLI commands and modes
 
