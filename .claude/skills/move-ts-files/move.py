@@ -15,7 +15,10 @@ for f in files:
     text = open(f).read()
     def fix(m):
         target = os.path.normpath(os.path.join(os.path.dirname(f), m.group(2)))
-        new_t = moves.get(target, target)
+        target_file = target + ".ts"
+        new_t = target
+        if target_file in moves:
+            new_t = moves[target_file][:-3]
         rel = os.path.relpath(new_t, os.path.dirname(new_f))
         if not rel.startswith("."):
             rel = "./" + rel
