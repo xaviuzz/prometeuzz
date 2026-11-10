@@ -133,6 +133,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The CLI reports service failures through one guarded call](decisions/the-cli-reports-service-failures-through-one-guarded-call.md)
 - [The CLI splits its terminal into output and input](decisions/the-cli-splits-its-terminal-into-output-and-input.md)
 - [The CLI domain is grouped by concept](decisions/the-cli-domain-is-grouped-by-concept.md)
+- [The CLI API is grouped by concept and by mechanics](decisions/the-cli-api-is-grouped-by-concept-and-by-mechanics.md)
 
 ## CLI commands and modes
 
