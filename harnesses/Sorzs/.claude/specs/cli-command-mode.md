@@ -29,13 +29,13 @@ cli/test/          mirrors src
 - [x] 1. Failure and exit code, test-first with the terminal faked: `fail` writes to the error output; `CommandMode` runs the given line and reports 0 when nothing failed, 1 when something did; an unknown command fails. The prompt also sends unknown commands to the error output. `main.ts` takes the code in step 5.
 - [x] 2. Mode-aware `help`: `ShellTyping` prefixes `sorzs `; command mode has no `exit` (typing it is unknown); `help`, `--help` and `-h` print the list; an unknown command prints the list and fails; prompt `help` output is unchanged.
 - [x] 3. `login` in command mode: reads `SORZS_USER` and `SORZS_PASSWORD`; fails naming the missing one; a refused login, an unreachable service and a good login set the exit code accordingly; its help line says it reads the environment.
-- [x] 4. No session in command mode: nothing asks anything; a command that needs a session fails asking for `login` when there is no pass or the service refuses it as forbidden (the refused pass is forgotten); `logout` and `backend` work with no session. No history is written and no Tab is offered. No command needs a session yet, so the rule of failing without one waits for the first source command; `forbidden` and a bad backend address already fail.
+- [x] 4. No session in command mode: nothing asks anything; a command that needs a session fails asking for `login` when there is no pass or the service refuses it as forbidden (the refused pass is forgotten); `logout` and `backend` work with no session. No history is written and no Tab is offered. No command needs a session yet, so the rule of failing without one waits for the first sorz command; `forbidden` and a bad backend address already fail.
 - [x] 5. Wire `main.ts` on arguments, rebuild `dist/sorzs`, and cover one smoke test that runs the compiled build with an argument and checks the exit code.
 - [x] 6. By hand: `bun run install:bin`, then `sorzs help`, `sorzs backend`, `SORZS_USER=... SORZS_PASSWORD=... sorzs login`, `sorzs logout`, `sorzs nonsense; echo $?`, and `sorzs` alone still opens the prompt.
 
 ## Out of scope
 
-JSON output, several commands in one run, reading credentials from flags or standard input, help for a single command, completing arguments, the source commands.
+JSON output, several commands in one run, reading credentials from flags or standard input, help for a single command, completing arguments, the sorz commands.
 
 ## Diagram
 

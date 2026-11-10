@@ -2,7 +2,7 @@
 
 ## What it is
 
-The period in which a user is known to Sorzs after entering. While it lasts, the user can see and change their sources and search; without it, they can do none of that.
+The period in which a user is known to Sorzs after entering. While it lasts, the user can see and change their sorzs and search; without it, they can do none of that.
 
 ## What defines it
 
@@ -27,7 +27,7 @@ The period in which a user is known to Sorzs after entering. While it lasts, the
 ## What can be done with it
 
 - Enter: with a username and a password, from the entry screen.
-- Leave: from an icon button at the right of the header, next to the one that adds a source. It shows no text and no username; its accessible name is "Log out".
+- Leave: from an icon button at the right of the header, next to the one that adds a sorz. It shows no text and no username; its accessible name is "Log out".
 
 ## Out of scope
 

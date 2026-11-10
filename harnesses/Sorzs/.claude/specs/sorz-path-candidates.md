@@ -1,8 +1,8 @@
-# Source path candidates
+# Sorz path candidates
 
-Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/source.md`, `.claude/docs/source-list.md`. Decisions: areas "Sources, domain", "Sources, page reading and candidates" and "Add dialog and list" in `.claude/decisions.md`, plus `operations-validate-inside-execute`, `the-page-reader-is-an-interface-the-domain-owns`, `sources-provider-owns-the-reading-dialog-reports-onadded`.
+Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/sorz.md`, `.claude/docs/sorz-list.md`. Decisions: areas "Sorzs, domain", "Sorzs, page reading and candidates" and "Add dialog and list" in `.claude/decisions.md`, plus `operations-validate-inside-execute`, `the-page-reader-is-an-interface-the-domain-owns`, `sorzs-provider-owns-the-reading-dialog-reports-onadded`.
 
-Goal: a site often holds several sources, so the add dialog offers every tramo of the address the user pasted, each with its title. Clicking one makes its address the URL and its title the name.
+Goal: a site often holds several sorzs, so the add dialog offers every tramo of the address the user pasted, each with its title. Clicking one makes its address the URL and its title the name.
 
 A step is done when its repo's tests, lint and build pass (frontend: also typecheck and `generate:check`); then mark it `- [x]`. Work test-first. Agree the seam once, then run every cycle of a step in one go. A step marked "by hand" is marked only after Xavier confirms it.
 
@@ -19,29 +19,29 @@ A step is done when its repo's tests, lint and build pass (frontend: also typech
 
 ## Contract
 
-- `POST /sources.inspect`: the reply body keeps `title` and `favicon` of the pasted address and gains `candidates`, a list of `address` (string), `title` (string), `favicon` (string or null). The list may be empty. Error: `INVALID_BODY`, as now.
+- `POST /sorzs.inspect`: the reply body keeps `title` and `favicon` of the pasted address and gains `candidates`, a list of `address` (string), `title` (string), `favicon` (string or null). The list may be empty. Error: `INVALID_BODY`, as now.
 
 ## Target layout
 
 ```
 backend/src/
-  domain/source/        CandidateAddresses (the tramos of an address, capped); PageInfo unchanged
-  operations/sources/   InspectSource.ts reads the candidates in parallel
+  domain/sorz/        CandidateAddresses (the tramos of an address, capped); PageInfo unchanged
+  operations/sorzs/   InspectSorz.ts reads the candidates in parallel
 frontend/src/
-  api/                  InspectSource.ts returns candidates
+  api/                  InspectSorz.ts returns candidates
   domain/               AddressCandidate
-  components/sources/   AddSourceDialog.tsx; CandidateList.tsx
+  components/sorzs/   AddSorzDialog.tsx; CandidateList.tsx
 e2e/
-  sample-site/          a page with a title at each tramo of a path; tests/add-source.spec.ts picks one
+  sample-site/          a page with a title at each tramo of a path; tests/add-sorz.spec.ts picks one
 ```
 
 ## Steps
 
-- [x] 1. Contract (backend, then frontend): add `candidates` to the `sources.inspect` reply in `openapi.yaml`; copy it to `frontend/`, run `generate`. Ends with the backend correspondence test green if the operation is untouched, otherwise red only for that reply, and the frontend green.
-- [x] 2. Backend domain, test-first: `CandidateAddresses` builds the tramos of a `SourceAddress` (origin, each prefix, the pasted as pasted), drops the derived twin of the pasted, keeps the origin and the 4 deepest.
-- [x] 3. Backend operation, test-first, with a fake reader: `InspectSource` reads every candidate, replies only those with a title, in order, still with `title` and `favicon` of the pasted address; `INVALID_BODY` unchanged. Then check against `HttpPageReader` that parallel reads respect each one's limits.
-- [x] 4. Frontend API and entry, test-first: `InspectSource` returns `AddressCandidate` objects; `AddressCandidate` exposes its address, title and favicon.
-- [x] 5. Frontend dialog, test-first: `CandidateList` shows with two or more candidates, marks the chosen one, shows the address on hover; a click overwrites URL and name and moves the favicon; a stale reply is dropped; a failure is silent. The name suggestion of step 7 of `source-title-and-favicon.md` keeps working.
+- [x] 1. Contract (backend, then frontend): add `candidates` to the `sorzs.inspect` reply in `openapi.yaml`; copy it to `frontend/`, run `generate`. Ends with the backend correspondence test green if the operation is untouched, otherwise red only for that reply, and the frontend green.
+- [x] 2. Backend domain, test-first: `CandidateAddresses` builds the tramos of a `SorzAddress` (origin, each prefix, the pasted as pasted), drops the derived twin of the pasted, keeps the origin and the 4 deepest.
+- [x] 3. Backend operation, test-first, with a fake reader: `InspectSorz` reads every candidate, replies only those with a title, in order, still with `title` and `favicon` of the pasted address; `INVALID_BODY` unchanged. Then check against `HttpPageReader` that parallel reads respect each one's limits.
+- [x] 4. Frontend API and entry, test-first: `InspectSorz` returns `AddressCandidate` objects; `AddressCandidate` exposes its address, title and favicon.
+- [x] 5. Frontend dialog, test-first: `CandidateList` shows with two or more candidates, marks the chosen one, shows the address on hover; a click overwrites URL and name and moves the favicon; a stale reply is dropped; a failure is silent. The name suggestion of step 7 of `sorz-title-and-favicon.md` keeps working.
 - [x] 6. Look and flow, by hand: Xavier pastes a deep address of a real site, picks tramos, adds one; also a bare origin (no list) and a path where an intermediate tramo gives 404.
 - [x] 7. E2E (`e2e/`): the sample site serves a path whose tramos have titles; a test pastes the deepest address, sees the list, clicks the origin, adds it and sees its title in the side bar.
 
@@ -59,7 +59,7 @@ sequenceDiagram
     participant P as Page reader
 
     U->>F: pastes the address, leaves the field
-    F->>B: sources.inspect
+    F->>B: sorzs.inspect
     B->>B: tramos: origin, prefixes, pasted as pasted (max 5)
     par each tramo
         B->>P: read tramo

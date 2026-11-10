@@ -1,0 +1,3 @@
+# Sorz identity is the exact address
+
+Two addresses are the same sorz only when they are equal after trimming spaces at both ends. No lowercasing, no trailing-slash or fragment rules. Why: a rule per case is added when a real case shows up (the project description says the backend decides case by case); the simplest rule that holds now is equality.

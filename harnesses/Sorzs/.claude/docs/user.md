@@ -23,7 +23,7 @@ A person who may use Sorzs. Nobody uses Sorzs without being one.
 - Changing a role makes the user an admin or a user. The change counts from the next request that user makes, since the role is read each time and not kept in the pass.
 - Sorzs always has at least one admin. Making the last admin a user is refused with a message saying so; nothing changes. An admin may make themself a user while another admin remains.
 - A refusal changes nothing.
-- Each user has a personal list of sources (see `source-list.md`). No user sees or changes another's list.
+- Each user has a personal list of sorzs (see `sorz-list.md`). No user sees or changes another's list.
 - The list saved before there were users belongs to `xaviuzz`. A user who joins starts with an empty one.
 
 ## What can be done with it
@@ -33,4 +33,4 @@ A person who may use Sorzs. Nobody uses Sorzs without being one.
 
 ## Out of scope
 
-Removing or renaming users, changing or recovering a password, a user changing their own password, roles other than admin and user, seeing or changing another user's sources.
+Removing or renaming users, changing or recovering a password, a user changing their own password, roles other than admin and user, seeing or changing another user's sorzs.

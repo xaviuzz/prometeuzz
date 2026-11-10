@@ -14,7 +14,7 @@ A step is done when its repo's tests, lint, typecheck and build pass; then mark 
 - Paths: `/backoffice` goes to `/backoffice/users`; `/backoffice/users` and `/backoffice/sorzs` show their section; a non-admin at any `/backoffice` path goes to `/`. History API, no new dependency.
 - Header: in Sorzs, an admin sees an icon-only `Shield` button, accessible name "Backoffice", with a tooltip, left of Log out. In the backoffice, the header holds the brand (not a link), the health mark, an icon-only `ArrowLeft` button named "Back to Sorzs" with a tooltip, and Log out. No search box, no add button.
 - Side bar: Users (`Users` icon) and Sorzs (`Globe` icon), the active one marked, icon-only when collapsed. The main panel shows only the active title.
-- E2E: `xaviuzz` enters, opens the backoffice, sees "Users", chooses Sorzs and sees "Sorzs", goes back and sees the source list. A user who is not an admin not seeing the button, and the redirect from `/backoffice`, are frontend tests with a fake `fetch`.
+- E2E: `xaviuzz` enters, opens the backoffice, sees "Users", chooses Sorzs and sees "Sorzs", goes back and sees the sorz list. A user who is not an admin not seeing the button, and the redirect from `/backoffice`, are frontend tests with a fake `fetch`.
 
 ## Target layout
 

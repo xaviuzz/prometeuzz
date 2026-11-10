@@ -62,18 +62,18 @@ Each command is named by what it does, in one word. Each says who may use it: an
 | `health` | asks whether the service is alive; writes `ok` | anyone |
 | `exit` | closes the program (prompt mode only) | anyone |
 | `logout` | forgets the pass | a session |
-| `add <address> [name]` | adds a source to the user's list; the rest of the line after the address is the name; writes `added` and the entry's label | a session |
-| `list` | writes `<label>  <address>` per entry in order of addition, or `no sources yet` | a session |
+| `add <address> [name]` | adds a sorz to the user's list; the rest of the line after the address is the name; writes `added` and the entry's label | a session |
+| `list` | writes `<label>  <address>` per entry in order of addition, or `no sorzs yet` | a session |
 | `inspect <address>` | writes `title: …`, `favicon: …` and one `<address>  <title>` line per candidate; an absent value is empty | a session |
-| `search <query>` | the rest of the line is the query; writes `<title>  <url>  (<source>)` per result, or `no results` | a session |
+| `search <query>` | the rest of the line is the query; writes `<title>  <url>  (<sorz>)` per result, or `no results` | a session |
 | `users` | writes `<username>  <role>`, oldest first | admin |
 | `adduser <username> [role]` | adds a user, role `user` by default; writes `added <username> as <role>` | admin |
 | `setrole <username> <admin or user>` | writes `<username> is now <role>` | admin |
-| `census` | writes `<users>  <address>` per source in use, in the service's order | admin |
+| `census` | writes `<users>  <address>` per sorz in use, in the service's order | admin |
 
-- The label of an entry is its name, else the title of its source, else its address (see `source-list.md`).
+- The label of an entry is its name, else the title of its sorz, else its address (see `sorz-list.md`).
 - A missing required argument fails with a line of usage (`usage: add <address> [name]`) and changes nothing.
-- A refusal by the service (source or name taken, username taken, the last admin) is written to the error output with the service's message.
+- A refusal by the service (sorz or name taken, username taken, the last admin) is written to the error output with the service's message.
 - In prompt mode `adduser` asks for the password without echo and never remembers it. In command mode the password is part of the line: `adduser <username> <password> [role]`, and the shell's own history will hold it.
 - The role is that of the pass, known since the user entered. If an admin was made a user elsewhere, the service refuses the next admin command as forbidden; the pass is forgotten as for any forbidden refusal, and the user enters again.
 
@@ -84,7 +84,7 @@ Each command is named by what it does, in one word. Each says who may use it: an
 
 ## Out of scope
 
-Removing or renaming sources, removing or renaming users, changing passwords, help for a single command, searching the history, completing arguments, several services at once, JSON output, several commands in one run.
+Removing or renaming sorzs, removing or renaming users, changing passwords, help for a single command, searching the history, completing arguments, several services at once, JSON output, several commands in one run.
 
 ## Open questions
 

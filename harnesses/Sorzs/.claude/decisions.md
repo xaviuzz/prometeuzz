@@ -41,7 +41,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The Users section operations require the admin role](decisions/the-users-section-operations-require-the-admin-role.md)
 - [The last admin cannot be made a user](decisions/the-last-admin-cannot-be-made-a-user.md)
 - [The Roster owns the user rules](decisions/the-roster-owns-the-user-rules.md)
-- [The Sorzs section reads a SourceCensus](decisions/the-sorzs-section-reads-a-source-census.md)
+- [The Sorzs section reads a SorzCensus](decisions/the-sorzs-section-reads-a-sorz-census.md)
 
 ## Frontend foundation
 
@@ -71,7 +71,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 
 ## Add dialog and list
 
-- [A SourcesProvider owns the reading; the dialog reports what it added](decisions/sources-provider-owns-the-reading-dialog-reports-onadded.md)
+- [A SorzsProvider owns the reading; the dialog reports what it added](decisions/sorzs-provider-owns-the-reading-dialog-reports-onadded.md)
 - [The add dialog says URL and Title and keeps an sr-only description](decisions/add-dialog-says-url-and-title-and-keeps-an-sr-only-description.md)
 - [The add dialog shows the favicon beside the title field](decisions/the-add-dialog-shows-the-favicon-beside-the-title-field.md)
 - [A long title is shortened only as a suggestion](decisions/a-long-title-is-shortened-only-as-a-suggestion.md)
@@ -85,7 +85,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The backend searches as a stepping stone](decisions/the-backend-searches-as-a-stepping-stone.md)
 - [The stand-in result is a Google search limited to the site](decisions/the-stand-in-result-is-a-google-search-limited-to-the-site.md)
 - [The search query is a value object](decisions/the-search-query-is-a-value-object.md)
-- [Each result names its source as the list does](decisions/each-result-names-its-source-as-the-list-does.md)
+- [Each result names its sorz as the list does](decisions/each-result-names-its-sorz-as-the-list-does.md)
 
 ## E2E
 
@@ -99,19 +99,20 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The sample site has its own compose file](decisions/sample-site-has-its-own-compose-file.md)
 - [Persistence is not tested in e2e](decisions/persistence-is-not-tested-in-e2e.md)
 
-## Sources, domain
+## Sorzs, domain
 
-- [Sources persist in SQLite as JSON documents](decisions/sources-persist-in-sqlite-as-json-documents.md)
+- [The domain says sorz, and the word source names nothing](decisions/the-domain-says-sorz-and-the-word-source-names-nothing.md)
+- [Sorzs persist in SQLite as JSON documents](decisions/sorzs-persist-in-sqlite-as-json-documents.md)
 - [The repository is told what was added](decisions/the-repository-is-told-what-was-added.md)
 - [Each entry row carries its owner](decisions/each-entry-row-carries-its-owner.md)
-- [Source and list entry are separate concepts](decisions/source-and-list-entry-are-separate-concepts.md)
-- [Source identity is the exact address](decisions/source-identity-is-the-exact-address.md)
+- [Sorz and list entry are separate concepts](decisions/sorz-and-list-entry-are-separate-concepts.md)
+- [Sorz identity is the exact address](decisions/sorz-identity-is-the-exact-address.md)
 - [Registration order: body, page, address, name](decisions/registration-order-body-page-address-name.md)
-- [Title and favicon belong to the source; the name stays optional](decisions/title-and-favicon-belong-to-the-source-the-name-stays-optional.md)
+- [Title and favicon belong to the sorz; the name stays optional](decisions/title-and-favicon-belong-to-the-sorz-the-name-stays-optional.md)
 - [A missing part is a null object, not null](decisions/a-missing-part-is-a-null-object-not-null.md)
 - [WebAddress owns what is known about a web address](decisions/web-address-owns-what-is-known-about-an-address.md)
 
-## Sources, page reading and candidates
+## Sorzs, page reading and candidates
 
 - [The backend reads the page for title and favicon](decisions/the-backend-reads-the-page-for-title-and-favicon.md)
 - [Reading a page is bounded and never fails the registration](decisions/reading-a-page-is-bounded-and-never-fails-the-registration.md)

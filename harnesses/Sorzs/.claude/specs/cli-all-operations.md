@@ -1,6 +1,6 @@
 # CLI: all operations, by role
 
-Repo: `cli/`. Docs: `.claude/docs/cli.md` (section "Commands and who may use them"), `.claude/docs/session.md`, `.claude/docs/user.md`, `.claude/docs/source-list.md`, `.claude/docs/backoffice.md`. Decisions: area "CLI" in `.claude/decisions.md`, mainly `a-cli-command-declares-who-may-use-it`, `commands-are-named-by-what-they-do`, `command-mode-checks-the-role-before-calling`, `each-cli-command-describes-itself-and-help-reads-them`, `api-operations-are-grouped-by-resource-like-the-backend`, `the-cli-builds-its-client-on-every-call`.
+Repo: `cli/`. Docs: `.claude/docs/cli.md` (section "Commands and who may use them"), `.claude/docs/session.md`, `.claude/docs/user.md`, `.claude/docs/sorz-list.md`, `.claude/docs/backoffice.md`. Decisions: area "CLI" in `.claude/decisions.md`, mainly `a-cli-command-declares-who-may-use-it`, `commands-are-named-by-what-they-do`, `command-mode-checks-the-role-before-calling`, `each-cli-command-describes-itself-and-help-reads-them`, `api-operations-are-grouped-by-resource-like-the-backend`, `the-cli-builds-its-client-on-every-call`.
 
 Goal: every operation of the service is a CLI command, and in the prompt the user is offered only the commands they may use now. The contract does not change; the CLI already holds its pinned copy.
 
@@ -12,7 +12,7 @@ The rules are in `.claude/docs/cli.md`: the table and the lists under "Commands 
 
 - Seam to agree at step 1: how the registry knows who is asking. Proposal: each command comes with an `Access` (`AnyoneAccess`, `SessionAccess`, `AdminAccess`) that answers `allows(pass)`; `Commands` reads the kept pass from `PassStore` on every call and keeps only the allowed commands in `lines()`, `names()` and the lookup.
 - Seam to agree at step 2: where the command-mode check lives. Proposal: the registry of command mode runs the same `Access` before `run` and fails with one of two messages; the pass is never forgotten by it.
-- Seam to agree at step 3: one API wrapper per resource (`ApiSources`, `ApiHealth`), each call through `Refusable` and `CallId` as `ApiLogin` does; a forbidden answer goes to `Session.forbidden`, a refusal to `Terminal.fail` with the service's message.
+- Seam to agree at step 3: one API wrapper per resource (`ApiSorzs`, `ApiHealth`), each call through `Refusable` and `CallId` as `ApiLogin` does; a forbidden answer goes to `Session.forbidden`, a refusal to `Terminal.fail` with the service's message.
 - Seam to agree at step 4: `ApiUsers` and `ApiSorzs` the same way; `adduser` takes its password from the line in command mode and from `Terminal`'s hidden read in the prompt, two commands behind one name registered per mode.
 
 ## Steps
@@ -26,7 +26,7 @@ The rules are in `.claude/docs/cli.md`: the table and the lists under "Commands 
 
 ## Out of scope
 
-Removing or renaming sources and users, changing passwords, JSON output, completing arguments, help for a single command, refreshing the role without entering again.
+Removing or renaming sorzs and users, changing passwords, JSON output, completing arguments, help for a single command, refreshing the role without entering again.
 
 ## Diagram
 
