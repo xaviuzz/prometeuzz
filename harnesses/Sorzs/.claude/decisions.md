@@ -131,6 +131,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The CLI keeps the typed username with the pass](decisions/the-cli-keeps-the-typed-username-with-the-pass.md)
 - [The CLI ships as a compiled executable beside the plain build](decisions/the-cli-ships-as-a-compiled-executable-beside-the-plain-build.md)
 - [The CLI reports service failures through one guarded call](decisions/the-cli-reports-service-failures-through-one-guarded-call.md)
+- [The CLI splits its terminal into output and input](decisions/the-cli-splits-its-terminal-into-output-and-input.md)
 
 ## CLI commands and modes
 
