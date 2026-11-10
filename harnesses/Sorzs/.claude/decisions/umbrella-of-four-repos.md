@@ -1,0 +1,3 @@
+# Umbrella of four repos
+
+Sorzs is four repos with separate pipelines: `Sorzs-backend`, `Sorzs-frontend`, `Sorzs-cli` and `Sorzs-e2e`, cloned as `backend/`, `frontend/`, `cli/` and `e2e/` inside the umbrella. For PrometeuZZ they are one project: `Sandbox/Sorzs/` is a plain directory, not a repo, with its harness in `harnesses/Sorzs/`. Each repo commits its own `CLAUDE.md` with its stack, commands and conventions; the umbrella keeps only cross-repo knowledge. Why: cross-repo specs and decisions are tracked in PrometeuZZ, and no repo or submodule for the umbrella needs maintaining; the umbrella already gives context, so repo and clone names stay short; each repo describes itself when opened alone.

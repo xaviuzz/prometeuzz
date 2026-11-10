@@ -1,3 +1,0 @@
-# Users are an interface seeded from the environment
-
-`Users` is an interface the domain owns, with an in-memory and a SQLite implementation (`users-persist-in-sqlite-and-the-seed-only-adds-the-missing`); the password is stored hashed with `Bun.password`. The users come from `SEED_USERS` (`users-come-from-one-seed-users-variable`), and the backend refuses to start without it or without `AUTH_SECRET`. Why: `src/` holds no literal credentials, and the interface lets a persistent store replace the memory one later without touching the domain, as with the page reader (`the-page-reader-is-an-interface-the-domain-owns`).

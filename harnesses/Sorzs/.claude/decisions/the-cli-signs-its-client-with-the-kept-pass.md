@@ -1,3 +1,0 @@
-# The CLI signs its client with the kept pass
-
-`LocatedClients` builds the generated client on every call from the current address and the pass in `PassStore`, and adds the `Authorization: Bearer` header only when a pass is kept. `ApiSources`, `ApiUsers`, `ApiSorzs` and `ApiHealth` take it through the `Clients` interface. Why: `login`, `logout` and `backend <address>` change the pass and the address while the prompt is open, so a client built once would sign with a stale token or call a stale service (same reason as `the-cli-builds-its-client-on-every-call`). `LocatedLogin` keeps its own client: logging in needs no signature and a kept pass must not travel with it.

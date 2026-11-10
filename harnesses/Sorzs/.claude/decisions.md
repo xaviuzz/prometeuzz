@@ -6,7 +6,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 
 ## Umbrella and workflow
 
-- [Umbrella of three repos](decisions/umbrella-of-three-repos.md)
+- [Umbrella of four repos](decisions/umbrella-of-four-repos.md)
 - [Vertical slices, health check first](decisions/vertical-slices-health-check-first.md)
 - [CI gates; no deploy](decisions/ci-gates-and-no-deploy.md)
 
@@ -26,7 +26,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Body is an object; Call answers for itself](decisions/body-is-an-object-call-answers-for-itself.md)
 - [Operations validate inside execute](decisions/operations-validate-inside-execute.md)
 - [Transport is separate from operations](decisions/transport-is-separate-from-operations.md)
-- [Operations sit in a registry that hands Bun.serve its routes](decisions/routes-are-a-map-handed-to-bun-serve.md)
+- [Operations sit in a registry that hands Bun.serve its routes](decisions/operations-sit-in-a-registry-that-hands-bun-serve-its-routes.md)
 - [Domain has its own folder, one per concept](decisions/domain-has-its-own-folder-one-per-concept.md)
 - [toJSON only serializes](decisions/tojson-only-serializes.md)
 - [HttpPageReader delegates redirects and favicons](decisions/http-page-reader-delegates-redirects-and-favicons.md)
@@ -36,7 +36,6 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 ## Backend users and access
 
 - [The token is signed and never expires](decisions/the-token-is-signed-and-never-expires.md)
-- [Users are an interface seeded from the environment](decisions/users-are-an-interface-seeded-from-the-environment.md)
 - [Users come from one SEED_USERS variable, with an optional role](decisions/users-come-from-one-seed-users-variable.md)
 - [Users persist in SQLite and the seed only adds the missing](decisions/users-persist-in-sqlite-and-the-seed-only-adds-the-missing.md)
 - [The Users section operations require the admin role](decisions/the-users-section-operations-require-the-admin-role.md)
@@ -47,7 +46,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 ## Frontend foundation
 
 - [Frontend tooling: Bun native, no Vite](decisions/frontend-tooling-bun-native-no-vite.md)
-- [Frontend stays on TypeScript 5](decisions/frontend-stays-on-typescript-5.md)
+- [Frontend and CLI stay on TypeScript 5](decisions/frontend-and-cli-stay-on-typescript-5.md)
 - [Frontend skills at project level](decisions/frontend-skills-at-project-level.md)
 - [Frontend components are grouped by feature](decisions/frontend-components-are-grouped-by-feature.md)
 - [Dev reaches the backend through a proxy](decisions/dev-reaches-the-backend-through-a-proxy.md)
@@ -111,7 +110,6 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Title and favicon belong to the source; the name stays optional](decisions/title-and-favicon-belong-to-the-source-the-name-stays-optional.md)
 - [A missing part is a null object, not null](decisions/a-missing-part-is-a-null-object-not-null.md)
 - [WebAddress owns what is known about a web address](decisions/web-address-owns-what-is-known-about-an-address.md)
-- [The source list repository hands over every owner's entries](decisions/the-source-list-repository-hands-over-every-owners-entries.md)
 
 ## Sources, page reading and candidates
 
@@ -123,22 +121,24 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Inspect gains candidates instead of a new operation](decisions/inspect-gains-candidates-instead-of-a-new-operation.md)
 - [Candidates are read in parallel, capped at five](decisions/candidates-are-read-in-parallel-capped-at-five.md)
 
-## CLI
+## CLI structure
 
 - [The CLI is a fourth repo](decisions/the-cli-is-a-fourth-repo.md)
-- [The CLI has a prompt mode and a command mode](decisions/the-cli-has-a-prompt-mode-and-a-command-mode.md)
 - [The CLI keeps its state in one folder](decisions/the-cli-keeps-its-state-in-one-folder.md)
 - [The CLI is Bun native with no prompt library](decisions/the-cli-is-bun-native-with-no-prompt-library.md)
 - [The CLI translates invalid credentials in the API layer](decisions/the-cli-translates-invalid-credentials-in-the-api-layer.md)
 - [The CLI builds its client on every call](decisions/the-cli-builds-its-client-on-every-call.md)
 - [The CLI keeps the typed username with the pass](decisions/the-cli-keeps-the-typed-username-with-the-pass.md)
-- [Each CLI command describes itself and help reads them](decisions/each-cli-command-describes-itself-and-help-reads-them.md)
 - [The CLI ships as a compiled executable beside the plain build](decisions/the-cli-ships-as-a-compiled-executable-beside-the-plain-build.md)
+- [The CLI reports service failures through one guarded call](decisions/the-cli-reports-service-failures-through-one-guarded-call.md)
+
+## CLI commands and modes
+
+- [The CLI has a prompt mode and a command mode](decisions/the-cli-has-a-prompt-mode-and-a-command-mode.md)
+- [Each CLI command describes itself and help reads them](decisions/each-cli-command-describes-itself-and-help-reads-them.md)
 - [The CLI offers command names to the terminal on each ask](decisions/the-cli-offers-command-names-to-the-terminal-on-each-ask.md)
 - [The CLI history belongs to the prompt, not to readline](decisions/the-cli-history-belongs-to-the-prompt-not-to-readline.md)
 - [A CLI command declares who may use it](decisions/a-cli-command-declares-who-may-use-it.md)
 - [CLI commands are named by what they do, in one word](decisions/commands-are-named-by-what-they-do.md)
 - [Command mode checks the role before calling the service](decisions/command-mode-checks-the-role-before-calling.md)
-- [The CLI reports service failures through one guarded call](decisions/the-cli-reports-service-failures-through-one-guarded-call.md)
-- [The CLI signs its client with the kept pass](decisions/the-cli-signs-its-client-with-the-kept-pass.md)
 - [`adduser` is two commands behind one name](decisions/adduser-is-two-commands-behind-one-name.md)

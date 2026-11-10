@@ -1,6 +1,6 @@
 # Backoffice Sorzs
 
-Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/backoffice.md`, `.claude/docs/source.md`, `.claude/docs/source-list.md`, `.claude/docs/user.md`. Decisions: areas "Contract", "Backend structure" and "Frontend API" in `.claude/decisions.md`, plus `the-sorzs-section-reads-a-source-census`, `the-source-list-repository-hands-over-every-owners-entries`, `the-users-section-operations-require-the-admin-role`, `source-and-list-entry-are-separate-concepts`, `title-and-favicon-belong-to-the-source-the-name-stays-optional`, `a-missing-part-is-a-null-object-not-null`, `action-buttons-show-an-icon-never-text`, `e2e-covers-the-happy-path-only`.
+Repos: `backend/`, `frontend/`, `e2e/`. Docs: `.claude/docs/backoffice.md`, `.claude/docs/source.md`, `.claude/docs/source-list.md`, `.claude/docs/user.md`. Decisions: areas "Contract", "Backend structure" and "Frontend API" in `.claude/decisions.md`, plus `the-sorzs-section-reads-a-source-census`, `the-users-section-operations-require-the-admin-role`, `source-and-list-entry-are-separate-concepts`, `title-and-favicon-belong-to-the-source-the-name-stays-optional`, `a-missing-part-is-a-null-object-not-null`, `action-buttons-show-an-icon-never-text`, `e2e-covers-the-happy-path-only`.
 
 Goal: `xaviuzz`, the admin, sees in the Sorzs section every source that is in the list of at least one user, ordered by address, each with its favicon, its address and how many users have it; the service refuses the operation to anyone who is not an admin.
 
