@@ -17,12 +17,12 @@ The rules are in `.claude/docs/cli.md`: the table and the lists under "Commands 
 
 ## Steps
 
-- [ ] 1. Access in the prompt: the commands that exist today (`help`, `login`, `backend`, `exit` for anyone; `logout` for a session) are offered by state. `help`, Tab and the unknown-command answer agree; they change as soon as the user enters or leaves. A command that is not offered is unknown and calls nothing.
-- [ ] 2. Role in command mode: a command whose access does not allow the kept pass fails, saying "enter with login" with no pass and "needs the admin role" with a user's pass; the pass is kept. `help` lists every command except `exit`.
-- [ ] 3. User commands: `health`, `add`, `list`, `inspect`, `search`, with their usage lines, outputs and refusals as in the table. They are registered in both modes.
-- [ ] 4. Admin commands: `users`, `adduser`, `setrole`, `census`, same way. `adduser` asks for the password without echo in the prompt, never remembers it, and reads it from the line in command mode.
-- [ ] 5. Wire `main.ts` with both registries, rebuild `dist/sorzs`, and cover one smoke test that runs the compiled build with a new command and checks the exit code.
-- [ ] 6. By hand, with the stack up: `bun run install:bin`; enter as `ana` and as `xaviuzz` and compare `help` and Tab; `sorzs users` with `ana`'s pass fails saying it needs the admin role and keeps the pass; `add`, `list`, `inspect` and `search` against the stack; `adduser` and `setrole` as `xaviuzz`.
+- [x] 1. Access in the prompt: the commands that exist today (`help`, `login`, `backend`, `exit` for anyone; `logout` for a session) are offered by state. `help`, Tab and the unknown-command answer agree; they change as soon as the user enters or leaves. A command that is not offered is unknown and calls nothing.
+- [x] 2. Role in command mode: a command whose access does not allow the kept pass fails, saying "enter with login" with no pass and "needs the admin role" with a user's pass; the pass is kept. `help` lists every command except `exit`.
+- [x] 3. User commands: `health`, `add`, `list`, `inspect`, `search`, with their usage lines, outputs and refusals as in the table. They are registered in both modes.
+- [x] 4. Admin commands: `users`, `adduser`, `setrole`, `census`, same way. `adduser` asks for the password without echo in the prompt, never remembers it, and reads it from the line in command mode.
+- [x] 5. Wire `main.ts` with both registries, rebuild `dist/sorzs`, and cover one smoke test that runs the compiled build with a new command and checks the exit code.
+- [x] 6. By hand, with the stack up: `bun run install:bin`; enter as `ana` and as `xaviuzz` and compare `help` and Tab; `sorzs users` with `ana`'s pass fails saying it needs the admin role and keeps the pass; `add`, `list`, `inspect` and `search` against the stack; `adduser` and `setrole` as `xaviuzz`.
 
 ## Out of scope
 

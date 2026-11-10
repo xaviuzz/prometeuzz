@@ -139,3 +139,6 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [A CLI command declares who may use it](decisions/a-cli-command-declares-who-may-use-it.md)
 - [CLI commands are named by what they do, in one word](decisions/commands-are-named-by-what-they-do.md)
 - [Command mode checks the role before calling the service](decisions/command-mode-checks-the-role-before-calling.md)
+- [The CLI reports service failures through one guarded call](decisions/the-cli-reports-service-failures-through-one-guarded-call.md)
+- [The CLI signs its client with the kept pass](decisions/the-cli-signs-its-client-with-the-kept-pass.md)
+- [`adduser` is two commands behind one name](decisions/adduser-is-two-commands-behind-one-name.md)
