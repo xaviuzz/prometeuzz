@@ -19,6 +19,7 @@ Looking for a term across the sorzs a user trusts, from a box in the header. For
   - the title is always "Search it on Google";
   - the description reads "Google search for «query» limited to site", where site is the address of the sorz without `http://` or `https://` and without a final slash;
   - the link is a Google search for the query followed by the restriction to that site, path included. A sorz on `https://example.com/docs/` restricts Google to `example.com/docs`.
+- Each sorz is searched in the way that suits its site. A sorz on `reddit.com` or any of its subdomains (the path does not matter) gets a Reddit search for the query: the title is "Search it on Reddit", the description reads "Reddit search for «query»", and the link is Reddit's search page for the query, with spaces as `+`. It covers all of Reddit, not only the sorz's path. Every other sorz gets the Google answer above, so Google is the way to search any sorz that has no better one.
 - The results of all sorzs are merged into one list in the order the sorzs were added.
 - A link goes to the page it names, never to copied content, and opens in a new tab.
 - The box searches on Enter or on the Search button. The button is off while the query is blank or the list has no sorzs.

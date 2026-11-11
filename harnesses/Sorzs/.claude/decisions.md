@@ -85,6 +85,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The backend searches as a stepping stone](decisions/the-backend-searches-as-a-stepping-stone.md)
 - [The stand-in result is a Google search limited to the site](decisions/the-stand-in-result-is-a-google-search-limited-to-the-site.md)
 - [The search query is a value object](decisions/the-search-query-is-a-value-object.md)
+- [Search providers qualify per sorz and Google is the catch-all](decisions/search-providers-qualify-per-sorz-and-google-is-the-catch-all.md)
 - [Each result names its sorz as the list does](decisions/each-result-names-its-sorz-as-the-list-does.md)
 
 ## E2E

@@ -10,7 +10,7 @@ A step is done when its repo's tests, lint and build pass (frontend: also typech
 
 - The query is trimmed; empty or over 200 characters is `INVALID_BODY`. No sorzs gives an empty `results`.
 - One result per sorz, in list order: `title` "Search it on Google", `url` `https://www.google.com/search?q=<encoded query> site:<host><path>` (sorz address without scheme or final slash, path kept), `description` "Google search for «query» limited to site", `sorz` the name the list shows for it (name, else title, else address).
-- Each sorz is searched by a `SorzSearch` the domain owns; `GoogleLinkSearch` is its stand-in. The operation calls it once per sorz, in parallel; a `SearchResults` merges the answers in list order.
+- Each sorz is searched by a `SearchProvider` the domain owns; `GoogleSearchProvider` is its stand-in. The operation calls it once per sorz, in parallel; a `SearchResults` merges the answers in list order.
 - Frontend: a form in the header; Enter or "Search" submits. The button is off with a blank query or an empty list. The query stays; results stay until the next search, even if the list changes.
 - Results fill the main area as links that open in a new tab with `noopener noreferrer`. Each shows the sorz's favicon, title, description and sorz name.
 - A visible "searching" state and a visible error (`messageOf`). The answer of a superseded search is discarded.
@@ -24,8 +24,8 @@ A step is done when its repo's tests, lint and build pass (frontend: also typech
 
 ```
 backend/src/
-  domain/search/        SorzSearch (interface); SearchQuery; SearchResults; SearchResult
-  infrastructure/       GoogleLinkSearch
+  domain/search/        SearchProvider (interface); SearchQuery; SearchResults; SearchResult
+  infrastructure/       GoogleSearchProvider
   operations/sorzs/   SearchSorzs.ts
 frontend/src/
   api/                  SearchSorzs.ts
@@ -39,8 +39,8 @@ e2e/
 ## Steps
 
 - [x] 1. Contract (backend, then frontend): add `sorzs.search` to `openapi.yaml`; copy it to `frontend/`, run `generate`; add the route to the `dev.ts` proxy. Ends with the backend correspondence test red only for the new route, and the frontend green.
-- [x] 2. Backend domain, test-first: `SearchQuery` trims and refuses empty or over 200 with `INVALID_BODY`; `SorzEntry` gives its display name (name, else title, else address); `GoogleLinkSearch` builds the title, description and encoded link for a sorz and a query, path kept, scheme, final slash, question and fragment dropped; `SearchResults` merges answers in the order given.
-- [x] 3. Backend operation, test-first, with a fake `SorzSearch`: `SearchSorzs` builds the `SearchQuery` from the body, searches every sorz of the list in parallel, replies in list order with the sorz's display name; an empty list gives empty `results`. Registered in the registry; the correspondence test turns green.
+- [x] 2. Backend domain, test-first: `SearchQuery` trims and refuses empty or over 200 with `INVALID_BODY`; `SorzEntry` gives its display name (name, else title, else address); `GoogleSearchProvider` builds the title, description and encoded link for a sorz and a query, path kept, scheme, final slash, question and fragment dropped; `SearchResults` merges answers in the order given.
+- [x] 3. Backend operation, test-first, with a fake `SearchProvider`: `SearchSorzs` builds the `SearchQuery` from the body, searches every sorz of the list in parallel, replies in list order with the sorz's display name; an empty list gives empty `results`. Registered in the registry; the correspondence test turns green.
 - [x] 4. Frontend API, test-first: `SearchSorzs` wraps the generated client, throws refusals and lets network failures through; `SearchResult` exposes its parts.
 - [x] 5. Frontend state, test-first: `SearchProvider` keeps query, state and results; discards the answer of a superseded search; keeps results when the list changes.
 - [x] 6. Frontend box and results, test-first: `SearchBox` submits on Enter and button, is off with a blank query or empty list, keeps the query; `SearchResultList` shows favicon, title, description and sorz, links open in a new tab with `noopener noreferrer`; searching and error states show.
@@ -58,7 +58,7 @@ sequenceDiagram
     actor U as User
     participant F as Frontend
     participant B as Backend
-    participant S as SorzSearch
+    participant S as SearchProvider
     U->>F: writes a query, presses Enter
     alt blank query or no sorzs
         F-->>U: button is off, nothing is sent
