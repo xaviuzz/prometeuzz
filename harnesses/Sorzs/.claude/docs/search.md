@@ -2,7 +2,7 @@
 
 ## What it is
 
-Looking for a term across the sorzs a user trusts, from a box in the header. For now every sorz answers with a stand-in: a link that asks Google for the term, limited to that sorz's site. Real results from the sorzs themselves come later.
+Looking for a term across the sorzs a user trusts, from a box in the header. For now every sorz answers with a stand-in: a link that searches the term on that sorz's site. Each sorz is searched in the way that suits its site: Reddit sorzs by [reddit-search.md](reddit-search.md), every other sorz by Google, limited to the sorz's site. Real results from the sorzs themselves come later.
 
 ## What defines it
 
@@ -15,11 +15,10 @@ Looking for a term across the sorzs a user trusts, from a box in the header. For
 - A search covers every sorz in the list of the user who searches and nothing else; other users' sorzs never appear. It never widens to the open web.
 - Spaces at both ends of the query are removed first. An empty query is refused; so is one longer than 200 characters.
 - With no sorzs the search finds nothing and says nothing is wrong: the answer is an empty list.
-- In this stage each sorz gives one result:
+- In this stage each sorz gives one result, from the way that suits its site. A Reddit sorz follows [reddit-search.md](reddit-search.md); every other sorz gets the Google answer, so Google is the way to search any sorz with no better one. The Google answer:
   - the title is always "Search it on Google";
   - the description reads "Google search for «query» limited to site", where site is the address of the sorz without `http://` or `https://` and without a final slash;
   - the link is a Google search for the query followed by the restriction to that site, path included. A sorz on `https://example.com/docs/` restricts Google to `example.com/docs`.
-- Each sorz is searched in the way that suits its site. A sorz on `reddit.com` or any of its subdomains (the path does not matter) gets a Reddit search for the query: the title is "Search it on Reddit", the description reads "Reddit search for «query»", and the link is Reddit's search page for the query, with spaces as `+`. It covers all of Reddit, not only the sorz's path. Every other sorz gets the Google answer above, so Google is the way to search any sorz that has no better one.
 - The results of all sorzs are merged into one list in the order the sorzs were added.
 - A link goes to the page it names, never to copied content, and opens in a new tab.
 - The box searches on Enter or on the Search button. The button is off while the query is blank or the list has no sorzs.

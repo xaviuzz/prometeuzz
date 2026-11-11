@@ -1,6 +1,6 @@
 # Search providers
 
-Repos: `backend/` only. Docs: `.claude/docs/search.md`. Decisions: area "Search" in `.claude/decisions.md`, especially `search-providers-qualify-per-sorz-and-google-is-the-catch-all`, `the-backend-searches-as-a-stepping-stone`, `the-stand-in-result-is-a-google-search-limited-to-the-site`.
+Repos: `backend/` only. Docs: `.claude/docs/search.md`, `.claude/docs/reddit-search.md`. Decisions: area "Search" in `.claude/decisions.md`, especially `search-providers-qualify-per-sorz-and-google-is-the-catch-all`, `the-backend-searches-as-a-stepping-stone`, `the-stand-in-result-is-a-google-search-limited-to-the-site`.
 
 Goal: each sorz is searched by the first provider that can satisfy it. Google qualifies for every sorz and goes last. A Reddit provider qualifies for sorzs on `reddit.com` and answers with a Reddit search link built from the query. The contract, frontend, CLI and e2e do not change: a sorz still gives one result of the same shape.
 
@@ -31,7 +31,7 @@ backend/src/
 - [x] 2. Providers registry, test-first: `SearchProvider` gains `canSearch(entry)`; `GoogleSearchProvider` answers true for any entry; `SearchProviders` searches with the first qualifying specialist, else the catch-all; `SearchSorzs` takes `SearchProviders` and searches each entry through it, still in parallel and in list order. Fake providers cover "first qualifying wins" and "falls to the last".
 - [x] 3. Reddit provider, test-first: `DomainQualificationStrategy` qualifies `reddit.com`, `www.reddit.com`, `old.reddit.com`, a port, not `notreddit.com`, `reddit.com.evil.org` or a domain only in the path; `RedditSearchProvider` receives it and qualifies by its answer and builds title, description and encoded link, spaces as `+`.
 - [x] 4. Wiring: `SearchProvidersFactory` builds `SearchProviders` with Reddit (given its domain strategy) as specialist and Google as catch-all; `OperationRegistry` uses it. A test through `SearchSorzs` with a real `SearchProviders` shows a reddit sorz gets the Reddit result and another sorz gets the Google one.
-- [ ] 5. Docs, by hand: Xavier reads `search.md` and the decision after the changes; marked only after Xavier confirms.
+- [x] 5. Docs, by hand: Xavier reads `search.md` and the decision after the changes; marked only after Xavier confirms.
 
 ## Out of scope
 
