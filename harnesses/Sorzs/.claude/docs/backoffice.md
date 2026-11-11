@@ -37,7 +37,9 @@ The part of Sorzs where an administrator looks after Sorzs itself, apart from th
 - Below the title, a list of every sorz that is in the list of at least one user. A sorz no user has any more does not show.
 - Each row shows, from left to right, the favicon of the sorz, its address written in full as it was registered, and on the right the number of users who have it in their list. The row has no title and no name: the names belong to each user.
 - The favicon is the one the sorz learned. A sorz with no favicon shows the generic globe icon, as in the sorz list.
+- A sorz with a specific provider (see `search.md`) shows the same mark over its favicon, with the same hint, as in the sorz list. A sorz with the generic provider shows none.
 - The number counts users, not names: a sorz that two users have under different names counts 2. It has no visible text; its accessible name is "N users", or "1 user" for one, with a tooltip.
+- Below the title there is a toggle, "Only generic provider", off at first. On, the section shows only the sorzs with the generic provider; off, all of them. It acts on the rows already read, in the same order. It goes back to off on reload and is not kept in the browser address. With the toggle on and no sorz with the generic provider, the section shows the title and the toggle with an empty list, with no special text.
 - The rows are in alphabetical order of the address, ignoring upper and lower case, and the scheme is part of the address, so `http://` comes before `https://`. Each sorz shows once; `https://a.com` and `https://a.com/` are two sorzs and two rows.
 - The section only shows. Rows have no buttons, do not open the site and offer no way to remove a sorz.
 - With no sorzs in any list, the section shows the title and an empty list, with no special text. If the list cannot be read, the section shows the message of the failure and nothing else.
@@ -48,7 +50,7 @@ The part of Sorzs where an administrator looks after Sorzs itself, apart from th
 - Switch between Users and Sorzs from the side bar.
 - Go back to Sorzs from the header.
 - In Users: see every user and their role, add a user, make a user an admin or a user (rules in `user.md`).
-- In Sorzs: see every sorz in use, with its favicon, its address and how many users have it.
+- In Sorzs: see every sorz in use, with its favicon, its address and how many users have it; see which have a specific provider; show only those with the generic provider.
 
 ## Out of scope
 
