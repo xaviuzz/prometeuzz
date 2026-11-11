@@ -1,6 +1,6 @@
 # Search providers
 
-Repos: `backend/` only. Docs: `.claude/docs/search.md`, `.claude/docs/reddit-search.md`. Decisions: area "Search" in `.claude/decisions.md`, especially `search-providers-qualify-per-sorz-and-google-is-the-catch-all`, `the-backend-searches-as-a-stepping-stone`, `the-stand-in-result-is-a-google-search-limited-to-the-site`.
+Repos: `backend/` only. Docs: `.claude/docs/search.md`, `.claude/docs/reddit-search.md`. Decisions: area "Search" in `.claude/decisions.md`, especially `search-providers-qualify-per-sorz-and-generic-is-the-catch-all`, `the-backend-searches-as-a-stepping-stone`, `the-stand-in-result-is-a-google-search-limited-to-the-site`.
 
 Goal: each sorz is searched by the first provider that can satisfy it. Google qualifies for every sorz and goes last. A Reddit provider qualifies for sorzs on `reddit.com` and answers with a Reddit search link built from the query. The contract, frontend, CLI and e2e do not change: a sorz still gives one result of the same shape.
 

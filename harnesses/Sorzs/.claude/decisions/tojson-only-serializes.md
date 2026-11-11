@@ -4,4 +4,4 @@ In the backend, `toJSON()` builds the shape the contract sends, and only the edg
 
 Tests may assert on `toJSON()` when they check the shape the API returns; a test that only needs a fact asks for the behavior.
 
-Why: `GoogleSearchProvider` and `SorzEntry.displayName` read `toJSON()` to get an address or a title, so a change in the contract shape would have broken rules unrelated to HTTP, and the site rule lived in infrastructure instead of with the address. A library (`class-transformer`, schema codecs, `typia`) would need access to private state or decorators in the domain, and the backend takes no extra dependency.
+Why: `GenericSearchProvider` and `SorzEntry.displayName` read `toJSON()` to get an address or a title, so a change in the contract shape would have broken rules unrelated to HTTP, and the site rule lived in infrastructure instead of with the address. A library (`class-transformer`, schema codecs, `typia`) would need access to private state or decorators in the domain, and the backend takes no extra dependency.
