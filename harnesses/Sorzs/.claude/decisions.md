@@ -32,6 +32,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [HttpPageReader delegates redirects and favicons](decisions/http-page-reader-delegates-redirects-and-favicons.md)
 - [Titles are decoded with the he library](decisions/titles-are-decoded-with-the-he-library.md)
 - [Infrastructure is organized by technology](decisions/infrastructure-is-organized-by-technology.md)
+- [Migrations are numbered steps written by hand](decisions/migrations-are-numbered-steps-written-by-hand.md)
 
 ## Backend users and access
 
