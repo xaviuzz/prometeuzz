@@ -31,7 +31,7 @@ Posts or any content from Reddit, limiting the search to a subreddit, sorting or
 ## Open questions
 
 - Should a sorz on one subreddit search only that subreddit?
-- Will Sorzs read real results from Reddit instead of linking to its search page?
+- Will Sorzs read real results from Reddit instead of linking to its search page? A Data Access Request is with Reddit; until it answers, the link stays. Findings: [reddit-api-access.md](../reference/reddit-api-access.md).
 - Is Reddit's link the same on every Reddit address, such as `old.reddit.com`?
 
 ## Related

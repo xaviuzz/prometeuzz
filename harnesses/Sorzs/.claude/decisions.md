@@ -89,6 +89,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Search providers qualify per sorz and the generic provider is the catch-all](decisions/search-providers-qualify-per-sorz-and-generic-is-the-catch-all.md)
 - [Each result names its sorz as the list does](decisions/each-result-names-its-sorz-as-the-list-does.md)
 - [A sorz has a specific provider or the generic one](decisions/a-sorz-has-a-specific-provider-or-the-generic-one.md)
+- [Reddit search stays a link until Reddit grants API access](decisions/reddit-search-stays-a-link-until-reddit-grants-api-access.md)
 
 ## E2E
 
