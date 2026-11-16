@@ -71,8 +71,6 @@ Reach for these first, before improvising a process:
 
 ## Current project
 
-**Sorzs** (`Sandbox/Sorzs/`, umbrella of `backend/`, `frontend/`, `cli/`, `e2e/`). Read its `CLAUDE.md` before working, then the `CLAUDE.md` of the repo being changed.
-
-Previous project: **conserjeIAdev** (`Sandbox/conserjeIAdev/`, contributing); its `harnesses/conserjeIAdev/CLAUDE.md` is read when Xavier returns to it. It is not linked into the repo, whose `CLAUDE.md` is only `@AGENTS.md`, so also read the repo's `AGENTS.md`. Xavier names another, or asks for a known project; this section is then updated.
+Sorzs, at `Sandbox/Sorzs/` (umbrella, harness `harnesses/Sorzs/`). Xavier names another, or asks for a known project; this section is then updated.
 
 When the user says "let's work" (or similar) without naming a project, work in the current project: read its `CLAUDE.md` and do all changes there, not in PrometeuZZ. With none, ask which project.
