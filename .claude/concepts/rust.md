@@ -55,5 +55,12 @@ Depths and who raises them: `.claude/learning-projects.md`.
 | `pub use module::Item;` re-exports, so outsiders write `crate_name::Item` and not `crate_name::module::Item` | explained | yesterdayWeather: `lib.rs` |
 | `use crate::module::Item;` imports from another module of the same crate | explained | yesterdayWeather: `summary.rs` |
 | `pub(crate)`: visible in the whole crate, hidden from `tests/` and other crates | explained | yesterdayWeather: `Celsius::degrees` |
+| `[dependencies]` in `Cargo.toml`; `cargo add crate --features x` adds a crate and enables an optional part of it | explained | yesterdayWeather: `serde` |
+| `#[derive(Deserialize)]` on a struct: serde builds the code that fills it from JSON by field name; extra JSON fields are ignored | explained | yesterdayWeather: `OpenMeteoResponse` |
+| `serde_json::from_str(text)` returns a `Result`; the target type comes from the annotation of the `let` | explained | yesterdayWeather: `OpenMeteoResponse::from_json` |
+| `for x in vec` consumes the `Vec` (moves it); `for x in &vec` only borrows it | seen | yesterdayWeather: `from_json` |
+| Raw string `r#"..."#` (no escapes inside) and `{{`/`}}` for literal braces in `format!` | seen | yesterdayWeather: `Sut` in `open_meteo_response.rs` |
+| Inline argument in `format!`: `{degrees:.1}` reads the variable by name | seen | yesterdayWeather: `Sut` in `open_meteo_response.rs` |
+| `vec.join(",")` glues a `Vec<String>` into one `String` | seen | yesterdayWeather: `Sut` in `open_meteo_response.rs` |
 
 Not covered yet: lifetimes, ownership of non-`Copy` values.
