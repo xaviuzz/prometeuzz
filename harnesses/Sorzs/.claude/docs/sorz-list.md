@@ -22,7 +22,7 @@ The sorzs a user trusts, each with the name the user gave it, if any. It is the 
 - The list is the user's: the name belongs to the user and not to the sorz.
 - An entry is shown by its name. With no name it is shown by the title of its sorz; with no title either, by its address. The system never copies the title into the name; the dialog only suggests it (see below).
 - Each entry is shown with its sorz's favicon on the left of the text; with no favicon, a neutral icon. With the side bar collapsed, each entry shows only that icon.
-- An entry whose sorz has a specific provider (see `search.md`) carries a mark over its favicon, so the user sees at a glance which sorzs are searched by something better than the generic provider. The mark is the same for every specific provider; its hint reads "Searched by Reddit", with the provider's name. An entry with the generic provider carries no mark. The mark shows also with the side bar collapsed.
+- An entry whose sorz has a specific provider (see `search.md`) carries a mark over its favicon, so the user sees at a glance which sorzs are searched by something better than the generic provider. The mark is the same for every specific provider; its hint reads "Searched by" and the provider's name ("Searched by Reddit", "Searched by Wikipedia"). An entry with the generic provider carries no mark. The mark shows also with the side bar collapsed.
 - The list is kept for good. Reloading the page shows it again, and so does restarting the service. Each entry is saved as soon as it is added.
 - If the saved list cannot be read when the service starts, the service does not start and the saved list is left as it was.
 

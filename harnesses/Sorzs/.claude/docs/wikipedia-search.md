@@ -13,9 +13,10 @@ The way Sorzs searches a sorz that lives on Wikipedia. Wikipedia offers its own 
 
 ## Rules
 
-- A sorz is a Wikipedia sorz when its address is a language site of `wikipedia.org`: a language code, then `.wikipedia.org`. The mobile form, a language code, then `.m.wikipedia.org`, is the same Wikipedia as the normal one. The path does not matter: `https://es.wikipedia.org/wiki/Ciberpunk` and `https://es.wikipedia.org` are the same Wikipedia sorz.
+- A sorz is a Wikipedia sorz when its address is a language site of `wikipedia.org`: a language code, then `.wikipedia.org`. The mobile form, a language code, then `.m.wikipedia.org`, is the same Wikipedia as the normal one. These are the only two forms: an address with any other labels before `wikipedia.org` is not a Wikipedia sorz. The path does not matter: `https://es.wikipedia.org/wiki/Ciberpunk` and `https://es.wikipedia.org` are the same Wikipedia sorz.
 - A site that only looks like Wikipedia is not Wikipedia: `notwikipedia.org`, `es.wikipedia.org.evil.org`, or an address that has `wikipedia.org` only in its path.
 - An address with no language, such as `wikipedia.org` or `www.wikipedia.org`, is not a Wikipedia sorz. It is searched by the generic provider, like any other sorz.
+- A language code is one word of lowercase letters and hyphens (`es`, `en`, `simple`, `zh-yue`), anything but `www`. Sorzs keeps no list of languages: an address that has the shape of a language site without being one, such as `meta.wikipedia.org`, is searched as if it were, and since Wikipedia does not answer for it the user sees the line of a sorz that did not answer.
 - The language is read from the sorz's address and nothing else. A sorz on `es.wikipedia.org` searches the Spanish Wikipedia, one on `en.wikipedia.org` the English one. The term is not translated: searching `ciberpunk` in English finds other pages than `cyberpunk`.
 - The search covers the whole Wikipedia of that language, not the page the sorz's address names.
 - A sorz returns at most ten results and no next page.
@@ -25,9 +26,10 @@ The way Sorzs searches a sorz that lives on Wikipedia. Wikipedia offers its own 
 - The results of a Wikipedia sorz take the place of that sorz in the merged list. Among sorzs the order stays the order they were added; among the results of one Wikipedia sorz it is Wikipedia's relevance.
 - A Wikipedia sorz gets only Wikipedia results; it never gets the Google one.
 - When Wikipedia finds nothing, that sorz adds no results and nothing is wrong.
-- When Wikipedia does not answer, the user sees the failure next to that sorz. The results of the other sorzs still appear.
+- Sorzs waits 3 seconds for Wikipedia. When it does not answer in that time, the sorz is one that did not answer, and the user sees what [search.md](search.md) says of it; the results of the other sorzs still appear.
 - Two sorzs of the same Wikipedia in one list are searched separately, even if their results repeat.
 - Wikipedia asks every program that uses its search to identify itself and to slow down when it says so. Sorzs identifies itself as Sorzs and slows down when Wikipedia asks. The contact Sorzs gives is configuration, not a rule here.
+- When Wikipedia asks Sorzs to slow down, that sorz did not answer, and Sorzs asks nothing more of that language's Wikipedia until the time Wikipedia names has passed, a minute if it names none. Other languages are not affected. Sorzs forgets the wait when it restarts.
 
 ## What can be done with it
 
@@ -39,7 +41,7 @@ The content of the pages, images, a next page of results, searching several lang
 
 ## Open questions
 
-- Should results repeated between two sorzs of the same Wikipedia appear once?
+None.
 
 ## Related
 

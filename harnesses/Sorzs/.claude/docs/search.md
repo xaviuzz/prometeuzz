@@ -2,13 +2,14 @@
 
 ## What it is
 
-Looking for a term across the sorzs a user trusts, from a box in the header. For now every sorz answers with a stand-in: a link that searches the term on that sorz's site. Each sorz is searched by a provider: a specific provider when one suits its site (Reddit sorzs, by [reddit-search.md](reddit-search.md); Wikipedia sorzs, by [wikipedia-search.md](wikipedia-search.md)), else the generic provider, which searches Google limited to the sorz's site. Real results from the sorzs themselves come later.
+Looking for a term across the sorzs a user trusts, from a box in the header. Each sorz is searched by a provider: a specific provider when one suits its site (Reddit sorzs, by [reddit-search.md](reddit-search.md), which answers with a stand-in link; Wikipedia sorzs, by [wikipedia-search.md](wikipedia-search.md), which returns real results), else the generic provider, which answers with a stand-in link that searches Google limited to the sorz's site. Real results from the other sorzs themselves come later.
 
 ## What defines it
 
 - The query: the text the user writes in the box.
 - The results of each sorz in the user's list, in the order of the list: one, or several when its provider returns real results.
 - Each result has a title, a link, a description and the sorz it comes from, shown as the list shows it (name, or title, or address).
+- The sorzs that did not answer, if any, each named after all the results.
 
 ## Rules
 
@@ -20,6 +21,7 @@ Looking for a term across the sorzs a user trusts, from a box in the header. For
   - the description reads "Google search for «query» limited to site", where site is the address of the sorz without `http://` or `https://` and without a final slash;
   - the link is a Google search for the query followed by the restriction to that site, path included. A sorz on `https://example.com/docs/` restricts Google to `example.com/docs`.
 - The results of all sorzs are merged into one list in the order the sorzs were added; the results of one sorz stay together.
+- When the provider of a sorz does not answer, that sorz adds no results and the search is not a failure: after the results of all sorzs the user sees one line for it, «name did not answer», with the sorz named as the list shows it and no cause. The lines follow the order of the list, and the results of the other sorzs still appear.
 - A link goes to the page it names, never to copied content, and opens in a new tab.
 - The box searches on Enter or on the Search button. The button is off while the query is blank or the list has no sorzs.
 - The query stays written after searching. The results stay until the next search, even if the list of sorzs changes meanwhile.
@@ -33,7 +35,7 @@ Looking for a term across the sorzs a user trusts, from a box in the header. For
 
 ## Out of scope
 
-Real results from the sorzs, ranking or mixing results, a "nothing found" screen, history, searching a subset of sorzs, suggestions while typing.
+Real results from sorzs other than Wikipedia, ranking or mixing results, a "nothing found" screen, history, searching a subset of sorzs, suggestions while typing.
 
 ## Open questions
 
