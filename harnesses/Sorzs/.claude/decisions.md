@@ -9,6 +9,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Umbrella of four repos](decisions/umbrella-of-four-repos.md)
 - [Vertical slices, health check first](decisions/vertical-slices-health-check-first.md)
 - [CI gates; no deploy](decisions/ci-gates-and-no-deploy.md)
+- [One Bun serves front and API, deployed over ssh](decisions/one-bun-serves-front-and-api-deployed-over-ssh.md)
 
 ## Contract
 
