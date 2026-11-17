@@ -90,6 +90,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Each result names its sorz as the list does](decisions/each-result-names-its-sorz-as-the-list-does.md)
 - [A sorz has a specific provider or the generic one](decisions/a-sorz-has-a-specific-provider-or-the-generic-one.md)
 - [Reddit search stays a link until Reddit grants API access](decisions/reddit-search-stays-a-link-until-reddit-grants-api-access.md)
+- [Wikipedia search reads the REST search and takes its language from the sorz's address](decisions/wikipedia-search-reads-the-rest-search-and-takes-its-language-from-the-address.md)
 
 ## E2E
 
