@@ -15,4 +15,6 @@ The deploy is a script in `backend/deploy/` run over ssh, with no containers on 
 
 Why: the server has 512 MB, so one process and no container leave the most room; building there would run out of memory. One origin keeps the generated client on base `/`. A script that does not know its target is tested on a clean Ubuntu before it touches the real server, and moving `current` makes the rollback cheap. The health check from the server needs no open app port. A `GET` to an operation URL stays 404 so a client that picks the wrong method sees an error, not HTML.
 
+Limits today: the script logs in as root (no sudo); `/etc/sorzs/sorzs.env` is shared by all releases, so a rollback undoes a bad release, not a bad secret; after a rollback it restarts the old release without waiting for `health.check`. The test server needs `--privileged --cgroupns=host` for systemd in this sandbox.
+
 Out for now: TLS and subdomains (Caddy), the GitHub Action and the backup of `sorzs.db`.
