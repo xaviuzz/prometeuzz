@@ -65,7 +65,7 @@ Each command is named by what it does, in one word. Each says who may use it: an
 | `add <address> [name]` | adds a sorz to the user's list; the rest of the line after the address is the name; writes `added` and the entry's label | a session |
 | `list` | writes `<label>  <address>` per entry in order of addition, or `no sorzs yet` | a session |
 | `inspect <address>` | writes `title: …`, `favicon: …` and one `<address>  <title>` line per candidate; an absent value is empty | a session |
-| `search <query>` | the rest of the line is the query; writes `<title>  <url>  (<sorz>)` per result, or `no results` | a session |
+| `search <query>` | the rest of the line is the query; writes `<title>  <url>  (<sorz>)` per result, or `no results`, then `<name> did not answer` per sorz that did not answer | a session |
 | `users` | writes `<username>  <role>`, oldest first | admin |
 | `adduser <username> [role]` | adds a user, role `user` by default; writes `added <username> as <role>` | admin |
 | `setrole <username> <admin or user>` | writes `<username> is now <role>` | admin |
