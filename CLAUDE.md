@@ -59,7 +59,7 @@ A project's `CLAUDE.md` section selects extra rules. Each file overrides the rul
 
 Reach for these first, before improvising a process:
 
-- `mattpocock-skills:grilling`: **always** when Xavier asks to plan ("planeemos", "let's plan"), when his instruction is extensive or complex (even without saying "grill me"), and to stress-test a decision before building. Open with it; a ready-made plan comes after the grilling, never before.
+- `mattpocock-skills:grilling`: **always** when Xavier asks to plan ("planeemos", "let's plan"), when his instruction is extensive or complex (even without saying "grill me"), and to stress-test a decision before building. Open with it; a ready-made plan comes after the grilling, never before. A remark that narrows the request ("just add X as step one", "we define the process later") does not waive it, and a spec holding open questions with defaults is a ready-made plan.
 - `mattpocock-skills:writing-for-agents`: **always**, before creating or editing any `CLAUDE.md`, `AGENTS.md`, skill or `.md` under a `.claude/` directory, in any project. Load it first, then write. Enforced by `.claude/hooks/agent-docs-need-skill.sh`, in sessions started in PrometeuZZ only.
 - `next-step`: **always**, first, when Xavier says "next step", "siguiente step" or asks what is next in a project with specs. It finds the step by script; never infer it from commits or memory.
 - `commit-message`: no trailer.
