@@ -18,6 +18,16 @@
         ]
       },
       {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "paplay \"$CLAUDE_PROJECT_DIR\"/.claude/sounds/question.wav 2>/dev/null || true",
+            "async": true
+          }
+        ]
+      },
+      {
         "matcher": "Edit|Write",
         "hooks": [
           {
@@ -42,6 +52,28 @@
           {
             "type": "command",
             "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/sorz-not-source.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "paplay \"$CLAUDE_PROJECT_DIR\"/.claude/sounds/done.wav 2>/dev/null || true",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "paplay \"$CLAUDE_PROJECT_DIR\"/.claude/sounds/needs-input.wav 2>/dev/null || true",
+            "async": true
           }
         ]
       }
