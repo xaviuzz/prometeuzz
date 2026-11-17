@@ -1,0 +1,3 @@
+# The Wikipedia contact is a required variable
+
+The contact Wikipedia asks every program to give is `WIKIPEDIA_CONTACT`, required like `AUTH_SECRET`: the server refuses to start without it, and the User-Agent reads `Sorzs (<contact>)`. A settings class of its own reads it, with the same required-variable reader as `AuthSettings`; the e2e Compose file gives the backend a value so it starts. Why: a literal in `src/` would put someone's address in the repository, as the seeded users would have put their passwords; required, so no deployment calls Wikipedia anonymously. Optional with a default was rejected: a default is a contact that belongs to nobody.

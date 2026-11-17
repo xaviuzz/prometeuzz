@@ -91,11 +91,19 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [A sorz has a specific provider or the generic one](decisions/a-sorz-has-a-specific-provider-or-the-generic-one.md)
 - [Reddit search stays a link until Reddit grants API access](decisions/reddit-search-stays-a-link-until-reddit-grants-api-access.md)
 - [Wikipedia search reads the REST search and takes its language from the sorz's address](decisions/wikipedia-search-reads-the-rest-search-and-takes-its-language-from-the-address.md)
+- [Wikipedia is its own provider with its own hint](decisions/wikipedia-is-its-own-provider-with-its-own-hint.md)
+- [A search reply names the sorzs that did not answer](decisions/a-search-reply-names-the-sorzs-that-did-not-answer.md)
+- [The Wikipedia contact is a required variable](decisions/the-wikipedia-contact-is-a-required-variable.md)
+- [After a 429 Wikipedia is not called until Retry-After passes](decisions/after-a-429-wikipedia-is-not-called-until-retry-after-passes.md)
+- [Each Wikipedia call is cut at three seconds](decisions/each-wikipedia-call-is-cut-at-three-seconds.md)
+- [Failed sorzs show one line each after the results](decisions/failed-sorzs-show-one-line-each-after-the-results.md)
+- [The failure line reads "name did not answer"](decisions/the-failure-line-reads-name-did-not-answer.md)
 
 ## E2E
 
 - [E2E is a third repo, composing the other two](decisions/e2e-is-a-third-repo-composing-the-other-two.md)
 - [E2E covers the happy path only](decisions/e2e-covers-the-happy-path-only.md)
+- [No e2e scenario for Wikipedia](decisions/no-e2e-scenario-for-wikipedia.md)
 - [E2E frontend runs the dev server](decisions/e2e-frontend-runs-the-dev-server.md)
 - [Playwright on Node in the official image](decisions/playwright-on-node-in-the-official-image.md)
 - [Compose waits on healthchecks](decisions/compose-waits-on-healthchecks.md)
