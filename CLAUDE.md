@@ -35,6 +35,7 @@ Read the file before the work it names:
 - `.claude/code-style.md`: before writing, reviewing or renaming code. Style rules for every project.
 - `.claude/workflow.md`: before writing tests, a refactor, a TDD run, a spec, a concept doc or a decision record, or before moving or renaming a documented section.
 - `.claude/layout.md`: before creating a file, folder or project, or placing a file Xavier asks for.
+- `.claude/knowledge-ledger.md`: before explaining or using a concept of an area in `.claude/concepts/`, and when Xavier asks to monitor a technology or practice.
 - `.claude/projects.md`: when Xavier names a project, asks which exist, or a project is created.
 - `.claude/git-policy.md`: before any git or `gh` command beyond plain `status`, `log` or `diff`, and before editing the hook.
 - `.claude/experiments.md`: when Xavier announces an experiment, or asks to revert everything.
@@ -50,7 +51,7 @@ Claude uses git **read-only, always, with two exceptions** (`git clone` into `Sa
 
 A project's `CLAUDE.md` section selects extra rules. Each file overrides the rules above where they differ.
 
-- `## Learning`: the project teaches Xavier a technology. Read `.claude/learning-projects.md` before working in or creating one; it overrides the TDD pacing.
+- `## Learning`: the project teaches Xavier a technology. Read `.claude/learning-projects.md` and `.claude/knowledge-ledger.md` before working in or creating one; the first overrides the TDD pacing.
 - `## Contributing`: an upstream contribution. Read `.claude/contributing-projects.md` before choosing an issue or working in one; it overrides `.claude/code-style.md`.
 - `## Legacy`: works in deltas, not specs. Read `.claude/legacy-projects.md` before cataloging challenges, writing a delta or working in one; its `CLAUDE.md` stays in the project, not in a harness.
 - No Claude setup upstream, or several repos (an umbrella): its `CLAUDE.md` and `.claude/` live in `harnesses/<name>/`, linked into `Sandbox/<name>`. Read `.claude/harnesses.md` before cloning, working in or creating one, and whenever a project's `CLAUDE.md` is missing.
