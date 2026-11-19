@@ -2,13 +2,13 @@
 
 ## What it is
 
-Looking for a term across the sorzs a user trusts, from a box in the header. Each sorz is searched by a provider: a specific provider when one suits its site (Reddit sorzs, by [reddit-search.md](reddit-search.md), which answers with a stand-in link; Wikipedia sorzs, by [wikipedia-search.md](wikipedia-search.md), which returns real results), else the generic provider, which answers with a stand-in link that searches Google limited to the sorz's site. Real results from the other sorzs themselves come later.
+Looking for a term across the sorzs a user trusts, from a box in the header. Each sorz is searched by a provider: a specific provider when one suits its site (each has its own doc: [reddit-search.md](reddit-search.md), [wikipedia-search.md](wikipedia-search.md), [geekfeminism-search.md](geekfeminism-search.md)), else the generic provider, which answers with a stand-in link that searches Google limited to the sorz's site. Real results from the other sorzs themselves come later.
 
 ## What defines it
 
 - The query: the text the user writes in the box.
 - The results of each sorz in the user's list, in the order of the list: one, or several when its provider returns real results.
-- Each result has a title, a link, a description and the sorz it comes from, shown as the list shows it (name, or title, or address).
+- Each result has a title, a link, a description and the sorz it comes from, shown as the list shows it (name, or title, or address). The description may be empty, as for Geek Feminism; the result then shows no description line.
 - The sorzs that did not answer, if any, each named after all the results.
 
 ## Rules
@@ -16,7 +16,7 @@ Looking for a term across the sorzs a user trusts, from a box in the header. Eac
 - A search covers every sorz in the list of the user who searches and nothing else; other users' sorzs never appear. It never widens to the open web.
 - Spaces at both ends of the query are removed first. An empty query is refused; so is one longer than 200 characters.
 - With no sorzs the search finds nothing and says nothing is wrong: the answer is an empty list.
-- Each sorz gives the results of its provider: one for a stand-in provider, up to the provider's limit for one that returns real results. A sorz has a specific provider when one suits its site (today Reddit, see [reddit-search.md](reddit-search.md), and Wikipedia, see [wikipedia-search.md](wikipedia-search.md)); every other sorz has the generic provider, which can search any sorz. The provider of a sorz depends only on its address, so it is the same for every user. The generic provider's answer:
+- Each sorz gives the results of its provider: one for a stand-in provider, up to the provider's limit for one that returns real results. A sorz has a specific provider when one suits its site; every other sorz has the generic provider, which can search any sorz. The provider of a sorz depends only on its address, so it is the same for every user. The generic provider's answer:
   - the title is always "Search it on Google";
   - the description reads "Google search for «query» limited to site", where site is the address of the sorz without `http://` or `https://` and without a final slash;
   - the link is a Google search for the query followed by the restriction to that site, path included. A sorz on `https://example.com/docs/` restricts Google to `example.com/docs`.
@@ -35,7 +35,7 @@ Looking for a term across the sorzs a user trusts, from a box in the header. Eac
 
 ## Out of scope
 
-Real results from sorzs other than Wikipedia, ranking or mixing results, a "nothing found" screen, history, searching a subset of sorzs, suggestions while typing.
+Real results from sorzs other than Wikipedia and Geek Feminism, ranking or mixing results, a "nothing found" screen, history, searching a subset of sorzs, suggestions while typing.
 
 ## Open questions
 

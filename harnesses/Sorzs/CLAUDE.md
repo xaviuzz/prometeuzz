@@ -27,7 +27,7 @@ This file and `.claude/` hold only what crosses repos. Decisions and their why: 
 
 - Sorz: the single address Sorzs knows, the same for everyone who registers it. Code, tests, contract, commands, screen texts, docs, specs and decisions call it sorz.
 - Sorz list: the sorzs one user trusts. Sorz entry: a sorz in a list with the user's name for it. Census: every sorz in at least one list, with how many users have it.
-- Provider: what searches a sorz. Specific (today Reddit and Wikipedia) when one suits its site, else generic, which satisfies every sorz. Say generic, never Google, which is only how it answers today.
+- Provider: what searches a sorz. Specific when one suits its site, else generic, which satisfies every sorz. Say generic, never Google, which is only how it answers today.
 - The word "source" names none of these. Where it names something else (where a value comes from), pick the real word instead (`origin`).
 - A hook (`.claude/hooks/sorz-not-source.sh` in PrometeuZZ) warns after an edit, and each repo's `lint` fails, when `source` appears under `src/`, `test/` or `tests/`. A file that must keep the word is listed, with its reason in that repo's `CLAUDE.md`, in the repo's `language-exceptions.txt`.
 

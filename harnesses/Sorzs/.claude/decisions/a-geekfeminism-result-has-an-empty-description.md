@@ -1,0 +1,3 @@
+# A Geek Feminism result has an empty description
+
+The description of every Geek Feminism result is `""`, and the frontend shows no description line for it. Why: the wiki gives no extract (`prop=extracts` does not exist there) and the snippet of a hit is empty, so a description would cost one call per page for ten results on every search. A second call per page is out of scope until a description is worth that. It is the first provider that returns an empty description, so a result with none is a valid result; `docs/wikipedia-search.md` keeps its own rule that a Wikipedia result never has an empty one.
