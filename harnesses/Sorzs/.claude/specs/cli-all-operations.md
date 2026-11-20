@@ -1,6 +1,6 @@
 # CLI: all operations, by role
 
-Repo: `cli/`. Docs: `.claude/docs/cli.md` (section "Commands and who may use them"), `.claude/docs/session.md`, `.claude/docs/user.md`, `.claude/docs/sorz-list.md`, `.claude/docs/backoffice.md`. Decisions: area "CLI" in `.claude/decisions.md`, mainly `a-cli-command-declares-who-may-use-it`, `commands-are-named-by-what-they-do`, `command-mode-checks-the-role-before-calling`, `each-cli-command-describes-itself-and-help-reads-them`, `api-operations-are-grouped-by-resource-like-the-backend`, `the-cli-builds-its-client-on-every-call`.
+Repo: `cli/`. Docs: `.claude/docs/cli.md` (section "Commands and who may use them"), `.claude/docs/session.md`, `.claude/docs/user.md`, `.claude/docs/sorz-list.md`, `.claude/docs/backoffice.md`. Decisions: area "CLI" in `.claude/decisions.md`, mainly `a-cli-command-declares-who-may-use-it`, `commands-are-named-by-what-they-do`, `each-cli-command-describes-itself-and-help-reads-them`, `api-operations-are-grouped-by-resource-like-the-backend`, `the-cli-builds-its-client-on-every-call`.
 
 Goal: every operation of the service is a CLI command, and in the prompt the user is offered only the commands they may use now. The contract does not change; the CLI already holds its pinned copy.
 

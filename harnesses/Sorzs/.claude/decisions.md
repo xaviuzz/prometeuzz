@@ -90,28 +90,28 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [Search providers qualify per sorz and the generic provider is the catch-all](decisions/search-providers-qualify-per-sorz-and-generic-is-the-catch-all.md)
 - [Each result names its sorz as the list does](decisions/each-result-names-its-sorz-as-the-list-does.md)
 - [A sorz has a specific provider or the generic one](decisions/a-sorz-has-a-specific-provider-or-the-generic-one.md)
+- [A search reply names the sorzs that did not answer](decisions/a-search-reply-names-the-sorzs-that-did-not-answer.md)
+- [Failed sorzs show one line each after the results](decisions/failed-sorzs-show-one-line-each-after-the-results.md)
+
+## Search providers
+
 - [Reddit search stays a link until Reddit grants API access](decisions/reddit-search-stays-a-link-until-reddit-grants-api-access.md)
 - [Wikipedia search reads the REST search and takes its language from the sorz's address](decisions/wikipedia-search-reads-the-rest-search-and-takes-its-language-from-the-address.md)
-- [Wikipedia is its own provider with its own hint](decisions/wikipedia-is-its-own-provider-with-its-own-hint.md)
-- [A search reply names the sorzs that did not answer](decisions/a-search-reply-names-the-sorzs-that-did-not-answer.md)
+- [Each specific provider has its own id and hint](decisions/each-specific-provider-has-its-own-id-and-hint.md)
 - [The Wikipedia contact is a required variable](decisions/the-wikipedia-contact-is-a-required-variable.md)
 - [After a 429 Wikipedia is not called until Retry-After passes](decisions/after-a-429-wikipedia-is-not-called-until-retry-after-passes.md)
 - [Each Wikipedia call is cut at three seconds](decisions/each-wikipedia-call-is-cut-at-three-seconds.md)
 - [Geek Feminism search reads the wiki API and fails as Wikipedia does](decisions/geekfeminism-search-reads-the-wiki-api-and-fails-as-wikipedia-does.md)
-- [Geek Feminism is its own provider with its own hint](decisions/geekfeminism-is-its-own-provider-with-its-own-hint.md)
 - [A Geek Feminism result has an empty description](decisions/a-geekfeminism-result-has-an-empty-description.md)
 - [A Geek Feminism link keeps the title readable](decisions/a-geekfeminism-link-keeps-the-title-readable.md)
 - [Geek Feminism has no slow-down memory](decisions/geekfeminism-has-no-slow-down-memory.md)
 - [The Wikipedia contact also identifies Sorzs to Geek Feminism](decisions/the-wikipedia-contact-also-identifies-sorzs-to-geekfeminism.md)
-- [Failed sorzs show one line each after the results](decisions/failed-sorzs-show-one-line-each-after-the-results.md)
-- [The failure line reads "name did not answer"](decisions/the-failure-line-reads-name-did-not-answer.md)
 
 ## E2E
 
 - [E2E is a third repo, composing the other two](decisions/e2e-is-a-third-repo-composing-the-other-two.md)
 - [E2E covers the happy path only](decisions/e2e-covers-the-happy-path-only.md)
-- [No e2e scenario for Wikipedia](decisions/no-e2e-scenario-for-wikipedia.md)
-- [No e2e scenario for Geek Feminism](decisions/no-e2e-scenario-for-geekfeminism.md)
+- [No e2e scenario for Wikipedia or Geek Feminism](decisions/no-e2e-scenario-for-wikipedia-or-geekfeminism.md)
 - [E2E frontend runs the dev server](decisions/e2e-frontend-runs-the-dev-server.md)
 - [Playwright on Node in the official image](decisions/playwright-on-node-in-the-official-image.md)
 - [Compose waits on healthchecks](decisions/compose-waits-on-healthchecks.md)
@@ -165,5 +165,4 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The CLI history belongs to the prompt, not to readline](decisions/the-cli-history-belongs-to-the-prompt-not-to-readline.md)
 - [A CLI command declares who may use it](decisions/a-cli-command-declares-who-may-use-it.md)
 - [CLI commands are named by what they do, in one word](decisions/commands-are-named-by-what-they-do.md)
-- [Command mode checks the role before calling the service](decisions/command-mode-checks-the-role-before-calling.md)
 - [`adduser` is two commands behind one name](decisions/adduser-is-two-commands-behind-one-name.md)

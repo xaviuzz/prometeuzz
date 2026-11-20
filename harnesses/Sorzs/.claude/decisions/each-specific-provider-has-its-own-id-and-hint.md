@@ -1,0 +1,3 @@
+# Each specific provider has its own id and hint
+
+`SearchProviderId` gains one id per specific provider: `wikipedia` and `geekfeminism`. A Wikipedia sorz is marked in the list, the collapsed side bar and the census with the hint "Searched by Wikipedia"; a Geek Feminism sorz, with "Searched by Geek Feminism". The mark stays one icon for every specific provider. Why: shown as `generic` it would be a lie, and the census toggle "Only generic provider" would list a sorz that already has a better way to be searched. The frontend's census toggle reads `isSpecific()`, so a new provider class needs no change there. See `a-sorz-has-a-specific-provider-or-the-generic-one`.
