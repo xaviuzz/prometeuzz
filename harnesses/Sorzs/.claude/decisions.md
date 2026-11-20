@@ -97,7 +97,8 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 
 - [Reddit search stays a link until Reddit grants API access](decisions/reddit-search-stays-a-link-until-reddit-grants-api-access.md)
 - [Wikipedia search reads the REST search and takes its language from the sorz's address](decisions/wikipedia-search-reads-the-rest-search-and-takes-its-language-from-the-address.md)
-- [Each specific provider has its own id and hint](decisions/each-specific-provider-has-its-own-id-and-hint.md)
+- [The provider id is free and the reply names it](decisions/the-provider-id-is-free-and-the-reply-names-it.md)
+- [The frontend has one provider class and composes the hint](decisions/the-frontend-has-one-provider-class-and-composes-the-hint.md)
 - [The Wikipedia contact is a required variable](decisions/the-wikipedia-contact-is-a-required-variable.md)
 - [After a 429 Wikipedia is not called until Retry-After passes](decisions/after-a-429-wikipedia-is-not-called-until-retry-after-passes.md)
 - [Each Wikipedia call is cut at three seconds](decisions/each-wikipedia-call-is-cut-at-three-seconds.md)
@@ -106,12 +107,16 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [A Geek Feminism link keeps the title readable](decisions/a-geekfeminism-link-keeps-the-title-readable.md)
 - [Geek Feminism has no slow-down memory](decisions/geekfeminism-has-no-slow-down-memory.md)
 - [The Wikipedia contact also identifies Sorzs to Geek Feminism](decisions/the-wikipedia-contact-also-identifies-sorzs-to-geekfeminism.md)
+- [MediaWiki providers share their call, page list and page](decisions/mediawiki-providers-share-their-call-page-list-and-page.md)
+- [Appropedia search reads the wiki API from a fixed host](decisions/appropedia-search-reads-the-wiki-api-from-a-fixed-host.md)
+- [An Appropedia link has no wiki segment](decisions/an-appropedia-link-has-no-wiki-segment.md)
+- [An Appropedia description is its snippet as plain text](decisions/an-appropedia-description-is-its-snippet-as-plain-text.md)
 
 ## E2E
 
 - [E2E is a third repo, composing the other two](decisions/e2e-is-a-third-repo-composing-the-other-two.md)
 - [E2E covers the happy path only](decisions/e2e-covers-the-happy-path-only.md)
-- [No e2e scenario for Wikipedia or Geek Feminism](decisions/no-e2e-scenario-for-wikipedia-or-geekfeminism.md)
+- [No e2e scenario for a wiki provider](decisions/no-e2e-scenario-for-a-wiki-provider.md)
 - [E2E frontend runs the dev server](decisions/e2e-frontend-runs-the-dev-server.md)
 - [Playwright on Node in the official image](decisions/playwright-on-node-in-the-official-image.md)
 - [Compose waits on healthchecks](decisions/compose-waits-on-healthchecks.md)

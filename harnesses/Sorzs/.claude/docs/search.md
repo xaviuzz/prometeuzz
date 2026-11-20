@@ -2,13 +2,13 @@
 
 ## What it is
 
-Looking for a term across the sorzs a user trusts, from a box in the header. Each sorz is searched by a provider: a specific provider when one suits its site (each has its own doc: [reddit-search.md](reddit-search.md), [wikipedia-search.md](wikipedia-search.md), [geekfeminism-search.md](geekfeminism-search.md)), else the generic provider, which answers with a stand-in link that searches Google limited to the sorz's site. Real results from the other sorzs themselves come later.
+Looking for a term across the sorzs a user trusts, from a box in the header. Each sorz is searched by a provider: a specific provider when one suits its site (each has its own doc: [reddit-search.md](reddit-search.md), [wikipedia-search.md](wikipedia-search.md), [geekfeminism-search.md](geekfeminism-search.md), [appropedia-search.md](appropedia-search.md)), else the generic provider, which answers with a stand-in link that searches Google limited to the sorz's site. Real results from the other sorzs themselves come later.
 
 ## What defines it
 
 - The query: the text the user writes in the box.
 - The results of each sorz in the user's list, in the order of the list: one, or several when its provider returns real results.
-- Each result has a title, a link, a description and the sorz it comes from, shown as the list shows it (name, or title, or address). The description may be empty, as for Geek Feminism; the result then shows no description line.
+- Each result has a title, a link, a description and the sorz it comes from, shown as the list shows it (name, or title, or address). The description may be empty, as for Geek Feminism and for an Appropedia hit that matches only its title; the result then shows no description line.
 - The sorzs that did not answer, if any, each named after all the results.
 
 ## Rules
@@ -35,7 +35,7 @@ Looking for a term across the sorzs a user trusts, from a box in the header. Eac
 
 ## Out of scope
 
-Real results from sorzs other than Wikipedia and Geek Feminism, ranking or mixing results, a "nothing found" screen, history, searching a subset of sorzs, suggestions while typing.
+Real results from sorzs other than Wikipedia, Geek Feminism and Appropedia, ranking or mixing results, a "nothing found" screen, history, searching a subset of sorzs, suggestions while typing.
 
 ## Open questions
 

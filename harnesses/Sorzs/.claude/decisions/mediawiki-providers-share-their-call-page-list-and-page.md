@@ -1,0 +1,3 @@
+# MediaWiki providers share their call, page list and page
+
+The request, the page list and the page of Geek Feminism move to `infrastructure/mediawiki/` as `MediaWikiRequest`, `MediaWikiPages` and `MediaWikiPage`, parametrized by the API path and the article base. `GeekFeminismSearchProvider` and `AppropediaSearchProvider` only configure them and stay two classes. Why: Appropedia would otherwise copy three classes that differ from Geek Feminism's in two strings (`/w/api.php` against `/api.php`, no `/wiki/` against `/wiki/`). Wikipedia stays apart: it reads another API and keeps a slow-down memory. The two provider classes repeat twenty lines (`id()`, `canSearch()`, the loop of `search()`) and are not merged until a third MediaWiki provider asks for it.
