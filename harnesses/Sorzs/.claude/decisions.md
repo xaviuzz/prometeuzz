@@ -45,6 +45,11 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 - [The Roster owns the user rules](decisions/the-roster-owns-the-user-rules.md)
 - [The Sorzs section reads a SorzCensus](decisions/the-sorzs-section-reads-a-sorz-census.md)
 
+## Backend benchmark
+
+- [The benchmark has its own start entry with a fake web](decisions/the-benchmark-has-its-own-start-entry-with-fake-web.md)
+- [Benchmark users log in once and reuse the token](decisions/benchmark-users-log-in-once-and-reuse-the-token.md)
+
 ## Frontend foundation
 
 - [Frontend tooling: Bun native, no Vite](decisions/frontend-tooling-bun-native-no-vite.md)
