@@ -11,7 +11,7 @@ A step is done when the backend's tests, lint, typecheck and build pass; then ma
 - Ten operations, all `POST`: `health.check`, `auth.login`, `sorzs.add`, `sorzs.inspect`, `sorzs.list`, `sorzs.search`, `sorzs.census`, `users.list`, `users.add`, `users.setRole`.
 - Only the Wikipedia, Geek Feminism and Appropedia providers call the network, through a `WebFetch` they receive from `SearchProvidersFactory`, whose default is the real `fetch`. Reddit and the generic provider only build a link.
 - `sorzs.add` and `sorzs.inspect` also call the network: `OperationRegistry.standard` builds `new HttpPageReader()`, which reads the title and favicon through the global `fetch`. With a synthetic address, `sorzs.add` would wait for the 3 second timeout on every iteration and measure that wait. This seam does not exist yet.
-- `Password.hashing` calls `Bun.password.hashSync`: a slow hash that blocks the single thread. `auth.login` and `users.add` pay it.
+- `Password.hashing` calls `Bun.password.hashSync`, which blocks the single thread; it ran in `users.add` (now `Password.hashed`, async). `auth.login` verifies through the async `Bun.password.verify` and only spends CPU. Both cost about 170 ms of CPU (argon2id). Decision: `.claude/decisions/adding-a-user-hashes-the-password-without-blocking-the-thread.md`.
 - State lives in `sorzs.db` under `DATA_DIR`. `SEED_USERS` inserts only the usernames the database lacks.
 - The `Dockerfile` copies only `src/` and runs `bun run start`, so the image cannot start an entry under `benchmark/`.
 - `tsconfig.json` includes `src` and `test` only; Biome checks everything except `dist`.
