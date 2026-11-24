@@ -49,6 +49,7 @@ One file per decision in `decisions/`, listed here by area. Read only the files 
 
 - [The benchmark has its own start entry with a fake web](decisions/the-benchmark-has-its-own-start-entry-with-fake-web.md)
 - [Benchmark users log in once and reuse the token](decisions/benchmark-users-log-in-once-and-reuse-the-token.md)
+- [Adding a user hashes the password without blocking the thread](decisions/adding-a-user-hashes-the-password-without-blocking-the-thread.md)
 
 ## Frontend foundation
 
